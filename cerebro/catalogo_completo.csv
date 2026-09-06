@@ -1,0 +1,1281 @@
+id,numero,titulo,director,anio_estreno,pais_origen,fecha_vista,anio_visto,es_revisionado,estado_enriquecimiento,fuente
+P0001-1,1,Desearas al hombre de tu hermana,Diego Kaplan,2017,Argentina,2019-01-07,2018,No,Migrada,CSV historico
+P0002-1,2,Good Time,Safdie Brothers,2017,USA,2019-01-07,2018,No,Migrada,CSV historico
+P0003-1,3,American Movie,Chris Smith,1999,USA,2019-01-08,2018,No,Migrada,CSV historico
+P0004-1,4,Baby Driver,Edgar Wrigth,2017,UK/USA,2019-01-11,2018,No,Migrada,CSV historico
+P0005-1,5,Candyman,Bernard Rose,1992,USA,2019-01-12,2018,No,Migrada,CSV historico
+P0006-1,6,Apenas un delincuente,Hugo Fregonese,1949,Argentina,2019-01-13,2018,No,Migrada,CSV historico
+P0007-1,7,Ingrid Goes west,Matt spicer,2017,USA,2019-01-13,2018,No,Migrada,CSV historico
+P0008-1,8,Amelie,Jean Pierre Jeunet,2001,Francia/Alemania,2019-01-14,2018,No,Migrada,CSV historico
+P0009-1,9,Voyeur,Myles Kane-Josh Koury,2017,USA,2019-01-14,2018,No,Migrada,CSV historico
+P0010-1,10,"René Lavand, el gran simulador",Nestor Frenkel,2013,Argentina,2019-01-18,2018,No,Migrada,CSV historico
+P0011-1,11,Cooties,Jonathan Milott-Cary Murnion,2014,USA,2019-01-18,2018,No,Migrada,CSV historico
+P0012-1,12,Finders Keepers,Alexander Yellen,2014,USA,2019-01-20,2018,Si,Migrada,CSV historico
+P0013-1,13,Rosemarys Baby,Roman Polanski,1968,USA,2019-01-21,2018,No,Migrada,CSV historico
+P0014-1,14,The Town,Ben Affleck,2010,USA,2019-01-26,2018,No,Migrada,CSV historico
+P0015-1,15,El estudiante,Santiago Mitre,2011,Argentina,2019-01-27,2018,No,Migrada,CSV historico
+P0016-1,16,Masterminds,Jared Hess,2016,USA,2019-01-27,2018,No,Migrada,CSV historico
+P0017-1,17,Sin Hijos,Ariel Winograd,2015,Argentina,2019-01-29,2018,No,Migrada,CSV historico
+P0018-1,18,Quien puede matar a un niño?,Narciso Ibañez Serrador,1976,España,2019-01-31,2018,No,Migrada,CSV historico
+P0019-1,19,Shot! The Psycshospiritual mantra del Rock,Barney Clay,2016,USA,2019-02-02,2018,No,Migrada,CSV historico
+P0020-1,20,Whiplash,Damien Chazelle,2014,USA,2019-02-03,2018,No,Migrada,CSV historico
+P0021-1,21,Memento,Christopher Nolan,2000,USA,2019-02-04,2018,No,Migrada,CSV historico
+P0022-1,22,Trainspotting,Danny Boile,1996,UK,2019-02-04,2018,No,Migrada,CSV historico
+P0023-1,23,Cloverfield monstruo,Matt Reeves,2008,USA,2019-02-12,2018,No,Migrada,CSV historico
+P0024-1,24,Olympus has fallen,Antoine Fuqua,2013,USA,2019-02-12,2018,No,Migrada,CSV historico
+P0025-1,25,The Invitation,Karyn Kusama,2015,USA,2019-02-13,2018,No,Migrada,CSV historico
+P0026-1,26,Circle,Aaron Hann,2015,USA,2019-02-18,2018,Si,Migrada,CSV historico
+P0027-1,27,La Cordilllera,Santiago Mitre,2017,Argentina,2019-02-19,2018,No,Migrada,CSV historico
+P0028-1,28,The Game,David Fincher,1997,USA,2019-02-24,2018,No,Migrada,CSV historico
+P0029-1,29,Three billboards outside ebbing,Martin McDonagh,2017,UK/USA,2019-02-25,2018,No,Migrada,CSV historico
+P0030-1,30,Call me by your name,Luca Guadagnino,2017,Italia/Usa,2019-02-25,2018,No,Migrada,CSV historico
+P0031-1,31,The post,Steven Spielberg,2017,USA,2019-03-01,2018,No,Migrada,CSV historico
+P0032-1,32,Lady bird,Greta Gerwig,2017,USA,2019-03-03,2018,No,Migrada,CSV historico
+P0033-1,33,Dunkirk,Christopher Nolan,2017,UK/USA,2019-03-04,2018,No,Migrada,CSV historico
+P0034-1,34,The shape of water,Guillermo del toro,2017,USA,2019-03-04,2018,No,Migrada,CSV historico
+P0035-1,35,Scott Pilgrim vs the world,Edgar Wrigth,2010,UK/USA,2019-03-05,2018,Si,Migrada,CSV historico
+P0036-1,36,Un oso rojo,Adrian Caetano,2002,Argentina,2019-03-10,2018,Si,Migrada,CSV historico
+P0037-1,37,Fight Club,David Fincher,1999,USA,2019-03-11,2018,No,Migrada,CSV historico
+P0038-1,38,Brawl in cell block 99,S Craig Zahler,2017,USA,2019-03-11,2018,No,Migrada,CSV historico
+P0039-1,39,Panic room,David Fincher,2002,USA,2019-03-11,2018,No,Migrada,CSV historico
+P0040-1,40,Icaro,Bryan Fogel,2017,USA,2019-03-18,2018,No,Migrada,CSV historico
+P0041-1,41,"Pizza, birra, faso",Bruno Stagnaro/Adrian Caetano,1998,Argentina,2019-03-23,2018,No,Migrada,CSV historico
+P0042-1,42,Super high me,Michael Blieden,2008,USA,2019-03-26,2018,No,Migrada,CSV historico
+P0043-1,43,Team America,Trey Parker,2004,USA,2019-03-28,2018,No,Migrada,CSV historico
+P0044-1,44,Escape from alcatraz,Don Siegel,1979,USA,2019-03-31,2018,No,Migrada,CSV historico
+P0045-1,45,What we do in the shadows,Jemaine Clement/Taika Waititi,2014,Nueva Zelanda,2019-04-02,2018,No,Migrada,CSV historico
+P0046-1,46,Foo Figthers Back and forth,James Moll,2011,USA,2019-04-06,2018,No,Migrada,CSV historico
+P0047-1,47,Leon:The professional,Luc Besson,1994,Francia,2019-04-14,2018,No,Migrada,CSV historico
+P0048-1,48,Perfectos desconocidos,Alex de la iglesia,2017,España,2019-05-05,2018,No,Migrada,CSV historico
+P0049-1,49,27 El club de los malditos,Nicanor Loreti,2018,Argentina,2019-05-06,2018,No,Migrada,CSV historico
+P0050-1,50,La hija de Dios,Gee Malik Linton,2016,USA,2019-05-06,2018,No,Migrada,CSV historico
+P0051-1,51,El caso Benzema,Florent Bodin/ Damien Piscarel,2017,Francia,2019-05-12,2018,No,Migrada,CSV historico
+P0052-1,52,American Made,Doug Liman,2017,USA,2019-05-12,2018,No,Migrada,CSV historico
+P0053-1,53,El Ciudadano ilustre,Gaston Duprat,2016,Argentina,2019-05-13,2018,No,Migrada,CSV historico
+P0054-1,54,Unbreakeable,M. Night Shyamalan,2000,USA,2019-05-13,2018,No,Migrada,CSV historico
+P0055-1,55,Contratiempo,Oriol Paulo,2017,España,2019-05-20,2018,No,Migrada,CSV historico
+P0056-1,56,Pulp Fiction,Quentin Tarantino,1994,USA,2019-05-21,2018,Si,Migrada,CSV historico
+P0057-1,57,The Gift,Joel Edgerton,2015,Australia/USA,2019-05-30,2018,No,Migrada,CSV historico
+P0058-1,58,Dragon Ball Z la batalla de los dioses,Masahiro Hosoda,2013,Japon,2019-06-01,2018,No,Migrada,CSV historico
+P0059-1,59,Heroes: Film oficial de la copa del mundo 1986,Tony Maylam,1987,UK,2019-06-03,2018,No,Migrada,CSV historico
+P0060-1,60,1978: Argentina campeon de la copa del mundo,Howard Lanning,1978,UK,2019-06-03,2018,No,Migrada,CSV historico
+P0061-1,61,Nigthcrawler,Dan Gilroy,2014,USA,2019-06-03,2018,No,Migrada,CSV historico
+P0062-1,62,Revenge,Coralie Fargeat,2018,Francia,2019-06-15,2018,No,Migrada,CSV historico
+P0063-1,63,Zodiac,David Fincher,2007,USA,2019-06-19,2018,No,Migrada,CSV historico
+P0064-1,64,Ready player One,Steven Spielberg,2018,USA,2019-06-20,2018,No,Migrada,CSV historico
+P0065-1,65,Elle,Paul Verhoeven,2016,Francia/Belgica/Alemania,2019-06-23,2018,No,Migrada,CSV historico
+P0066-1,66,The Florida Proyect,Sean Baker,2017,USA,2019-06-24,2018,No,Migrada,CSV historico
+P0067-1,67,The Terminator,James Cameron,1984,USA,2019-06-24,2018,No,Migrada,CSV historico
+P0068-1,68,Mundo Grua,Pablo Trapero,1999,Argentina,2019-06-25,2018,No,Migrada,CSV historico
+P0069-1,69,Source Code,Duncan Jones,2011,USA,2019-07-02,2018,Si,Migrada,CSV historico
+P0070-1,70,Los paranoicos,Gabriel Medina,2008,Argentina,2019-07-03,2018,No,Migrada,CSV historico
+P0071-1,71,Evil dead 2,Sam Raimi,1987,USA,2019-07-06,2018,No,Migrada,CSV historico
+P0072-1,72,El dia de la bestia,Alex de la iglesia,1995,España,2019-07-07,2018,No,Migrada,CSV historico
+P0073-1,73,The Stanford prison experiment,Kyle Patrick Alvarez,2015,USA,2019-07-08,2018,No,Migrada,CSV historico
+P0074-1,74,The Rocky horror picture show,Jim Sharman,1975,UK/USA,2019-07-08,2018,No,Migrada,CSV historico
+P0075-1,75,Tango Feroz,Marcelo Piñeyro,1993,Argentina,2019-07-09,2018,No,Migrada,CSV historico
+P0076-1,76,Crimen ferpecto,Alex de la iglesia,2004,España,2019-07-09,2018,No,Migrada,CSV historico
+P0077-1,77,The curius case of Benjamin Buttom,David Fincher,2008,USA,2019-07-15,2018,No,Migrada,CSV historico
+P0078-1,78,Demon,Marcin Wrona,2015,Polonia,2019-07-17,2018,No,Migrada,CSV historico
+P0079-1,79,Bachelor party,Neal Israel,1984,USA,2019-07-24,2018,Si,Migrada,CSV historico
+P0080-1,80,Neighbors 2,Nicholas Stoller,2016,USA,2019-07-24,2018,No,Migrada,CSV historico
+P0081-1,81,Psycho,Alfred Hitchcock,1960,USA,2019-07-26,2018,No,Migrada,CSV historico
+P0082-1,82,El aviso,Daniel Calparsoro,2018,España,2019-07-26,2018,No,Migrada,CSV historico
+P0083-1,83,Cape Fear,Martin Scorsese,1991,USA,2019-07-27,2018,Si,Migrada,CSV historico
+P0084-1,84,Chappie,Neill Blomkamp,2015,USA/Sudafrica,2019-07-29,2018,No,Migrada,CSV historico
+P0085-1,85,Bolivia,Adrian Caetano,2002,Argentina,2019-08-12,2018,No,Migrada,CSV historico
+P0086-1,86,Los intocables,Brian Di Palma,1987,USA,2019-08-13,2018,No,Migrada,CSV historico
+P0087-1,87,Rampage,Brad Peyton,2018,USA,2019-08-18,2018,No,Migrada,CSV historico
+P0088-1,88,The end of the tour,James Ponsoldt,2015,USA,2019-08-23,2018,No,Migrada,CSV historico
+P0089-1,89,Toc Toc,Vicente Villanueva,2017,España,2019-08-24,2018,No,Migrada,CSV historico
+P0090-1,90,The human centipede,Tom Six,2009,Alemania/Holanda,2019-08-30,2018,No,Migrada,CSV historico
+P0091-1,91,Magic Mike,Steven Soderbergh,2012,USA,2019-09-09,2018,No,Migrada,CSV historico
+P0092-1,92,Freaky Friday,Mark Waters,2003,USA,2019-09-16,2018,No,Migrada,CSV historico
+P0093-1,93,Popstar,Akiva Schaffer,2016,USA,2019-09-20,2018,No,Migrada,CSV historico
+P0094-1,94,The purge 3,James DeMonaco,2016,USA,2019-09-22,2018,No,Migrada,CSV historico
+P0095-1,95,Mandy,Panos Cosmatos,2018,USA/Canada,2019-10-22,2018,Si,Migrada,CSV historico
+P0096-1,96,Sepultura Endurance,Otávio Juliano,2017,Brasil,2019-10-22,2018,No,Migrada,CSV historico
+P0097-1,97,The interview,Seth Rogen/Evan Goldberg,2014,USA,2019-10-29,2018,No,Migrada,CSV historico
+P0098-1,98,The girl with the dragon tatto,David Fincher,2011,USA/UK/Suecia/Alemania,2019-11-02,2018,No,Migrada,CSV historico
+P0099-1,99,El bonaerense,Pablo Trapero,2002,Argentina,2019-11-03,2018,No,Migrada,CSV historico
+P0100-1,100,Bohemian Rapsody,Bryan Singer,2018,UK/USA,2019-11-07,2018,No,Migrada,CSV historico
+P0101-1,101,Quincy,Rashida Jones/Alan Hicks,2018,USA,2019-11-08,2018,No,Migrada,CSV historico
+P0102-1,102,Hereditary,Ari Aster,2018,USA,2019-11-10,2018,No,Migrada,CSV historico
+P0103-1,103,The last sharnado,Anthony C. Ferrante,2018,USA,2019-11-24,2018,No,Migrada,CSV historico
+P0104-1,104,The brothers Grimsby,Louis Leterrier,2016,UK/USA,2019-11-27,2018,Si,Migrada,CSV historico
+P0105-1,105,Sucio y desprolijo: La historia del heavy argentino,Paula Álvarez/Lucas Lot Calabró,2015,Argentina,2019-12-08,2018,No,Migrada,CSV historico
+P0106-1,106,Cosquin Rock,Rubén Francisco Mostaza,2016,Argentina,2019-12-16,2018,No,Migrada,CSV historico
+P0107-1,107,Que sea Rock,Sebastian Schindel,2006,Argentina,2019-12-16,2018,No,Migrada,CSV historico
+P0108-1,108,Dawn of the dead,Zack Snyder,2004,USA/Canada,2019-12-17,2018,Si,Migrada,CSV historico
+P0109-1,109,The social network,David Fincher,2010,USA,2019-12-19,2018,No,Migrada,CSV historico
+P0110-1,110,Bring me the head of Alfredo Garcia,Sam Peckinpah,1974,USA/Mexico,2019-12-20,2018,No,Migrada,CSV historico
+P0111-1,111,Training day,Antoine Fuqua,2001,USA,2019-12-21,2018,No,Migrada,CSV historico
+P0112-1,112,Wolves at the door,John R. Leonetti,2016,USA,2019-12-22,2018,No,Migrada,CSV historico
+P0113-1,113,Phantom thread,Paul Thomas Anderson,2017,USA,2019-12-23,2018,No,Migrada,CSV historico
+P0114-1,114,Gone girl,David Fincher,2014,USA,2019-12-26,2018,No,Migrada,CSV historico
+P0115-1,115,Jaws,Steven Spielberg,1975,USA,2019-12-26,2018,No,Migrada,CSV historico
+P0116-1,116,The ballad of Buster Scruggs,Ethan Coen/Joel Coen,2018,USA,2019-12-27,2018,Si,Migrada,CSV historico
+P0117-1,117,Halloween,John Carpenter,1978,USA,2019-12-28,2018,No,Migrada,CSV historico
+P0118-1,118,Assault on precint 13,John Carpenter,1976,USA,2019-12-31,2018,No,Migrada,CSV historico
+P0001-1,1,Big trouble in little China,John Carpenter,1986,USA,2019-01-01,2019,No,Migrada,CSV historico
+P0002-1,2,American Ganster,Ridley Scott,2007,USA,2019-01-02,2019,No,Migrada,CSV historico
+P0003-1,3,Bowie: the man who changed the world,Sonia Anderson,2016,UK,2019-01-02,2019,No,Migrada,CSV historico
+P0004-1,4,Asalto y violacion en calle 69,Pablo Bellini,1991,Argentina,2019-01-03,2019,No,Migrada,CSV historico
+P0005-1,5,The boy in the striped pijama,Mark Herman,2008,UK/USA,2019-01-03,2019,No,Migrada,CSV historico
+P0006-1,6,Coco,Lee Unkrich,2017,USA/Mexico,2019-01-04,2019,Si,Migrada,CSV historico
+P0007-1,7,Good Will hunting,Gus Van Sant,1997,USA,2019-01-04,2019,No,Migrada,CSV historico
+P0008-1,8,The man who knew infinity,Matthew Brown,2015,UK,2019-01-05,2019,No,Migrada,CSV historico
+P0009-1,9,The lobster,Yorgos Lanthimos,2015,Irlanda/UK/Grecia/Francia,2019-01-08,2019,Si,Migrada,CSV historico
+P0010-1,10,kamchatka,Marcelo Piñeyro,2002,Argentina,2019-01-08,2019,No,Migrada,CSV historico
+P0011-1,11,Jumanji: Welcome to the jungle,Jake Kasdan,2017,USA,2019-01-09,2019,No,Migrada,CSV historico
+P0012-1,12,Summer of 84,Anouk Whissell/François Simard/Yoann-Karl Whissell,2018,USA,2019-01-10,2019,No,Migrada,CSV historico
+P0013-1,13,Unsane,Steven Soderbergh,2018,USA,2019-01-12,2019,No,Migrada,CSV historico
+P0014-1,14,Birdbox,Susanne Bier,2018,USA,2019-01-13,2019,No,Migrada,CSV historico
+P0015-1,15,True Story,Rupert Goold,2014,USA,2019-01-16,2019,No,Migrada,CSV historico
+P0016-1,16,A quiet place,John Krasinski,2018,USA,2019-01-17,2019,Si,Migrada,CSV historico
+P0017-1,17,Massacre at the stadium,B.J. Perlmutt,2019,USA,2019-01-18,2019,No,Migrada,CSV historico
+P0018-1,18,Ultimos dias de la victima,Adolfo Aristarain,1982,Argentina,2019-01-19,2019,No,Migrada,CSV historico
+P0019-1,19,78/52,Alexandre O. Philippe,2017,USA,2019-01-20,2019,No,Migrada,CSV historico
+P0020-1,20,"Dont worry, he wont get far on foot",Gus Van Sant,2018,USA,2019-01-21,2019,No,Migrada,CSV historico
+P0021-1,21,Blackkklansman,Spike Lee,2018,USA,2019-01-22,2019,No,Migrada,CSV historico
+P0022-1,22,Under the silver lake,David Robert Mitchell,2018,USA,2019-01-23,2019,No,Migrada,CSV historico
+P0023-1,23,Creed 2,Steven Caple Jr,2018,USA,2019-01-23,2019,Si,Migrada,CSV historico
+P0024-1,24,12 angry men,Sydney Lumet,1957,USA,2019-01-24,2019,Si,Migrada,CSV historico
+P0025-1,25,Reservoir dogs,Quentin Tarantino,1992,USA,2019-01-27,2019,Si,Migrada,CSV historico
+P0026-1,26,Roma,Alfonso Quaron,2018,Mexico,2019-01-28,2019,No,Migrada,CSV historico
+P0027-2,27,Pulp Fiction,Quentin Tarantino,1994,USA,2019-01-29,2019,Si,Migrada,CSV historico
+P0028-1,28,Punch drunk love,Paul Thomas Anderson,2002,USA,2019-01-31,2019,No,Migrada,CSV historico
+P0029-1,29,Forgetting Sarah Marshall,Nicholas Stoller,2008,USA,2019-02-02,2019,Si,Migrada,CSV historico
+P0030-1,30,Voley,Martin Piroyansky,2015,Argentina,2019-02-02,2019,No,Migrada,CSV historico
+P0031-1,31,Three identical strangers,Tim Wardle,2018,USA,2019-02-03,2019,No,Migrada,CSV historico
+P0032-1,32,Kill Bill,Quentin Tarantino,2003,USA,2019-02-06,2019,Si,Migrada,CSV historico
+P0033-1,33,El potro: Lo mejor del amor,Lorena Muñoz,2018,Argentina,2019-02-09,2019,No,Migrada,CSV historico
+P0034-1,34,Kill Bill II,Quentin Tarantino,2004,USA,2019-02-11,2019,Si,Migrada,CSV historico
+P0035-1,35,Aterrados,Demian Rugna,2018,Argentina,2019-02-15,2019,Si,Migrada,CSV historico
+P0036-1,36,The Boy,William Brent Bell,2016,USA/UK/China,2019-02-22,2019,No,Migrada,CSV historico
+P0037-1,37,Abducted in plain sight,Skye Borgman,2017,USA,2019-02-23,2019,No,Migrada,CSV historico
+P0038-1,38,The favourite,Yorgos Lanthimos,2018,USA,2019-02-23,2019,No,Migrada,CSV historico
+P0039-1,39,The green Book,Peter Farrelly,2018,USA,2019-02-24,2019,No,Migrada,CSV historico
+P0040-1,40,A star is born,Bradley Cooper,2018,USA,2019-02-24,2019,No,Migrada,CSV historico
+P0041-1,41,El Angel,Luis Ortega,2018,Argentina,2019-02-25,2019,No,Migrada,CSV historico
+P0042-1,42,Black Mirror: Bandersnatch,David Slade,2018,USA,2019-02-26,2019,No,Migrada,CSV historico
+P0043-1,43,Fyre,Chris Smith,2019,USA,2019-02-26,2019,No,Migrada,CSV historico
+P0044-1,44,Funny Games,Michael Haneke,2007,USA/UK/Francia,2019-02-28,2019,No,Migrada,CSV historico
+P0045-1,45,Rojo,Benjamin Naishtat,2018,Argentina,2019-03-03,2019,No,Migrada,CSV historico
+P0046-1,46,Pineapple Express,David Gordon Green,2008,USA,2019-03-08,2019,No,Migrada,CSV historico
+P0047-1,47,Hangover,Todd Phillips,2009,USA,2019-03-11,2019,No,Migrada,CSV historico
+P0048-1,48,Colonia,Florian Gallenberger,2015,Alemania,2019-03-15,2019,No,Migrada,CSV historico
+P0049-1,49,What keeps you alive,Colin Minihan,2018,Canada,2019-03-16,2019,No,Migrada,CSV historico
+P0050-1,50,Leaving Neverland,Dan Reed,2018,USA,2019-03-16,2019,No,Migrada,CSV historico
+P0051-1,51,Isnt it romantic?,Todd Strauss-Schulson,2019,USA/Australia,2019-03-17,2019,No,Migrada,CSV historico
+P0052-1,52,Lord of chaos,Jonas Akerlund,2018,UK/Suecia,2019-03-18,2019,Si,Migrada,CSV historico
+P0053-1,53,Death proof,Quentin Tarantino,2007,USA,2019-03-21,2019,Si,Migrada,CSV historico
+P0054-1,54,The dirt,Jeff Tremaine,2019,USA,2019-03-24,2019,Si,Migrada,CSV historico
+P0055-1,55,Django Unchained,Quentin Tarantino,2012,USA,2019-03-24,2019,Si,Migrada,CSV historico
+P0056-1,56,The incredible Burt Wonderstone,Don Scardino,2013,USA,2019-03-25,2019,No,Migrada,CSV historico
+P0057-1,57,Inglourious Basterds,Quentin Tarantino,2009,USA/Alemania,2019-03-31,2019,No,Migrada,CSV historico
+P0058-1,58,Jackie Brown,Quentin Tarantino,1997,USA,2019-04-02,2019,No,Migrada,CSV historico
+P0059-1,59,The Hateful Eight,Quentin Tarantino,2015,USA,2019-04-03,2019,No,Migrada,CSV historico
+P0060-1,60,Behind the curve,Daniel J Clarck,2018,USA,2019-04-05,2019,No,Migrada,CSV historico
+P0061-1,61,Hell or high water,David Mackenzie,2016,USA,2019-04-07,2019,No,Migrada,CSV historico
+P0062-1,62,Spotlight,Tom McCarthy,2015,USA,2019-04-23,2019,No,Migrada,CSV historico
+P0063-1,63,Creed,Ryan Coogler,2015,USA,2019-04-28,2019,No,Migrada,CSV historico
+P0064-1,64,The conjuring,James Wan,2013,USA,2019-05-10,2019,No,Migrada,CSV historico
+P0065-1,65,John Wick,Chad Stahelski,2014,USA,2019-05-11,2019,Si,Migrada,CSV historico
+P0066-1,66,"John Wick, chapter 2",Chad Stahelski,2017,USA,2019-05-12,2019,No,Migrada,CSV historico
+P0067-1,67,Senna,Asif Kapadia,2010,UK,2019-05-25,2019,No,Migrada,CSV historico
+P0068-1,68,Burning,Lee Chang-Dong,2018,Corea del Sur,2019-06-01,2019,No,Migrada,CSV historico
+P0069-1,69,Rocky,John G Avildsen,1976,USA,2019-06-02,2019,No,Migrada,CSV historico
+P0070-1,70,John Wick 3,Chad Stahelski,2019,USA,2019-06-05,2019,Si,Migrada,CSV historico
+P0071-1,71,Superbad,Greg Mottola,2007,USA,2019-06-06,2019,No,Migrada,CSV historico
+P0072-1,72,Muere Monstruo Muere,Alejandro Fadel,2019,Argentina,2019-06-08,2019,No,Migrada,CSV historico
+P0073-1,73,Melbourne,Nima Javidi,2014,Iran,2019-06-12,2019,No,Migrada,CSV historico
+P0074-1,74,"Mechanic, resurrection",Dennis Gansel,2016,USA/Francia,2019-06-16,2019,No,Migrada,CSV historico
+P0075-1,75,Rocky 2,Sylvester Stallone,1979,USA,2019-06-19,2019,No,Migrada,CSV historico
+P0076-1,76,Rocky 3,Sylvester Stallone,1982,USA,2019-06-22,2019,No,Migrada,CSV historico
+P0077-1,77,"Sicario 2, day of Soldad",Stefano Sollima,2018,USA,2019-06-24,2019,No,Migrada,CSV historico
+P0078-2,78,John Wick,Chad Stahelski,2014,USA,2019-06-25,2019,Si,Migrada,CSV historico
+P0079-1,79,Plaga Zombie,Pablo Pares/Hernan Saez,1997,Argentina,2019-06-26,2019,No,Migrada,CSV historico
+P0080-1,80,Jumanji,Joe Johnston,1995,USA,2019-06-30,2019,Si,Migrada,CSV historico
+P0081-1,81,The guest,Adam Wingard,2014,USA,2019-06-30,2019,No,Migrada,CSV historico
+P0082-1,82,The bride of Frankenstein,James Whale,1935,USA,2019-07-05,2019,No,Migrada,CSV historico
+P0083-1,83,"River, el mas grande siempre",Luis Alberto Scalella/ Mariano Mucci/ Marcelo Altmark,2019,Argentina,2019-07-06,2019,No,Migrada,CSV historico
+P0084-1,84,Lion,Garth Davis,2016,Australia/USA/UK,2019-07-08,2019,Si,Migrada,CSV historico
+P0085-1,85,El acorazado Potemkin,Serguei Eisenstein,1925,Union Sovietica,2019-07-09,2019,No,Migrada,CSV historico
+P0086-1,86,Glass,M Night Shyamalan,2019,USA,2019-07-11,2019,No,Migrada,CSV historico
+P0087-1,87,Parchis: El documental,Daniel Arasanz,2019,España,2019-07-13,2019,No,Migrada,CSV historico
+P0088-1,88,Dont Breathe,Federico Alvarez,2016,USA,2019-07-16,2019,No,Migrada,CSV historico
+P0089-1,89,The death of Stalin,Armando Ianucci,2017,UK/Francia,2019-07-17,2019,No,Migrada,CSV historico
+P0090-1,90,The Texas chainsaw massacre,Tobe Hooper,1974,USA,2019-07-18,2019,No,Migrada,CSV historico
+P0091-1,91,Happy death day,Christopher Landon,2017,USA,2019-07-19,2019,No,Migrada,CSV historico
+P0092-1,92,The French connection,William Friedkin,1971,USA,2019-07-20,2019,Si,Migrada,CSV historico
+P0093-1,93,The fugitive,Andrew Davis,1993,USA,2019-07-20,2019,No,Migrada,CSV historico
+P0094-1,94,Rear window,Alfred Hitchcock,1954,USA,2019-07-21,2019,No,Migrada,CSV historico
+P0095-1,95,Mujeres al borde de un ataque de nervios,Pedro Almodovar,1988,España,2019-07-22,2019,No,Migrada,CSV historico
+P0096-1,96,Jurassic Park,Steven Spielberg,1993,USA,2019-07-26,2019,No,Migrada,CSV historico
+P0097-1,97,Mortal Kombat,Paul WS Anderson,1995,USA/Tailandia/China/Hong Kong,2019-08-01,2019,Si,Migrada,CSV historico
+P0098-2,98,John Wick 3,Chad Stahelski,2019,USA,2019-08-10,2019,Si,Migrada,CSV historico
+P0099-1,99,Detroit Rock city,Adam Rifkin,1999,USA,2019-08-13,2019,No,Migrada,CSV historico
+P0100-1,100,Twins,Ivan Reitman,1988,USA,2019-08-14,2019,Si,Migrada,CSV historico
+P0101-1,101,4x4,Mariano Cohn,2019,Argentina,2019-08-16,2019,No,Migrada,CSV historico
+P0102-1,102,The Fog,John Carpenter,1980,USA,2019-08-17,2019,No,Migrada,CSV historico
+P0103-1,103,The great hack,"Karim Amer, Jehane Noujaim",2019,USA,2019-08-17,2019,No,Migrada,CSV historico
+P0104-1,104,The incredible shrinking man,Jack Arnold,1957,USA,2019-08-17,2019,No,Migrada,CSV historico
+P0105-1,105,The forger,Philip Martin,2014,USA,2019-08-18,2019,No,Migrada,CSV historico
+P0106-1,106,Slumdog Millionaire,Danny Boyle,2008,UK,2019-08-18,2019,No,Migrada,CSV historico
+P0107-1,107,Relatos Salvajes,Damian Szifron,2014,Argentina,2019-08-19,2019,Si,Migrada,CSV historico
+P0108-1,108,Eurotrip,"Jeff Schaffer, Alec Berg,David Mandel",2004,USA,2019-08-20,2019,No,Migrada,CSV historico
+P0109-1,109,Dog day afternoon,Sidney Lumet,1975,USA,2019-08-25,2019,Si,Migrada,CSV historico
+P0110-1,110,Once upon a time in Hollywood,Quentin Tarantino,2019,USA,2019-08-28,2019,Si,Migrada,CSV historico
+P0111-1,111,Critters Attack,Bobby Miller,2019,USA,2019-09-03,2019,No,Migrada,CSV historico
+P0112-1,112,Rocky IV,Sylvester Stallone,1985,USA,2019-09-06,2019,No,Migrada,CSV historico
+P0113-1,113,Point Break,Kathryn Bigelow,1991,USA,2019-09-07,2019,No,Migrada,CSV historico
+P0114-1,114,The Rock,Michael Bay,1996,USA,2019-09-08,2019,No,Migrada,CSV historico
+P0115-1,115,La odisea de los giles,Sebastián Borensztein,2019,Argentina,2019-09-11,2019,No,Migrada,CSV historico
+P0116-1,116,Requiem for a dream,Darren Aronofsky,2000,USA,2019-09-15,2019,No,Migrada,CSV historico
+P0117-1,117,Between two ferns,Scott Aukerman,2019,USA,2019-09-21,2019,No,Migrada,CSV historico
+P0118-1,118,Claudia,Sebastian De Caro,2019,Argentina,2019-09-26,2019,No,Migrada,CSV historico
+P0119-1,119,Final Destination 2,David R. Ellis,2003,USA,2019-10-04,2019,Si,Migrada,CSV historico
+P0120-1,120,Alive,Frank Marshall,1993,USA,2019-10-05,2019,Si,Migrada,CSV historico
+P0121-1,121,Diego Maradona,Asif Kapadia,2019,UK,2019-10-06,2019,Si,Migrada,CSV historico
+P0122-1,122,Hated,Todd Phillips,1993,USA,2019-10-07,2019,No,Migrada,CSV historico
+P0123-1,123,"El Camino, a Breaking Bad Movie",Vince Gilligan,2019,USA,2019-10-11,2019,No,Migrada,CSV historico
+P0124-1,124,Fractured,Brad Anderson,2019,USA,2020-10-18,2019,No,Migrada,CSV historico
+P0125-1,125,Shaun of the dead,Edgar Wright,2004,UK,2020-10-19,2019,Si,Migrada,CSV historico
+P0126-1,126,Rocky V,John G. Avildsen,1990,USA,2020-10-20,2019,No,Migrada,CSV historico
+P0127-1,127,Joker,Todd Phillips,2019,USA,2020-10-23,2019,No,Migrada,CSV historico
+P0128-1,128,Dolemite is my name,Craig Brewer,2019,USA,2020-11-02,2019,No,Migrada,CSV historico
+P0129-1,129,Rocky Balboa,Sylvester Stallone,2006,USA,2020-11-02,2019,No,Migrada,CSV historico
+P0130-3,130,John Wick,Chad Stahelski,2014,USA,2020-11-20,2019,Si,Migrada,CSV historico
+P0131-1,131,The irishman,Martin Scorsese,2019,USA,2020-11-22,2019,Si,Migrada,CSV historico
+P0132-1,132,The king of comedy,Martin Scorsese,1982,USA,2020-11-28,2019,No,Migrada,CSV historico
+P0133-1,133,Night of the living dead,Tom Savini,1990,USA,2020-11-29,2019,No,Migrada,CSV historico
+P0134-1,134,La Casa de la playa,July Massaccesi,2019,Argentina,2020-12-01,2019,No,Migrada,CSV historico
+P0135-1,135,The parent trap (Juego de gemelas),Nancy Meyers,1998,USA,2020-12-07,2019,No,Migrada,CSV historico
+P0136-1,136,Zoolander,Ben Stiller,2001,USA,2020-12-14,2019,Si,Migrada,CSV historico
+P0137-1,137,Happy death day 2,Christopher Landon,2019,USA,2020-12-19,2019,No,Migrada,CSV historico
+P0138-1,138,Marriage Story,Noah Baumbach,2019,USA,2020-12-20,2019,No,Migrada,CSV historico
+P0139-1,139,The Thing,John Carpenter,1982,USA,2020-12-22,2019,Si,Migrada,CSV historico
+P0140-1,140,Mean Streets,Martin Scorsese,1973,USA,2020-12-23,2019,No,Migrada,CSV historico
+P0141-1,141,Parasite,Bong Joon-ho,2019,Corea del Sur,2020-12-25,2019,Si,Migrada,CSV historico
+P0142-1,142,"Henry, portrait of a serial killer",John McNaughton,1986,USA,2020-12-26,2019,No,Migrada,CSV historico
+P0143-1,143,Dragged Across concrete,S. Craig Zahler,2019,USA,2020-12-27,2019,No,Migrada,CSV historico
+P0144-1,144,Us,Jordan Peele,2019,USA,2020-12-28,2019,Si,Migrada,CSV historico
+P0145-1,145,Booksmart,Olivia Wilde,2019,USA,2020-12-28,2019,No,Migrada,CSV historico
+P0146-1,146,Midsommar,Ari Aster,2019,USA,2020-12-29,2019,No,Migrada,CSV historico
+P0147-1,147,The lighthouse,Robert Eggers,2019,USA,2020-12-31,2019,Si,Migrada,CSV historico
+P0001-1,1,The hill have eyes,Wes Craven,1977,USA,2019-01-01,2020,No,Migrada,CSV historico
+P0002-1,2,Crawl,Alexandre Aja,2019,USA,2020-01-03,2020,No,Migrada,CSV historico
+P0003-1,3,Nocturnal animals,Tom Ford,2016,USA,2020-01-05,2020,No,Migrada,CSV historico
+P0004-1,4,Knives Out,Rian Johnson,2019,USA,2020-01-06,2020,No,Migrada,CSV historico
+P0005-1,5,Historias extraordinarias,Mariano Llinas,2008,Argentina,2020-01-07,2020,No,Migrada,CSV historico
+P0006-1,6,Richard Jewell,Clint Eastwood,2020,USA,2020-01-08,2020,No,Migrada,CSV historico
+P0007-1,7,El Club,Pablo Larrain,2015,Chile,2020-01-09,2020,No,Migrada,CSV historico
+P0008-1,8,John wick 2,Chad Stahelski,2017,USA,2020-01-10,2020,Si,Migrada,CSV historico
+P0009-1,9,Jojo Rabbit,Taika Waititi,2019,USA,2020-01-13,2020,No,Migrada,CSV historico
+P0010-1,10,Dolor y Gloria,Pedro Almodovar,2019,España,2020-01-14,2020,No,Migrada,CSV historico
+P0011-1,11,Childs play,Lars Klevberg,2019,USA,2020-01-15,2020,No,Migrada,CSV historico
+P0012-1,12,The Two Popes,Fernando Meirelles,2019,UK/USA/Italia/Argentina,2020-01-16,2020,No,Migrada,CSV historico
+P0013-1,13,La la land,Damien Chazelle,2016,USA,2020-01-18,2020,No,Migrada,CSV historico
+P0014-1,14,The act of killing,Joshua Oppenheimer,2012,Dinamarca/UK/Noruega,2020-01-19,2020,No,Migrada,CSV historico
+P0015-1,15,Freaks,Tod Browning,1932,USA,2020-01-21,2020,No,Migrada,CSV historico
+P0016-1,16,Las Vegas,Juan Villegas,2018,Argentina,2020-01-22,2020,No,Migrada,CSV historico
+P0017-1,17,El robo del sigo,Ariel Winograd,2020,Argentina,2020-01-22,2020,No,Migrada,CSV historico
+P0018-1,18,Placido,Luis García Berlanga,1961,España,2020-01-25,2020,No,Migrada,CSV historico
+P0019-1,19,Space Jam,Joe Pytka,1996,USA,2020-02-01,2020,No,Migrada,CSV historico
+P0020-1,20,1917.0,Sam Mendes,2019,UK,2020-02-07,2020,No,Migrada,CSV historico
+P0021-2,21,Parasite,Bong Joon-ho,2019,Corea del Sur,2020-02-09,2020,Si,Migrada,CSV historico
+P0022-1,22,500 days of summer,Marc Webb,2009,USA,2020-02-15,2020,No,Migrada,CSV historico
+P0023-1,23,Uncuts gems,Joshua y Ben Safdie,2019,USA,2020-02-28,2020,No,Migrada,CSV historico
+P0024-1,24,Mi vecino Totoro,Hayao Miyazaki,1988,Japon,2020-02-29,2020,Si,Migrada,CSV historico
+P0025-1,25,American factory,Steven Bognar y Julia Reichert,2019,USA,2020-03-01,2020,No,Migrada,CSV historico
+P0026-1,26,Network,Sidney Lumet,1976,USA,2020-03-11,2020,No,Migrada,CSV historico
+P0027-1,27,A man escaped,Robert Bresson,1956,Francia,2020-03-12,2020,No,Migrada,CSV historico
+P0028-1,28,Drive,Nicolas Winding Refn,2011,USA,2020-03-17,2020,No,Migrada,CSV historico
+P0029-1,29,Videodrome,David Cronenberg,1983,Canada,2020-03-18,2020,No,Migrada,CSV historico
+P0030-1,30,Esto no es un golpe,Sergio Wolf,2018,Argentina,2020-03-19,2020,No,Migrada,CSV historico
+P0031-1,31,Lil Peep: Everybodys everything,"Sebastian Jones, Ramez Silyan",2019,USA,2020-03-20,2020,No,Migrada,CSV historico
+P0032-1,32,76 89 03,"Flavio Nardini, Cristian Bernard",2000,Argentina,2020-03-20,2020,No,Migrada,CSV historico
+P0033-1,33,Ad astra,James Gray,2019,USA,2020-03-21,2020,No,Migrada,CSV historico
+P0034-1,34,Verotika,Glenn Danzig,2020,USA,2020-03-21,2020,No,Migrada,CSV historico
+P0035-1,35,The thin blue line,Errol Moris,1988,USA,2020-03-22,2020,No,Migrada,CSV historico
+P0036-1,36,Calibre,Matt Palmer,2018,USA,2020-03-22,2020,No,Migrada,CSV historico
+P0037-1,37,Thoroughbreds,Cory Finley,2018,USA,2020-03-22,2020,No,Migrada,CSV historico
+P0038-1,38,Alice doesnt live here anymore,Martin Scorsese,1977,USA,2020-03-23,2020,No,Migrada,CSV historico
+P0039-1,39,Irreversible,Gaspar Noe,2002,Francia,2020-03-24,2020,No,Migrada,CSV historico
+P0040-1,40,Fase 7,Nicolas Goldbart,2010,Argentina,2020-03-25,2020,Si,Migrada,CSV historico
+P0041-1,41,La Flor (La terminé el 4/4),Mariano Llinas,2018,Argentina,2020-03-27,2020,No,Migrada,CSV historico
+P0042-1,42,Una mujer fantastica,Sebastián Lelio,2017,Chile,2020-03-28,2020,No,Migrada,CSV historico
+P0043-1,43,Repulsion,Roman Polanski,1965,UK,2020-03-29,2020,No,Migrada,CSV historico
+P0044-1,44,Porno para principiantes,Carlos Ameglio,2018,Argentina/Uruguay/Brasil,2020-03-31,2020,No,Migrada,CSV historico
+P0045-1,45,Una jaula no tiene secretos,Agustin Navarro,1962,Argentina,2020-03-31,2020,No,Migrada,CSV historico
+P0046-1,46,The ravenant,Alejandro Gonzalez Iñarritu,2015,USA,2020-04-04,2020,No,Migrada,CSV historico
+P0047-1,47,Aquarius,Kleber Mendonça Filho,2016,Brasil-Francia,2020-04-05,2020,No,Migrada,CSV historico
+P0048-1,48,El hoyo,Galder Gaztelu-Urrutia,2019,España,2020-04-09,2020,No,Migrada,CSV historico
+P0049-1,49,Memories of murder,Bong Joon-ho,2003,Corea del Sur,2020-04-10,2020,No,Migrada,CSV historico
+P0050-1,50,Bridge of spies,Steven Spielberg,2015,USA,2020-04-11,2020,No,Migrada,CSV historico
+P0051-1,51,Un buen dia,Nicolas Del Boca,2010,Argentina,2020-04-12,2020,No,Migrada,CSV historico
+P0052-1,52,Us and them,René Liu,2018,China,2020-04-14,2020,No,Migrada,CSV historico
+P0053-1,53,Capturing the Friedmans,Andrew Jarecki,2003,USA,2020-04-15,2020,No,Migrada,CSV historico
+P0054-1,54,Snowpiercer,Bong Joon-ho,2013,Corea del Sur,2020-04-17,2020,No,Migrada,CSV historico
+P0055-1,55,Rocketman,Dexter Fletcher,2019,UK,2020-04-18,2020,No,Migrada,CSV historico
+P0056-1,56,Toxico,Ariel Martínez Herrera,2020,Argentina,2020-04-24,2020,No,Migrada,CSV historico
+P0057-1,57,All that jazz,Bob Fosse,1979,USA,2020-04-25,2020,No,Migrada,CSV historico
+P0058-1,58,Yesterday,Danny Boyle,2019,UK,2020-04-26,2020,No,Migrada,CSV historico
+P0059-1,59,Beastie Boys story,Spike Jonze,2020,USA,2020-04-29,2020,No,Migrada,CSV historico
+P0060-1,60,Whisky,"Juan Pablo Rebella, Pablo Stoll",2004,Uruguay,2020-04-30,2020,No,Migrada,CSV historico
+P0061-1,61,Duel,Steven Spielberg,1971,USA,2020-04-30,2020,No,Migrada,CSV historico
+P0062-1,62,The Host,Bong Joon-ho,2007,Corea del Sur,2020-05-01,2020,No,Migrada,CSV historico
+P0063-1,63,Indiana Jones. Raiders of the Lost Ark,Steven Spielberg,1981,USA,2020-05-02,2020,No,Migrada,CSV historico
+P0064-1,64,Man bites dog,Rémy Belvaux,1992,Belgica,2020-05-07,2020,No,Migrada,CSV historico
+P0065-1,65,Batman,Tim Burton,1989,USA,2020-05-08,2020,No,Migrada,CSV historico
+P0066-1,66,Get out,Jordan Peele,2017,USA,2020-05-09,2020,Si,Migrada,CSV historico
+P0067-1,67,Heat,Michael Mann,1995,USA,2020-05-10,2020,No,Migrada,CSV historico
+P0068-1,68,Escape from LA,John Carpenter,1996,USA,2020-05-11,2020,No,Migrada,CSV historico
+P0069-1,69,The shining,Stanley Kubrick,1980,UK-USA,2020-05-12,2020,No,Migrada,CSV historico
+P0070-1,70,The house that Jack built,Lars von Trier,2018,Dinamarca/Francia/Alemania/Suecia,2020-05-13,2020,No,Migrada,CSV historico
+P0071-1,71,Los 400 golpes,François Truffaut,1959,Francia,2020-05-14,2020,No,Migrada,CSV historico
+P0072-1,72,Hugo,Martin Scorsese,2011,USA,2020-05-17,2020,No,Migrada,CSV historico
+P0073-1,73,Other people,Chris Kelly,2016,USA,2020-05-19,2020,No,Migrada,CSV historico
+P0074-1,74,The taking of pelham 123,Joseph Sargent,1974,USA,2020-05-22,2020,Si,Migrada,CSV historico
+P0075-1,75,Solo se vive una vez,Federico Cueva,2017,Argentina,2020-05-25,2020,No,Migrada,CSV historico
+P0076-1,76,Little children,Todd Field,2016,USA,2020-05-29,2020,No,Migrada,CSV historico
+P0077-1,77,La corazonada,Alejandro Montiel,2020,Argentina,2020-05-30,2020,No,Migrada,CSV historico
+P0078-1,78,Train to Busan,Yeon Sang-ho,2016,Corea del Sur,2020-06-11,2020,No,Migrada,CSV historico
+P0079-1,79,The purge: Election day,James DeMonaco,2016,USA,2020-06-14,2020,No,Migrada,CSV historico
+P0080-2,80,Once upon a time in Hollywood,Quentin Tarantino,2019,USA,2021-06-22,2020,Si,Migrada,CSV historico
+P0081-1,81,A ghost Story,David Lowery,2017,USA,2021-07-02,2020,No,Migrada,CSV historico
+P0082-1,82,The gentleman,Guy Ritchie,2019,USA,2021-07-04,2020,No,Migrada,CSV historico
+P0083-1,83,Taxi Driver,Martin Scorsese,1976,USA,2021-07-05,2020,No,Migrada,CSV historico
+P0084-1,84,Lost in traslation,Sofia Coppola,2003,USA/Japon,2021-07-12,2020,No,Migrada,CSV historico
+P0085-1,85,The big Lebowsky,"Joel Coen,Ethan Coen",1998,USA,2021-07-17,2020,No,Migrada,CSV historico
+P0086-1,86,Jigsaw,Michael y Peter Spierig,2017,USA,2021-07-18,2020,No,Migrada,CSV historico
+P0087-1,87,Modern times,Charles Chaplin,1936,USA,2021-07-19,2020,No,Migrada,CSV historico
+P0088-1,88,Yo adolescente,Lucas Santa Ana,2020,Argentina,2021-07-24,2020,No,Migrada,CSV historico
+P0089-1,89,The wolf of Wall Street,Martin Scorsese,2013,USA,2021-07-25,2020,Si,Migrada,CSV historico
+P0090-1,90,Cranck 2,"Mark Neveldine,Brian Taylor",2009,USA,2021-08-08,2020,No,Migrada,CSV historico
+P0091-1,91,"Anvil, the story of Anvil",Sacha Gervasi,2008,UK,2021-08-20,2020,No,Migrada,CSV historico
+P0092-1,92,Nasha Natasha,Martín Sastre,2020,Uruguay,2021-08-23,2020,No,Migrada,CSV historico
+P0093-1,93,Todo lo que siempre quiso saber de sexo y nunca se animo a preguntar,Woody Allen,1972,USA,2021-08-24,2020,No,Migrada,CSV historico
+P0094-1,94,Murder on the front row,Adam Dubin,2020,USA,2021-08-25,2020,No,Migrada,CSV historico
+P0095-1,95,The equalizer,Antoine Fuqua,2014,USA,2021-08-29,2020,No,Migrada,CSV historico
+P0096-1,96,Dallas buyers club,Jean-Marc Vallée,2013,USA,2021-09-08,2020,No,Migrada,CSV historico
+P0097-1,97,Long shot,Jonathan Levine,2019,USA,2021-09-12,2020,No,Migrada,CSV historico
+P0098-1,98,El hombre de al lado,Mariano Cohn y Gastón Duprat,2009,Argentina,2021-09-13,2020,No,Migrada,CSV historico
+P0099-1,99,Palm springs,Max Barbakow,2020,USA,2021-09-14,2020,Si,Migrada,CSV historico
+P0100-1,100,Casino,Martin Scorsese,1995,USA,2021-09-19,2020,Si,Migrada,CSV historico
+P0101-1,101,The killing of the sacreed deer,Yorgos Lanthimos,2017,Irlanda/UK/USA,2021-09-20,2020,No,Migrada,CSV historico
+P0102-1,102,El credo,Alan Rodrigo Sasiain,2019,Argentina,2021-09-20,2020,No,Migrada,CSV historico
+P0103-1,103,Mid 90s,Jonah Hill,2018,USA,2021-09-22,2020,No,Migrada,CSV historico
+P0104-1,104,The cabin in the woods,Drew Goddard,2012,USA,2021-09-22,2020,Si,Migrada,CSV historico
+P0105-1,105,Back to the future,Robert Zemeckis,1985,USA,2021-09-25,2020,No,Migrada,CSV historico
+P0106-1,106,Violet and Finch,Brett Haley,2020,USA,2021-09-25,2020,No,Migrada,CSV historico
+P0107-1,107,Man of tai chi,Keanu Reeves,2013,USA/China,2021-09-26,2020,No,Migrada,CSV historico
+P0108-1,108,Being John Malkovich,Spike Jonze,1999,USA,2021-10-01,2020,No,Migrada,CSV historico
+P0109-1,109,Host,Rob Savage,2020,USA,2021-10-02,2020,No,Migrada,CSV historico
+P0110-1,110,Death at the funeral,Frank Oz,2007,UK/USA,2021-10-03,2020,Si,Migrada,CSV historico
+P0111-1,111,World war Z,Marc Forster,2013,USA,2021-10-07,2020,No,Migrada,CSV historico
+P0112-1,112,American murder: the family next doord,Jenny Popplewell,2020,USA,2021-10-10,2020,No,Migrada,CSV historico
+P0113-1,113,The last house on the left,Dennis Iliadis,2009,USA,2021-10-17,2020,No,Migrada,CSV historico
+P0114-1,114,The trial of the Chicago seven,Aaron Sorkin,2020,USA,2021-10-18,2020,No,Migrada,CSV historico
+P0115-1,115,Borat 2,Jason Woliner,2020,USA,2021-10-24,2020,No,Migrada,CSV historico
+P0116-1,116,Scent of a woman,Martin Brest,1992,USA,2021-10-25,2020,No,Migrada,CSV historico
+P0117-1,117,Palermo Hollywood,Eduardo Pinto,2005,Argentina,2021-10-26,2020,No,Migrada,CSV historico
+P0118-1,118,The big Short,Adam McKay,2015,USA,2021-10-27,2020,No,Migrada,CSV historico
+P0119-1,119,"Vilas, seras lo que debas ser",Matías Gueilburt,2020,Argentina,2021-10-27,2020,No,Migrada,CSV historico
+P0120-1,120,Tiempo de valientas,Damian Szifron,2005,Argentina,2021-10-30,2020,No,Migrada,CSV historico
+P0121-1,121,Shutter Island,Martin Scorsese,2010,USA,2021-10-31,2020,No,Migrada,CSV historico
+P0122-1,122,Atrapados sin salida,Milos Forman,1976,USA,2021-11-01,2020,No,Migrada,CSV historico
+P0123-1,123,Sinister,Scott Derrickson,2012,USA,2021-11-05,2020,No,Migrada,CSV historico
+P0124-1,124,The dictator,Larry Charles,2012,USA,2021-11-06,2020,No,Migrada,CSV historico
+P0125-1,125,Billy Elliot,Stephen Daldry,2000,UK,2021-11-07,2020,No,Migrada,CSV historico
+P0126-1,126,Rambo,Ted Kotcheff,1982,USA/Canada,2021-11-08,2020,No,Migrada,CSV historico
+P0127-1,127,Monty Python and the holy grial,"Terry Gilliam, Terry Jones",1975,UK,2021-11-09,2020,No,Migrada,CSV historico
+P0128-1,128,Blue Jazmine,Woody Allen,2013,USA,2021-11-10,2020,No,Migrada,CSV historico
+P0129-1,129,Zama,Lucrecia Martel,2017,Argentina,2021-11-11,2020,No,Migrada,CSV historico
+P0130-1,130,Night of the living deads,George A. Romero,1968,USA,2021-11-13,2020,No,Migrada,CSV historico
+P0131-1,131,Melancholia,Lars von Trier,2011,Alemania/Dinamarca/Francia/Suecia,2021-11-16,2020,No,Migrada,CSV historico
+P0132-1,132,The Departed,Martin Scorsese,2006,USA,2021-11-18,2020,Si,Migrada,CSV historico
+P0133-1,133,Juan Sebastian,Diego Levy,2019,Argentina,2021-11-20,2020,No,Migrada,CSV historico
+P0134-1,134,The Godfather,Francis Ford Coppola,1972,USA,2021-11-21,2020,Si,Migrada,CSV historico
+P0135-1,135,The Godfather 2,Francis Ford Coppola,1974,USA,2021-11-22,2020,No,Migrada,CSV historico
+P0136-1,136,The Godfather 3,Francis Ford Coppola,1990,USA,2021-11-23,2020,No,Migrada,CSV historico
+P0137-1,137,Goodfellas,Martin Scorsese,1990,USA,2021-11-24,2020,Si,Migrada,CSV historico
+P0138-1,138,Diana in her own words,"Tom Jennings, David Tillman",2017,UK,2021-11-27,2020,No,Migrada,CSV historico
+P0139-1,139,Citizen kane,Orson Wells,1941,USA,2021-11-30,2020,No,Migrada,CSV historico
+P0140-2,140,The irishman,Martin Scorsese,2019,USA,2021-12-01,2020,Si,Migrada,CSV historico
+P0141-1,141,Colateral,Michael Mann,2004,USA,2021-12-05,2020,No,Migrada,CSV historico
+P0142-1,142,Mank,David Fincher,2020,USA,2021-12-08,2020,No,Migrada,CSV historico
+P0143-1,143,The age of the inocence,Martin Scorsese,1993,USA,2021-12-11,2020,No,Migrada,CSV historico
+P0144-1,144,The last temptation of Christ,Martin Scorsese,1988,USA/Canada/Marruecos,2021-12-19,2020,No,Migrada,CSV historico
+P0145-1,145,After Hours,Martin Scorsese,1985,USA,2021-12-24,2020,No,Migrada,CSV historico
+P0146-1,146,Bringing out of dead,Martin Scorsese,1999,USA,2021-11-26,2020,No,Migrada,CSV historico
+P0147-1,147,American History X,Tony Kaye,1998,USA,2021-11-30,2020,No,Migrada,CSV historico
+P0001-2,1,Scott Pilgrim vs the world,Edgar Wright,2010,USA/UK/Japon/Canada,2021-01-02,2021,Si,Migrada,CSV historico
+P0002-1,2,The Hunt,Craig Zobel,2020,USA,2021-01-03,2021,Si,Migrada,CSV historico
+P0003-1,3,Sound of metal,Darius Marder,2019,USA,2021-01-04,2021,No,Migrada,CSV historico
+P0004-1,4,Home Alone,Chris Columbus,1990,USA,2021-01-04,2021,No,Migrada,CSV historico
+P0005-1,5,Enemy,Denis Villeneuve,2013,Canada,2021-01-07,2021,No,Migrada,CSV historico
+P0006-1,6,Zappa,Alex Winter,2020,USA,2021-01-08,2021,No,Migrada,CSV historico
+P0007-1,7,The assistant,Kitty Green,2019,USA,2022-01-10,2021,No,Migrada,CSV historico
+P0008-1,8,El ascensor,Daniel Bernal,2021,Mexico,2022-01-25,2021,No,Migrada,CSV historico
+P0009-1,9,Rocanrol cowboys,"Alejandro Ruax, Ramiro Martínez",2019,Argentina,2022-01-26,2021,No,Migrada,CSV historico
+P0010-1,10,Silence,Martin Scorsese,2016,USA,2022-01-28,2021,No,Migrada,CSV historico
+P0011-1,11,The Aviator,Martin Scorsese,2004,USA,2022-01-29,2021,No,Migrada,CSV historico
+P0012-1,12,"New York, New York",Martin Scorsese,1977,USA,2022-01-30,2021,No,Migrada,CSV historico
+P0013-2,13,Cape Fear,Martin Scorsese,1991,USA,2022-02-01,2021,Si,Migrada,CSV historico
+P0014-1,14,Terror 5,Sebastián Rotstein,2016,Argentina,2022-02-02,2021,No,Migrada,CSV historico
+P0015-2,15,Mandy,Panos Cosmatos,2018,USA/Canada,2022-02-04,2021,Si,Migrada,CSV historico
+P0016-1,16,The color of money,Martin Scorsese,1986,USA,2022-02-06,2021,No,Migrada,CSV historico
+P0017-1,17,Batman dark knight,Christopher Nolan,2008,USA,2022-02-08,2021,No,Migrada,CSV historico
+P0018-1,18,Batman dark knight rises,Christopher Nolan,2012,USA,2022-02-09,2021,No,Migrada,CSV historico
+P0019-1,19,Batman begins,Christopher Nolan,2005,USA,2022-02-10,2021,No,Migrada,CSV historico
+P0020-1,20,The darkest hour,Joe Wright,2017,UK,2022-02-11,2021,No,Migrada,CSV historico
+P0021-2,21,The ballad of Buster Scruggs,"Ethan Coen, Joel Coen",2018,USA,2022-02-12,2021,Si,Migrada,CSV historico
+P0022-1,22,Al acecho,Francisco D'Eufemia,2019,Argentina,2022-02-13,2021,No,Migrada,CSV historico
+P0023-1,23,Bombshell,Jay Roach,2019,USA,2022-02-13,2021,No,Migrada,CSV historico
+P0024-1,24,Matrix,Hermanas Wachowski,1999,USA,2022-02-14,2021,No,Migrada,CSV historico
+P0025-1,25,Serpico,Sidney Lumet,1973,USA,2022-02-14,2021,No,Migrada,CSV historico
+P0026-1,26,"The lord of the rings, the fellowship of the ring",Peter Jackson,2001,USA/Nueva Zelanda,2022-02-14,2021,No,Migrada,CSV historico
+P0027-1,27,"The lord of the rings, the two towers",Peter Jackson,2002,USA/Nueva Zelanda,2022-02-15,2021,No,Migrada,CSV historico
+P0028-1,28,"The lord of the rings, the return of the king",Peter Jackson,2003,USA/Nueva Zelanda,2022-02-15,2021,No,Migrada,CSV historico
+P0029-1,29,La Cienaga,Lucrecia Martel,2001,Argentina,2022-02-16,2021,No,Migrada,CSV historico
+P0030-1,30,The virgin suicides,Sofia Coppola,1999,USA,2022-02-17,2021,No,Migrada,CSV historico
+P0031-1,31,The disaster artist,Jame Franco,2017,USA,2022-02-18,2021,No,Migrada,CSV historico
+P0032-1,32,22 Jump street,"Christopher Miller, Phil Lord",2014,USA,2022-02-19,2021,Si,Migrada,CSV historico
+P0033-1,33,Raging bull,Martin Scorsese,1980,USA,2022-02-26,2021,No,Migrada,CSV historico
+P0034-1,34,Isi Disi,Chema de la Peña,2004,España,2022-02-27,2021,No,Migrada,CSV historico
+P0035-1,35,Mad Max fury road,George Miller,2015,Australia,2022-02-28,2021,No,Migrada,CSV historico
+P0036-1,36,Eating Raoul,Paul Bartel,1982,USA,2022-02-28,2021,Si,Migrada,CSV historico
+P0037-1,37,Biggie: i got a story to tell,Emmett Malloy,2021,USA,2022-03-02,2021,No,Migrada,CSV historico
+P0038-1,38,Boxcar Bertha,Martin Scorsese,1972,USA,2022-03-05,2021,No,Migrada,CSV historico
+P0039-1,39,Todo sobre mi madre,Pedro Almodovar,1999,España,2022-03-07,2021,No,Migrada,CSV historico
+P0040-1,40,The karate kid,John G. Avildsen,1984,USA,2022-03-09,2021,No,Migrada,CSV historico
+P0041-1,41,Tenet,Christopher Nolan,2020,USA,2022-03-11,2021,No,Migrada,CSV historico
+P0042-1,42,Tiempo de revancha,Adolfo Aristarain,1981,Argentina,2022-03-12,2021,No,Migrada,CSV historico
+P0043-2,43,Shaun of the dead,Edgar Wright,2004,UK,2022-03-13,2021,Si,Migrada,CSV historico
+P0044-2,44,Kill Bill,Quentin Tarantino,2003,USA,2022-03-18,2021,Si,Migrada,CSV historico
+P0045-1,45,The bridge,Eric Steel,2006,USA,2022-03-19,2021,No,Migrada,CSV historico
+P0046-2,46,Kill Bill II,Quentin Tarantino,2004,USA,2022-03-20,2021,Si,Migrada,CSV historico
+P0047-1,47,Hot fuzz,Edgar Wright,2007,UK,2022-03-21,2021,No,Migrada,CSV historico
+P0048-1,48,Ricky Espinosa: el documental,Juan Pablo Duarte,2015,Argentina,2022-03-22,2021,No,Migrada,CSV historico
+P0049-1,49,Super size me 2,Morgan Spurlock,2017,USA,2022-03-24,2021,No,Migrada,CSV historico
+P0050-1,50,Todo el año es navidad,Néstor Frenkel,2018,Argentina,2022-04-07,2021,Si,Migrada,CSV historico
+P0051-1,51,Los visionadores,Néstor Frenkel,2021,Argentina,2022-04-08,2021,No,Migrada,CSV historico
+P0052-1,52,Straight outta compton,F. Gary Gray,2015,USA,2022-04-09,2021,No,Migrada,CSV historico
+P0053-1,53,Boyz in the hood,John Singleton,1991,USA,2022-04-10,2021,No,Migrada,CSV historico
+P0054-1,54,Saving private Ryan,Steven Spielberg,1998,USA,2022-04-14,2021,No,Migrada,CSV historico
+P0055-1,55,Hostel,Eli Roth,2005,USA,2022-04-17,2021,No,Migrada,CSV historico
+P0056-1,56,The purge,James DeMonaco,2013,USA,2022-04-18,2021,No,Migrada,CSV historico
+P0057-2,57,The brothers Grimsby,Louis Leterrier,2016,UK/USA,2022-04-19,2021,Si,Migrada,CSV historico
+P0058-1,58,The father,Florian Zeller,2021,UK/Francia,2022-04-20,2021,No,Migrada,CSV historico
+P0059-1,59,Hillbilly elegy,Ron Howard,2020,USA,2022-04-21,2021,No,Migrada,CSV historico
+P0060-1,60,Promising young woman,Emerald Fennell,2020,USA,2022-04-22,2021,Si,Migrada,CSV historico
+P0061-1,61,Nomadland,Chloé Zhao,2020,USA,2022-04-23,2021,No,Migrada,CSV historico
+P0062-1,62,Judas and the black messias,Shaka King,2021,USA,2022-04-24,2021,No,Migrada,CSV historico
+P0063-1,63,Minari,Lee Isaac Chung,2021,USA,2022-04-25,2021,No,Migrada,CSV historico
+P0064-1,64,Nobody,Ilya Naishuller,2021,USA,2022-05-01,2021,Si,Migrada,CSV historico
+P0065-2,65,Reservoir dogs,Quentin Tarantino,1992,USA,2022-05-07,2021,Si,Migrada,CSV historico
+P0066-1,66,Piranha 3D,"Alexandre Aja, John Gulager",2010,USA,2022-05-08,2021,No,Migrada,CSV historico
+P0067-1,67,Ghost,Jerry Zucker,1990,USA,2022-05-09,2021,No,Migrada,CSV historico
+P0068-2,68,Mortal Kombat,Simon McQuoid,2021,USA,2022-05-10,2021,Si,Migrada,CSV historico
+P0069-1,69,Catch me if you can,Steven Spielberg,2002,USA,2022-05-11,2021,No,Migrada,CSV historico
+P0070-1,70,Gangs of New York,Martin Scorsese,2002,USA,2022-05-12,2021,No,Migrada,CSV historico
+P0071-1,71,There will be blood,Paul Thomas Anderson,2007,USA,2022-05-13,2021,No,Migrada,CSV historico
+P0072-1,72,Willys wonderland,Kevin Lewis,2021,USA,2022-05-14,2021,No,Migrada,CSV historico
+P0073-1,73,Escape from Pretoria,Francis Annan,2020,Australia,2022-05-15,2021,No,Migrada,CSV historico
+P0074-1,74,The vvitch,Robert Eggers,2015,USA/Canada,2022-05-15,2021,No,Migrada,CSV historico
+P0075-1,75,Army of the dead,Zack Snyder,2021,USA,2022-05-21,2021,No,Migrada,CSV historico
+P0076-1,76,Brockeback Montain,Ang Lee,2006,USA,2022-05-22,2021,No,Migrada,CSV historico
+P0077-1,77,Love actually,Richard Curtis,2003,USA,2022-05-23,2021,No,Migrada,CSV historico
+P0078-1,78,Violation,"Madeleine Sims-Fewer, Dusty Mancinelli",2020,Canada,2022-06-01,2021,No,Migrada,CSV historico
+P0079-1,79,Spiral,Darren Lynn Bousman,2021,USA,2022-06-05,2021,No,Migrada,CSV historico
+P0080-1,80,Seance,Simon Barrett,2021,USA,2022-06-13,2021,No,Migrada,CSV historico
+P0081-1,81,The salesman,Asghar Farhadi,2016,Iran,2022-06-17,2021,No,Migrada,CSV historico
+P0082-4,82,John Wick,Chad Stahelski,2014,USA,2022-06-19,2021,Si,Migrada,CSV historico
+P0083-1,83,Wrath of man,Guy Ritchie,2021,UK,2022-06-25,2021,No,Migrada,CSV historico
+P0084-1,84,Implosion,Van der Couter,2021,Argentina,2022-06-26,2021,No,Migrada,CSV historico
+P0085-1,85,La clásica historia de terror​,Roberto De Feo,2021,Italia,2022-07-19,2021,No,Migrada,CSV historico
+P0086-1,86,American graffiti,George Lucas,1973,USA,2022-07-22,2021,Si,Migrada,CSV historico
+P0087-1,87,Targets,Peter Bogdanovich,1968,USA,2022-07-23,2021,No,Migrada,CSV historico
+P0088-1,88,The wretched,"Brett Pierce, Drew T. Pierce",2019,USA,2022-07-24,2021,No,Migrada,CSV historico
+P0089-1,89,Pig,Michael Sarnoski,2021,USA,2022-07-25,2021,No,Migrada,CSV historico
+P0090-1,90,An american pickle,"Brandon Trost, Dylan Meyer",2020,USA,2022-07-26,2021,No,Migrada,CSV historico
+P0091-1,91,Blood diamond,Edward Zwick,2006,USA,2022-07-27,2021,No,Migrada,CSV historico
+P0092-1,92,The last boy scout,Tony Scott,1991,USA,2022-07-28,2021,Si,Migrada,CSV historico
+P0093-1,93,Godzilla vs Kong,Adam Wingard,2021,USA,2022-07-29,2021,No,Migrada,CSV historico
+P0094-1,94,Beware the slenderman,Irene Taylor Brodsky,2016,USA,2022-07-30,2021,No,Migrada,CSV historico
+P0095-1,95,The king of Staten Island,Judd Apatow,2020,USA,2022-08-01,2021,No,Migrada,CSV historico
+P0096-1,96,J edgar,Clint Eastwood,2021,USA,2022-08-04,2021,No,Migrada,CSV historico
+P0097-1,97,Cemento - El documental,Lisandro Carcavallo,2017,Argentina,2022-08-05,2021,No,Migrada,CSV historico
+P0098-1,98,Sucio y desprolijo: el heavy metal en Argentina,"Paula Alvarez, Lucas Lot Calabró",2015,Argentina,2022-08-05,2021,No,Migrada,CSV historico
+P0099-1,99,Woodstock 99,Garret Price,2021,USA,2022-08-07,2021,No,Migrada,CSV historico
+P0100-1,100,Blow,Ted Demme,2001,USA,2022-08-08,2021,No,Migrada,CSV historico
+P0101-1,101,The wizard of Oz,Victor Fleming,1938,USA,2022-08-11,2021,No,Migrada,CSV historico
+P0102-1,102,Four brothers,John Singleton,2005,USA,2022-08-14,2021,Si,Migrada,CSV historico
+P0103-2,103,Dog day afternoon,Sidney Lumet,1975,USA,2022-08-17,2021,Si,Migrada,CSV historico
+P0104-1,104,space jam 2,Malcolm D. Lee,2021,USA,2022-08-19,2021,No,Migrada,CSV historico
+P0105-1,105,Druk,Thomas Vinterberg,2020,Dinamarca,2022-08-21,2021,Si,Migrada,CSV historico
+P0106-1,106,Unpregnant,Rachel Lee Goldenberg,2020,USA,2022-08-23,2021,No,Migrada,CSV historico
+P0107-2,107,Diego Maradona,Asif Kapadia,2019,UK,2022-08-24,2021,Si,Migrada,CSV historico
+P0108-1,108,Number 23,Joel Schumacher,2007,USA,2022-08-26,2021,No,Migrada,CSV historico
+P0109-1,109,The rope,Alfred Hitchcock,1948,USA,2022-09-03,2021,No,Migrada,CSV historico
+P0110-1,110,Locke,Steven Knight,2013,UK,2022-09-04,2021,No,Migrada,CSV historico
+P0111-2,111,Us,Jordan Peele,2019,USA,2022-09-09,2021,Si,Migrada,CSV historico
+P0112-1,112,Kate,Cedric Nicolas-Troyan,2021,USA,2022-09-13,2021,No,Migrada,CSV historico
+P0113-1,113,Vampires,John Carpente,1998,USA,2022-09-16,2021,No,Migrada,CSV historico
+P0114-1,114,Crank,"Mark Neveldine, Brian Taylor",2006,USA,2022-09-18,2021,No,Migrada,CSV historico
+P0115-1,115,Ransom,Ron Howard,1996,USA,2022-09-23,2021,No,Migrada,CSV historico
+P0116-1,116,Indecent Proposal,Adrian Lyne,1993,USA,2022-09-25,2021,No,Migrada,CSV historico
+P0117-1,117,Crank 2,"Mark Neveldine, Brian Taylor",2009,USA,2022-09-27,2021,No,Migrada,CSV historico
+P0118-1,118,Britney vs Spears,Erin Lee Carr,2021,USA,2022-09-30,2021,No,Migrada,CSV historico
+P0119-1,119,Old,M. Night Shyamalan,2021,USA,2022-10-03,2021,No,Migrada,CSV historico
+P0120-1,120,Demolition man,Marco Brambilla,1993,USA,2022-10-04,2021,Si,Migrada,CSV historico
+P0121-2,121,The Hunt,Craig Zobel,2020,USA,2022-10-05,2021,Si,Migrada,CSV historico
+P0122-1,122,Battle royale,Kinji Fukasaku,2000,Japon,2022-10-06,2021,No,Migrada,CSV historico
+P0123-2,123,A quiet place,John Krasinski,2018,USA,2022-10-08,2021,Si,Migrada,CSV historico
+P0124-1,124,A quien place 2,John Krasinski,2021,USA,2022-10-09,2021,No,Migrada,CSV historico
+P0125-1,125,Rush,Ron Howard,2013,USA,2022-10-11,2021,No,Migrada,CSV historico
+P0126-1,126,Battle royale 2,"Kinji Fukasaku, Kenta Fukasaku",2003,Japon,2022-10-13,2021,No,Migrada,CSV historico
+P0127-1,127,Malignant,James Wan,2021,USA,2022-10-15,2021,No,Migrada,CSV historico
+P0128-1,128,Historia de lo oculto,Cristian Jesús Ponce,2020,Argentina,2022-10-16,2021,No,Migrada,CSV historico
+P0129-1,129,Little shop of horrors,Frank Oz,1986,USA,2022-10-18,2021,No,Migrada,CSV historico
+P0130-1,130,Scream,Wes Craven,1996,USA,2022-10-25,2021,No,Migrada,CSV historico
+P0131-1,131,Scream 2,Wes Craven,1997,USA,2022-10-26,2021,No,Migrada,CSV historico
+P0132-1,132,Scream 3,Wes Craven,2000,USA,2022-10-27,2021,No,Migrada,CSV historico
+P0133-1,133,Scream 4,Wes Craven,2011,USA,2022-10-30,2021,No,Migrada,CSV historico
+P0134-1,134,Cry macho,Clint Eastwood,2021,USA,2022-11-01,2021,No,Migrada,CSV historico
+P0135-1,135,Inception,Christopher Nolan,2010,USA,2022-11-05,2021,No,Migrada,CSV historico
+P0136-1,136,211.0,York Shackleton,2018,USA,2022-11-15,2021,No,Migrada,CSV historico
+P0137-1,137,Kundun,Martin Scorsese,1997,USA/Monaco/Marruecos,2022-11-17,2021,No,Migrada,CSV historico
+P0138-1,138,Titane,Julia Ducournau,2011,Francia,2022-11-20,2021,No,Migrada,CSV historico
+P0139-1,139,The shawshank redemption,Frank Darabont,1994,USA,2022-11-21,2021,No,Migrada,CSV historico
+P0140-1,140,Vivarium,Lorcan Finnegan,2019,USA,2022-11-22,2021,No,Migrada,CSV historico
+P0141-1,141,White boy Rick,Yann Demange,2018,USA,2022-11-23,2021,No,Migrada,CSV historico
+P0142-1,142,Oxygen,Alexandre Aja,2021,Francia,2022-11-30,2021,No,Migrada,CSV historico
+P0143-1,143,Out of thin air,Dylan Howitt,2017,USA,2022-12-04,2021,No,Migrada,CSV historico
+P0144-1,144,Benedetta,Paul Verhoeven,2021,Francia,2022-12-05,2021,No,Migrada,CSV historico
+P0145-1,145,"Dragon ball z, la batalla de los dioses",Masahiro Hosoda,2013,Japon,2022-12-06,2021,No,Migrada,CSV historico
+P0146-1,146,Coherence,James Ward Byrkit,2013,USA,2022-12-08,2021,No,Migrada,CSV historico
+P0147-1,147,Guns akimbo,Jason Lei Howden,2019,USA,2022-12-20,2021,No,Migrada,CSV historico
+P0148-1,148,The innocents,Eskil Vogt,2021,Noruega,2022-12-25,2021,No,Migrada,CSV historico
+P0001-1,1,16 Blocks,Richard Donner,2006,USA,2022-01-01,2022,Si,Migrada,CSV historico
+P0002-1,2,Dont look up,Adam McKay,2021,USA,2022-01-02,2022,No,Migrada,CSV historico
+P0003-1,3,Cobra,George P. Cosmatos,1986,USA,2022-01-10,2022,No,Migrada,CSV historico
+P0004-1,4,Springbreakers,Harmony Korine,2012,USA,2022-01-20,2022,No,Migrada,CSV historico
+P0005-1,5,I love you man,John Hamburg,2009,USA,2022-01-23,2022,No,Migrada,CSV historico
+P0006-1,6,Fue la mano de Dios,Paolo Sorrentino,2021,Italia,2022-01-24,2022,No,Migrada,CSV historico
+P0007-1,7,Taken,Pierre Morel,2008,Francia,2022-01-25,2022,No,Migrada,CSV historico
+P0008-2,8,Nobody,Ilya Naishuller,2021,USA,2022-01-26,2022,Si,Migrada,CSV historico
+P0009-1,9,Pleasure,Ninja Thyberg,2021,Suecia/Holanda/Francia,2022-01-28,2022,No,Migrada,CSV historico
+P0010-1,10,Taken 2,Olivier Megaton,2012,Francia,2022-01-30,2022,No,Migrada,CSV historico
+P0011-2,11,Alive,Il Cho,2020,Corea del sur,2022-01-31,2022,Si,Migrada,CSV historico
+P0012-1,12,Comodines,Jorge Nisco,1997,Argentina,2022-02-01,2022,No,Migrada,CSV historico
+P0013-1,13,"Train to busan, peninsule",Yeon Sang-ho,2020,Corea del sur,2022-02-03,2022,No,Migrada,CSV historico
+P0014-1,14,"Salo, o le 120 giornate Di sodoma",Pier Paolo Pasolini,1975,Italia,2022-02-05,2022,No,Migrada,CSV historico
+P0015-1,15,Machete,Robert Rodríguez,2010,USA,2022-02-06,2022,No,Migrada,CSV historico
+P0016-1,16,King Richard,Reinaldo Marcus Green,2021,USA,2022-02-11,2022,No,Migrada,CSV historico
+P0017-1,17,Dune part 1,Denis Villeneuve,2021,USA/Hungria/Canada/UK,2022-02-12,2022,No,Migrada,CSV historico
+P0018-1,18,Texas Chainsaw Massacre,David Blue Garcia,2022,USA,2022-02-23,2022,No,Migrada,CSV historico
+P0019-1,19,Tick tick... boom,Lin-Manuel Miranda,2021,USA,2022-02-25,2022,No,Migrada,CSV historico
+P0020-1,20,Scream 5,Matt Bettinelli-Olpin y Tyler Gillett,2022,USA,2022-02-26,2022,No,Migrada,CSV historico
+P0021-1,21,Madres paralelas,Pedro Almodovar,2021,España,2022-02-27,2022,No,Migrada,CSV historico
+P0022-2,22,The Godfather,Francis Ford Coppola,1972,USA,2022-03-01,2022,Si,Migrada,CSV historico
+P0023-1,23,Licorice Pizza,Paul Thomas Anderson,2021,USA,2022-03-04,2022,Si,Migrada,CSV historico
+P0024-1,24,Carne tremula,Pedro Almodovar,1997,España,2022-03-05,2022,No,Migrada,CSV historico
+P0025-1,25,El metodo,Marcelo Piñeyro,2005,Argentina/España,2022-03-10,2022,No,Migrada,CSV historico
+P0026-1,26,Prisoners,Denis Villeneuve,2013,USA,2022-03-11,2022,No,Migrada,CSV historico
+P0027-1,27,The power of the dog,Jane Campion,2021,USA,2022-03-11,2022,No,Migrada,CSV historico
+P0028-1,28,Kika,Pedro Almodovar,1993,España,2022-03-15,2022,No,Migrada,CSV historico
+P0029-1,29,West side story,Steven Spielberg,2021,USA,2022-03-20,2022,No,Migrada,CSV historico
+P0030-1,30,Coda,Siân Héder,2021,USA/Francia/Canada,2022-03-21,2022,No,Migrada,CSV historico
+P0031-1,31,Nightmare Alley,Guillermo Del Toro,2021,USA,2022-03-23,2022,No,Migrada,CSV historico
+P0032-1,32,Windfall,Charlie McDowell,2022,USA,2022-03-24,2022,No,Migrada,CSV historico
+P0033-1,33,Drive My Car,Ryūsuke Hamaguchi,2021,Japon,2022-03-25,2022,No,Migrada,CSV historico
+P0034-3,34,Pulp Fiction,Quentin Tarantino,1994,USA,2022-03-30,2022,Si,Migrada,CSV historico
+P0035-1,35,Dont breathe 2,Rodo Sayagues,2021,USA,2022-03-31,2022,No,Migrada,CSV historico
+P0036-1,36,The worst person in the world,Joachim Trier,2021,Noruega,2022-04-01,2022,No,Migrada,CSV historico
+P0037-1,37,Granizo,Marcos Carnevale,2022,Argentina,2022-04-02,2022,No,Migrada,CSV historico
+P0038-1,38,Before sunrise,Richard Linklater,1995,USA/Austria/Suiza,2022-04-03,2022,No,Migrada,CSV historico
+P0039-1,39,Fresh,Mimi Cave,2022,USA,2022-04-08,2022,No,Migrada,CSV historico
+P0040-1,40,Jackass forever,Jeff Tremaine,2022,USA,2022-04-09,2022,No,Migrada,CSV historico
+P0041-1,41,White man cant jump,Ron Shelton,1992,USA,2022-04-10,2022,No,Migrada,CSV historico
+P0042-1,42,Studio 666,BJ McDonnell,2022,USA,2022-04-11,2022,No,Migrada,CSV historico
+P0043-1,43,Phone booth,Joel Schumacher,2003,USA,2022-04-12,2022,No,Migrada,CSV historico
+P0044-1,44,El profugo,Natalia Meta,2020,Argentina,2022-04-15,2022,No,Migrada,CSV historico
+P0045-2,45,John Wick 2,Chad Stahelski,2017,USA,2022-04-16,2022,Si,Migrada,CSV historico
+P0046-1,46,X,Ti West,2022,USA,2022-04-19,2022,Si,Migrada,CSV historico
+P0047-1,47,Dias de vinilo,Gabriel Nesci,2012,Argentina,2022-04-21,2022,No,Migrada,CSV historico
+P0048-1,48,A Score to Settle,Shawn Ku,2019,USA,2022-04-25,2022,No,Migrada,CSV historico
+P0049-2,49,Creed 2,Steven Caple Jr.,2018,USA,2022-05-07,2022,Si,Migrada,CSV historico
+P0050-1,50,The Northman,Robert Eggers,2022,USA/Reino Unido,2022-05-16,2022,No,Migrada,CSV historico
+P0051-1,51,Metal lords,Peter Sollett,2022,USA,2022-05-17,2022,No,Migrada,CSV historico
+P0052-1,52,Riders of justice,Anders Thomas Jensen,2020,Dinamarca,2022-05-18,2022,No,Migrada,CSV historico
+P0053-1,53,Sixth sense,M. Night Shyamalan,1999,USA,2022-05-24,2022,No,Migrada,CSV historico
+P0054-1,54,El fotografo y el cartero,Alejandro Hartmann,2022,Argentina,2022-05-25,2022,No,Migrada,CSV historico
+P0055-1,55,Airplane!,"David Zucker, Jerry Zucker, Jim Abrahams",1980,USA,2022-05-30,2022,No,Migrada,CSV historico
+P0056-1,56,Chip n Dale: rescue rangers,Akiva Schaffer,2022,USA,2022-05-31,2022,No,Migrada,CSV historico
+P0057-1,57,Jackass 4.5,Jeff Tremaine,2022,USA,2022-06-03,2022,Si,Migrada,CSV historico
+P0058-1,58,"Girl, interrupted",James Mangold,2000,USA,2022-06-09,2022,No,Migrada,CSV historico
+P0059-1,59,Up in smoke,"Tommy Chong, Lou Adler",1978,USA,2022-06-10,2022,No,Migrada,CSV historico
+P0060-1,60,Hustle,Jeremiah Zagar,2022,USA,2022-06-17,2022,No,Migrada,CSV historico
+P0061-1,61,The wailing,Na Hong-jin,2016,Corea del sur,2022-06-18,2022,No,Migrada,CSV historico
+P0062-1,62,The unbeareable weight of massive talent,Tom Gormican,2022,USA,2022-06-19,2022,No,Migrada,CSV historico
+P0063-1,63,Hard Target,John Woo,1993,USA,2022-06-21,2022,No,Migrada,CSV historico
+P0064-1,64,Midnight in Paris,Woody Allen,2011,USA/España,2022-06-22,2022,No,Migrada,CSV historico
+P0065-1,65,Beavis and butthead do the universe,"John Rice, Albert Calleros",2022,USA,2022-06-27,2022,No,Migrada,CSV historico
+P0066-1,66,Halloweens kills,David Gordon Green,2021,USA,2022-06-28,2022,No,Migrada,CSV historico
+P0067-1,67,House of 1000 corpses,Rob Zombie,2003,USA,2022-07-01,2022,Si,Migrada,CSV historico
+P0068-1,68,The transporter,Louis Leterrier,2002,Francia,2022-07-02,2022,No,Migrada,CSV historico
+P0069-1,69,28 days later,Danny Boyle,2002,Reino Unido,2022-07-04,2022,Si,Migrada,CSV historico
+P0070-1,70,28 weeks later,Juan Carlos Fresnadillo,2007,Reino Unido,2022-07-05,2022,No,Migrada,CSV historico
+P0071-1,71,Dawn of the deads,Zack Snyder,2004,USA,2022-07-08,2022,No,Migrada,CSV historico
+P0072-1,72,Incantantion,Ke Mengrong,2022,Taiwan,2022-07-10,2022,No,Migrada,CSV historico
+P0073-1,73,My daughters killer,Antoine Tassin,2022,USA,2022-07-12,2022,No,Migrada,CSV historico
+P0074-1,74,Planet of the apes,Franklin J. Schaffner,1968,USA,2022-07-15,2022,No,Migrada,CSV historico
+P0075-2,75,Jumanji,Joe Johnston,1994,USA,2022-07-16,2022,Si,Migrada,CSV historico
+P0076-1,76,Crimes of the future,David Cronenberg,2022,Canada/Francia/Reino Unido/Grecia,2022-07-17,2022,No,Migrada,CSV historico
+P0077-1,77,Halloween El inicio,Rob Zombie,2007,USA,2022-07-17,2022,No,Migrada,CSV historico
+P0078-1,78,The fly,David Cronenberg,1986,USA,2023-07-18,2022,No,Migrada,CSV historico
+P0079-1,79,The transporter 2,Louis Leterrier,2005,Francia/USA,2023-07-19,2022,No,Migrada,CSV historico
+P0080-1,80,Beneath the planet of the apes,Ted Post,1970,USA,2023-07-20,2022,No,Migrada,CSV historico
+P0081-1,81,Escape from planet of the apes,Don Taylor,1971,USA,2023-07-27,2022,No,Migrada,CSV historico
+P0082-1,82,Conquest of the planet of the apes,J. Lee Thompson,1972,USA,2023-07-30,2022,No,Migrada,CSV historico
+P0083-1,83,Battle for the planet of the apes,J. Lee Thompson,1973,USA,2023-07-31,2022,No,Migrada,CSV historico
+P0084-2,84,Bachelor party,Neal Israel,1984,USA,2023-08-01,2022,Si,Migrada,CSV historico
+P0085-1,85,Dude where is my car?,Danny Leiner,2000,USA,2023-08-02,2022,No,Migrada,CSV historico
+P0086-1,86,La parte del Leon,Adolfo Aristarain,1978,Argentina,2023-08-03,2022,No,Migrada,CSV historico
+P0087-1,87,Black swan,Darren Aronofsky,2010,USA,2023-08-05,2022,Si,Migrada,CSV historico
+P0088-1,88,The island,Michael Bay,2005,USA,2023-08-07,2022,No,Migrada,CSV historico
+P0089-2,89,The last boy scout,Tony Scott,1991,USA,2023-08-08,2022,Si,Migrada,CSV historico
+P0090-2,90,The wolf of wall street,Martin Scorsese,2013,USA,2023-08-09,2022,Si,Migrada,CSV historico
+P0091-1,91,Los ladrones,Matías Gueilburt,2022,Argentina,2023-08-20,2022,No,Migrada,CSV historico
+P0092-1,92,Prey,Dan Trachtenberg,2022,USA,2023-08-23,2022,No,Migrada,CSV historico
+P0093-1,93,Nope,Jordan Peele,2022,USA,2023-08-31,2022,No,Migrada,CSV historico
+P0094-1,94,El sistema K. E. OP. / S,Nicolás Goldbart,2022,Argentina,2023-09-05,2022,No,Migrada,CSV historico
+P0095-1,95,The many saints of newark,Alan Taylor,2021,USA,2023-09-17,2022,No,Migrada,CSV historico
+P0096-2,96,Casino,Martin Scorsese,1995,USA,2023-09-22,2022,Si,Migrada,CSV historico
+P0097-1,97,Carlitos way,Brian De Palma,1993,USA,2023-09-24,2022,No,Migrada,CSV historico
+P0098-1,98,Labyrinth,Jim Henson,1996,USA/UK,2023-09-26,2022,No,Migrada,CSV historico
+P0099-1,99,Once upon a time un Hollywood,Quentin Tarantino,2019,USA,2023-10-01,2022,No,Migrada,CSV historico
+P0100-1,100,Argentina 1985,Santiago Mitre,2022,Argentina,2023-10-05,2022,No,Migrada,CSV historico
+P0101-1,101,The Planet of The age 2001,Tim Burton,2001,USA,2023-10-06,2022,No,Migrada,CSV historico
+P0102-1,102,The redeem team,Jon Weinbach,2022,USA,2023-10-07,2022,No,Migrada,CSV historico
+P0103-1,103,La playa del amor,Adolfo Aristarain,1980,Argentina,2023-10-08,2022,No,Migrada,CSV historico
+P0104-1,104,Hearts of darkness,"Fax Bahr, George Hickenlooper, Eleanor Coppola",1991,USA,2023-10-10,2022,No,Migrada,CSV historico
+P0105-3,105,John Wick 3,Chad Stahelski,2019,USA,2023-10-22,2022,Si,Migrada,CSV historico
+P0106-1,106,Barbarian,Zach Cregger,2022,USA,2023-10-27,2022,Si,Migrada,CSV historico
+P0107-1,107,The forever purge,Everardo Gout,2021,USA,2023-10-30,2022,No,Migrada,CSV historico
+P0108-1,108,Speak no Evil,Christian Tafdrup,2022,Dinamarca,2023-10-31,2022,No,Migrada,CSV historico
+P0109-1,109,Alguien te está mirando,"Gustavo Cova,Horacio Maldonado",1988,Argentina,2023-11-04,2022,No,Migrada,CSV historico
+P0110-1,110,Men,Alex Garland,2022,UK,2023-11-06,2022,No,Migrada,CSV historico
+P0111-1,111,Mr death,Errol Morris,2000,USA,2023-11-08,2022,No,Migrada,CSV historico
+P0112-1,112,Tabloide,Errol Morris,2010,USA,2023-11-11,2022,No,Migrada,CSV historico
+P0113-1,113,Gates of Heaven,Errol Morris,1980,USA,2023-11-12,2022,No,Migrada,CSV historico
+P0114-1,114,Shrek,"Andrew Adamson, Vicky Jenson",2001,USA,2025-12-08,2022,Si,Migrada,CSV historico
+P0115-1,115,Shrek 2,"Andrew Adamson, Conrad Vernon, Kelly Asbury",2004,USA,2025-12-09,2022,Si,Migrada,CSV historico
+P0116-1,116,Shrek tercero,Chris Miller,2007,USA,2025-12-10,2022,No,Migrada,CSV historico
+P0001-1,1,Stutz,Jonah Hill,2022,USA,2023-01-05,2023,No,Migrada,CSV historico
+P0002-1,2,Glass onion,Rian Johnson,2022,USA,2023-01-14,2023,No,Migrada,CSV historico
+P0003-1,3,Pinocchio,Guillermo del Toro,2022,USA/Mexico,2023-01-20,2023,No,Migrada,CSV historico
+P0004-1,4,RRR,S. S. Rajamouli,2022,India,2023-01-22,2023,No,Migrada,CSV historico
+P0005-1,5,"Everything, everywhere all at once","Dan Kwan, Daniel Scheinert",2022,USA,2023-01-29,2023,No,Migrada,CSV historico
+P0006-1,6,Banshees of Inisherin,Martin McDonagh,2022,USA/UK,2023-01-31,2023,No,Migrada,CSV historico
+P0007-1,7,Im Westen nichts Neues,Edward Berger,2022,Alemania,2023-02-01,2023,No,Migrada,CSV historico
+P0008-1,8,Pamela: A love story,Ryan White,2023,USA,2023-02-03,2023,No,Migrada,CSV historico
+P0009-2,9,The dirt,Jeff Tremaine,2019,USA,2023-02-05,2023,Si,Migrada,CSV historico
+P0010-1,10,You people,Kenya Barris,2023,USA,2023-02-10,2023,No,Migrada,CSV historico
+P0011-1,11,Top gun Maverick,Joseph Kosinski,2022,USA,2023-02-11,2023,No,Migrada,CSV historico
+P0012-1,12,Top Gun,"Joseph Kosinski, Tony Scott",1986,USA,2023-02-13,2023,No,Migrada,CSV historico
+P0013-1,13,The Fabelmans,Steven Spielberg,2022,USA,2023-02-17,2023,No,Migrada,CSV historico
+P0014-1,14,Smile,Parker Finn,2022,USA,2023-02-19,2023,No,Migrada,CSV historico
+P0015-2,15,Lord of Chaos,Jonas Åkerlund,2018,UK/Suecia,2023-02-20,2023,Si,Migrada,CSV historico
+P0016-1,16,Lemmy,"Greg Olliver, Wes Orshoski",2010,USA,2023-02-23,2023,No,Migrada,CSV historico
+P0017-1,17,Un importante prestreno,Santiago Calori,2015,Argentina,2023-03-01,2023,No,Migrada,CSV historico
+P0018-1,18,Felicidades,Lucho Bender,2000,Argentina,2023-03-09,2023,No,Migrada,CSV historico
+P0019-1,19,Hated: GG Alin and the murder junkies,Tood Phillips,1993,USA,2023-03-14,2023,No,Migrada,CSV historico
+P0020-1,20,Money Shot,Suzanne Hillinger,2023,USA,2023-03-15,2023,No,Migrada,CSV historico
+P0021-1,21,Sucio y desprolijo,"Paula Alvarez, Lucas Lot Calabró",2015,Argentina,2023-03-16,2023,No,Migrada,CSV historico
+P0022-1,22,La H,Nicanor Loreti,2011,Argentina,2023-03-18,2023,Si,Migrada,CSV historico
+P0023-1,23,Minority Report,Steven Spielberg,2002,USA,2023-03-23,2023,No,Migrada,CSV historico
+P0024-1,24,Cocaine Bear,Elizabeth Banks,2023,USA,2023-03-24,2023,Si,Migrada,CSV historico
+P0025-1,25,Jackass,Jeff Tremaine,2002,USA,2023-03-25,2023,No,Migrada,CSV historico
+P0026-2,26,The french connection,William Friedkin,1971,USA,2023-03-26,2023,Si,Migrada,CSV historico
+P0027-1,27,El metodo Tangalanga,Mateo Bendesky,2022,Argentina,2023-03-29,2023,No,Migrada,CSV historico
+P0028-2,28,Palm springs,Max Barbakow,2020,USA,2023-04-01,2023,Si,Migrada,CSV historico
+P0029-1,29,Asspera: el documental,Rodrigo Santamaria,2021,Argentina,2023-04-02,2023,No,Migrada,CSV historico
+P0030-1,30,Elvis,Baz Luhrmann,2022,USA/Australia,2023-04-04,2023,No,Migrada,CSV historico
+P0031-1,31,The Girl with All the Gifts,Colm McCarthy,2016,UK,2023-04-14,2023,No,Migrada,CSV historico
+P0032-1,32,Creed III,Michael B. Jordan,2023,USA,2023-04-15,2023,No,Migrada,CSV historico
+P0033-2,33,Relatos salvajes,Damián Szifron,2014,Argentina,2023-04-20,2023,Si,Migrada,CSV historico
+P0034-1,34,Bullet train,David Leitch,2022,USA,2023-04-21,2023,No,Migrada,CSV historico
+P0035-1,35,La piel que habito,Pedro Almodovar,2011,España,2023-04-24,2023,No,Migrada,CSV historico
+P0036-1,36,The menu,Adam McKay,2022,USA,2023-04-25,2023,Si,Migrada,CSV historico
+P0037-1,37,Scream 6,Matt Bettinelli-Olpin Tyler Gillett,2023,USA,2023-04-27,2023,No,Migrada,CSV historico
+P0038-1,38,The bad batch,Ana Lily Amirpour,2016,USA,2023-04-28,2023,No,Migrada,CSV historico
+P0039-1,39,Enter the dragon,Robert Clouse,1973,Honk Kong,2023-04-29,2023,No,Migrada,CSV historico
+P0040-1,40,A good day to die hard,John Moore,2013,USA,2023-04-30,2023,No,Migrada,CSV historico
+P0041-1,41,Terrifier,Damien Leone,2016,USA,2023-05-04,2023,No,Migrada,CSV historico
+P0042-1,42,Terrifier 2,Damien Leone,2022,USA,2023-05-05,2023,No,Migrada,CSV historico
+P0043-1,43,Super Mario Bros the movie,Aaron Horvath,2023,USA/Japon,2023-05-10,2023,No,Migrada,CSV historico
+P0044-1,44,Air,Ben Affleck,2023,USA,2023-05-12,2023,No,Migrada,CSV historico
+P0045-1,45,Saw,James Wan,2004,USA,2023-05-13,2023,No,Migrada,CSV historico
+P0046-1,46,Sisu,Jalmari Helander,2022,USA/Finlandia,2023-05-20,2023,No,Migrada,CSV historico
+P0047-1,47,John wick 4,Chad Stahelski,2023,USA,2023-05-24,2023,No,Migrada,CSV historico
+P0048-1,48,Pearl,Ti West,2022,USA,2023-05-25,2023,Si,Migrada,CSV historico
+P0049-1,49,Alien,Ridley Scott,1979,USA/UK,2023-05-25,2023,No,Migrada,CSV historico
+P0050-1,50,Aliens,James Cameron,1986,USA,2023-05-26,2023,No,Migrada,CSV historico
+P0051-1,51,Alien 3,David Fincher,1992,USA,2023-05-27,2023,No,Migrada,CSV historico
+P0052-1,52,Alien resurrection,Jean-Pierre Jeunet,1997,USA,2023-05-30,2023,No,Migrada,CSV historico
+P0053-1,53,Prometheus,Ridley Scott,2012,USA,2023-05-31,2023,No,Migrada,CSV historico
+P0054-1,54,Alien covenant,Ridley Scott,2017,USA,2023-06-01,2023,No,Migrada,CSV historico
+P0055-1,55,Predator,John McTiernan,1987,USA,2023-06-02,2023,No,Migrada,CSV historico
+P0056-1,56,Predator 2,Stephen Hopkins,1997,USA,2023-06-03,2023,No,Migrada,CSV historico
+P0057-1,57,The other guys,Adam McKay,2010,USA,2023-07-13,2023,Si,Migrada,CSV historico
+P0058-1,58,La extorsión,Martino Zaidelis,2023,Argentina,2023-07-14,2023,No,Migrada,CSV historico
+P0059-1,59,Warrior,Gavin O'Connor,2011,USA,2023-07-15,2023,No,Migrada,CSV historico
+P0060-1,60,The nice guys,Shane Black,2016,USA,2023-07-21,2023,No,Migrada,CSV historico
+P0061-2,61,Get out,Jordan Peele,2017,USA,2023-07-29,2023,Si,Migrada,CSV historico
+P0062-1,62,Violent night,Tommy Wirkola,2022,USA,2023-07-30,2023,No,Migrada,CSV historico
+P0063-1,63,To catch a killer,Damian Szifron,2023,USA,2023-08-05,2023,No,Migrada,CSV historico
+P0064-1,64,Zom 100,Yusuke Ishida,2023,Japon,2023-08-06,2023,No,Migrada,CSV historico
+P0065-1,65,M3gan,Gerard Johnstone,2022,USA,2023-08-19,2023,No,Migrada,CSV historico
+P0066-1,66,Doble discurso,Hernán Guerschuny,2023,Argentina,2023-08-19,2023,No,Migrada,CSV historico
+P0067-1,67,Megalodon 2,Ben Wheatley,2023,USA,2023-08-20,2023,No,Migrada,CSV historico
+P0068-1,68,Ghostbusters: Afterlife,Jason Reitman,2021,USA,2023-08-20,2023,No,Migrada,CSV historico
+P0069-1,69,Hot shots 2,Jim Abrahams,1993,USA,2023-08-20,2023,No,Migrada,CSV historico
+P0070-1,70,Megalodon,Jon Turteltaub,2018,USA/China,2023-08-21,2023,No,Migrada,CSV historico
+P0071-1,71,Scouts guide to the zombie apocalypse,Christopher Landon,2015,USA,2023-08-25,2023,No,Migrada,CSV historico
+P0072-1,72,Planet horror,Robert Rodriguez,2007,USA,2023-09-01,2023,No,Migrada,CSV historico
+P0073-1,73,Dirty Harry,Don Siegel,1972,USA,2023-09-02,2023,No,Migrada,CSV historico
+P0074-1,74,Battle Royal,Kinji Fukasaku,2000,Japon,2023-09-04,2023,No,Migrada,CSV historico
+P0075-1,75,The artificial girl,Franklin Ritch,2022,USA,2023-09-07,2023,No,Migrada,CSV historico
+P0076-1,76,Mayhem,Joe Lynch,2017,USA,2024-09-08,2023,No,Migrada,CSV historico
+P0077-1,77,Blade runner,Ridley Scott,1982,USA,2024-09-09,2023,No,Migrada,CSV historico
+P0078-1,78,Matar a un ruiseñor,Robert Mulligan,1962,USA,2024-09-15,2023,No,Migrada,CSV historico
+P0079-1,79,Barbie,Greta Gerwig,2023,USA,2024-09-16,2023,No,Migrada,CSV historico
+P0080-1,80,El conde,Pablo Larraín,2023,Chile,2024-09-19,2023,No,Migrada,CSV historico
+P0081-1,81,Donnie Brasco,Mike Newell,1997,USA,2024-09-21,2023,No,Migrada,CSV historico
+P0082-1,82,Caballos Salvajes,Marcelo Piñeyro,1995,Argentina,2024-09-22,2023,No,Migrada,CSV historico
+P0083-1,83,Talk to me,Danny Philippou Michael Philippou,2022,USA,2024-09-23,2023,Si,Migrada,CSV historico
+P0084-1,84,On the line,Romuald Boulanger,2022,USA,2024-09-24,2023,No,Migrada,CSV historico
+P0085-2,85,Zoolander,Ben Stiller,2001,USA,2024-09-28,2023,Si,Migrada,CSV historico
+P0086-1,86,Nowhere,Albert Pintó,2023,España,2024-10-01,2023,No,Migrada,CSV historico
+P0087-1,87,Six string samurai,Lance Mungia,1998,USA,2024-10-21,2023,No,Migrada,CSV historico
+P0088-1,88,Layer cake,Matthew Vaughn,2004,UK,2024-10-29,2023,No,Migrada,CSV historico
+P0089-1,89,Killers of the flower moon,Martin Scorsese,2023,USA,2024-10-30,2023,No,Migrada,CSV historico
+P0090-1,90,Saw X,Kevin Greutert,2023,USA,2024-11-02,2023,No,Migrada,CSV historico
+P0091-1,91,Cuando acecha la maldad,Demian Rugna,2023,Argentina,2024-11-14,2023,Si,Migrada,CSV historico
+P0092-1,92,The killer,David Fincher,2023,USA,2024-11-19,2023,No,Migrada,CSV historico
+P0093-1,93,Sly,Thom Zimny,2023,USA,2024-11-23,2023,No,Migrada,CSV historico
+P0094-1,94,76 89 93,Flavio Nardini Cristian Bernard,2000,Argentina,2024-11-30,2023,No,Migrada,CSV historico
+P0095-1,95,Vengeance,B. J. Novak,2022,USA,2024-12-01,2023,No,Migrada,CSV historico
+P0096-1,96,The arrival,Denis Villeneuve,2016,USA,2024-12-02,2023,No,Migrada,CSV historico
+P0097-3,97,Get out,Jordan Peele,2017,USA,2024-12-03,2023,Si,Migrada,CSV historico
+P0098-1,98,1922.0,Zak Hilditch,2017,USA,2024-12-03,2023,No,Migrada,CSV historico
+P0099-1,99,The devil all the time,Antonio Campos,2020,USA,2024-12-09,2023,No,Migrada,CSV historico
+P0100-1,100,Face off,John Woo,1997,USA,2024-12-10,2023,No,Migrada,CSV historico
+P0101-1,101,Finde,Nano Garay Santalo,2021,Argentina,2024-12-17,2023,No,Migrada,CSV historico
+P0102-1,102,Mother!,Darren Aronofsky,2017,USA,2024-12-18,2023,Si,Migrada,CSV historico
+P0103-1,103,Deliverance,John Boorman,1972,USA,2024-12-30,2023,No,Migrada,CSV historico
+P0104-1,104,Hardcore,Paul Schrader,1979,USA,2024-12-31,2023,No,Migrada,CSV historico
+P0001-1,1,Beau is afraid,Ari Aster,2023,USA,2024-01-02,2024,No,Migrada,CSV historico
+P0002-1,2,The life of David Gale,Alan Parker,2003,USA,2024-01-05,2024,No,Migrada,CSV historico
+P0003-2,3,Death proof,Quentin Tarantino,2007,USA,2024-01-07,2024,Si,Migrada,CSV historico
+P0004-1,4,Manticora,Carlos Vermut,2022,España,2024-01-11,2024,No,Migrada,CSV historico
+P0005-1,5,La sociedad de la nieve,Juan Antonio Bayona,2023,España,2024-01-12,2024,No,Migrada,CSV historico
+P0006-1,6,Oppenheimer,Christopher Nolan,2023,USA,2024-01-13,2024,No,Migrada,CSV historico
+P0007-1,7,El niño y la garza,Hayao Miyazaki,2023,Japon,2024-01-16,2024,No,Migrada,CSV historico
+P0008-2,8,Mi vecino Totoro,Hayao Miyazaki,1988,Japon,2024-01-18,2024,Si,Migrada,CSV historico
+P0009-1,9,Triangle of sadness,Ruben Östlund,2022,UK/USA,2024-01-19,2024,No,Migrada,CSV historico
+P0010-1,10,Crimson peak,Guillermo del Toro,2015,USA,2024-01-22,2024,No,Migrada,CSV historico
+P0011-1,11,Lift,F. Gary Gray,2024,USA,2024-01-23,2024,No,Migrada,CSV historico
+P0012-1,12,The Truman show,Peter Weir,1998,USA,2024-01-24,2024,No,Migrada,CSV historico
+P0013-3,13,Parasite,Bong Joon-ho,2019,Corea del Suer,2024-01-26,2024,Si,Migrada,CSV historico
+P0014-1,14,Los delincuentes,Rodrigo Moreno,2023,Argentina,2024-01-28,2024,No,Migrada,CSV historico
+P0015-1,15,The sadness,Rob Jabbaz,2021,Taiwan,2024-01-29,2024,No,Migrada,CSV historico
+P0016-1,16,Poor things,Yorgos Lanthimos,2023,USA/UK/Ireland,2024-01-30,2024,Si,Migrada,CSV historico
+P0017-2,17,The lobster,Yorgos Lanthimos,2015,Greece/UK/Ireland/France,2024-02-05,2024,Si,Migrada,CSV historico
+P0018-1,18,Reality,Tina Satter,2023,USA,2024-02-06,2024,No,Migrada,CSV historico
+P0019-1,19,Bad times at The El Royale,Drew Goddard,2018,USA,2024-02-07,2024,No,Migrada,CSV historico
+P0020-1,20,Where The dévil roams,John AdamsZelda AdamsToby Poser,2023,USA,2024-02-08,2024,No,Migrada,CSV historico
+P0021-1,21,How to blow Up a pipeline,Daniel Goldhaber,2023,USA,2024-02-09,2024,No,Migrada,CSV historico
+P0022-1,22,The holdovers,Alexander Payne,2023,USA,2024-02-10,2024,No,Migrada,CSV historico
+P0023-1,23,Máster gardener,Paul Schrader,2022,USA,2024-02-11,2024,No,Migrada,CSV historico
+P0024-2,24,Mother!,Darren Aronofsky,2017,USA,2024-02-12,2024,Si,Migrada,CSV historico
+P0025-1,25,Soft and quiet,Beth de Araujo,2022,USA,2024-02-13,2024,Si,Migrada,CSV historico
+P0026-1,26,Perfume: The history of a murderer,Tom Tykwer,2006,USA,2024-02-14,2024,No,Migrada,CSV historico
+P0027-1,27,No abras nunca esa puerta,Carlos Hugo Christensen,1952,Argentina,2024-02-20,2024,No,Migrada,CSV historico
+P0028-2,28,Druk,Thomas Vinterberg,2020,Denmark,2024-02-24,2024,Si,Migrada,CSV historico
+P0029-1,29,The card counter,Paul Schrader,2021,USA,2024-02-28,2024,No,Migrada,CSV historico
+P0030-1,30,Greenland,Ric Roman Waugh,2020,USA,2024-03-09,2024,No,Migrada,CSV historico
+P0031-1,31,Anatomy of a fall,Justine Triet,2023,France,2024-03-14,2024,No,Migrada,CSV historico
+P0032-2,32,La H,Nicanor Loreti,2011,Argentina,2024-03-17,2024,Si,Migrada,CSV historico
+P0033-1,33,The Sorcerer,William Friedkin,1977,USA,2024-03-19,2024,No,Migrada,CSV historico
+P0034-1,34,The Big night of pop,Bao Nguyen,2024,USA,2024-03-31,2024,No,Migrada,CSV historico
+P0035-1,35,Exterminators 4,Carlos Galettini,1992,Argentina,2024-04-05,2024,No,Migrada,CSV historico
+P0036-1,36,Sick of myself,Kristoffer Borgli,2022,Noruega,2024-04-13,2024,No,Migrada,CSV historico
+P0037-2,37,X,Ti West,2022,USA,2024-04-14,2024,Si,Migrada,CSV historico
+P0038-1,38,Death Wish,Michael Winner,1974,USA,2024-04-17,2024,No,Migrada,CSV historico
+P0039-2,39,Pearl,Ti West,2022,USA,2024-04-27,2024,Si,Migrada,CSV historico
+P0040-3,40,Kill Bill,Quentin Tarantino,2003,USA,2024-04-28,2024,Si,Migrada,CSV historico
+P0041-1,41,Kill Bill 2,Quentin Tarantino,2004,USA,2024-05-01,2024,No,Migrada,CSV historico
+P0042-3,42,Once upon a time in Hollywood,Quentin Tarantino,2019,USA,2024-05-03,2024,Si,Migrada,CSV historico
+P0043-1,43,Me case con un boludo,Juan Taratuto,2017,Argentina,2024-05-11,2024,No,Migrada,CSV historico
+P0044-1,44,The connection,Shirley Clarke,1961,USA,2024-05-13,2024,No,Migrada,CSV historico
+P0045-1,45,Nekromantic,Jörg Buttgereit,1987,Alemania,2024-05-16,2024,No,Migrada,CSV historico
+P0046-1,46,Dos mas dos,Diego Kaplan,2012,Argentina,2024-05-17,2024,No,Migrada,CSV historico
+P0047-1,47,I love u man,John Hamburg,2009,USA,2024-05-18,2024,No,Migrada,CSV historico
+P0048-2,48,Forgetting Sarah Marshall,Nicholas Stoller,2008,USA,2024-05-24,2024,Si,Migrada,CSV historico
+P0049-1,49,Idiocracy,Mike Judge,2006,USA,2024-05-25,2024,No,Migrada,CSV historico
+P0050-1,50,La princesa Mononoque,Hayao Miyazaki,1997,Japon,2024-05-26,2024,No,Migrada,CSV historico
+P0051-1,51,Fuck You,Jose Luis Garcia,2024,Argentina,2024-06-01,2024,No,Migrada,CSV historico
+P0052-1,52,No sabes con quién estás hablando,Demián Rugna,2016,Argentina,2024-06-05,2024,No,Migrada,CSV historico
+P0053-1,53,The pick of destiny,Liam Lynch,2006,USA,2024-06-07,2024,No,Migrada,CSV historico
+P0054-1,54,Victor Frankestein,Paul McGuigan,2015,USA,2024-06-08,2024,No,Migrada,CSV historico
+P0055-1,55,Up,Pete Docter,2009,USA,2024-06-09,2024,No,Migrada,CSV historico
+P0056-1,56,Godzilla minus one,Takashi Yamazaki,2023,Japon,2024-06-13,2024,No,Migrada,CSV historico
+P0057-1,57,School of Rock,Richard Linklater,2004,USA,2024-06-14,2024,No,Migrada,CSV historico
+P0058-2,58,Four brothers,John Singleton,2005,USA,2024-06-16,2024,Si,Migrada,CSV historico
+P0059-2,59,The Menu,Mark Mylod,2022,USA,2024-06-18,2024,Si,Migrada,CSV historico
+P0060-1,60,The emperors new groove,Mark Dindal,2000,USA,2024-06-19,2024,No,Migrada,CSV historico
+P0061-1,61,Air force one,Wolfgang Petersen,1997,USA,2024-06-20,2024,No,Migrada,CSV historico
+P0062-1,62,Tropic thunder,Ben Stiller,2008,USA,2024-06-21,2024,No,Migrada,CSV historico
+P0063-1,63,Cruella,Craig Gillespie,2021,USA,2024-06-22,2024,No,Migrada,CSV historico
+P0064-1,64,Sid and Nancy,Alex Cox,1986,USA,2024-06-23,2024,No,Migrada,CSV historico
+P0065-1,65,Inside Out,Pete Docter,2015,USA,2024-06-23,2024,No,Migrada,CSV historico
+P0066-1,66,La ira de Dios,Sebastián Schindel,2022,Argentina,2024-06-23,2024,No,Migrada,CSV historico
+P0067-1,67,Kapanga Todoterreno,"Paulo Soria, Pablo Parés",2009,Argentina,2024-06-24,2024,No,Migrada,CSV historico
+P0068-1,68,Road house,Doug Liman,2024,USA,2024-06-26,2024,No,Migrada,CSV historico
+P0069-1,69,"Federer, twelve final days","Asif Kapadia, Joe Sabia",2024,UK,2024-06-27,2024,No,Migrada,CSV historico
+P0070-1,70,Beekeeper,David Ayer,2024,USA,2024-06-27,2024,No,Migrada,CSV historico
+P0071-1,71,American psycho,Mary Harron,2000,USA,2024-06-28,2024,No,Migrada,CSV historico
+P0072-1,72,The birdcage,Mike Nichols,1996,USA,2024-06-30,2024,No,Migrada,CSV historico
+P0073-2,73,Cuando acecha la maldad,Demián Rugna,2023,Argentina,2024-06-30,2024,Si,Migrada,CSV historico
+P0074-1,74,Velocipastor,Brendan Steere,2018,USA,2024-07-02,2024,No,Migrada,CSV historico
+P0075-1,75,21 jump street,"Phil Lord, Christopher Miller",2012,USA,2024-07-03,2024,Si,Migrada,CSV historico
+P0076-2,76,22 jump street,"Phil Lord, Christopher Miller",2014,USA,2024-07-05,2024,Si,Migrada,CSV historico
+P0077-1,77,Who framed Roger Rabbit,Robert Zemeckis,1988,USA,2024-07-06,2024,No,Migrada,CSV historico
+P0078-1,78,Booksmarts,Olivia Wilde,2019,USA,2024-07-10,2024,No,Migrada,CSV historico
+P0079-1,79,El crazy Che,"Pablo Chehebar, Nicolás Iacouzzi",2015,Argentina,2024-07-10,2024,No,Migrada,CSV historico
+P0080-2,80,Aterrados,Demián Rugna,2018,Argentina,2024-07-11,2024,Si,Migrada,CSV historico
+P0081-3,81,Reservoir dogs,Quentin Tarantino,1992,USA,2024-07-12,2024,Si,Migrada,CSV historico
+P0082-1,82,Sausage party,"Conrad Vernon, Greg Tiernan",2016,USA,2024-07-13,2024,No,Migrada,CSV historico
+P0083-1,83,Wreck it Ralph,Rich Moore,2012,USA,2024-07-16,2024,No,Migrada,CSV historico
+P0084-1,84,The zone of interest,Jonathan Glazer,2023,USA/UK/Poland,2024-07-21,2024,No,Migrada,CSV historico
+P0085-1,85,Faster pussycat! Kill! Kill!,Russ Meyer,1965,USA,2024-07-22,2024,No,Migrada,CSV historico
+P0086-1,86,Shoot em up,Michael Davis,2007,USA,2024-07-25,2024,No,Migrada,CSV historico
+P0087-1,87,Blow out,Brian De Palma,1981,USA,2024-07-27,2024,No,Migrada,CSV historico
+P0088-1,88,Deadpool,Tim Miller,2016,USA,2024-07-28,2024,No,Migrada,CSV historico
+P0089-1,89,Deadpool 2,David Leitch,2018,USA,2024-07-29,2024,No,Migrada,CSV historico
+P0090-1,90,Tarzán,"Chris Buck, Kevin Lima",1999,USA,2024-07-28,2024,No,Migrada,CSV historico
+P0091-1,91,La sociedad de la nieve (doc),Gonzalo Arijón,2008,Uruguay,2024-08-04,2024,No,Migrada,CSV historico
+P0092-1,92,Maxxine,Ti West,2024,USA,2024-08-05,2024,No,Migrada,CSV historico
+P0093-1,93,The Exam,Stuart Hazeldine,2009,UK,2024-08-06,2024,No,Migrada,CSV historico
+P0094-1,94,American fiction,Cord Jefferson,2023,USA,2024-08-07,2024,No,Migrada,CSV historico
+P0095-2,95,Shrek,"Andrew Adamson,Vicky Jenson",2001,USA,2024-08-12,2024,Si,Migrada,CSV historico
+P0096-1,96,Deadpool and Wolverine,Shawn Levy,2024,USA,2024-08-13,2024,No,Migrada,CSV historico
+P0097-2,97,Death at The funeral,Frank Oz,2007,UK/USA,2024-08-18,2024,Si,Migrada,CSV historico
+P0098-1,98,Easy Rider,Dennis Hopper,1969,USA,2024-08-19,2024,No,Migrada,CSV historico
+P0099-1,99,Inside out 2,Kelsey Mann,2024,USA,2024-08-22,2024,No,Migrada,CSV historico
+P0100-1,100,Kind of kindness,Yorgos Lanthimos,2024,USA/Ireland/UK,2024-08-27,2024,No,Migrada,CSV historico
+P0101-1,101,The fighter,David O. Russell,2010,USA,2024-08-29,2024,No,Migrada,CSV historico
+P0102-1,102,Ratatouille,Brad Bird,2007,USA/ France,2024-08-30,2024,No,Migrada,CSV historico
+P0103-1,103,Edward Scissorhands,Tim Burton,1990,USA,2024-08-31,2024,No,Migrada,CSV historico
+P0104-1,104,Bonnie and Clyde,Arthur Penn,1967,USA,2024-09-03,2024,No,Migrada,CSV historico
+P0105-1,105,Hit man,Richard Linklater,2023,USA,2024-09-22,2024,No,Migrada,CSV historico
+P0106-2,106,Finders keepers,Bryan Carberry and Clay Tweel.,2015,USA,2024-09-24,2024,Si,Migrada,CSV historico
+P0107-1,107,Love and Death,Woody Allen,1975,USA,2024-09-30,2024,No,Migrada,CSV historico
+P0108-1,108,El Jockey,Luis Ortega,2024,Argentina,2024-10-01,2024,No,Migrada,CSV historico
+P0109-2,109,American Graffiti,George Lucas,1973,USA,2024-10-03,2024,Si,Migrada,CSV historico
+P0110-2,110,House of 1000 corpses,Rob Zombie,2003,USA,2024-10-08,2024,Si,Migrada,CSV historico
+P0111-1,111,Cruising,William Friedkin,1980,USA,2025-10-18,2024,No,Migrada,CSV historico
+P0112-1,112,Longlegs,Osgood Perkins,2024,USA,2025-10-19,2024,No,Migrada,CSV historico
+P0113-1,113,The boys from Brasil,Franklin J. Schaffner,1978,UK/USA,2025-10-25,2024,No,Migrada,CSV historico
+P0114-1,114,Radio Olmos,Gustavo Mosquera R.,2019,Argentina,2025-10-30,2024,Si,Migrada,CSV historico
+P0115-1,115,The substance,Coralie Fargeat,2024,USA/Francia/UK,2025-11-03,2024,No,Migrada,CSV historico
+P0116-1,116,The room next door,Pedro Almodóvar,2024,España,2025-11-06,2024,No,Migrada,CSV historico
+P0117-1,117,Las guachas,RicardoPérez Roulet,1993,Argentina,2025-11-30,2024,No,Migrada,CSV historico
+P0118-3,118,The Godfather,Francis Ford Coppola,1972,USA,2025-12-08,2024,Si,Migrada,CSV historico
+P0119-1,119,Hidden figures,Theodore Melfi,2017,USA,2025-12-13,2024,No,Migrada,CSV historico
+P0120-2,120,Django Unchained,Quentin Tarantino,2012,USA,2025-12-14,2024,Si,Migrada,CSV historico
+P0121-1,121,The other woman,Nick Cassavetes,2014,USA,2025-12-15,2024,No,Migrada,CSV historico
+P0122-1,122,Ferrari,Michael Mann,2023,USA,2025-12-17,2024,No,Migrada,CSV historico
+P0123-1,123,Muchachos,Jesús Braceras,2023,Argentina,2025-12-19,2024,No,Migrada,CSV historico
+P0124-1,124,The nightmare before Christmas,Henry Selick,1993,USA,2025-12-24,2024,No,Migrada,CSV historico
+P0125-1,125,Soul,Pete Docter,2020,USA,2025-12-24,2024,No,Migrada,CSV historico
+P0126-1,126,Spy,Paul Feig,2015,USA,2025-12-25,2024,No,Migrada,CSV historico
+P0001-1,1,Madame claude,Sylvie Verheyde,2021,Francia,2026-01-12,2025,No,Migrada,CSV historico
+P0002-1,2,Water for elephants,Francis Lawrence,2011,USA,2026-01-15,2025,No,Migrada,CSV historico
+P0003-1,3,The book thief,Brian Percival,2013,USA/Alemania,2026-01-16,2025,No,Migrada,CSV historico
+P0004-1,4,The switch,Will Speck y Josh Gordon,2010,USA,2026-01-17,2025,No,Migrada,CSV historico
+P0005-1,5,"Good luck to you, Leo Grande",Sophie Hyde,2022,UK,2026-01-18,2025,No,Migrada,CSV historico
+P0006-1,6,Puan,"María Alché ,Benjamín Naishtat",2023,Argentina,2026-01-19,2025,No,Migrada,CSV historico
+P0007-3,7,Palm Springs,Max Barbakow,2020,USA,2026-01-19,2025,Si,Migrada,CSV historico
+P0008-1,8,Los domingos mueren más personas,Iair Said,2023,Argentina,2026-01-30,2025,No,Migrada,CSV historico
+P0009-1,9,"Kiki, el amor se hace",Paco León,2016,España,2026-01-31,2025,No,Migrada,CSV historico
+P0010-1,10,The Help,Tate Taylor,2011,USA,2026-02-01,2025,No,Migrada,CSV historico
+P0011-1,11,Juror N 2,Clint Eastwood,2024,USA,2026-02-03,2025,No,Migrada,CSV historico
+P0012-1,12,The equalizer 3,Antoine Fuqua,2023,USA,2026-02-03,2025,No,Migrada,CSV historico
+P0013-1,13,Elijo creer,Gonzalo Arias y Martín Méndez,2023,Argentina,2026-02-04,2025,No,Migrada,CSV historico
+P0014-2,14,Radio olmos,Gustavo Mosquer,2019,Argentina,2026-02-07,2025,Si,Migrada,CSV historico
+P0015-1,15,This is The Tom Green documentary,Tom Green,2025,Canada,2026-02-10,2025,No,Migrada,CSV historico
+P0016-1,16,Alls hallows eve,Damien Leone,2013,USA,2026-02-14,2025,No,Migrada,CSV historico
+P0017-1,17,Eastern promises,David Cronenberg,2007,Canada/UK,2026-02-20,2025,No,Migrada,CSV historico
+P0018-1,18,The trap,M. Night Shyamalan,2024,USA,2026-02-25,2025,No,Migrada,CSV historico
+P0019-1,19,Bowling for columbine,Michael Moore,2002,USA,2026-03-11,2025,No,Migrada,CSV historico
+P0020-1,20,Mickey 17,Bong Joon-ho,2025,USA/Korea del sur,2026-03-14,2025,No,Migrada,CSV historico
+P0021-1,21,El hombre que amaba los platos voladores,Diego Lerman,2024,Argentina,2026-03-16,2025,No,Migrada,CSV historico
+P0022-1,22,Anchorman: The legend of Ron Burgundy,Adam McKay,2004,USA,2026-03-17,2025,No,Migrada,CSV historico
+P0023-2,23,Shrek 2,"Andrew Adamson,Kelly Asbury,Conrad Vernon",2004,USA,2026-03-22,2025,Si,Migrada,CSV historico
+P0024-1,24,The Subtle Art of Not Giving a F*ck,Nathan Price,2023,USA,2026-03-23,2025,No,Migrada,CSV historico
+P0025-1,25,Músic by John Williams,Laurent Bouzereau,2024,USA,2026-03-29,2025,No,Migrada,CSV historico
+P0026-1,26,Civil war,Alex Garland,2024,USA/UK,2026-03-30,2025,No,Migrada,CSV historico
+P0027-1,27,Snatch,Guy Ritchie,2000,UK,2026-03-30,2025,No,Migrada,CSV historico
+P0028-1,28,Thelma,Josh Margolin,2024,USA,2026-04-25,2025,No,Migrada,CSV historico
+P0029-1,29,Life of the party,Ben Falcone,2018,USA,2026-05-02,2025,No,Migrada,CSV historico
+P0030-1,30,Nonnas,Stephen Chbosky,2025,USA,2026-05-11,2025,No,Migrada,CSV historico
+P0031-1,31,Am i ok?,"Tig Notaro, Stephanie Allynne",2024,USA,2026-05-17,2025,No,Migrada,CSV historico
+P0032-1,32,Una muerte silenciosa,Sebastián Schindel,2025,Argentina,2026-05-25,2025,No,Migrada,CSV historico
+P0033-2,33,Lion,Garth Davis,2016,USA/UK/Australia,2026-05-25,2025,Si,Migrada,CSV historico
+P0034-1,34,Historias para no contar,Cesc Gay,2022,España,2026-05-25,2025,No,Migrada,CSV historico
+P0035-1,35,The assessment,Flor afortunada,2022,USA/UK/Alemania,2026-05-25,2025,No,Migrada,CSV historico
+P0036-1,36,Final destination,James Wong,2000,USA/Canada,2026-05-31,2025,No,Migrada,CSV historico
+P0037-1,37,Emilia Pérez,Jacques Audiard,2024,Francia,2026-06-01,2025,No,Migrada,CSV historico
+P0038-1,38,Oceans 8,Gary Ross,2018,USA,2026-06-01,2025,No,Migrada,CSV historico
+P0039-2,39,Final destination 2,David R. Ellis,2003,USA,2026-06-01,2025,Si,Migrada,CSV historico
+P0040-1,40,Malvineitor,Pablo Marini,2017,Argentina,2026-06-01,2025,Si,Migrada,CSV historico
+P0041-1,41,Final destination 3,James Wong,2006,USA,2026-06-02,2025,No,Migrada,CSV historico
+P0042-1,42,Final destination 4,David R. Ellis,2009,USA,2026-06-06,2025,No,Migrada,CSV historico
+P0043-1,43,Capote,Bennett Miller,2005,USA/Canada,2026-06-07,2025,No,Migrada,CSV historico
+P0044-1,44,Better man,Michael Gracey,2024,UK,2026-06-07,2025,No,Migrada,CSV historico
+P0045-1,45,Final destination 5,Steven Quale,2011,USA,2026-06-07,2025,No,Migrada,CSV historico
+P0046-1,46,The Alto Knights,Barry Levinson,2025,USA,2026-06-08,2025,No,Migrada,CSV historico
+P0047-1,47,Plata dulce,Fernando Ayala,1982,Argentina,2026-06-08,2025,No,Migrada,CSV historico
+P0048-1,48,Carrie,Brian De Palma,1983,USA,2026-06-08,2025,Si,Migrada,CSV historico
+P0049-1,49,Marley and me,David Frankel,2009,USA,2026-06-08,2025,No,Migrada,CSV historico
+P0050-1,50,Final destination bloodlines,"Zach Lipovsky, Adam B. Stein",2025,USA,2026-06-14,2025,No,Migrada,CSV historico
+P0051-1,51,Priscilla,Sofia Coppola,2023,USA,2026-06-14,2025,No,Migrada,CSV historico
+P0052-1,52,Copland,James Mangold,1997,USA,2026-06-15,2025,No,Migrada,CSV historico
+P0053-1,53,Policía corrupto,Carlos Galettini,1996,Argentina,2026-06-19,2025,No,Migrada,CSV historico
+P0054-1,54,MIB,Barry Sonnenfeld,1997,USA,2026-06-22,2025,No,Migrada,CSV historico
+P0055-1,55,The baby,Ted Post,1973,USA,2026-06-28,2025,No,Migrada,CSV historico
+P0056-1,56,Abigail,"Matt Bettinelli-Olpin,Tyler Gillett",2024,USA,2026-06-29,2025,No,Migrada,CSV historico
+P0057-1,57,MIB 2,Barry Sonnenfeld,2002,USA,2026-06-29,2025,No,Migrada,CSV historico
+P0058-1,58,1978.0,"Luciano Onetti, Nicolás Onetti",2024,Argentina,2026-07-01,2025,No,Migrada,CSV historico
+P0059-1,59,Heads of state,Ilya Naishuller,2025,USA,2026-07-03,2025,No,Migrada,CSV historico
+P0060-2,60,Poor things,Yorgos Lanthimos,2023,USA/UK/Irlanda,2026-07-04,2025,Si,Migrada,CSV historico
+P0061-1,61,Silvia Prieto,Martín Rejtman,1999,Argentina,2026-07-08,2025,No,Migrada,CSV historico
+P0062-1,62,Get him to they greek,Nicholas Stoller,2010,USA,2026-07-09,2025,No,Migrada,CSV historico
+P0063-3,63,Zoolander,Ben Stiller,2002,USA,2026-07-17,2025,Si,Migrada,CSV historico
+P0064-1,64,Austin Powers,Jay Roach,1997,USA,2026-07-19,2025,No,Migrada,CSV historico
+P0065-1,65,MIB 3,Barry Sonnenfeld,2012,USA,2026-07-20,2025,No,Migrada,CSV historico
+P0066-1,66,Cónclave,Edward Berger,2024,USA/UK,2026-07-20,2025,No,Migrada,CSV historico
+P0067-1,67,Brick,Philip Koch,2025,USA,2026-07-26,2025,No,Migrada,CSV historico
+P0068-1,68,Joy,Ben Taylor,2024,USA/UK,2026-07-27,2025,No,Migrada,CSV historico
+P0069-1,69,Split,M. Night Shyamalan,2016,USA,2026-07-27,2025,No,Migrada,CSV historico
+P0070-1,70,What men want,Adam Shankman,2019,USA,2026-07-27,2025,No,Migrada,CSV historico
+P0071-1,71,Little Nicky,Steven Brill,2000,USA,2026-08-02,2025,No,Migrada,CSV historico
+P0072-1,72,The sitter,David Gordon Green,2011,USA,2026-08-03,2025,No,Migrada,CSV historico
+P0073-1,73,Ace Ventura,Tom Shadyac,1994,USA,2026-08-03,2025,No,Migrada,CSV historico
+P0074-2,74,Licorice Pizza,Paul Thomas Anderson,2021,USA,2026-08-03,2025,Si,Migrada,CSV historico
+P0075-1,75,Anora,Sean Baker,2024,USA,2026-08-04,2025,No,Migrada,CSV historico
+P0076-1,76,Searching for sugar man,Malik Bendjelloul,2012,UK/Suecia,2026-08-05,2025,No,Migrada,CSV historico
+P0077-2,77,28 days later,Danny Boyle,2002,UK,2026-08-07,2025,Si,Migrada,CSV historico
+P0078-1,78,Blind Fury,Phillip Noyce,1989,USA,2026-08-08,2025,No,Migrada,CSV historico
+P0079-1,79,Sinners,Ryan Coogler,2025,USA,2026-08-08,2025,No,Migrada,CSV historico
+P0080-1,80,28 week later,Juan Carlos Fresnadillo,2006,UK,2026-08-09,2025,No,Migrada,CSV historico
+P0081-1,81,28 years later,Danny Boyle,2025,UK,2026-08-09,2025,No,Migrada,CSV historico
+P0082-2,82,Cocaine bear,Elizabeth Banks,2023,USA,2026-08-14,2025,Si,Migrada,CSV historico
+P0083-1,83,Dog days afternoon,Sidney Lumet,1975,USA,2026-08-15,2025,No,Migrada,CSV historico
+P0084-1,84,Dogman,Luc Besson,2023,Francia,2026-08-16,2025,No,Migrada,CSV historico
+P0085-1,85,Nosferatu,Robert Eggers,2024,USA/Rep Checa,2026-08-22,2025,No,Migrada,CSV historico
+P0086-1,86,My Best friend wedding,P. J. Hogan,1997,USA,2026-08-23,2025,No,Migrada,CSV historico
+P0087-2,87,Malvineitor,Pablo Marini,2017,Argentina,2026-08-23,2025,Si,Migrada,CSV historico
+P0088-1,88,Miss congeniality,Donald Petrie,2000,USA,2026-08-24,2025,No,Migrada,CSV historico
+P0089-3,89,Nobody,Ilya Naishuller,2021,USA,2026-08-25,2025,Si,Migrada,CSV historico
+P0090-1,90,Crazy stupid love,"Glenn Ficarra, John Requa",2011,USA,2026-08-26,2025,No,Migrada,CSV historico
+P0091-1,91,Bob Marley: one love,Reinaldo Marcus Green,2024,USA/Jamaica,2026-08-29,2025,No,Migrada,CSV historico
+P0092-2,92,Black Swan,Darren Aronofsky,2011,USA,2026-09-02,2025,Si,Migrada,CSV historico
+P0093-1,93,Monkey Man,Dev Patel,2011,USA/Canada/India,2026-09-04,2025,No,Migrada,CSV historico
+P0094-1,94,Raw,Julia Ducournau,2016,Francia,2026-09-05,2025,No,Migrada,CSV historico
+P0095-2,95,The lighthouse,Robert Eggers,2019,USA/Canada,2026-09-06,2025,Si,Migrada,CSV historico
+P0096-1,96,The monkey,Oz Perkins,2025,USA,2026-09-07,2025,No,Migrada,CSV historico
+P0097-1,97,Los gatos,Carlos Borcosque,1986,Argentina,2026-09-08,2025,No,Migrada,CSV historico
+P0098-1,98,Problem child,Dennis Dugan,1990,USA,2026-09-09,2025,No,Migrada,CSV historico
+P0099-2,99,12 angry men,Sidney Lumet,1957,USA,2026-09-12,2025,Si,Migrada,CSV historico
+P0100-3,100,Us,Jordan Peele,2019,USA,2026-09-12,2025,Si,Migrada,CSV historico
+P0101-1,101,Mágic in the moonlight,Woody Allen,2014,USA,2026-09-13,2025,No,Migrada,CSV historico
+P0102-1,102,Weapons,Zach Cregger,2025,USA,2026-09-14,2025,No,Migrada,CSV historico
+P0103-1,103,Rashomon,Akira Kurosawa,1950,Japon,2026-09-16,2025,No,Migrada,CSV historico
+P0104-1,104,Before the Devil Knows You're Dead,Sidney Lumet,2007,USA,2026-09-18,2025,No,Migrada,CSV historico
+P0105-2,105,Barbarian,Zach Cregger,2022,USA,2026-09-19,2025,Si,Migrada,CSV historico
+P0106-1,106,Gatillero,Cristian Tapia Marchiori,2025,Argentina,2026-09-20,2025,No,Migrada,CSV historico
+P0107-1,107,Belen,Dolores Fonzi,2025,Argentina,2026-09-20,2025,No,Migrada,CSV historico
+P0108-1,108,Avatar,James Cameron,2009,USA,2026-09-20,2025,No,Migrada,CSV historico
+P0109-1,109,Kung fu panda,"Mark Osborne,John Wayne Stevenson",2008,USA,2026-09-21,2025,No,Migrada,CSV historico
+P0110-1,110,Colossal,Nacho Vigalondo,2016,Canada/España,2026-09-27,2025,No,Migrada,CSV historico
+P0111-2,111,Coco,"Lee Unkrich,Adrián Molina",2017,USA,2026-09-27,2025,Si,Migrada,CSV historico
+P0112-1,112,Humane,Caitlin Cronenberg,2024,Canada/Belgica,2026-09-27,2025,No,Migrada,CSV historico
+P0113-1,113,Blondi,Dolores Fonzi,2023,Argentina,2026-09-28,2025,No,Migrada,CSV historico
+P0114-1,114,Jurasic Park,Steven Spielberg,1993,USA,2026-09-29,2025,No,Migrada,CSV historico
+P0115-1,115,One battle after a other,Paul Thomas Anderson,2025,USA,2026-10-03,2025,No,Migrada,CSV historico
+P0116-1,116,Great balls of fire,Jim McBride,1989,USA,2026-10-04,2025,No,Migrada,CSV historico
+P0117-1,117,Modern Romance,Albert Brooks,1981,USA,2026-10-05,2025,No,Migrada,CSV historico
+P0118-1,118,Christine,Antonio Campos,2016,USA,2026-10-06,2025,Si,Migrada,CSV historico
+P0119-1,119,Devo,Chris Smith,2024,USA/UK,2026-10-09,2025,No,Migrada,CSV historico
+P0120-1,120,Wicked,Jon M. Chu,2024,USA/UK,2026-10-10,2025,No,Migrada,CSV historico
+P0121-1,121,Scott Pilgrim,Edgar Wright,2010,USA,2026-10-11,2025,No,Migrada,CSV historico
+P0122-3,122,The last boy scout,Tony Scott,1991,USA,2026-10-12,2025,Si,Migrada,CSV historico
+P0123-1,123,Last action hero,John McTiernan,1993,USA,2026-10-14,2025,No,Migrada,CSV historico
+P0124-1,124,Bedazzled,Harold Ramis,2000,USA,2026-10-17,2025,No,Migrada,CSV historico
+P0125-1,125,Borat,Larry Charles,2006,USA,2026-10-17,2025,No,Migrada,CSV historico
+P0126-1,126,Liar liar,Tom Shadyac,1997,USA,2026-10-18,2025,No,Migrada,CSV historico
+P0127-1,127,Tango y cash,"Andréi Konchalovski, Albert Magnoli",1989,USA,2026-10-19,2025,No,Migrada,CSV historico
+P0128-1,128,The long walk,Francis Lawrence,2025,USA,2026-10-25,2025,No,Migrada,CSV historico
+P0129-1,129,Elephant,Gus Van Sant,2003,USA,2026-10-25,2025,No,Migrada,CSV historico
+P0130-1,130,The abominable Dr Phibes,Robert Fuest,1971,UK,2026-10-27,2025,No,Migrada,CSV historico
+P0131-1,131,The perfect neighbor,Geeta Gandbhir,2025,USA,2026-10-30,2025,No,Migrada,CSV historico
+P0132-2,132,Demolition Man,Marco Brambilla,1993,USA,2026-10-31,2025,Si,Migrada,CSV historico
+P0133-1,133,Terrifier 3,Damien Leone,2024,USA,2026-11-01,2025,No,Migrada,CSV historico
+P0134-3,134,Relatos salvajes,Damián Szifron,2014,Argentina,2026-11-02,2025,Si,Migrada,CSV historico
+P0135-1,135,Falling down,Joel Schumacher,1993,USA,2026-11-06,2025,No,Migrada,CSV historico
+P0136-1,136,The ugly stepsister,Emilie Blichfeldt,2025,Noruega/Polonia/Suecia/Dinamarca,2026-11-07,2025,No,Migrada,CSV historico
+P0137-2,137,Un oso rojo,Adrián Caetano,2002,Argentina,2026-11-08,2025,Si,Migrada,CSV historico
+P0138-1,138,Trouble every day,Claire Denis,2001,Francia,2026-11-11,2025,No,Migrada,CSV historico
+P0139-1,139,This Is spinal tap,Rob Reiner,1984,USA,2026-11-12,2025,No,Migrada,CSV historico
+P0140-1,140,The girl with de needle,Magnus von Horn,2024,Dinamarca,2026-11-14,2025,No,Migrada,CSV historico
+P0141-1,141,The big wedding,Justin Zackham,2013,USA,2026-11-15,2025,No,Migrada,CSV historico
+P0142-1,142,Spinal tap II The end continúes,Rob Reiner,2025,USA,2026-11-16,2025,No,Migrada,CSV historico
+P0143-1,143,Corazón de león,Marcos Carnevale,2013,Argentina,2026-11-16,2025,No,Migrada,CSV historico
+P0144-1,144,Supersize me,Morgan Spurlock,2004,USA,2026-11-17,2025,No,Migrada,CSV historico
+P0145-1,145,Nobody 2,Timo Tjahjanto,2025,USA,2026-11-20,2025,No,Migrada,CSV historico
+P0146-1,146,27 noches,Daniel Hendler,2025,Argentina,2026-11-21,2025,No,Migrada,CSV historico
+P0147-1,147,A man called Otto,Marc Forster,2023,USA,2026-11-22,2025,No,Migrada,CSV historico
+P0148-1,148,El secreto de sus ojos,Juan José Campanella,2009,Argentina,2026-11-23,2025,No,Migrada,CSV historico
+P0149-1,149,Muertos de risa,Álex de la Iglesia,1999,España,2026-11-27,2025,No,Migrada,CSV historico
+P0150-1,150,Tóxic avenger,"Lloyd Kaufman, Michael Herz",1984,USA,2026-11-28,2025,No,Migrada,CSV historico
+P0151-1,151,Children of men,Alfonso Cuarón,2006,USA,2026-11-29,2025,No,Migrada,CSV historico
+P0152-1,152,Dog eat dog,Paul Schrader,2016,USA,2026-11-30,2025,No,Migrada,CSV historico
+P0153-1,153,Richie Rich,Donald Petrie,1994,USA,2026-11-30,2025,No,Migrada,CSV historico
+P0154-1,154,9 auras,Mariano Frigerio,2025,Argentina,2026-12-03,2025,No,Migrada,CSV historico
+P0155-2,155,The other guys,Adam McKay,2010,USA,2026-12-04,2025,Si,Migrada,CSV historico
+P0156-1,156,Frankestein,Guillermo del Toro,2025,USA,2026-12-06,2025,No,Migrada,CSV historico
+P0157-1,157,The tóxic Avenger,Macon Blair,2023,USA,2026-12-07,2025,No,Migrada,CSV historico
+P0158-1,158,The one i love,Charlie McDowell,2014,USA,2026-12-08,2025,No,Migrada,CSV historico
+P0159-1,159,Pulse,Jim Sonzero,2006,USA,2026-12-08,2025,No,Migrada,CSV historico
+P0160-2,160,Circle,"Mario Miscione,Aaron Hann",2015,USA,2026-12-09,2025,Si,Migrada,CSV historico
+P0161-1,161,"Talladega Nights, The ballad of Ricky Bobby",Adam McKay,2006,USA,2026-12-09,2025,No,Migrada,CSV historico
+P0162-1,162,Platoon,Oliver Stone,1986,USA,2026-12-10,2025,No,Migrada,CSV historico
+P0163-2,163,Jackass 4.5,Jeff Tremaine,2022,USA,2026-12-13,2025,Si,Migrada,CSV historico
+P0164-1,164,Straw dogs,Sam Peckinpah,1971,USA/UK,2026-12-14,2025,No,Migrada,CSV historico
+P0165-1,165,Snakes on a plane,David R. Ellis,2006,USA,2026-12-17,2025,No,Migrada,CSV historico
+P0166-2,166,21 Jump street,"Phil Lord, Christopher Miller",2012,USA,2026-12-19,2025,Si,Migrada,CSV historico
+P0167-1,167,Mars attack,Tim Burton,1996,USA,2026-12-20,2025,No,Migrada,CSV historico
+P0168-1,168,The great flood,Kim Byeong-u,2025,Corea del sur,2026-12-20,2025,No,Migrada,CSV historico
+P0169-1,169,The naked gun,Akiva Schaffer,2025,USA,2026-12-21,2025,No,Migrada,CSV historico
+P0170-1,170,Anaconda,Luis Llosa,1997,USA,2026-12-23,2025,Si,Migrada,CSV historico
+P0171-1,171,Scary movie,Keenen Ivory Wayans,2000,USA,2026-12-24,2025,No,Migrada,CSV historico
+P2026-001,1,Bring Her Back,"Danny Philippou, Michael Philippou",2025,Australia,2026-01-04,2026,Si,Aprobada,CSV historico
+P2026-002,2,Find Me Guilty,Sidney Lumet,2006,USA,2026-01-05,2026,No,Aprobada,CSV historico
+P2026-003,3,The Cabin in the Woods,Drew Goddard,2012,USA,2026-01-06,2026,Si,Aprobada,CSV historico
+P2026-004,4,Incendies,Denis Villeneuve,2010,Canadá,2026-01-07,2026,No,Aprobada,CSV historico
+P2026-005,5,The Life of Chuck,Mike Flanagan,2024,USA,2026-01-08,2026,No,Aprobada,CSV historico
+P2026-006,6,Clown in a Cornfield,Eli Craig,2025,USA,2026-01-10,2026,No,Aprobada,CSV historico
+P2026-007,7,Leap Year,Anand Tucker,2010,USA / Irlanda,2026-01-16,2026,No,Aprobada,CSV historico
+P2026-008,8,The Ladykillers,"Joel Coen, Ethan Coen",2004,USA,2026-01-18,2026,No,Aprobada,CSV historico
+P2026-009,9,La virgen de la tosquera,Laura Casabé,2025,Argentina,2026-01-21,2026,No,Aprobada,CSV historico
+P2026-010,10,Ballerina (From the World of John Wick),Len Wiseman,2025,USA,2026-01-24,2026,No,Aprobada,CSV historico
+P2026-011,11,Acto de violencia en una joven periodista,Manuel Lamas,1988,Uruguay,2026-01-24,2026,No,Aprobada,CSV historico
+P2026-012,12,Sisu: Road to Revenge,Jalmari Helander,2025,Finlandia,2026-01-25,2026,No,Aprobada,CSV historico
+P2026-013,13,Soft & Quiet,Beth de Araújo,2022,USA,2026-01-25,2026,No,Aprobada,CSV historico
+P2026-014,14,Las barras bravas,Enrique Carreras,1985,Argentina,2026-01-26,2026,No,Aprobada,CSV historico
+P2026-015,15,Los payasos,"Lucas Bucci, Tomás Sposato",2019,Argentina,2026-01-27,2026,No,Aprobada,CSV historico
+P2026-016,16,El secreto de Marrowbone,Sergio G. Sánchez,2017,España,2026-01-27,2026,No,Aprobada,CSV historico
+P2026-017,17,Possession,Andrzej Żuławski,1981,Francia / Alemania Occidental,2026-01-28,2026,No,Aprobada,CSV historico
+P2026-018,18,Bugonia,Yorgos Lanthimos,2025,USA / Reino Unido,2026-01-29,2026,No,Aprobada,CSV historico
+P2026-019,19,Tusk,Kevin Smith,2014,USA,2026-01-31,2026,No,Aprobada,CSV historico
+P2026-020,20,El coso,Néstor Frenkel,2022,Argentina,2026-02-02,2026,No,Aprobada,CSV historico
+P2026-021,21,"To Wong Foo, Thanks for Everything! Julie Newmar",Beeban Kidron,1995,USA,2026-02-03,2026,No,Aprobada,CSV historico
+P2026-022,22,Lamb,Valdimar Jóhannsson,2021,Islandia,2026-02-04,2026,No,Aprobada,CSV historico
+P2026-023,23,Tiempo de pagar,Felipe Wein,2024,Argentina,2026-02-05,2026,No,Aprobada,CSV historico
+P2026-024,24,Crimewave,Sam Raimi,1985,USA,2026-02-06,2026,No,Aprobada,CSV historico
+P2026-025,25,Black Sheep,Jonathan King,2006,Nueva Zelanda,2026-02-07,2026,No,Aprobada,CSV historico
+P2026-026,26,"Me, Myself & Irene","Bobby Farrelly, Peter Farrelly",2000,USA,2026-02-08,2026,No,Aprobada,CSV historico
+P2026-027,27,Becoming Led Zeppelin,Bernard MacMahon,2025,Reino Unido / USA,2026-02-09,2026,No,Aprobada,CSV historico
+P2026-028,28,Raising Arizona,"Joel Coen, Ethan Coen",1987,USA,2026-02-10,2026,No,Aprobada,CSV historico
+P2026-029,29,The Amateur,James Hawes,2025,USA / Reino Unido,2026-02-12,2026,No,Aprobada,CSV historico
+P2026-030,30,Boys Don't Cry,Kimberly Peirce,1999,USA,2026-02-17,2026,No,Aprobada,CSV historico
+P2026-031,31,"Un peso, un dólar",Gabriel Condron,2007,Argentina,2026-02-18,2026,No,Aprobada,CSV historico
+P2026-032,32,Pieces (Mil gritos tiene la noche),Juan Piquer Simón,1982,España,2026-02-19,2026,No,Aprobada,CSV historico
+P2026-033,33,Evil Dead II,Sam Raimi,1987,USA,2026-02-21,2026,No,Aprobada,CSV historico
+P2026-034,34,Ford v Ferrari,James Mangold,2019,USA,2026-02-22,2026,No,Aprobada,CSV historico
+P2026-035,35,O Agente Secreto,Kleber Mendonça Filho,2025,Brasil,2026-02-23,2026,No,Aprobada,CSV historico
+P2026-036,36,La vida útil,Federico Veiroj,2010,Uruguay,2026-02-24,2026,No,Aprobada,CSV historico
+P2026-037,37,The Smashing Machine,Benny Safdie,2025,USA,2026-02-25,2026,No,Aprobada,CSV historico
+P2026-038,38,Todo el año es Navidad,Néstor Frenkel,2018,Argentina,2026-02-26,2026,Si,Aprobada,CSV historico
+P2026-039,39,Gattaca,Andrew Niccol,1997,USA,2026-02-27,2026,No,Aprobada,CSV historico
+P2026-040,40,Nighthawks,Bruce Malmuth,1981,USA,2026-02-28,2026,No,Aprobada,CSV historico
+P2026-041,41,The Thing,John Carpenter,1982,USA,2026-02-28,2026,Si,Aprobada,CSV historico
+P2026-042,42,Sex Tape,Jake Kasdan,2014,USA,2026-03-01,2026,No,Aprobada,CSV historico
+P2026-043,43,Office Space,Mike Judge,1999,USA,2026-03-01,2026,No,Aprobada,CSV historico
+P2026-044,44,Kill Bill: The Whole Bloody Affair,Quentin Tarantino,2011,USA,2026-03-03,2026,No,Aprobada,CSV historico
+P2026-045,45,The NeverEnding Story,Wolfgang Petersen,1984,Alemania Occidental / USA,2026-03-05,2026,No,Aprobada,CSV historico
+P2026-046,46,Chicos ricos,Mariano Galperín,2000,Argentina,2026-03-06,2026,No,Aprobada,CSV historico
+P2026-047,47,Good Fortune,Aziz Ansari,2025,USA,2026-03-07,2026,No,Aprobada,CSV historico
+P2026-048,48,Battle of the Sexes,"Jonathan Dayton, Valerie Faris",2017,USA / Reino Unido,2026-03-07,2026,No,Aprobada,CSV historico
+P2026-049,49,Ghostbusters,Ivan Reitman,1984,USA,2026-03-07,2026,No,Aprobada,CSV historico
+P2026-050,50,Redux Redux,"Kevin McManus, Matthew McManus",2025,USA,2026-03-08,2026,No,Aprobada,CSV historico
+P2026-051,51,Marty Supreme,Josh Safdie,2025,USA,2026-03-10,2026,No,Aprobada,CSV historico
+P2026-052,52,El extraño viaje,Fernando Fernán Gómez,1964,España,2026-03-12,2026,No,Aprobada,CSV historico
+P2026-053,53,Fargo,"Joel Coen, Ethan Coen",1996,USA,2026-03-13,2026,No,Aprobada,CSV historico
+P2026-054,54,The Greatest Showman,Michael Gracey,2017,USA,2026-03-14,2026,No,Aprobada,CSV historico
+P2026-055,55,El tema del verano,Pablo Stoll,2024,Uruguay / Argentina / Chile,2026-03-14,2026,No,Aprobada,CSV historico
+P2026-056,56,Bring Her Back,"Danny Philippou, Michael Philippou",2025,Australia,2026-03-14,2026,Si,Aprobada,CSV historico
+P2026-057,57,Bacurau,"Kleber Mendonça Filho, Juliano Dornelles",2019,Brasil,2026-03-15,2026,No,Aprobada,CSV historico
+P2026-058,58,Talk to Me,"Danny Philippou, Michael Philippou",2022,Australia,2026-03-15,2026,Si,Aprobada,CSV historico
+P2026-059,59,Late Night with the Devil,"Cameron Cairnes, Colin Cairnes",2023,Australia,2026-03-16,2026,No,Aprobada,CSV historico
+P2026-060,60,Don't Die: The Man Who Wants to Live Forever,Bryce Dallas Howard,2025,USA,2026-03-19,2026,No,Aprobada,CSV historico
+P2026-061,61,Nuestra tierra,Lucrecia Martel,2025,Argentina,2026-03-20,2026,No,Aprobada,CSV historico
+P2026-062,62,The Vanishing (Spoorloos),George Sluizer,1988,Países Bajos / Francia,2026-03-21,2026,No,Aprobada,CSV historico
+P2026-063,63,The Running Man,Edgar Wright,2025,USA,2026-03-21,2026,No,Aprobada,CSV historico
+P2026-064,64,All the President's Men,Alan J. Pakula,1976,USA,2026-03-22,2026,No,Aprobada,CSV historico
+P2026-065,65,Top Secret!,"Jim Abrahams, David Zucker, Jerry Zucker",1984,USA,2026-03-22,2026,No,Aprobada,CSV historico
+P2026-066,66,Scream 7,Kevin Williamson,2026,USA,2026-03-24,2026,No,Aprobada,CSV historico
+P2026-067,67,The Running Man,Paul Michael Glaser,1987,USA,2026-03-24,2026,No,Aprobada,CSV historico
+P2026-068,68,The Boondock Saints,Troy Duffy,1999,USA,2026-03-28,2026,No,Aprobada,CSV historico
+P2026-069,69,F1,Joseph Kosinski,2025,USA,2026-03-29,2026,No,Aprobada,CSV historico
+P2026-070,70,Burn After Reading,"Joel Coen, Ethan Coen",2008,USA,2026-03-29,2026,No,Aprobada,CSV historico
+P2026-071,71,Send Help,Sam Raimi,2026,USA,2026-03-29,2026,No,Aprobada,CSV historico
+P2026-072,72,The Amazing Transplant,Doris Wishman,1970,USA,2026-03-30,2026,No,Aprobada,CSV historico
+P2026-073,73,Promising Young Woman,Emerald Fennell,2020,Reino Unido / USA,2026-03-30,2026,Si,Aprobada,CSV historico
+P2026-074,74,Eating Raoul,Paul Bartel,1982,USA,2026-04-02,2026,Si,Aprobada,CSV historico
+P2026-075,75,La H,Nicanor Loreti,2011,Argentina,2026-04-09,2026,Si,Aprobada,CSV historico
+P2026-076,76,Lord of War,Andrew Niccol,2005,USA,2026-04-10,2026,No,Aprobada,CSV historico
+P2026-077,77,La Ciénaga,Lucrecia Martel,2001,Argentina,2026-04-11,2026,Si,Aprobada,CSV historico
+P2026-078,78,El otro hermano,Israel Adrián Caetano,2017,Argentina,2026-04-16,2026,No,Aprobada,CSV historico
+P2026-079,79,Source Code,Duncan Jones,2011,USA,2026-04-17,2026,Si,Aprobada,CSV historico
+P2026-080,80,A Real Pain,Jesse Eisenberg,2024,USA / Polonia,2026-04-18,2026,No,Aprobada,CSV historico
+P2026-081,81,31,Rob Zombie,2016,USA,2026-04-19,2026,No,Aprobada,CSV historico
+P2026-082,82,Rough Night,Lucia Aniello,2017,USA,2026-04-19,2026,No,Aprobada,CSV historico
+P2026-083,83,En retirada,Juan Carlos Desanzo,1984,Argentina,2026-04-23,2026,No,Aprobada,CSV historico
+P2026-084,84,Ready or Not,"Matt Bettinelli-Olpin, Tyler Gillett",2019,USA / Canadá,2026-04-25,2026,No,Aprobada,CSV historico
+P2026-085,85,Thank You for Smoking,Jason Reitman,2005,USA,2026-04-26,2026,No,Aprobada,CSV historico
+P2026-086,86,Carrie,Brian De Palma,1976,USA,2026-04-26,2026,Si,Aprobada,CSV historico
+P2026-087,87,Yiya Murano: muerte a la hora del té,Alejandro Hartmann,2026,Argentina,2026-04-30,2026,No,Aprobada,CSV historico
+P2026-088,88,Medianeras,Gustavo Taretto,2011,Argentina,2026-05-01,2026,No,Aprobada,CSV historico
+P2026-089,89,2073,Asif Kapadia,2024,Reino Unido / USA,2026-05-02,2026,No,Aprobada,CSV historico
+P2026-090,90,Anaconda,Tom Gormican,2025,USA,2026-05-02,2026,Si,Aprobada,CSV historico
+P2026-091,91,Tenacious D in The Pick of Destiny,Liam Lynch,2006,USA,2026-05-03,2026,No,Aprobada,CSV historico
+P2026-092,92,Últimos días de la víctima,Adolfo Aristarain,1982,Argentina,2026-05-04,2026,Si,Aprobada,CSV historico
+P2026-093,93,La parte del león,Adolfo Aristarain,1978,Argentina,2026-05-06,2026,Si,Aprobada,CSV historico
+P2026-094,94,Den of Thieves 2: Pantera,Christian Gudegast,2025,USA,2026-05-09,2026,No,Aprobada,CSV historico
+P2026-095,95,Carrie,Kimberly Peirce,2013,USA,2026-05-09,2026,Si,Aprobada,CSV historico
+P2026-096,96,Lenny,Bob Fosse,1974,USA,2026-05-10,2026,No,Aprobada,CSV historico
+P2026-097,97,Traslados,Nicolás Gil Lavedra,2024,Argentina,2026-05-13,2026,No,Aprobada,CSV historico
+P2026-098,98,Fase 7,Nicolás Goldbart,2011,Argentina,2026-05-15,2026,Si,Aprobada,CSV historico
+P2026-099,99,The Taking of Pelham One Two Three,Joseph Sargent,1974,USA,2026-05-16,2026,No,Aprobada,CSV historico
+P2026-100,100,Tin Soldier,Brad Furman,2025,USA,2026-05-16,2026,No,Aprobada,CSV historico
+P2026-101,101,Magnolia,Paul Thomas Anderson,1999,USA,2026-05-16,2026,No,Aprobada,CSV historico
+P2026-102,102,Death Becomes Her,Robert Zemeckis,1992,USA,2026-05-17,2026,No,Aprobada,CSV historico
+P2026-103,103,The Curious Case of Benjamin Button,David Fincher,2008,USA,2026-05-17,2026,No,Aprobada,CSV historico
+P2026-104,104,Moebius,Gustavo Mosquera R.,1996,Argentina,2026-05-20,2026,No,Aprobada,CSV historico
+P2026-105,105,The Star Chamber,Peter Hyams,1983,USA,2026-05-22,2026,No,Aprobada,CSV historico
+P2026-106,106,Goodfellas,Martin Scorsese,1990,USA,2026-05-23,2026,Si,Aprobada,CSV historico
+P2026-107,107,Christine,John Carpenter,1983,USA,2026-05-24,2026,Si,Aprobada,CSV historico
+P2026-108,108,The Taking of Pelham 123,Tony Scott,2009,USA,2026-05-25,2026,Si,Aprobada,CSV historico
+P2026-109,109,Hannibal,Ridley Scott,2001,USA,2026-05-25,2026,No,Aprobada,CSV historico
+P2026-110,110,Time Lapse,Bradley King,2014,USA,2026-05-28,2026,No,Aprobada,CSV historico
+P2026-111,111,Un lugar en el mundo,Adolfo Aristarain,1992,Argentina / Uruguay / España,2026-05-29,2026,No,Aprobada,CSV historico
+P2026-112,112,Desearás al hombre de tu hermana,Diego Kaplan,2017,Argentina,2026-05-30,2026,Si,Aprobada,CSV historico
+P2026-113,113,No Way Out,Roger Donaldson,1987,USA,2026-05-31,2026,No,Aprobada,CSV historico
+P2026-114,114,The Bride!,Maggie Gyllenhaal,2026,USA,2026-05-31,2026,No,Aprobada,CSV historico
+P2026-115,115,¿Quién puede matar a un niño?,Narciso Ibáñez Serrador,1976,España,2026-06-01,2026,Si,Aprobada,CSV historico
+P2026-116,116,Twins,Ivan Reitman,1988,USA,2026-06-05,2026,Si,Aprobada,CSV historico
+P2026-117,117,DodgeBall: A True Underdog Story,Rawson Marshall Thurber,2004,USA,2026-06-06,2026,No,Aprobada,CSV historico
+P2026-118,118,John Wick,Chad Stahelski,2014,USA,2026-06-06,2026,Si,Aprobada,CSV historico
+P2026-119,119,Inside Man,Spike Lee,2006,USA,2026-06-07,2026,No,Aprobada,CSV historico
+P2026-120,120,Ladies First,Thea Sharrock,2026,USA,2026-06-07,2026,No,Aprobada,CSV historico
+P2026-121,121,The Royal Tenenbaums,Wes Anderson,2001,USA,2026-06-07,2026,No,Aprobada,CSV historico
+P2026-122,122,Blood Simple,"Joel Coen, Ethan Coen",1984,USA,2026-06-10,2026,No,Aprobada,CSV historico
+P2026-123,123,El vampiro negro,Román Viñoly Barreto,1953,Argentina,2026-06-11,2026,No,Aprobada,CSV historico
+P2026-124,124,John Wick: Chapter 2,Chad Stahelski,2017,USA,2026-06-11,2026,Si,Aprobada,CSV historico
+P2026-125,125,Mortal Kombat,Simon McQuoid,2021,USA,2026-06-12,2026,Si,Aprobada,CSV historico
+P2026-126,126,It Follows,David Robert Mitchell,2014,USA,2026-06-13,2026,No,Aprobada,CSV historico
+P2026-127,127,Arrebato,Iván Zulueta,1979,España,2026-06-13,2026,No,Aprobada,CSV historico
+P2026-128,128,John Wick: Chapter 3 – Parabellum,Chad Stahelski,2019,USA,2026-06-13,2026,No,Aprobada,CSV historico
+P2026-129,129,They Will Kill You,Kirill Sokolov,2026,USA,2026-06-14,2026,No,Aprobada,CSV historico
+P2026-130,130,Mortal Kombat II,Simon McQuoid,2026,USA / Australia,2026-06-14,2026,No,Aprobada,CSV historico
+P2026-131,131,John Wick: Chapter 4,Chad Stahelski,2023,USA,2026-06-14,2026,No,Aprobada,CSV historico
+P2026-132,132,The 40-Year-Old Virgin,Judd Apatow,2005,USA,2026-06-14,2026,No,Aprobada,CSV historico
+P2026-133,133,Vampire humaniste cherche suicidaire consentant,Ariane Louis-Seize,2023,Canadá,2026-06-15,2026,No,Aprobada,CSV historico
+P2026-134,134,50/50,Jonathan Levine,2011,USA,2026-06-18,2026,No,Aprobada,CSV historico
+P2026-135,135,Ghost World,Terry Zwigoff,2001,USA / Reino Unido / Alemania,2026-06-20,2026,No,Aprobada,CSV historico
+P2026-136,136,Foul Play,Colin Higgins,1978,USA,2026-06-21,2026,No,Aprobada,CSV historico
+P2026-137,137,The Hunt,Craig Zobel,2020,USA,2026-06-24,2026,Si,Aprobada,CSV historico
+P2026-138,138,Mortal Kombat,Paul W. S. Anderson,1995,USA,2026-06-27,2026,Si,Aprobada,CSV historico
+P2026-139,139,Undercover Brother,Malcolm D. Lee,2002,USA,2026-06-27,2026,No,Aprobada,CSV historico
+P2026-140,140,"Soñar, soñar",Leonardo Favio,1976,Argentina,2026-06-28,2026,No,Aprobada,CSV historico
+P2026-141,141,Weekend at Bernie's,Ted Kotcheff,1989,USA,2026-07-03,2026,No,Aprobada,CSV historico
+P2026-142,142,Mortal Kombat: Annihilation,John R. Leonetti,1997,USA,2026-07-04,2026,No,Aprobada,CSV historico
+P2026-143,143,Equilibrium,Kurt Wimmer,2002,USA,2026-07-05,2026,No,Aprobada,CSV historico
+P2026-144,144,Shampoo,Hal Ashby,1975,USA,2026-07-05,2026,No,Aprobada,CSV historico
+P2026-145,145,Mikey and Nicky,Elaine May,1976,USA,2026-07-09,2026,No,Aprobada,CSV historico
+P2026-146,146,Bunny Lake Is Missing,Otto Preminger,1965,Reino Unido,2026-07-09,2026,No,Aprobada,CSV historico
+P2026-147,147,Michael,Antoine Fuqua,2026,USA,2026-07-09,2026,No,Aprobada,CSV historico
+P2026-148,148,Ready or Not 2: Here I Come,"Matt Bettinelli-Olpin, Tyler Gillett",2026,USA,2026-07-10,2026,No,Aprobada,CSV historico
+P2026-149,149,Backrooms,Kane Parsons,2026,USA,2026-07-11,2026,No,Aprobada,CSV historico
+P2026-150,150,Antiviral,Brandon Cronenberg,2012,Canadá,2026-07-12,2026,No,Aprobada,CSV historico
+P2026-151,151,El partido,"Juan Cabral, Santiago Franco",2026,Argentina,2026-07-14,2026,No,Aprobada,CSV historico
+P2026-152,152,Let the Corpses Tan (Laissez bronzer les cadavres),"Hélène Cattet, Bruno Forzani",2017,Bélgica / Francia,2026-07-17,2026,No,Aprobada,CSV historico
+P2026-153,153,Django Unchained,Quentin Tarantino,2012,USA,2026-07-18,2026,Si,Aprobada,CSV historico
+P2026-154,154,16 Blocks,Richard Donner,2006,USA / Alemania,2026-07-18,2026,Si,Aprobada,CSV historico
+P2026-155,155,The Departed,Martin Scorsese,2006,USA,2026-07-19,2026,Si,Aprobada,CSV historico
+P2026-156,156,A Nightmare on Elm Street,Wes Craven,1984,USA,2026-07-21,2026,No,Aprobada,CSV historico
+P2026-157,157,But I'm a Cheerleader,Jamie Babbit,1999,USA,2026-07-22,2026,No,Aprobada,CSV historico
+P2026-158,158,Sleepers,Barry Levinson,1996,USA,2026-07-23,2026,No,Aprobada,CSV historico
+P2026-159,159,Misery,Rob Reiner,1990,USA,2026-07-23,2026,No,Aprobada,CSV historico
+P2026-160,160,Internal Affairs,Mike Figgis,1990,USA,2026-07-24,2026,No,Aprobada,CSV historico
+P2026-161,161,Razorback,Russell Mulcahy,1984,Australia,2026-07-25,2026,No,Aprobada,CSV historico
+P2026-162,162,Eurovision Song Contest: The Story of Fire Saga,David Dobkin,2020,USA,2026-07-25,2026,No,Aprobada,CSV historico
+P2026-163,163,Nineteen Eighty-Four,Michael Radford,1984,Reino Unido,2026-07-26,2026,No,Aprobada,CSV historico
+P2026-164,164,The Sheep Detectives,Kyle Balda,2026,USA,2026-07-26,2026,No,Aprobada,CSV historico
+P2026-165,165,Scary Movie 6,Michael Tiddes,2026,USA,2026-07-26,2026,No,Aprobada,CSV historico
+P2026-166,166,Los jóvenes viejos,Rodolfo Kuhn,1962,Argentina,2026-07-28,2026,No,Aprobada,CSV historico
+P2026-167,167,A Nightmare on Elm Street 2: Freddy's Revenge,Jack Sholder,1985,USA,2026-07-28,2026,No,Aprobada,CSV historico
+P2026-168,168,Obsession,Brian De Palma,1976,USA,2026-08-01,2026,No,Aprobada,CSV historico
+P2026-169,169,Electra Glide in Blue,James William Guercio,1973,USA,2026-08-05,2026,No,Aprobada,CSV historico
+P2026-170,170,A Nightmare on Elm Street 3: Dream Warriors,Chuck Russell,1987,USA,2026-08-06,2026,No,Aprobada,CSV historico
+P2026-171,171,Edmond,Stuart Gordon,2005,USA,2026-08-07,2026,No,Aprobada,CSV historico
+P2026-172,172,Deuce Bigalow: European Gigolo,Mike Bigelow,2005,USA / Países Bajos,2026-08-07,2026,No,Aprobada,CSV historico
+P2026-173,173,La dicha en movimiento,Maxi Gutiérrez,2025,Argentina,2026-08-08,2026,No,Aprobada,CSV historico
+P2026-174,174,A Nightmare on Elm Street 4: The Dream Master,Renny Harlin,1988,USA,2026-08-08,2026,No,Aprobada,CSV historico
+P2026-175,175,A Nightmare on Elm Street 5: The Dream Child,Stephen Hopkins,1989,USA,2026-08-09,2026,No,Aprobada,CSV historico
+P2026-176,176,Fatal Attraction,Adrian Lyne,1987,USA,2026-08-13,2026,No,Aprobada,CSV historico
+P2026-177,177,Not Another Teen Movie,Joel Gallen,2001,USA,2026-08-14,2026,No,Aprobada,CSV historico
+P2026-178,178,Freddy's Dead: The Final Nightmare,Rachel Talalay,1991,USA,2026-08-14,2026,No,Aprobada,CSV historico
+P2026-179,179,Thief,Michael Mann,1981,USA,2026-08-14,2026,No,Aprobada,CSV historico
+P2026-180,180,The Warriors,Walter Hill,1979,USA,2026-08-15,2026,No,Aprobada,CSV historico
+P2026-181,181,Wes Craven's New Nightmare,Wes Craven,1994,USA,2026-08-15,2026,No,Aprobada,CSV historico
+P2026-182,182,The Hot Chick,Tom Brady,2002,USA,2026-08-15,2026,No,Aprobada,CSV historico
+P2026-183,183,Rolling Thunder,John Flynn,1977,USA,2026-08-16,2026,No,Aprobada,CSV historico
+P2026-184,184,Tiempo de valientes,Damián Szifrón,2005,Argentina,2026-08-16,2026,No,Aprobada,CSV historico
+P2026-185,185,Freddy vs. Jason,Ronny Yu,2003,USA / Canadá / Italia,2026-08-17,2026,No,Aprobada,CSV historico
+P2026-186,186,Boogie Nights,Paul Thomas Anderson,1997,USA,2026-08-17,2026,No,Aprobada,CSV historico
+P2026-187,187,X,Ti West,2022,USA,2026-08-17,2026,Si,Aprobada,CSV historico
+P2026-188,188,A Nightmare on Elm Street,Samuel Bayer,2010,USA,2026-08-19,2026,No,Aprobada,CSV historico
+P2026-189,189,Dawn of the Dead,Zack Snyder,2004,USA / Canadá / Japón,2026-08-20,2026,Si,Aprobada,CSV historico
+P2026-190,190,Would You Rather,David Guy Levy,2012,USA,2026-08-21,2026,No,Aprobada,CSV historico
+P2026-191,191,Pearl,Ti West,2022,USA / Canadá,2026-08-21,2026,Si,Aprobada,CSV historico
+P2026-192,192,Experiment in Terror,Blake Edwards,1962,USA,2026-08-22,2026,No,Aprobada,CSV historico
+P2026-193,193,Fritz the Cat,Ralph Bakshi,1972,USA,2026-08-22,2026,No,Aprobada,CSV historico
+P2026-194,194,Eyes Without a Face (Les yeux sans visage),Georges Franju,1960,Francia / Italia,2026-08-27,2026,No,Aprobada,CSV historico
+P2026-195,195,Perdita Durango,Álex de la Iglesia,1997,España / México / USA,2026-08-28,2026,No,Aprobada,CSV historico
+P2026-196,196,Barreda,Daniela Goggi,2026,Argentina,2026-08-30,2026,No,Aprobada,CSV historico
+P2026-197,197,Vampyros Lesbos,Jesús Franco,1971,Alemania Occidental / España,2026-08-31,2026,No,Aprobada,CSV historico
+P2026-198,198,MaXXXine,Ti West,2024,USA,2026-09-01,2026,No,Aprobada,CSV historico
+P2026-199,199,Super Troopers,Jay Chandrasekhar,2001,USA,2026-09-03,2026,No,Aprobada,CSV historico
+P2026-200,200,The Rocky Horror Picture Show,Jim Sharman,1975,Reino Unido / USA,2026-09-04,2026,Si,Aprobada,CSV historico
+P2026-201,201,A History of Violence,David Cronenberg,2005,USA / Alemania,2026-09-05,2026,No,Aprobada,CSV historico
+P2026-202,202,Magic,Richard Attenborough,1978,USA,2026-09-05,2026,No,Aprobada,CSV historico
+P2026-203,203,Hausu (House),Nobuhiko Ôbayashi,1977,Japón,2026-09-06,2026,No,Aprobada,CSV historico
