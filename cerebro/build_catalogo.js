@@ -10,15 +10,18 @@ else{if(c==='"')q=true;else if(c===","){row.push(f);f="";}else if(c==="\n"){row.
 if(f.length||row.length){row.push(f);rows.push(row);}return rows;}
 const esc = v => { v = v==null?"":String(v); return /[",\n]/.test(v) ? `"${v.replace(/"/g,'""')}"` : v; };
 
-const COLS = ["id","numero","titulo","director","anio_estreno","pais_origen","fecha_vista","anio_visto","es_revisionado","estado_enriquecimiento","fuente"];
+const BASE = ["id","numero","titulo","director","anio_estreno","pais_origen","fecha_vista","anio_visto","es_revisionado","estado_enriquecimiento","fuente"];
+const IA = ["genero","animo","sinopsis","poster_url","rating_externo","notas_ia"]; // los llena el bot
+const COLS = [...BASE, ...IA];
 const out = [COLS];
+const pad = row => [...row, ...IA.map(()=> "")];
 
 // --- histórico 2018-2025 ---
 const hist = parseCSV(fs.readFileSync(path.join(ROOT,"cerebro/peliculas_import.csv"),"utf8"));
 const hIdx = Object.fromEntries(hist[0].map((h,i)=>[h,i]));
 for (const r of hist.slice(1)) {
   if (!r.length || +r[hIdx.anio_visto] >= 2026) continue;   // el 2026 viejo se descarta
-  out.push(COLS.map(c => r[hIdx[c]] ?? ""));
+  out.push(pad(BASE.map(c => r[hIdx[c]] ?? "")));
 }
 
 // --- 2026 completo ---
@@ -27,7 +30,7 @@ const pIdx = Object.fromEntries(p26[0].map((h,i)=>[h,i]));
 for (const r of p26.slice(1)) {
   if (r.length < 6) continue;
   const num = r[pIdx.numero];
-  out.push([
+  out.push(pad([
     "P2026-" + String(num).padStart(3,"0"),
     num,
     r[pIdx.titulo],
@@ -39,7 +42,7 @@ for (const r of p26.slice(1)) {
     r[pIdx.revision_2026].startsWith("Sí") || r[pIdx.visto_antes].startsWith("Sí") ? "Si" : "No",
     "Aprobada",
     "CSV historico",
-  ]);
+  ]));
 }
 
 fs.writeFileSync(path.join(ROOT,"cerebro/catalogo_completo.csv"), out.map(r=>r.map(esc).join(",")).join("\r\n"), "utf8");
