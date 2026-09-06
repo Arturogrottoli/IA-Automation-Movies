@@ -18,14 +18,24 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 
 Todavía en desarrollo — el proyecto no está terminado:
 
+**Funcionalidad**
 - [ ] **Consultas al bot.** Preguntarle "¿qué vi de Cronenberg?" y que responda
       leyendo la hoja.
-- [ ] **Recomendaciones.** Que sugiera películas no vistas según un director o un
-      género.
+- [ ] **Recomendaciones.** Que sugiera películas *no vistas* a partir de un
+      director o un género.
 - [ ] **Human-in-the-loop.** Que el bot muestre la ficha con botones
       *Aprobar / Editar / Rechazar* antes de guardar.
 - [ ] **Diagrama de arquitectura** (entrega PE1 del curso).
+
+**Deuda técnica**
+- [ ] Limpiar `cerebro/`: borrar los scripts y fuentes que ya cumplieron su
+      función (`build_2026.js`, `build_catalogo.js`, `peliculas_import.csv`,
+      `pelis_2026.csv`) — la fuente de verdad ahora es la hoja de Google.
 - [ ] Limpiar del catálogo unas filas con fecha de visionado mal cargada.
+- [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es un
+      HTML plano sin dependencias ni build, y para lo que hace (tabla + 4
+      gráficos leyendo un CSV) funciona bien y carga al instante. Tendría sentido
+      si el sitio crece mucho, o como pieza de portfolio que demuestre ese stack.
 
 ## Cómo funciona
 
