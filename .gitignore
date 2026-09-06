@@ -1,0 +1,15 @@
+# Secretos — NUNCA subir al repo
+.env
+.env.local
+*.secret
+*.key
+secretos.txt
+
+# Temporales de Office (la planilla abierta)
+~$*
+
+# Node
+node_modules/
+
+# Backups locales de la planilla
+cerebro/Pelis_backup_*.xlsx
