@@ -11,6 +11,22 @@ estadísticas.
 Proyecto integrador del curso **IA Automation** (Coderhouse). Toca las tres capas
 del stack: datos, orquestación e inteligencia.
 
+## Estado
+
+**Funcional de punta a punta.** El circuito Telegram → IA → Google Sheets → web
+anda solo: agregás una película por chat y aparece en el sitio sin tocar nada más.
+
+Todavía en desarrollo — el proyecto no está terminado:
+
+- [ ] **Consultas al bot.** Preguntarle "¿qué vi de Cronenberg?" y que responda
+      leyendo la hoja.
+- [ ] **Recomendaciones.** Que sugiera películas no vistas según un director o un
+      género.
+- [ ] **Human-in-the-loop.** Que el bot muestre la ficha con botones
+      *Aprobar / Editar / Rechazar* antes de guardar.
+- [ ] **Diagrama de arquitectura** (entrega PE1 del curso).
+- [ ] Limpiar del catálogo unas filas con fecha de visionado mal cargada.
+
 ## Cómo funciona
 
 ```mermaid
