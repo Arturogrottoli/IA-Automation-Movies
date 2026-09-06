@@ -13,3 +13,7 @@ node_modules/
 
 # Backups locales de la planilla
 cerebro/Pelis_backup_*.xlsx
+
+# Material del curso (fuera del repo)
+Filminas/
+Pelis.xlsx
