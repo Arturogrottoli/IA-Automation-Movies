@@ -28,9 +28,7 @@ Todavía en desarrollo — el proyecto no está terminado:
 - [ ] **Diagrama de arquitectura** (entrega PE1 del curso).
 
 **Deuda técnica**
-- [ ] Limpiar `cerebro/`: borrar los scripts y fuentes que ya cumplieron su
-      función (`build_2026.js`, `build_catalogo.js`, `peliculas_import.csv`,
-      `pelis_2026.csv`) — la fuente de verdad ahora es la hoja de Google.
+- [x] Limpiar `cerebro/` — hecho. La fuente de verdad es la hoja de Google.
 - [ ] Limpiar del catálogo unas filas con fecha de visionado mal cargada.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es un
       HTML plano sin dependencias ni build, y para lo que hace (tabla + 4
@@ -63,14 +61,10 @@ hoja; si no hay conexión, cae a una instantánea embebida.
 ```
 index.html            el sitio (catálogo navegable + 4 gráficos + índice completo)
 cerebro/
-  catalogo_completo.csv   las 1.280 películas — lo que se importa a Sheets
-  peliculas_import.csv    históricos 2018–2025 (fuente)
-  pelis_2026.csv          las 203 de 2026, verificadas a mano (fuente)
-  build_catalogo.js       une las dos fuentes → catalogo_completo.csv
-  build_2026.js           genera pelis_2026.csv
-  build_site.js           refresca la instantánea embebida en index.html
+  catalogo_completo.csv   copia portable de las ~1.280 películas
+  build_site.js           baja la hoja publicada y refresca la instantánea de index.html
   CONFIG.md               dónde vive cada secreto (todos en Make, ninguno acá)
-  README.md               detalle del pipeline de datos
+  README.md               notas sobre los datos
 ```
 
 ## Datos en vivo
