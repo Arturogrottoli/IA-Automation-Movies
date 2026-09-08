@@ -619,10 +619,18 @@ function currentRows(){
   rows.sort((a,b)=>{ const x=f(a),y=f(b); return (x<y?-1:x>y?1:0)*sort.dir; });
   return rows;
 }
+const movieKey = r => deburr(r[0]).trim() + "|" + (r[2]||"");
 function render(){
   const rows = currentRows();
-  $("#count").textContent = `Mostrando ${nf(rows.length)} de ${nf(DATA.length)} películas`;
-  if(VIEW === "grid") renderGrid(rows); else renderTable(rows);
+  if(VIEW === "grid"){
+    const uniq = new Map();
+    rows.forEach(r=>{ const k=movieKey(r); if(!uniq.has(k)) uniq.set(k,{r,n:0}); uniq.get(k).n++; });
+    $("#count").textContent = `${nf(uniq.size)} películas · ${nf(rows.length)} visionados`;
+    renderGrid([...uniq.values()]);
+  } else {
+    $("#count").textContent = `Mostrando ${nf(rows.length)} de ${nf(DATA.length)} películas`;
+    renderTable(rows);
+  }
 }
 function renderTable(rows){
   const body = $("#rows");
@@ -639,16 +647,16 @@ function renderTable(rows){
     </tr>`;
   }).join("");
 }
-function renderGrid(rows){
+function renderGrid(items){
   const el = $("#grid");
-  if(!rows.length){ el.innerHTML = `<p class="empty">Ninguna película coincide con el filtro.</p>`; return; }
-  el.innerHTML = rows.map(r=>{
-    const x = pxOf(r), rw = rewatchCount.get(r)||1;
+  if(!items.length){ el.innerHTML = `<p class="empty">Ninguna película coincide con el filtro.</p>`; return; }
+  el.innerHTML = items.map(({r,n})=>{
+    const x = pxOf(r);
     const poster = x && x.poster
       ? `<img loading="lazy" src="${x.poster}" alt="${esc(r[0])}">`
       : `<div class="ph">${esc(r[0])}</div>`;
     return `<div class="card">
-      <div class="poster">${poster}${x&&x.rating!=null?`<span class="rt">${x.rating.toFixed(1)}</span>`:""}${rw>1?`<span class="rw">×${rw}</span>`:""}</div>
+      <div class="poster">${poster}${x&&x.rating!=null?`<span class="rt">${x.rating.toFixed(1)}</span>`:""}${n>1?`<span class="rw">×${n}</span>`:""}</div>
       <div class="ct">${esc(r[0])}</div>
       <div class="cm">${r[2]||"—"} · ${esc(canonDir(r[1]))||"—"}</div>
     </div>`;
