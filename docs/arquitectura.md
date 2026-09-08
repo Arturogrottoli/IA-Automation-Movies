@@ -42,18 +42,22 @@ flowchart TD
 
 ## Los dos caminos
 
-### 1. Registrar una película
+### 1. Registrar una película (con HITL)
 ```
 "vi Whiplash"
   → Watch Updates capta el mensaje
-  → filtro descarta comandos (/start, /help…)
+  → filtro descarta comandos (/start…) · Router: solo mensajes de texto van a Gemini
   → Gemini clasifica: intent = registrar; extrae titulo_corregido, director,
-    anio_estreno, pais_origen, genero, sinopsis
-  → Router → rama "registrar"
-  → Add a Row en catalogo_completo (con fórmulas por-fila para id, numero,
+    anio_estreno, pais_origen, genero
+  → Router → rama "registrar" → Telegram: manda la ficha con botones [✅ Sí] [❌ No]
+
+  (el usuario toca ✅)
+  → Watch Updates capta el callback_query · Router → rama "Aprobado"
+  → Text parser lee la ficha del mensaje
+  → Add a Row en catalogo_completo (fórmulas por-fila para id, numero,
     es_revisionado; fecha_vista = hoy; fuente = Bot Telegram;
-    estado_enriquecimiento = Enriquecida IA)
-  → Telegram: "Whiplash fue agregada a la planilla ✅"
+    estado_enriquecimiento = Aprobada)
+  → Telegram: "✅ Guardada: Whiplash"
 ```
 
 ### 2. Consultar / recomendar
@@ -99,5 +103,5 @@ Cada `git push` a `main` redeploya GitHub Pages solo.
 |---|---|
 | **Autónomo** | El circuito Telegram → IA → Sheets → web corre solo, sin intervención. |
 | **Resiliente** | *Pendiente:* falta Error Handler en Make (si Gemini devuelve 503, hoy se pierde la fila). |
-| **Con HITL** | *Pendiente:* botones Aprobar/Editar/Rechazar antes de guardar. |
+| **Con HITL** | ✅ "vi X" → el bot propone la ficha con botones ✅/❌; recién escribe (como `Aprobada`) al tocar ✅. Falta cerrar la rama del ❌. |
 | **Limpio** | Una sola fuente de verdad (la hoja); filtro anti-comando; secretos fuera del repo. |

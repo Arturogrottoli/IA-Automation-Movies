@@ -25,9 +25,16 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       filtro por género + columna de rating.
 - [x] **Lista "quiero ver".** "quiero ver X" → pestaña `por_ver` + sección en el
       sitio; al registrarla como vista sale sola de la lista.
+- [x] **Human-in-the-loop.** "vi X" → el bot muestra la ficha con botones
+      **✅ Sí / ❌ No**; recién guarda (como `Aprobada`) cuando tocás ✅.
 - [x] Limpieza de `cerebro/` y del repo.
 
 ### Pendiente — funcionalidad
+- [ ] **HITL: el botón ❌.** Hoy ✅ guarda y confirma. Falta la rama del `no`
+      (editar el mensaje a "descartada") y el `answerCallbackQuery` para que el
+      botón no quede girando.
+- [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
+      del escenario de Make — ya cumplió.
 - [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
       Make baja solo la hoja de vistas — falta un HTTP más que baje `por_ver` y
       pasarle las dos listas a Gemini. Así entiende "¿qué tengo anotado?".
@@ -37,7 +44,6 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
 - [ ] Los ~8 títulos que TMDB no tiene (imágenes a mano en `img/`).
-- [ ] **Human-in-the-loop.** Botones *Aprobar / Editar / Rechazar* antes de guardar.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) (falta exportar a PDF).
