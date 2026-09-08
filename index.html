@@ -120,6 +120,7 @@ section{padding:64px 0; border-top:1px solid var(--line)}
 /* ============ charts ============ */
 .plates{display:grid; grid-template-columns:1fr 1fr; gap:44px 40px}
 @media(max-width:820px){ .plates{grid-template-columns:1fr; gap:44px} }
+.plate.wide{grid-column:1/-1}
 .plate h3{
   font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:500;
   letter-spacing:.16em; text-transform:uppercase; color:var(--ink-2);
@@ -208,7 +209,50 @@ td.ti .rw{
 }
 td.di,td.pa{color:var(--ink-2)}
 td.pa{font-family:"IBM Plex Mono",monospace; font-size:12px}
+td.rt{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-2); white-space:nowrap; font-variant-numeric:tabular-nums}
+td.rt b{color:var(--accent); font-weight:500}
 .empty{padding:50px 14px; text-align:center; color:var(--ink-3); font-style:italic}
+
+/* view toggle */
+.viewtoggle{display:flex; border:1px solid var(--line); border-radius:6px; overflow:hidden}
+.viewtoggle button{
+  all:unset; cursor:pointer; padding:9px 14px;
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+.viewtoggle button[aria-pressed="true"]{background:var(--accent); color:#0d0d0f}
+.viewtoggle button:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+
+/* poster grid */
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:22px 18px; border-top:1px solid var(--line); padding-top:26px;
+}
+@media(max-width:520px){ .grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:18px 12px} }
+.card{display:flex; flex-direction:column; gap:8px}
+.card .poster{
+  position:relative; aspect-ratio:2/3; border-radius:4px; overflow:hidden;
+  background:var(--line-2); border:1px solid var(--line);
+}
+.card .poster img{width:100%; height:100%; object-fit:cover; display:block}
+.card .poster .ph{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  padding:14px; text-align:center; font-family:"Archivo",sans-serif; font-weight:600;
+  font-size:13px; color:var(--ink-3); line-height:1.25;
+}
+.card .poster .rt{
+  position:absolute; left:6px; bottom:6px;
+  background:#0d0d0fdd; color:var(--accent); border-radius:4px;
+  font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:500;
+  padding:2px 6px; backdrop-filter:blur(2px);
+}
+.card .poster .rw{
+  position:absolute; right:6px; top:6px;
+  background:var(--accent); color:#0d0d0f; border-radius:4px;
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:500; padding:1px 5px;
+}
+.card .ct{font-family:"Archivo",sans-serif; font-weight:600; font-size:13.5px; line-height:1.25}
+.card .cm{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3); line-height:1.4}
 
 /* ============ footer ============ */
 footer{
@@ -255,6 +299,7 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
         <div class="plate"><h3>Por década de estreno</h3><div id="ch-decade"></div><p class="obs" id="ob-decade"></p></div>
         <div class="plate"><h3>Por país de origen</h3><div id="ch-country"></div><p class="obs" id="ob-country"></p></div>
         <div class="plate"><h3>Directores más vistos</h3><div id="ch-director"></div><p class="obs" id="ob-director"></p></div>
+        <div class="plate wide"><h3>Por género</h3><div id="ch-genre"></div><p class="obs" id="ob-genre"></p></div>
       </div>
     </div>
   </section>
@@ -276,22 +321,29 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
         <input type="search" id="q" placeholder="Buscar título o director…" aria-label="Buscar">
         <select id="fDecade" aria-label="Década de estreno"><option value="">Toda década</option></select>
         <select id="fCountry" aria-label="País"><option value="">Todo país</option></select>
+        <select id="fGenre" aria-label="Género"><option value="">Todo género</option></select>
         <select id="fYear" aria-label="Año visto"><option value="">Todo año visto</option></select>
         <label class="chk"><input type="checkbox" id="fRew"> Solo revisiones</label>
+        <div class="viewtoggle" role="group" aria-label="Vista">
+          <button id="vList" aria-pressed="true">Lista</button>
+          <button id="vGrid" aria-pressed="false">Grilla</button>
+        </div>
       </div>
       <div class="count mono" id="count"></div>
-      <div class="tbl-scroll">
+      <div class="tbl-scroll" id="tblWrap">
         <table>
           <thead><tr>
             <th data-k="y" style="width:80px"><button>Estreno <span class="arw"></span></button></th>
             <th data-k="t"><button>Título <span class="arw"></span></button></th>
             <th data-k="d"><button>Director <span class="arw"></span></button></th>
             <th data-k="p" style="width:130px"><button>País <span class="arw"></span></button></th>
+            <th data-k="r" style="width:74px"><button>TMDB <span class="arw"></span></button></th>
             <th data-k="s" style="width:110px"><button>Vista <span class="arw"></span></button></th>
           </tr></thead>
           <tbody id="rows"></tbody>
         </table>
       </div>
+      <div class="grid" id="grid" hidden></div>
     </div>
   </section>
 </main>
@@ -302,6 +354,7 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
     <p id="foot-src">Fuente: instantánea del catálogo · última entrada —</p>
     <p>El catálogo vive en una hoja de Google. Un bot de Telegram recibe el título de cada película nueva, una IA le completa director, año, país y género, y la fila se agrega sola.</p>
     <p>Para datos en vivo: publicá la hoja en la web como CSV y pegá la URL en <code>SHEET_CSV_URL</code>, dentro de este archivo.</p>
+    <p class="tmdb">Pósters, ratings y géneros de <a href="https://www.themoviedb.org" style="color:#c8c1b1">The Movie Database</a>. Este producto usa la API de TMDB pero no está avalado ni certificado por TMDB.</p>
   </div>
 </footer>
 
@@ -319,6 +372,7 @@ const EMBEDDED = [["Desearas al hombre de tu hermana","Diego Kaplan",2017,"Argen
 const $ = s => document.querySelector(s);
 const nf = n => n.toLocaleString("es-AR");
 const deburr = s => (s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const posterKey = (t,y) => deburr(t).replace(/[^a-z0-9]+/g," ").trim() + "|" + (y||"");
 
 const PAIS_CANON = {
   "usa":"Estados Unidos","estados unidos":"Estados Unidos","eeuu":"Estados Unidos","us":"Estados Unidos",
@@ -373,7 +427,19 @@ async function loadLive(){
 /* ================= estado ================= */
 let DATA = EMBEDDED.slice();
 let LIVE = false;
+let VIEW = "list";
 const rewatchCount = new Map();
+
+/* ================= pósters / géneros (TMDB, vía posters.json) ================= */
+let POSTERS = {};
+const _px = new Map();
+function pxOf(r){
+  const k = posterKey(r[0], r[2]);
+  if(!_px.has(k)) _px.set(k, POSTERS[k] || null);
+  return _px.get(k);
+}
+function genresOf(r){ const x = pxOf(r); return x && x.genres ? x.genres : []; }
+function ratingOf(r){ const x = pxOf(r); return x && x.rating != null ? x.rating : null; }
 
 /* ================= render ================= */
 function computeRewatches(){
@@ -488,6 +554,16 @@ function renderCharts(){
   const byD = [...tally(r=>canonDir(r[1])).entries()].filter(e=>e[0]).sort((a,b)=>b[1]-a[1]).slice(0,15);
   hBars($("#ch-director"), byD);
   $("#ob-director").textContent = `${byD[0][0]} encabeza con ${byD[0][1]} películas.`;
+
+  // género (de TMDB — solo las identificadas)
+  const conGenero = DATA.filter(r=>genresOf(r).length).length;
+  const byG = [...tally(r=>genresOf(r)).entries()].sort((a,b)=>b[1]-a[1]).slice(0,14);
+  if(byG.length){
+    hBars($("#ch-genre"), byG);
+    $("#ob-genre").textContent = `${byG[0][0]} arriba de todo (${byG[0][1]}). Sobre ${nf(conGenero)} películas con género identificado.`;
+  } else {
+    $("#ch-genre").innerHTML = `<p class="obs">Cargando géneros…</p>`;
+  }
 }
 
 function renderRewatch(){
@@ -508,48 +584,77 @@ function renderRewatch(){
 
 /* ---- índice ---- */
 let sort = {k:"s", dir:-1};
+function fillSelect(sel, placeholder, opts){
+  const cur = sel.value;
+  sel.innerHTML = `<option value="">${placeholder}</option>` + opts.map(o=>{
+    const [v,l] = Array.isArray(o) ? o : [o,o];
+    return `<option value="${esc(String(v))}">${esc(String(l))}</option>`;
+  }).join("");
+  if(cur) sel.value = cur;
+}
 function populateFilters(){
-  const decs = [...new Set(DATA.map(r=>decadeOf(r[2])).filter(Boolean))].sort((a,b)=>b-a);
-  $("#fDecade").insertAdjacentHTML("beforeend", decs.map(d=>`<option value="${d}">${d}s</option>`).join(""));
-  const cs = [...tally(r=>canonPais(r[3])).entries()].filter(e=>e[0]!=="—").sort((a,b)=>b[1]-a[1]).slice(0,24);
-  $("#fCountry").insertAdjacentHTML("beforeend", cs.map(c=>`<option value="${c[0]}">${c[0]}</option>`).join(""));
-  const ys = [...new Set(DATA.map(r=>r[5]).filter(Boolean))].sort((a,b)=>b-a);
-  $("#fYear").insertAdjacentHTML("beforeend", ys.map(y=>`<option value="${y}">${y}</option>`).join(""));
+  fillSelect($("#fDecade"), "Toda década",
+    [...new Set(DATA.map(r=>decadeOf(r[2])).filter(Boolean))].sort((a,b)=>b-a).map(d=>[d, d+"s"]));
+  fillSelect($("#fCountry"), "Todo país",
+    [...tally(r=>canonPais(r[3])).entries()].filter(e=>e[0]!=="—").sort((a,b)=>b[1]-a[1]).slice(0,24).map(e=>e[0]));
+  fillSelect($("#fYear"), "Todo año visto",
+    [...new Set(DATA.map(r=>r[5]).filter(Boolean))].sort((a,b)=>b-a).map(String));
+  fillSelect($("#fGenre"), "Todo género",
+    [...tally(r=>genresOf(r)).entries()].sort((a,b)=>b[1]-a[1]).map(e=>e[0]));
 }
 function currentRows(){
   const q = deburr($("#q").value.trim());
-  const fd = $("#fDecade").value, fc = $("#fCountry").value, fy = $("#fYear").value, fr = $("#fRew").checked;
+  const fd = $("#fDecade").value, fc = $("#fCountry").value, fy = $("#fYear").value, fg = $("#fGenre").value, fr = $("#fRew").checked;
   let rows = DATA.filter(r=>{
     if(q && !(deburr(r[0]).includes(q) || deburr(r[1]).includes(q))) return false;
     if(fd && decadeOf(r[2])!==+fd) return false;
     if(fc && canonPais(r[3])!==fc) return false;
     if(fy && r[5]!==+fy) return false;
+    if(fg && !genresOf(r).includes(fg)) return false;
     if(fr && (rewatchCount.get(r)||1)<2) return false;
     return true;
   });
-  const g = {y:r=>r[2]||0, t:r=>deburr(r[0]), d:r=>deburr(canonDir(r[1])), p:r=>deburr(canonPais(r[3])), s:r=>r[4]||""};
+  const g = {y:r=>r[2]||0, t:r=>deburr(r[0]), d:r=>deburr(canonDir(r[1])), p:r=>deburr(canonPais(r[3])), r:r=>ratingOf(r)??-1, s:r=>r[4]||""};
   const f = g[sort.k];
   rows.sort((a,b)=>{ const x=f(a),y=f(b); return (x<y?-1:x>y?1:0)*sort.dir; });
   return rows;
 }
-function renderTable(){
+function render(){
   const rows = currentRows();
   $("#count").textContent = `Mostrando ${nf(rows.length)} de ${nf(DATA.length)} películas`;
+  if(VIEW === "grid") renderGrid(rows); else renderTable(rows);
+}
+function renderTable(rows){
   const body = $("#rows");
-  if(!rows.length){ body.innerHTML = `<tr><td colspan="5" class="empty">Ninguna película coincide con el filtro.</td></tr>`; return; }
-  const frag = rows.map(r=>{
-    const rw = rewatchCount.get(r)||1;
+  if(!rows.length){ body.innerHTML = `<tr><td colspan="6" class="empty">Ninguna película coincide con el filtro.</td></tr>`; return; }
+  body.innerHTML = rows.map(r=>{
+    const rw = rewatchCount.get(r)||1, rt = ratingOf(r);
     return `<tr>
       <td class="yr">${r[2]||"—"}</td>
       <td class="ti">${esc(r[0])}${rw>1?`<span class="rw">×${rw}</span>`:""}</td>
       <td class="di">${esc(canonDir(r[1]))||"—"}</td>
       <td class="pa">${esc(canonPais(r[3]))}</td>
+      <td class="rt">${rt!=null?`<b>${rt.toFixed(1)}</b>`:"—"}</td>
       <td class="seen">${(r[4]||"").slice(0,10)}</td>
     </tr>`;
   }).join("");
-  body.innerHTML = frag;
 }
-function esc(s){ return (s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+function renderGrid(rows){
+  const el = $("#grid");
+  if(!rows.length){ el.innerHTML = `<p class="empty">Ninguna película coincide con el filtro.</p>`; return; }
+  el.innerHTML = rows.map(r=>{
+    const x = pxOf(r), rw = rewatchCount.get(r)||1;
+    const poster = x && x.poster
+      ? `<img loading="lazy" src="${x.poster}" alt="${esc(r[0])}">`
+      : `<div class="ph">${esc(r[0])}</div>`;
+    return `<div class="card">
+      <div class="poster">${poster}${x&&x.rating!=null?`<span class="rt">${x.rating.toFixed(1)}</span>`:""}${rw>1?`<span class="rw">×${rw}</span>`:""}</div>
+      <div class="ct">${esc(r[0])}</div>
+      <div class="cm">${r[2]||"—"} · ${esc(canonDir(r[1]))||"—"}</div>
+    </div>`;
+  }).join("");
+}
+function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 
 function setSortArrows(){
   document.querySelectorAll("thead th").forEach(th=>{
@@ -560,30 +665,44 @@ function setSortArrows(){
 }
 
 /* ================= init ================= */
+let _wired = false;
 function boot(){
+  _px.clear();
   computeRewatches();
   renderVitals();
   renderCharts();
   renderRewatch();
   populateFilters();
   setSortArrows();
-  renderTable();
+  render();
 
   const last = DATA.map(r=>r[4]).filter(Boolean).sort().reverse()[0] || "";
   $("#foot-src").innerHTML = LIVE
     ? `<span class="live">● Datos en vivo</span> desde Google Sheets · última entrada ${last.slice(0,10)}`
     : `Fuente: instantánea del catálogo · última entrada ${last.slice(0,10)}`;
 
-  ["#q","#fDecade","#fCountry","#fYear","#fRew"].forEach(s=>{
-    $(s).addEventListener("input", renderTable);
+  if(_wired) return;
+  _wired = true;
+  ["#q","#fDecade","#fCountry","#fGenre","#fYear","#fRew"].forEach(s=>{
+    $(s).addEventListener("input", render);
   });
   document.querySelectorAll("thead th button").forEach(btn=>{
     btn.addEventListener("click", ()=>{
       const k = btn.parentElement.dataset.k;
-      if(sort.k===k) sort.dir*=-1; else { sort.k=k; sort.dir = (k==="s"||k==="y")?-1:1; }
-      setSortArrows(); renderTable();
+      if(sort.k===k) sort.dir*=-1; else { sort.k=k; sort.dir = (k==="s"||k==="y"||k==="r")?-1:1; }
+      setSortArrows(); render();
     });
   });
+  const setView = v => {
+    VIEW = v;
+    $("#vList").setAttribute("aria-pressed", v==="list");
+    $("#vGrid").setAttribute("aria-pressed", v==="grid");
+    $("#tblWrap").hidden = v!=="list";
+    $("#grid").hidden = v!=="grid";
+    render();
+  };
+  $("#vList").addEventListener("click", ()=>setView("list"));
+  $("#vGrid").addEventListener("click", ()=>setView("grid"));
 }
 
 // tema
@@ -604,4 +723,7 @@ boot();
 loadLive().then(live=>{
   if(live && live.length){ DATA = live; LIVE = true; boot(); }
 });
+fetch("posters.json").then(r=>r.ok?r.json():null).then(p=>{
+  if(p){ POSTERS = p; boot(); }
+}).catch(()=>{});
 </script>

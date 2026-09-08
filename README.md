@@ -21,15 +21,17 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [x] **Sitio + estadísticas** en vivo (catálogo buscable + 4 gráficos).
 - [x] **Consultas al bot.** "¿qué vi de Cronenberg?" → responde leyendo la hoja.
 - [x] **Recomendaciones.** "recomendame un thriller" → sugiere pelis no vistas.
+- [x] **Pósters, ratings y géneros (TMDB).** Vista de grilla con tarjetas +
+      gráfico por género + filtro por género + columna de rating.
 - [x] Limpieza de `cerebro/` y del repo.
 
 ### Pendiente — funcionalidad
 - [ ] **Lista "quiero ver".** Pestaña `por_ver`, intent `agendar` en el bot; al
       registrarla como vista sale de la lista.
-- [ ] **Pósters (TMDB).** Traer imagen + rating; vista de grilla con tarjetas.
-- [ ] **Backfill de género** para las ~1.280 históricas → gráficos por género.
-- [ ] **Explorador de gráficos** en el sitio (elegir dimensión y ver el corte).
+- [ ] **Pósters para las nuevas.** Hoy `posters.json` se regenera a mano
+      (`node cerebro/build_posters.js`); sumar el paso de TMDB a Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
+- [ ] Los ~70 títulos con typo que TMDB no matcheó (corregirlos en la hoja).
 - [ ] **Human-in-the-loop.** Botones *Aprobar / Editar / Rechazar* antes de guardar.
 
 ### Pendiente — para cerrar el curso
@@ -76,10 +78,12 @@ El bot distingue tres cosas por el texto del mensaje:
 ## Estructura
 
 ```
-index.html            el sitio (catálogo navegable + 4 gráficos + índice completo)
+index.html            el sitio (5 gráficos + índice: lista o grilla de pósters)
+posters.json          póster, rating y género por película (de TMDB)
 cerebro/
   catalogo_completo.csv   copia portable de las ~1.280 películas
-  build_site.js           baja la hoja publicada y refresca la instantánea de index.html
+  build_site.js           refresca la instantánea embebida de index.html
+  build_posters.js        regenera posters.json desde TMDB (token en tmdb.key)
   CONFIG.md               dónde vive cada secreto (todos en Make, ninguno acá)
   README.md               notas sobre los datos
 ```
