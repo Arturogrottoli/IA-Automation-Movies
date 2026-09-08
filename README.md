@@ -16,45 +16,62 @@ del stack: datos, orquestación e inteligencia.
 **Funcional de punta a punta.** El circuito Telegram → IA → Google Sheets → web
 anda solo: agregás una película por chat y aparece en el sitio sin tocar nada más.
 
-Todavía en desarrollo — el proyecto no está terminado:
+### Hecho
+- [x] **Registro por chat.** "vi Whiplash" → IA completa la ficha → fila en la hoja.
+- [x] **Sitio + estadísticas** en vivo (catálogo buscable + 4 gráficos).
+- [x] **Consultas al bot.** "¿qué vi de Cronenberg?" → responde leyendo la hoja.
+- [x] **Recomendaciones.** "recomendame un thriller" → sugiere pelis no vistas.
+- [x] Limpieza de `cerebro/` y del repo.
 
-**Funcionalidad**
-- [ ] **Consultas al bot.** Preguntarle "¿qué vi de Cronenberg?" y que responda
-      leyendo la hoja.
-- [ ] **Recomendaciones.** Que sugiera películas *no vistas* a partir de un
-      director o un género.
-- [ ] **Human-in-the-loop.** Que el bot muestre la ficha con botones
-      *Aprobar / Editar / Rechazar* antes de guardar.
-- [ ] **Diagrama de arquitectura** (entrega PE1 del curso).
+### Pendiente — funcionalidad
+- [ ] **Lista "quiero ver".** Pestaña `por_ver`, intent `agendar` en el bot; al
+      registrarla como vista sale de la lista.
+- [ ] **Pósters (TMDB).** Traer imagen + rating; vista de grilla con tarjetas.
+- [ ] **Backfill de género** para las ~1.280 históricas → gráficos por género.
+- [ ] **Explorador de gráficos** en el sitio (elegir dimensión y ver el corte).
+- [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
+- [ ] **Human-in-the-loop.** Botones *Aprobar / Editar / Rechazar* antes de guardar.
 
-**Deuda técnica**
-- [x] Limpiar `cerebro/` — hecho. La fuente de verdad es la hoja de Google.
+### Pendiente — para cerrar el curso
+- [ ] **Diagrama de arquitectura** (PE1, PDF).
+- [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
+- [ ] **Cuadro de optimización de costos** (Gemini gratis vs pago, batch vs tiempo real).
+- [ ] **Panel de KPIs de operación** (tasa de aprobación, volumen, errores — máx 4).
+- [ ] **Manual de datos** formal.
+- [ ] **Video demo de 3 min.**
+
+### Deuda técnica menor
 - [ ] Limpiar del catálogo unas filas con fecha de visionado mal cargada.
-- [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es un
-      HTML plano sin dependencias ni build, y para lo que hace (tabla + 4
-      gráficos leyendo un CSV) funciona bien y carga al instante. Tendría sentido
-      si el sitio crece mucho, o como pieza de portfolio que demuestre ese stack.
+- [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
+      plano sin dependencias — funciona bien; tendría sentido si crece mucho o
+      como pieza de portfolio que demuestre ese stack.
 
 ## Cómo funciona
 
 ```mermaid
 flowchart LR
-    T[Telegram<br/>«vi Whiplash»] --> M[Make]
-    M --> G[Gemini<br/>completa la ficha]
-    G --> S[(Google Sheets<br/>catalogo_completo)]
-    M --> R[Telegram<br/>confirmación]
+    T[Telegram] --> G1[Gemini<br/>¿registrar o consultar?]
+    G1 --> R{Router}
+    R -->|registrar| G2[Gemini completa la ficha] --> S[(Google Sheets)]
+    R -->|consultar| H[lee el catálogo] --> G3[Gemini responde] --> T
     S --> W[index.html<br/>catálogo + stats]
+    S -.->|confirmación| T
 ```
 
 | Capa | Herramienta | Rol |
 |---|---|---|
 | **Cerebro** | Google Sheets | El catálogo. Una tabla, 17 columnas. |
-| **Corazón** | Make | Escucha el bot, llama a la IA, escribe la fila. |
-| **Inteligencia** | Google Gemini (`extract structured data`) | Del título → director, año, país, género, sinopsis. |
-| **Voz** | Telegram + `index.html` | Entrada por chat; salida por web. |
+| **Corazón** | Make | Clasifica el mensaje, bifurca, llama a la IA, escribe o responde. |
+| **Inteligencia** | Google Gemini | Clasifica intención · del título saca la ficha · responde consultas con el catálogo como contexto. |
+| **Voz** | Telegram + `index.html` | Entrada y consultas por chat; catálogo y stats por web. |
 
 El sitio es un solo archivo, sin dependencias ni build. Lee el CSV publicado de la
 hoja; si no hay conexión, cae a una instantánea embebida.
+
+El bot distingue tres cosas por el texto del mensaje:
+- **"vi X"** → registra la película.
+- **"¿qué vi de X?"** → responde con lo que hay en el catálogo.
+- **"recomendame algo de X"** → sugiere películas fuera del catálogo.
 
 ## Estructura
 
