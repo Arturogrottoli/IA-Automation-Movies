@@ -37,7 +37,7 @@ const FIX = {
   "get him to they greek|2010":"Get Him to the Greek", "28 week later|2006":"28 Weeks Later",
   "dog days afternoon|1975":"Dog Day Afternoon", "jurasic park|1993":"Jurassic Park",
   "one battle after a other|2025":"One Battle After Another", "shot the psycshospiritual mantra del rock|2016":"Shot The Psycho-Spiritual Mantra of Rock",
-  "la flor la termine el 4 4|2018":"La Flor Mariano Llinas", "rene lavand el gran simulador|2013":"René Lavand el gran simulador",
+  "la flor la termine el 4 4|2018":"La flor",
 };
 
 async function tmdb(u){ for(let i=0;i<4;i++){ const r=await fetch("https://api.themoviedb.org/3"+u,H); if(r.status===429){await sleep(1500);continue;} if(!r.ok)return null; return r.json(); } return null; }
