@@ -728,7 +728,10 @@ boot();
 loadLive().then(live=>{
   if(live && live.length){ DATA = live; LIVE = true; boot(); }
 });
-fetch("posters.json").then(r=>r.ok?r.json():null).then(p=>{
-  if(p){ POSTERS = p; boot(); }
-}).catch(()=>{});
+const grab = u => fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
+Promise.all([grab("posters.json"), grab("posters-manual.json")]).then(([auto, manual])=>{
+  if(auto) POSTERS = auto;
+  if(manual) for(const k in manual){ const m=manual[k]; if(m && m.poster) POSTERS[k] = m; }
+  if(auto || manual) boot();
+});
 </script>

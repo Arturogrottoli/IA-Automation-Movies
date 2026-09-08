@@ -1,0 +1,14 @@
+{
+  "_leeme": "Pósters para las que TMDB no tiene. Guardá la imagen en img/ y poné la ruta en 'poster'. Las entradas con poster vacío se ignoran.",
+
+  "rene lavand el gran simulador|2013": { "poster": "", "rating": null, "genres": ["Documental"] },
+  "el caso benzema|2017": { "poster": "", "rating": null, "genres": ["Documental"] },
+  "1978 argentina campeon de la copa del mundo|1978": { "poster": "", "rating": null, "genres": ["Documental"] },
+  "sucio y desprolijo la historia del heavy argentino|2015": { "poster": "", "rating": null, "genres": ["Documental", "Música"] },
+  "the planet of the age 2001|2001": { "poster": "", "rating": null, "genres": [] },
+  "un importante prestreno|2015": { "poster": "", "rating": null, "genres": [] },
+  "asspera el documental|2021": { "poster": "", "rating": null, "genres": ["Documental"] },
+  "exterminators 4|1992": { "poster": "", "rating": null, "genres": [] },
+  "la sociedad de la nieve doc|2008": { "poster": "", "rating": null, "genres": ["Documental"] },
+  "1978 0|2024": { "poster": "", "rating": null, "genres": [] }
+}
