@@ -644,7 +644,7 @@ function currentRows(){
 }
 const movieKey = r => deburr(r[0]).trim() + "|" + (r[2]||"");
 let page = 1;
-const PER = 60;
+const PER = 25;
 function renderPager(total){
   const el = $("#pager");
   const pages = Math.ceil(total / PER);
