@@ -35,11 +35,11 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **Human-in-the-loop.** Botones *Aprobar / Editar / Rechazar* antes de guardar.
 
 ### Pendiente — para cerrar el curso
-- [ ] **Diagrama de arquitectura** (PE1, PDF).
+- [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) (falta exportar a PDF).
+- [x] **Manual de datos** → [docs/manual-de-datos.md](docs/manual-de-datos.md).
+- [x] **Optimización de costos** → [docs/costos.md](docs/costos.md).
 - [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
-- [ ] **Cuadro de optimización de costos** (Gemini gratis vs pago, batch vs tiempo real).
 - [ ] **Panel de KPIs de operación** (tasa de aprobación, volumen, errores — máx 4).
-- [ ] **Manual de datos** formal.
 - [ ] **Video demo de 3 min.**
 
 ### Deuda técnica menor
@@ -85,6 +85,8 @@ El bot distingue tres cosas por el texto del mensaje:
 ```
 index.html            el sitio (5 gráficos + índice: lista o grilla de pósters)
 posters.json          póster, rating y género por película (de TMDB)
+posters-manual.json   los ~8 que TMDB no tiene (imágenes en img/)
+docs/                 entregables del curso — arquitectura, datos, costos
 cerebro/
   catalogo_completo.csv   copia portable de las ~1.280 películas
   build_site.js           refresca la instantánea embebida de index.html
