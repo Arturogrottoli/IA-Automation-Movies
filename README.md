@@ -43,7 +43,12 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **Video demo de 3 min.**
 
 ### Deuda técnica menor
-- [ ] Limpiar del catálogo unas filas con fecha de visionado mal cargada.
+- [ ] **`anio_visto` no coincide con `fecha_vista`.** La fecha es el dato bueno
+      (cargado a mano); `anio_visto` quedó con el año corrido en varios bloques
+      (la lista "2018" tiene fechas de 2019, la "2021" de 2022, la "2025" de 2026).
+      Recalcular `anio_visto` = año de `fecha_vista`. Ojo: cambia los conteos del
+      gráfico "por año" y necesita escritura en la hoja (service account).
+- [ ] Algunas `fecha_vista` del bloque 2025 caen en el futuro (dic-2026) — typos.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
       plano sin dependencias — funciona bien; tendría sentido si crece mucho o
       como pieza de portfolio que demuestre ese stack.
