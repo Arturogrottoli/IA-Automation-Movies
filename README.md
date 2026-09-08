@@ -18,20 +18,25 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 
 ### Hecho
 - [x] **Registro por chat.** "vi Whiplash" → IA completa la ficha → fila en la hoja.
-- [x] **Sitio + estadísticas** en vivo (catálogo buscable + 4 gráficos).
+- [x] **Sitio + estadísticas** en vivo (5 gráficos + índice paginado).
 - [x] **Consultas al bot.** "¿qué vi de Cronenberg?" → responde leyendo la hoja.
 - [x] **Recomendaciones.** "recomendame un thriller" → sugiere pelis no vistas.
-- [x] **Pósters, ratings y géneros (TMDB).** Vista de grilla con tarjetas +
-      gráfico por género + filtro por género + columna de rating.
+- [x] **Pósters, ratings y géneros (TMDB).** Grilla de tarjetas + gráfico y
+      filtro por género + columna de rating.
+- [x] **Lista "quiero ver".** "quiero ver X" → pestaña `por_ver` + sección en el
+      sitio; al registrarla como vista sale sola de la lista.
 - [x] Limpieza de `cerebro/` y del repo.
 
 ### Pendiente — funcionalidad
-- [ ] **Lista "quiero ver".** Pestaña `por_ver`, intent `agendar` en el bot; al
-      registrarla como vista sale de la lista.
-- [ ] **Pósters para las nuevas.** Hoy `posters.json` se regenera a mano
-      (`node cerebro/build_posters.js`); sumar el paso de TMDB a Make.
+- [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
+      Make baja solo la hoja de vistas — falta un HTTP más que baje `por_ver` y
+      pasarle las dos listas a Gemini. Así entiende "¿qué tengo anotado?".
+- [ ] **Sacar pelis de la lista por bot.** Hoy: borrar la fila en la pestaña
+      `por_ver` a mano. Automático = intent `descartar` + Search/Delete Row en Make.
+- [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
+      re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
-- [ ] Los ~70 títulos con typo que TMDB no matcheó (corregirlos en la hoja).
+- [ ] Los ~8 títulos que TMDB no tiene (imágenes a mano en `img/`).
 - [ ] **Human-in-the-loop.** Botones *Aprobar / Editar / Rechazar* antes de guardar.
 
 ### Pendiente — para cerrar el curso
