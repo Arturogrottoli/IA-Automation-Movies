@@ -8,8 +8,8 @@ Acá solo queda una copia portable y el script del fallback.
 
 | Archivo | Qué es |
 |---|---|
-| `catalogo_completo.csv` | Copia de las ~1.280 películas. Instantánea, no es la fuente viva. |
-| `build_site.js` | `node cerebro/build_site.js` → baja la hoja publicada y refresca la instantánea embebida en `../index.html` (el fallback sin conexión). |
+| `catalogo_completo.csv` | Copia portable de la hoja. La refresca `build_site.js`. |
+| `build_site.js` | `node cerebro/build_site.js` → baja la hoja publicada y refresca la instantánea embebida en `../index.html` y este CSV. |
 | `CONFIG.md` | Dónde vive cada secreto (todos en Make, ninguno en el repo). |
 | `Pelis_backup_*.xlsx` | Backup de la planilla con las pestañas por año. Ignorado por git. |
 
