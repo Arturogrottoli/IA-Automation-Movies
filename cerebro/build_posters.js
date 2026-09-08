@@ -31,15 +31,21 @@ async function tmdb(url){
 }
 
 (async () => {
-  // fuente: la hoja publicada (más actual que el CSV local)
-  const src = fs.readFileSync(path.join(ROOT, "index.html"), "utf8").match(/const SHEET_CSV_URL = "([^"]+)"/);
-  const csv = src ? await (await fetch(src[1])).text() : fs.readFileSync(path.join(ROOT, "cerebro/catalogo_completo.csv"), "utf8");
-  const rows = parseCSV(csv);
-  const h = rows[0].map(x => x.trim());
-  const ci = k => h.indexOf(k);
-  const movies = rows.slice(1)
-    .filter(r => r.length > ci("titulo") && (r[ci("titulo")] || "").trim())
-    .map(r => ({ t: r[ci("titulo")].trim(), y: +r[ci("anio_estreno")] || null }));
+  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const urlOf = re => (html.match(re) || [])[1];
+  const movies = [];
+  async function feed(url, fallback){
+    const csv = url ? await (await fetch(url)).text() : (fallback ? fs.readFileSync(fallback, "utf8") : "");
+    if (!csv) return;
+    const rows = parseCSV(csv);
+    const h = rows[0].map(x => x.trim());
+    const ci = k => h.indexOf(k);
+    rows.slice(1)
+      .filter(r => r.length > ci("titulo") && (r[ci("titulo")] || "").trim())
+      .forEach(r => movies.push({ t: r[ci("titulo")].trim(), y: +r[ci("anio_estreno")] || null }));
+  }
+  await feed(urlOf(/const SHEET_CSV_URL = "([^"]+)"/), path.join(ROOT, "cerebro/catalogo_completo.csv"));
+  await feed(urlOf(/const POR_VER_CSV_URL = "([^"]+)"/));   // la watchlist también
 
   // mapa de géneros (es)
   const gl = await tmdb("/genre/movie/list?language=es");
