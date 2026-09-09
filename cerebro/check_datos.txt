@@ -1,0 +1,230 @@
+fila 16  "El estudiante" (2011 · Santiago Mitre)
+   TMDB: El estudiante (2009 · Roberto Girault)   [año + director]
+
+fila 49  "Perfectos desconocidos" (2017 · Alex de la iglesia)
+   TMDB: Perfectos desconocidos (2016 · Paolo Genovese)   [director]
+
+fila 79  "Demon" (2015 · Marcin Wrona)
+   TMDB: Demon (1976 · Larry Cohen)   [año + director]
+
+fila 90  "Toc Toc" (2017 · Vicente Villanueva)
+   TMDB: Toc, toc (2015 · Eli Roth)   [año + director]
+
+fila 133  "Birdbox" (2018 · Susanne Bier)
+   TMDB: BirdBox (2022 · Rajesh Thakare, Aman Gupta)   [año + director]
+
+fila 134  "True Story" (2014 · Rupert Goold)
+   TMDB: True Love Story (2014 · Gitanjali Rao)   [director]
+
+fila 158  "The green Book" (2018 · Peter Farrelly)
+   TMDB: La librería (2017 · Isabel Coixet)   [director]
+
+fila 164  "Rojo" (2018 · Benjamin Naishtat)
+   TMDB: Gorrión rojo (2018 · Francis Lawrence)   [director]
+
+fila 169  "Leaving Neverland" (2018 · Dan Reed)
+   TMDB: Leaving Neverland 2 (2025 · Dan Reed)   [año]
+
+fila 192  "Melbourne" (2014 · Nima Javidi)
+   TMDB: The Outer Circle: Melbourne's Forgotten Railway (2014 · Andrew McColm)   [director]
+
+fila 203  "Lion" (2016 · Garth Davis)
+   TMDB: El rey león (1994 · Roger Allers, Rob Minkoff)   [año + director]
+
+fila 204  "El acorazado Potemkin" (1925 · Serguei Eisenstein)
+   TMDB: El acorazado Potemkin (1925 · Сергей Эйзенштейн)   [director]
+
+fila 253  "La Casa de la playa" (2019 · July Massaccesi)
+   TMDB: The Beach House (2020 · Jeffrey A. Brown)   [director]
+
+fila 260  "Parasite" (2019 · Bong Joon-ho)
+   TMDB: More Animated Worker and Parasite (null · Suzanne Dargie)   [director]
+
+fila 273  "El Club" (2015 · Pablo Larrain)
+   TMDB: El club de la lucha (1999 · David Fincher)   [año + director]
+
+fila 304  "Alice doesnt live here anymore" (1977 · Martin Scorsese)
+   TMDB: Alicia ya no vive aquí (1974 · Martin Scorsese)   [año]
+
+fila 318  "Us and them" (2018 · René Liu)
+   TMDB: Entre la tierra y el cielo (2018 · 劉若英)   [director]
+
+fila 320  "Snowpiercer" (2013 · Bong Joon-ho)
+   TMDB: Snowpiercer International Special Animation (2013 · Se-Yun Ko)   [director]
+
+fila 322  "Toxico" (2020 · Ariel Martínez Herrera)
+   TMDB: Tóxico (2020 · Fabián Archondo)   [director]
+
+fila 342  "Little children" (2016 · Todd Field)
+   TMDB: Suffer the Little Children (2015 · Corey Norman)   [director]
+
+fila 344  "Train to Busan" (2016 · Yeon Sang-ho)
+   TMDB: Train to Busan (2016 · 연상호)   [director]
+
+fila 348  "The gentleman" (2019 · Guy Ritchie)
+   TMDB: Searching for the Perfect Gentleman (2019 · Lena Windisch)   [director]
+
+fila 369  "Mid 90s" (2018 · Jonah Hill)
+   TMDB: Oil Capital Underground: The Genesis & Evolution of Punk Rock in Tulsa-Late 70's to Mid 90's (2018 · Bryan Crain)   [director]
+
+fila 376  "Death at the funeral" (2007 · Frank Oz)
+   TMDB: Funerailles A Bongo: Le Vieux Anai (1979 · Germaine Dieterlen, Jean Rouch)   [año + director]
+
+fila 379  "The last house on the left" (2009 · Dennis Iliadis)
+   TMDB: La última casa a la izquierda (2009 · Ντένης Ηλιάδης)   [director]
+
+fila 388  "Atrapados sin salida" (1976 · Milos Forman)
+   TMDB: Atrapados sin salida (1999 · Ash Baron-Cohen)   [año + director]
+
+fila 430  "Batman dark knight" (2008 · Christopher Nolan)
+   TMDB: Batman Unmasked (2008 · Steven C. Smith)   [director]
+
+fila 433  "The darkest hour" (2017 · Joe Wright)
+   TMDB: Alice - The Darkest Hour (2017 · Thomas Pill, Michael Effenberger)   [director]
+
+fila 462  "Super size me 2" (2017 · Morgan Spurlock)
+   TMDB: Super Size Me 2: Holy Chicken! (2019 · Morgan Spurlock)   [año]
+
+fila 509  "J edgar" (2021 · Clint Eastwood)
+   TMDB: J. Edgar (2011 · Clint Eastwood)   [año]
+
+fila 522  "The rope" (1948 · Alfred Hitchcock)
+   TMDB: The Rope Curse (2018 · 廖士涵)   [año + director]
+
+fila 532  "Old" (2021 · M. Night Shyamalan)
+   TMDB: Old Boy (2003 · Park Chan-wook)   [año + director]
+
+fila 541  "Historia de lo oculto" (2020 · Cristian Jesús Ponce)
+   TMDB: Historia de lo oculto (2023 · Cristian Ponce)   [año]
+
+fila 551  "Titane" (2011 · Julia Ducournau)
+   TMDB: Furia de titanes (2010 · Louis Leterrier)   [director]
+
+fila 555  "Oxygen" (2021 · Alexandre Aja)
+   TMDB: Chance Encounters With Oxygen (2021 · Frankie Campisano)   [director]
+
+fila 561  "The innocents" (2021 · Eskil Vogt)
+   TMDB: Soñadores (2003 · Bernardo Bertolucci)   [año + director]
+
+fila 572  "Alive" (2020 · Il Cho)
+   TMDB: Sólo los amantes sobreviven (2013 · Jim Jarmusch)   [año + director]
+
+fila 574  "Train to busan, peninsule" (2020 · Yeon Sang-ho)
+   TMDB: Península (2020 · 연상호)   [director]
+
+fila 594  "Drive My Car" (2021 · Ryūsuke Hamaguchi)
+   TMDB: Drive my car (2021 · 濱口竜介)   [director]
+
+fila 622  "The wailing" (2016 · Na Hong-jin)
+   TMDB: El extraño (2016 · Pablo Álvarez)   [director]
+
+fila 624  "Hard Target" (1993 · John Woo)
+   TMDB: Blanco humano (1993 · 吴宇森)   [director]
+
+fila 633  "Incantantion" (2022 · Ke Mengrong)
+   TMDB: Maleficio (2022 · Kevin Ko)   [director]
+
+fila 659  "Labyrinth" (1996 · Jim Henson)
+   TMDB: 迷宮 (1996 · Yonosuke Minamoto)   [director]
+
+fila 671  "Men" (2022 · Alex Garland)
+   TMDB: Hombres de negro (1997 · Barry Sonnenfeld)   [año + director]
+
+fila 672  "Mr death" (2000 · Errol Morris)
+   TMDB: Mr. Death (2016 · Andreas J. Riiser)   [año + director]
+
+fila 673  "Tabloide" (2010 · Errol Morris)
+   TMDB: Escándalo en la redacción (2005 · Mary McGuckian)   [año + director]
+
+fila 674  "Gates of Heaven" (1980 · Errol Morris)
+   TMDB: Las verjas del cielo (1978 · Errol Morris)   [año]
+
+fila 680  "Pinocchio" (2022 · Guillermo del Toro)
+   TMDB: Pinocho (2022 · Robert Zemeckis)   [director]
+
+fila 681  "RRR" (2022 · S. S. Rajamouli)
+   TMDB: RRR (2022 · ఎస్.ఎస్. రాజమౌళి)   [director]
+
+fila 713  "The menu" (2022 · Adam McKay)
+   TMDB: El menú (2022 · Mark Mylod)   [director]
+
+fila 718  "Terrifier" (2016 · Damien Leone)
+   TMDB: Terrifier (2018 · Damien Leone)   [año]
+
+fila 733  "Predator 2" (1997 · Stephen Hopkins)
+   TMDB: Depredador 2 (1990 · Stephen Hopkins)   [año]
+
+fila 741  "Zom 100" (2023 · Yusuke Ishida)
+   TMDB: Zom 100: Cien cosas que quiero hacer antes de convertirme en zombi (2023 · 石田雄介)   [director]
+
+fila 749  "Planet horror" (2007 · Robert Rodriguez)
+   TMDB: Inseminoid (1981 · Norman J. Warren)   [año + director]
+
+fila 773  "The arrival" (2016 · Denis Villeneuve)
+   TMDB: The Arrival (2016 · Daniel Montanarini)   [director]
+
+fila 777  "Face off" (1997 · John Woo)
+   TMDB: Cara a cara (1997 · 吴宇森)   [director]
+
+fila 814  "The Sorcerer" (1977 · William Friedkin)
+   TMDB: The Sorcerers of Elthradin (1977 · Richard Geiwitz)   [director]
+
+fila 832  "Fuck You" (2024 · Jose Luis Garcia)
+   TMDB: Fuck You, Cupid (2024 · Felipe Marinheiro)   [director]
+
+fila 874  "The Exam" (2009 · Stuart Hazeldine)
+   TMDB: Notte prima degli esami - Oggi (2007 · Fausto Brizzi)   [año + director]
+
+fila 887  "Finders keepers" (2015 · Bryan Carberry and Clay Tweel.)
+   TMDB: Finders Keepers (2014 · Alexander Yellen)   [director]
+
+fila 904  "Muchachos" (2023 · Jesús Braceras)
+   TMDB: Los Muchachos de Antes (2023 · Juan Felipe León)   [director]
+
+fila 908  "Madame claude" (2021 · Sylvie Verheyde)
+   TMDB: Madame Claude (1977 · Just Jaeckin)   [año + director]
+
+fila 925  "The trap" (2024 · M. Night Shyamalan)
+   TMDB: The Trap (2023 · Lena Headey)   [director]
+
+fila 935  "Thelma" (2024 · Josh Margolin)
+   TMDB: Thelma & Louise (1991 · Ridley Scott)   [año + director]
+
+fila 942  "The assessment" (2022 · Flor afortunada)
+   TMDB: La evaluación (2025 · Fleur Fortuné)   [año + director]
+
+fila 975  "Joy" (2024 · Ben Taylor)
+   TMDB: Locas en apuros (2023 · Adele Lim)   [director]
+
+fila 1000  "Monkey Man" (2011 · Dev Patel)
+   TMDB: Monkey Man (2024 · Dev Patel)   [año]
+
+fila 1001  "Raw" (2016 · Julia Ducournau)
+   TMDB: Raw (El show de Eddie Murphy) (1987 · Robert Townsend)   [año + director]
+
+fila 1004  "Los gatos" (1986 · Carlos Borcosque)
+   TMDB: Macskafogó (1986 · Ternovszky Béla)   [director]
+
+fila 1063  "Frankestein" (2025 · Guillermo del Toro)
+   TMDB: Frankestein el vampiro y compañía (1962 · Benito Alazraki)   [año + director]
+
+fila 1064  "The tóxic Avenger" (2023 · Macon Blair)
+   TMDB: El vengador tóxico (2025 · Macon Blair)   [año]
+
+fila 1075  "The great flood" (2025 · Kim Byeong-u)
+   TMDB: El gran diluvio (2025 · 김병우)   [director]
+
+fila 1173  "Carrie" (2013 · Kimberly Peirce)
+   TMDB: Carrie (1976 · Brian De Palma)   [año + director]
+
+fila 1207  "They Will Kill You" (2026 · Kirill Sokolov)
+   TMDB: Te van a matar (2026 · Кирилл Соколов)   [director]
+
+fila 1263  "Freddy vs. Jason" (2003 · Ronny Yu)
+   TMDB: Freddy contra Jason (2003 · 于仁泰)   [director]
+
+fila 1266  "A Nightmare on Elm Street" (2010 · Samuel Bayer)
+   TMDB: Pesadilla en Elm Street (1984 · Wes Craven)   [año + director]
+
+fila 1281  "Hausu (House)" (1977 · Nobuhiko Ôbayashi)
+   TMDB: House (1977 · 大林宣彦)   [director]

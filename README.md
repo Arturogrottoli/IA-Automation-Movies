@@ -54,12 +54,17 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **Video demo de 3 min.**
 
 ### Deuda técnica menor
-- [ ] **`anio_visto` no coincide con `fecha_vista`.** La fecha es el dato bueno
-      (cargado a mano); `anio_visto` quedó con el año corrido en varios bloques
-      (la lista "2018" tiene fechas de 2019, la "2021" de 2022, la "2025" de 2026).
-      Recalcular `anio_visto` = año de `fecha_vista`. Ojo: cambia los conteos del
-      gráfico "por año" y necesita escritura en la hoja (service account).
-- [ ] Algunas `fecha_vista` del bloque 2025 caen en el futuro (dic-2026) — typos.
+- [ ] **Fechas de visionado (`fecha_vista`) con el año corrido.** Bloques enteros:
+      la lista "2018" tiene fechas de 2019, la "2021" de 2022, la "2025" de 2026
+      (algunas caen en el futuro). Hay que restar 1 al año en esos rangos.
+      Es lo que más falta acomodar. Con `check_datos.js` / Find&Replace por rango.
+- [ ] **8 celdas con año o director mal** (de `cerebro/check_datos.js`, verificadas):
+      `D713` The Menu → Mark Mylod · `E733` Predator 2 → 1990 · `E509` J. Edgar → 2011 ·
+      `E551` Titane → 2021 · `E342` Little Children → 2006 · `E1000` Monkey Man → 2024 ·
+      `D942`/`E942` The Assessment → Fleur Fortuné / 2024 · `E659` Labyrinth → 1986.
+- [ ] `posters.json` matcheó mal ~70 pelis (remakes/homónimos) — regenerar con un
+      match más estricto por año. La hoja está bien; solo el póster.
+- [ ] Recalcular `anio_visto` = año de `fecha_vista` una vez arregladas las fechas.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
       plano sin dependencias — funciona bien; tendría sentido si crece mucho o
       como pieza de portfolio que demuestre ese stack.
