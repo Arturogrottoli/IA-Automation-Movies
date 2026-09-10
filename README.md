@@ -58,12 +58,15 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       la lista "2018" tiene fechas de 2019, la "2021" de 2022, la "2025" de 2026
       (algunas caen en el futuro). Hay que restar 1 al año en esos rangos.
       Es lo que más falta acomodar. Con `check_datos.js` / Find&Replace por rango.
-- [ ] **8 celdas con año o director mal** (de `cerebro/check_datos.js`, verificadas):
-      `D713` The Menu → Mark Mylod · `E733` Predator 2 → 1990 · `E509` J. Edgar → 2011 ·
-      `E551` Titane → 2021 · `E342` Little Children → 2006 · `E1000` Monkey Man → 2024 ·
-      `D942`/`E942` The Assessment → Fleur Fortuné / 2024 · `E659` Labyrinth → 1986.
+- [ ] **Celdas con año/director mal** (de `cerebro/check_datos.js`, verificadas).
+      Hecho: `D713` `E733` `E509` `E551` `E342` `E1000`.
+      Falta: `D942` The Assessment → `Fleur Fortuné` + `E942` → `2024` · `E659` Labyrinth → `1986`.
+- [ ] **`por_ver`:** fila 5 The Other → `Robert Mulligan` / `1972` ·
+      fila 8 Amarga Navidad → `Pedro Almodóvar` / `2026` / `España` ·
+      fila 9 Charly días de sangre → `Carlos Galettini`.
 - [ ] `posters.json` matcheó mal ~70 pelis (remakes/homónimos) — regenerar con un
       match más estricto por año. La hoja está bien; solo el póster.
+- [ ] Falta la imagen de `img/los-gatos.jpg` (TMDB no tiene la argentina de 1986).
 - [ ] Recalcular `anio_visto` = año de `fecha_vista` una vez arregladas las fechas.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
       plano sin dependencias — funciona bien; tendría sentido si crece mucho o
