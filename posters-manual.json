@@ -1,12 +1,69 @@
 {
   "_leeme": "Pósters para las que TMDB no tiene. Guardá la imagen en img/ y poné la ruta en 'poster'. Las entradas con poster vacío se ignoran.",
-
-  "rene lavand el gran simulador|2013": { "poster": "img/rene-lavand.jpg", "rating": null, "genres": ["Documental"] },
-  "el caso benzema|2017": { "poster": "img/caso-benzema.jpg", "rating": null, "genres": ["Documental"] },
-  "1978 argentina campeon de la copa del mundo|1978": { "poster": "img/1978-mundial.jpg", "rating": null, "genres": ["Documental"] },
-  "sucio y desprolijo la historia del heavy argentino|2015": { "poster": "img/sucio-y-desprolijo.jpg", "rating": null, "genres": ["Documental", "Música"] },
-  "un importante prestreno|2015": { "poster": "img/importante-prestreno.jpg", "rating": null, "genres": ["Documental"] },
-  "asspera el documental|2021": { "poster": "img/asspera.jpg", "rating": null, "genres": ["Documental", "Música"] },
-  "exterminators 4|1992": { "poster": "img/exterminadores-4.jpg", "rating": null, "genres": ["Acción", "Comedia"] },
-  "la sociedad de la nieve doc|2008": { "poster": "img/sociedad-de-la-nieve-doc.jpg", "rating": null, "genres": ["Documental"] }
+  "rene lavand el gran simulador|2013": {
+    "poster": "img/rene-lavand.jpg",
+    "rating": null,
+    "genres": [
+      "Documental"
+    ]
+  },
+  "el caso benzema|2017": {
+    "poster": "img/caso-benzema.jpg",
+    "rating": null,
+    "genres": [
+      "Documental"
+    ]
+  },
+  "1978 argentina campeon de la copa del mundo|1978": {
+    "poster": "img/1978-mundial.jpg",
+    "rating": null,
+    "genres": [
+      "Documental"
+    ]
+  },
+  "sucio y desprolijo la historia del heavy argentino|2015": {
+    "poster": "img/sucio-y-desprolijo.jpg",
+    "rating": null,
+    "genres": [
+      "Documental",
+      "Música"
+    ]
+  },
+  "un importante prestreno|2015": {
+    "poster": "img/importante-prestreno.jpg",
+    "rating": null,
+    "genres": [
+      "Documental"
+    ]
+  },
+  "asspera el documental|2021": {
+    "poster": "img/asspera.jpg",
+    "rating": null,
+    "genres": [
+      "Documental",
+      "Música"
+    ]
+  },
+  "exterminators 4|1992": {
+    "poster": "img/exterminadores-4.jpg",
+    "rating": null,
+    "genres": [
+      "Acción",
+      "Comedia"
+    ]
+  },
+  "la sociedad de la nieve doc|2008": {
+    "poster": "img/sociedad-de-la-nieve-doc.jpg",
+    "rating": null,
+    "genres": [
+      "Documental"
+    ]
+  },
+  "los gatos|1986": {
+    "poster": "img/los-gatos.jpg",
+    "rating": null,
+    "genres": [
+      "Drama"
+    ]
+  }
 }
