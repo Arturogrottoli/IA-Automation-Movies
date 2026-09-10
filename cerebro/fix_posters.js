@@ -37,7 +37,8 @@ const FIX = {
   "get him to they greek|2010":"Get Him to the Greek", "28 week later|2006":"28 Weeks Later",
   "dog days afternoon|1975":"Dog Day Afternoon", "jurasic park|1993":"Jurassic Park",
   "one battle after a other|2025":"One Battle After Another",
-  "the planet of the age 2001|2001":"Planet of the Apes", "1978 0|2024":"1978", "shot the psycshospiritual mantra del rock|2016":"Shot The Psycho-Spiritual Mantra of Rock",
+  "the planet of the age 2001|2001":"Planet of the Apes", "1978 0|2024":"1978",
+  "frankestein|2025":"Frankenstein Guillermo del Toro", "shot the psycshospiritual mantra del rock|2016":"Shot The Psycho-Spiritual Mantra of Rock",
   "la flor la termine el 4 4|2018":"La flor",
 };
 
