@@ -33,6 +33,12 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **HITL: el botón ❌.** Hoy ✅ guarda y confirma. Falta la rama del `no`
       (editar el mensaje a "descartada") y el `answerCallbackQuery` para que el
       botón no quede girando.
+- [ ] **HITL: recuperar un ❌ por error.** Al tocar ❌, que el mensaje diga
+      "❌ Descartada — si fue sin querer, mandala de nuevo" (o un botón "deshacer").
+- [ ] **Aviso de título homónimo.** Al registrar "X" que ya existe en el catálogo
+      con otro director/año, que el bot avise: "ya tenés *X* (De Palma, 1976); esta
+      es de Kimberly Peirce, 2013 — ¿la agrego igual?". Evita falsos duplicados y
+      marca cuándo es una revisión de verdad.
 - [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
       del escenario de Make — ya cumplió.
 - [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
