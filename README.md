@@ -75,12 +75,9 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       la lista "2018" tiene fechas de 2019, la "2021" de 2022, la "2025" de 2026
       (algunas caen en el futuro). Hay que restar 1 al año en esos rangos.
       Es lo que más falta acomodar. Con `check_datos.js` / Find&Replace por rango.
-- [ ] **Celdas con año/director mal** (de `cerebro/check_datos.js`, verificadas).
-      Hecho: `D713` `E733` `E509` `E551` `E342` `E1000`.
-      Falta: `D942` The Assessment → `Fleur Fortuné` · `E942` → `2025` · `E659` Labyrinth → `1986` ·
-      `E674` Gates of Heaven → `1978` · `E1064` The Toxic Avenger → `2025`.
-- [ ] **`por_ver`:** fila 8 Amarga Navidad → `Pedro Almodóvar` / `2026` / `España` ·
-      fila 9 Charly días de sangre → `Carlos Galettini`.
+- [x] **Celdas con año/director mal** (de `cerebro/check_datos.js`, verificadas).
+      `D713` `E733` `E509` `E551` `E342` `E1000` `D942`/`E942` `E659` `E674` `E1064`.
+- [x] **`por_ver`:** Amarga Navidad y Charly días de sangre, ya completas.
 - [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 20 se corrigieron
       solas (`cerebro/rematch_posters.js`, elige por director en vez de por
       popularidad). Quedan más sueltas; se van encontrando con `check_datos.js`.
