@@ -30,15 +30,17 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [x] Limpieza de `cerebro/` y del repo.
 
 ### Pendiente — funcionalidad
-- [ ] **HITL: el botón ❌.** Hoy ✅ guarda y confirma. Falta la rama del `no`
-      (editar el mensaje a "descartada") y el `answerCallbackQuery` para que el
-      botón no quede girando.
-- [ ] **HITL: recuperar un ❌ por error.** Al tocar ❌, que el mensaje diga
-      "❌ Descartada — si fue sin querer, mandala de nuevo" (o un botón "deshacer").
+- [x] **HITL: el botón ❌.** Router → `editMessageText` ("❌ Descartada") →
+      `answerCallbackQuery`. Ya no guarda nada en la hoja e incluye el mensaje
+      de recuperación ("si fue sin querer, mandala de nuevo").
 - [ ] **Aviso de título homónimo.** Al registrar "X" que ya existe en el catálogo
       con otro director/año, que el bot avise: "ya tenés *X* (De Palma, 1976); esta
       es de Kimberly Peirce, 2013 — ¿la agrego igual?". Evita falsos duplicados y
       marca cuándo es una revisión de verdad.
+- [ ] **Título ambiguo (ej. "cape fear").** Cuando el título tiene más de una
+      película conocida (remake, versión vieja), que Gemini lo marque
+      (`ambiguo` + `opciones`) y el bot pregunte cuál es con botones, en vez
+      de adivinar una sola.
 - [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
       del escenario de Make — ya cumplió.
 - [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
