@@ -51,7 +51,7 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
       re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
-- [ ] Los ~8 títulos que TMDB no tiene (imágenes a mano en `img/`).
+- [x] Los 9 títulos que TMDB no tiene — todos con imagen a mano en `img/`.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) (falta exportar a PDF).
