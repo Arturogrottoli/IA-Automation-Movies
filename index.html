@@ -315,8 +315,7 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
         <div class="plate"><h3>Por década de estreno</h3><div id="ch-decade"></div><p class="obs" id="ob-decade"></p></div>
         <div class="plate"><h3>Por país de origen</h3><div id="ch-country"></div><p class="obs" id="ob-country"></p></div>
         <div class="plate"><h3>Directores más vistos</h3><div id="ch-director"></div><p class="obs" id="ob-director"></p></div>
-        <div class="plate"><h3>Por género</h3><div id="ch-genre"></div><p class="obs" id="ob-genre"></p></div>
-        <div class="plate"><h3>Por rating (TMDB)</h3><div id="ch-rating"></div><p class="obs" id="ob-rating"></p></div>
+        <div class="plate wide"><h3>Por género</h3><div id="ch-genre"></div><p class="obs" id="ob-genre"></p></div>
       </div>
     </div>
   </section>
@@ -349,19 +348,6 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
         <select id="fCountry" aria-label="País"><option value="">Todo país</option></select>
         <select id="fGenre" aria-label="Género"><option value="">Todo género</option></select>
         <select id="fYear" aria-label="Año visto"><option value="">Todo año visto</option></select>
-        <select id="fRating" aria-label="Rating mínimo">
-          <option value="">Todo rating</option>
-          <option value="10">10+</option>
-          <option value="9">9+</option>
-          <option value="8">8+</option>
-          <option value="7">7+</option>
-          <option value="6">6+</option>
-          <option value="5">5+</option>
-          <option value="4">4+</option>
-          <option value="3">3+</option>
-          <option value="2">2+</option>
-          <option value="1">1+</option>
-        </select>
         <label class="chk"><input type="checkbox" id="fRew"> Solo revisiones</label>
         <div class="viewtoggle" role="group" aria-label="Vista">
           <button id="vList" aria-pressed="true">Lista</button>
@@ -606,20 +592,6 @@ function renderCharts(){
   } else {
     $("#ch-genre").innerHTML = `<p class="obs">Cargando géneros…</p>`;
   }
-
-  // rating (de TMDB — solo las identificadas)
-  const ratings = DATA.map(ratingOf).filter(x=>x!=null);
-  if(ratings.length){
-    const buckets = new Map();
-    for(let b=0;b<10;b++) buckets.set(b, 0);
-    ratings.forEach(x=>{ const b = Math.min(9, Math.floor(x)); buckets.set(b, (buckets.get(b)||0)+1); });
-    const byR = [...buckets.entries()].filter(e=>e[1]>0).map(([b,n])=>[`${b}-${b+1}`, n]);
-    vBars($("#ch-rating"), byR);
-    const top = [...buckets.entries()].sort((a,b)=>b[1]-a[1])[0];
-    $("#ob-rating").textContent = `La mayoría cae entre ${top[0]} y ${top[0]+1} puntos. Sobre ${nf(ratings.length)} películas con rating de TMDB.`;
-  } else {
-    $("#ch-rating").innerHTML = `<p class="obs">Cargando ratings…</p>`;
-  }
 }
 
 function renderRewatch(){
@@ -660,14 +632,13 @@ function populateFilters(){
 }
 function currentRows(){
   const q = deburr($("#q").value.trim());
-  const fd = $("#fDecade").value, fc = $("#fCountry").value, fy = $("#fYear").value, fg = $("#fGenre").value, fr = $("#fRew").checked, frt = $("#fRating").value;
+  const fd = $("#fDecade").value, fc = $("#fCountry").value, fy = $("#fYear").value, fg = $("#fGenre").value, fr = $("#fRew").checked;
   let rows = DATA.filter(r=>{
     if(q && !(deburr(r[0]).includes(q) || deburr(r[1]).includes(q))) return false;
     if(fd && decadeOf(r[2])!==+fd) return false;
     if(fc && canonPais(r[3])!==fc) return false;
     if(fy && r[5]!==+fy) return false;
     if(fg && !genresOf(r).includes(fg)) return false;
-    if(frt && (ratingOf(r)??-1)<+frt) return false;
     if(fr && (rewatchCount.get(r)||1)<2) return false;
     return true;
   });
@@ -775,7 +746,7 @@ function boot(){
 
   if(_wired) return;
   _wired = true;
-  ["#q","#fDecade","#fCountry","#fGenre","#fYear","#fRating","#fRew"].forEach(s=>{
+  ["#q","#fDecade","#fCountry","#fGenre","#fYear","#fRew"].forEach(s=>{
     $(s).addEventListener("input", ()=>{ page = 1; render(); });
   });
   document.querySelectorAll("thead th button").forEach(btn=>{
