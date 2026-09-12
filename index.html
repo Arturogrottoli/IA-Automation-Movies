@@ -469,7 +469,7 @@ function genresOf(r){ const x = pxOf(r); return x && x.genres ? x.genres : []; }
 function ratingOf(r){ const x = pxOf(r); return x && x.rating != null ? x.rating : null; }
 
 /* ================= render ================= */
-const rwKey = r => deburr(r[0]).trim() + "|" + (r[2]||"");
+const rwKey = r => deburr(r[0]).replace(/[^a-z0-9]+/g," ").trim() + "|" + (r[2]||"");
 function computeRewatches(){
   rewatchCount.clear();
   const m = new Map();
@@ -647,7 +647,7 @@ function currentRows(){
   rows.sort((a,b)=>{ const x=f(a),y=f(b); return (x<y?-1:x>y?1:0)*sort.dir; });
   return rows;
 }
-const movieKey = r => deburr(r[0]).trim() + "|" + (r[2]||"");
+const movieKey = r => deburr(r[0]).replace(/[^a-z0-9]+/g," ").trim() + "|" + (r[2]||"");
 let page = 1;
 const PER = 25;
 function renderPager(total){
