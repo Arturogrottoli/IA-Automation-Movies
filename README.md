@@ -37,10 +37,13 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       con otro director/año, que el bot avise: "ya tenés *X* (De Palma, 1976); esta
       es de Kimberly Peirce, 2013 — ¿la agrego igual?". Evita falsos duplicados y
       marca cuándo es una revisión de verdad.
-- [ ] **Título ambiguo (ej. "cape fear").** Cuando el título tiene más de una
-      película conocida (remake, versión vieja), que Gemini lo marque
-      (`ambiguo` + `opciones`) y el bot pregunte cuál es con botones, en vez
-      de adivinar una sola.
+- [ ] **Título ambiguo (ej. "cape fear"), con botones.** Cuando el título tiene
+      más de una película conocida (remake, versión vieja), que el bot pregunte
+      cuál es con 2 botones, en vez de adivinar una sola.
+      Hecho: el Gemini que arma la ficha ya calcula `ambiguo` + `opcion1` +
+      `opcion2` (schema). Falta: el filtro que separa ambiguo/no-ambiguo, el
+      mensaje con los 2 botones, y la rama de callback que arma la ficha final
+      de la opción elegida.
 - [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
       del escenario de Make — ya cumplió.
 - [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
