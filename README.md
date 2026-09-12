@@ -72,7 +72,6 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       fila 9 Charly días de sangre → `Carlos Galettini`.
 - [ ] `posters.json` matcheó mal ~70 pelis (remakes/homónimos) — regenerar con un
       match más estricto por año. La hoja está bien; solo el póster.
-- [ ] Falta la imagen de `img/los-gatos.jpg` (TMDB no tiene la argentina de 1986).
 - [ ] Recalcular `anio_visto` = año de `fecha_vista` una vez arregladas las fechas.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
       plano sin dependencias — funciona bien; tendría sentido si crece mucho o
