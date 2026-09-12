@@ -349,6 +349,13 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
         <select id="fCountry" aria-label="País"><option value="">Todo país</option></select>
         <select id="fGenre" aria-label="Género"><option value="">Todo género</option></select>
         <select id="fYear" aria-label="Año visto"><option value="">Todo año visto</option></select>
+        <select id="fRating" aria-label="Rating mínimo">
+          <option value="">Todo rating</option>
+          <option value="8">8+</option>
+          <option value="7">7+</option>
+          <option value="6">6+</option>
+          <option value="5">5+</option>
+        </select>
         <label class="chk"><input type="checkbox" id="fRew"> Solo revisiones</label>
         <div class="viewtoggle" role="group" aria-label="Vista">
           <button id="vList" aria-pressed="true">Lista</button>
@@ -647,13 +654,14 @@ function populateFilters(){
 }
 function currentRows(){
   const q = deburr($("#q").value.trim());
-  const fd = $("#fDecade").value, fc = $("#fCountry").value, fy = $("#fYear").value, fg = $("#fGenre").value, fr = $("#fRew").checked;
+  const fd = $("#fDecade").value, fc = $("#fCountry").value, fy = $("#fYear").value, fg = $("#fGenre").value, fr = $("#fRew").checked, frt = $("#fRating").value;
   let rows = DATA.filter(r=>{
     if(q && !(deburr(r[0]).includes(q) || deburr(r[1]).includes(q))) return false;
     if(fd && decadeOf(r[2])!==+fd) return false;
     if(fc && canonPais(r[3])!==fc) return false;
     if(fy && r[5]!==+fy) return false;
     if(fg && !genresOf(r).includes(fg)) return false;
+    if(frt && (ratingOf(r)??-1)<+frt) return false;
     if(fr && (rewatchCount.get(r)||1)<2) return false;
     return true;
   });
@@ -761,7 +769,7 @@ function boot(){
 
   if(_wired) return;
   _wired = true;
-  ["#q","#fDecade","#fCountry","#fGenre","#fYear","#fRew"].forEach(s=>{
+  ["#q","#fDecade","#fCountry","#fGenre","#fYear","#fRating","#fRew"].forEach(s=>{
     $(s).addEventListener("input", ()=>{ page = 1; render(); });
   });
   document.querySelectorAll("thead th button").forEach(btn=>{
