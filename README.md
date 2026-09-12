@@ -40,10 +40,21 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **Título ambiguo (ej. "cape fear"), con botones.** Cuando el título tiene
       más de una película conocida (remake, versión vieja), que el bot pregunte
       cuál es con 2 botones, en vez de adivinar una sola.
-      Hecho: el Gemini que arma la ficha ya calcula `ambiguo` + `opcion1` +
-      `opcion2` (schema). Falta: el filtro que separa ambiguo/no-ambiguo, el
-      mensaje con los 2 botones, y la rama de callback que arma la ficha final
-      de la opción elegida.
+      Hecho: el Gemini que arma la ficha (módulo 6) ya tiene el schema
+      `ambiguo` + `opcion1` + `opcion2`, guardado y confirmado (corrió una vez
+      con "vi cape fear" — mezcló los dos directores en una ficha, como se
+      esperaba, porque nada lee `ambiguo` todavía).
+      Trabado en: el filtro de la ruta "1st Registrar" del Router 7 no
+      encuentra el campo `ambiguo` en el buscador de condiciones (probamos
+      cerrar/reabrir el escenario, seguía sin aparecer — pendiente de
+      diagnosticar, puede ser que Make tarde en refrescar el schema dinámico
+      de un módulo de IA en los mapeos de otros módulos).
+      Además: en la última prueba el botón ❌ dejó de responder (antes andaba
+      bien) — revisar el "History" del escenario para ver si hay un error,
+      antes de seguir con lo del filtro.
+      Falta después: la ruta nueva en el Router 7, el mensaje con los 2
+      botones, y la rama de callback que arma la ficha final de la opción
+      elegida.
 - [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
       del escenario de Make — ya cumplió.
 - [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
