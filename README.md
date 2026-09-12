@@ -45,13 +45,8 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       con "vi cape fear" — mezcló los dos directores en una ficha, como se
       esperaba, porque nada lee `ambiguo` todavía).
       Trabado en: el filtro de la ruta "1st Registrar" del Router 7 no
-      encuentra el campo `ambiguo` en el buscador de condiciones (probamos
-      cerrar/reabrir el escenario, seguía sin aparecer — pendiente de
-      diagnosticar, puede ser que Make tarde en refrescar el schema dinámico
-      de un módulo de IA en los mapeos de otros módulos).
-      Además: en la última prueba el botón ❌ dejó de responder (antes andaba
-      bien) — revisar el "History" del escenario para ver si hay un error,
-      antes de seguir con lo del filtro.
+      encuentra el campo `ambiguo` en el buscador de condiciones — pendiente
+      de diagnosticar.
       Falta después: la ruta nueva en el Router 7, el mensaje con los 2
       botones, y la rama de callback que arma la ficha final de la opción
       elegida.
