@@ -14,6 +14,9 @@ node_modules/
 # Backups locales de la planilla
 cerebro/Pelis_backup_*.xlsx
 
+# Salida de check_datos.js (se corre a demanda, no se versiona)
+cerebro/check_datos.txt
+
 # Material del curso (fuera del repo)
 Filminas/
 Pelis.xlsx

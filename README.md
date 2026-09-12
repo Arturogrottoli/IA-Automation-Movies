@@ -66,12 +66,13 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       Es lo que más falta acomodar. Con `check_datos.js` / Find&Replace por rango.
 - [ ] **Celdas con año/director mal** (de `cerebro/check_datos.js`, verificadas).
       Hecho: `D713` `E733` `E509` `E551` `E342` `E1000`.
-      Falta: `D942` The Assessment → `Fleur Fortuné` + `E942` → `2024` · `E659` Labyrinth → `1986`.
-- [ ] **`por_ver`:** fila 5 The Other → `Robert Mulligan` / `1972` ·
-      fila 8 Amarga Navidad → `Pedro Almodóvar` / `2026` / `España` ·
+      Falta: `D942` The Assessment → `Fleur Fortuné` · `E942` → `2025` · `E659` Labyrinth → `1986` ·
+      `E674` Gates of Heaven → `1978` · `E1064` The Toxic Avenger → `2025`.
+- [ ] **`por_ver`:** fila 8 Amarga Navidad → `Pedro Almodóvar` / `2026` / `España` ·
       fila 9 Charly días de sangre → `Carlos Galettini`.
-- [ ] `posters.json` matcheó mal ~70 pelis (remakes/homónimos) — regenerar con un
-      match más estricto por año. La hoja está bien; solo el póster.
+- [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 20 se corrigieron
+      solas (`cerebro/rematch_posters.js`, elige por director en vez de por
+      popularidad). Quedan más sueltas; se van encontrando con `check_datos.js`.
 - [ ] Recalcular `anio_visto` = año de `fecha_vista` una vez arregladas las fechas.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
       plano sin dependencias — funciona bien; tendría sentido si crece mucho o
