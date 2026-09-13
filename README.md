@@ -70,6 +70,12 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       por ver".
 - [ ] **Sacar pelis de la lista por bot.** Hoy: borrar la fila en la pestaña
       `por_ver` a mano. Automático = intent `descartar` + Search/Delete Row en Make.
+      Sumarle: que al registrar "vi X" con éxito, si X ya estaba en `por_ver`,
+      se borre esa fila sola (hoy solo se "esconde" en el sitio, sigue en la hoja).
+- [ ] **Agregar/quitar de "quiero ver" desde el sitio.** Un webhook nuevo en
+      Make (Add/Delete Row en `por_ver`) + botones en el sitio ("+ agregar" en
+      cualquier tarjeta, "quitar" en las de la watchlist) que le peguen a ese
+      webhook por fetch.
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
       re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
