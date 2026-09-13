@@ -102,10 +102,8 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       - El pegado especial trajo el formato de fecha de la columna auxiliar
         (D/M/AAAA) en vez del de la hoja (AAAA-MM-DD) — hubo que reformatear
         `G2:G1287` a mano (Formato → Número → Fecha personalizada).
-      **Pendiente de re-verificar:** el CSV publicado tardó en reflejar el
-      cambio (caché de Google, no del código) — antes de re-correr
-      `build_site.js` (para refrescar la instantánea embebida), confirmar que
-      `SHEET_CSV_URL` ya devuelve fechas en formato `AAAA-MM-DD`.
+      Verificado en el CSV publicado: 0 mismatches en las 1.288 filas.
+      Instantánea embebida del sitio ya refrescada con los datos corregidos.
 - [x] **Celdas con año/director mal** (de `cerebro/check_datos.js`, verificadas).
       `D713` `E733` `E509` `E551` `E342` `E1000` `D942`/`E942` `E659` `E674` `E1064`.
 - [x] **`por_ver`:** Amarga Navidad y Charly días de sangre, ya completas.
