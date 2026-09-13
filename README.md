@@ -90,6 +90,8 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       solas (`cerebro/rematch_posters.js`, elige por director en vez de por
       popularidad). Quedan más sueltas; se van encontrando con `check_datos.js`.
 - [ ] Recalcular `anio_visto` = año de `fecha_vista` una vez arregladas las fechas.
+- [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
+      módulos "Google Gemini AI" de Make a un modelo vigente antes de esa fecha.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
       plano sin dependencias — funciona bien; tendría sentido si crece mucho o
       como pieza de portfolio que demuestre ese stack.
