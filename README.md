@@ -64,9 +64,10 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
         "Run this module only" escribiendo un mensaje a mano en el input.
 - [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
       del escenario de Make — ya cumplió.
-- [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
-      Make baja solo la hoja de vistas — falta un HTTP más que baje `por_ver` y
-      pasarle las dos listas a Gemini. Así entiende "¿qué tengo anotado?".
+- [x] **Que las consultas vean la lista "quiero ver".** HTTP nuevo (33) baja
+      `por_ver`, y el Gemini de consultas ahora recibe las dos listas (vistas
+      + pendientes) y sabe distinguirlas. Probado con "qué tengo pendiente
+      por ver".
 - [ ] **Sacar pelis de la lista por bot.** Hoy: borrar la fila en la pestaña
       `por_ver` a mano. Automático = intent `descartar` + Search/Delete Row en Make.
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
