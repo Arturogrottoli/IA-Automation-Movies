@@ -40,16 +40,24 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **Título ambiguo (ej. "cape fear"), con botones.** Cuando el título tiene
       más de una película conocida (remake, versión vieja), que el bot pregunte
       cuál es con 2 botones, en vez de adivinar una sola.
-      Hecho: el Gemini que arma la ficha (módulo 6) ya tiene el schema
-      `ambiguo` + `opcion1` + `opcion2`, guardado y confirmado (corrió una vez
-      con "vi cape fear" — mezcló los dos directores en una ficha, como se
-      esperaba, porque nada lee `ambiguo` todavía).
-      Trabado en: el filtro de la ruta "1st Registrar" del Router 7 no
-      encuentra el campo `ambiguo` en el buscador de condiciones — pendiente
-      de diagnosticar.
-      Falta después: la ruta nueva en el Router 7, el mensaje con los 2
-      botones, y la rama de callback que arma la ficha final de la opción
-      elegida.
+      El bug del picker que no mostraba campos nuevos de un módulo de IA se
+      resolvió con "Run this module only" (metiéndole un mensaje real a mano
+      en el input) — eso refresca el bundle de ejemplo para los pickers.
+      Hecho:
+      - Módulo 6 (Gemini): schema `ambiguo`/`opcion1`/`opcion2`.
+      - Router 7, ruta "1st Registrar": ahora tiene `ambiguo` not equal `true`
+        además de `intent = registrar` (para no disparar el mensaje normal).
+      - Router 7, ruta nueva "Ambiguo" (`intent = registrar` AND
+        `ambiguo = true`): manda un Telegram Bot (Make an API Call,
+        sendMessage) con 2 botones (1️⃣/2️⃣, `callback_data` "amb1"/"amb2").
+        Probado en vivo, funciona.
+      - Router 18, ruta nueva "Ambiguo elegido" (`Callback Query: Data`
+        starts with `amb`) → Text parser nuevo (patrón `1\) (.+)\n2\) (.+)`
+        sobre `Callback Query: Message: Text`) que separa las 2 opciones.
+      Falta: un Gemini nuevo que arme la ficha completa a partir de la opción
+      elegida (hay que decidir opción 1 o 2 según `callback_data` con una
+      fórmula `if(...)`), y el mensaje de propuesta final (✅/❌) — igual al
+      del registro normal.
 - [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
       del escenario de Make — ya cumplió.
 - [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
