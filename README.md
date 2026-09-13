@@ -37,27 +37,31 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       con otro director/año, que el bot avise: "ya tenés *X* (De Palma, 1976); esta
       es de Kimberly Peirce, 2013 — ¿la agrego igual?". Evita falsos duplicados y
       marca cuándo es una revisión de verdad.
-- [ ] **Título ambiguo (ej. "cape fear"), con botones.** Cuando el título tiene
-      más de una película conocida (remake, versión vieja), que el bot pregunte
-      cuál es con 2 botones, en vez de adivinar una sola.
-      El bug del picker que no mostraba campos nuevos de un módulo de IA se
-      resolvió con "Run this module only" (metiéndole un mensaje real a mano
-      en el input) — eso refresca el bundle de ejemplo para los pickers.
-      Hecho:
+- [x] **Título ambiguo (ej. "cape fear"), con botones.** Cuando el título tiene
+      más de una película conocida (remake, versión vieja), el bot pregunta
+      cuál es con 2 botones antes de proponer la ficha. Probado en vivo,
+      punta a punta (elegís opción → ficha final → ✅ → guardada).
+      Cómo quedó armado, por si hay que tocarlo:
       - Módulo 6 (Gemini): schema `ambiguo`/`opcion1`/`opcion2`.
-      - Router 7, ruta "1st Registrar": ahora tiene `ambiguo` not equal `true`
-        además de `intent = registrar` (para no disparar el mensaje normal).
-      - Router 7, ruta nueva "Ambiguo" (`intent = registrar` AND
-        `ambiguo = true`): manda un Telegram Bot (Make an API Call,
-        sendMessage) con 2 botones (1️⃣/2️⃣, `callback_data` "amb1"/"amb2").
-        Probado en vivo, funciona.
-      - Router 18, ruta nueva "Ambiguo elegido" (`Callback Query: Data`
-        starts with `amb`) → Text parser nuevo (patrón `1\) (.+)\n2\) (.+)`
-        sobre `Callback Query: Message: Text`) que separa las 2 opciones.
-      Falta: un Gemini nuevo que arme la ficha completa a partir de la opción
-      elegida (hay que decidir opción 1 o 2 según `callback_data` con una
-      fórmula `if(...)`), y el mensaje de propuesta final (✅/❌) — igual al
-      del registro normal.
+      - Router 7, ruta "1st Registrar": `intent = registrar` AND `ambiguo`
+        not equal `true` (para no disparar el mensaje normal si es ambigua).
+      - Router 7, ruta "Ambiguo" (`intent = registrar` AND `ambiguo = true`):
+        Telegram Bot (Make an API Call, sendMessage) con 2 botones (1️⃣/2️⃣),
+        `callback_data` = `"amb:" + opción completa` (título/año/director en
+        el mismo string, no un código corto — así no hace falta guardar
+        estado entre mensajes).
+      - Router 18, ruta "Ambiguo elegido" (`Callback Query: Data` starts with
+        `amb`) → Text parser (sin uso real, quedó de un diseño anterior) →
+        Gemini nuevo (módulo 31, schema de 5 campos) que arma la ficha
+        completa recibiendo directo `{{2.callbackQuery.data}}` como mensaje
+        (a Gemini no le cuesta nada ignorar el prefijo "amb:") → Telegram Bot
+        con el mensaje final ✅/❌, con el mismo formato y `callback_data`
+        ("ok"/"no") que el registro normal — así cae solo en las rutas
+        "Aprobado"/"Rechazado" que ya existían, sin duplicar esa parte.
+      - Bug de plataforma encontrado en el camino: el buscador de campos de un
+        módulo de IA no muestra los campos nuevos del schema hasta que el
+        módulo corre al menos una vez con datos reales — se resuelve con
+        "Run this module only" escribiendo un mensaje a mano en el input.
 - [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
       del escenario de Make — ya cumplió.
 - [ ] **Que las consultas vean la lista "quiero ver".** La rama "consultar" de
