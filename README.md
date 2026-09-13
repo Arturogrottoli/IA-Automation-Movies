@@ -118,6 +118,8 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       `F716` Hong Kong.
 - [x] **Obsession (fila 1246):** era la de terror de 2026 (Curry Barker), no
       la de De Palma — corregida.
+- [x] **Fila 340 (Pelham):** "The taking of pelham 123" → "The Taking of
+      Pelham One Two Three", para agrupar con la fila 1177.
 - [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 20 se corrigieron
       solas (`cerebro/rematch_posters.js`, elige por director en vez de por
       popularidad). Quedan más sueltas; se van encontrando con `check_datos.js`.
