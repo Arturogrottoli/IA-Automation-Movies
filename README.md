@@ -112,12 +112,12 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [x] **Celdas con año/director mal** (de `cerebro/check_datos.js`, verificadas).
       `D713` `E733` `E509` `E551` `E342` `E1000` `D942`/`E942` `E659` `E674` `E1064`.
 - [x] **`por_ver`:** Amarga Navidad y Charly días de sangre, ya completas.
-- [ ] **`por_ver` tiene 3 pelis ya vistas** (se detectaron preguntándole al bot,
-      con la consulta que ahora lee las 2 listas): filas 4 (Rear Window), 5
-      (The Other) y 6 (Bob & Carol & Ted & Alice) — borrar esas filas.
-- [ ] **2 typos de país** en `catalogo_completo`: `F794` (Parasite)
-      `Corea del Suer` → `Corea del Sur` · `F716` (Enter the Dragon)
-      `Honk Kong` → `Hong Kong`.
+- [x] **`por_ver` tenía 3 pelis ya vistas** — The Other y Bob & Carol & Ted &
+      Alice, borradas. Rear Window se deja a propósito (la quiere volver a ver).
+- [x] **2 typos de país** en `catalogo_completo`: `F794` Corea del Sur ·
+      `F716` Hong Kong.
+- [x] **Obsession (fila 1246):** era la de terror de 2026 (Curry Barker), no
+      la de De Palma — corregida.
 - [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 20 se corrigieron
       solas (`cerebro/rematch_posters.js`, elige por director en vez de por
       popularidad). Quedan más sueltas; se van encontrando con `check_datos.js`.
