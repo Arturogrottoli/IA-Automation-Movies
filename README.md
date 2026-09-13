@@ -84,13 +84,33 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **Video demo de 3 min.**
 
 ### Deuda técnica menor
-- [ ] **Fechas de visionado (`fecha_vista`) con el año corrido.** Bloques enteros:
-      la lista "2018" tiene fechas de 2019, la "2021" de 2022, la "2025" de 2026
-      (algunas caen en el futuro). Hay que restar 1 al año en esos rangos.
-      Es lo que más falta acomodar. Con `check_datos.js` / Find&Replace por rango.
+- [ ] **Fechas de visionado (`fecha_vista`) con el año corrido — a mitad de camino.**
+      Mapeados los 8 bloques exactos (todos con el mismo patrón: le sobra un
+      año) + 4 typos sueltos que no siguen el patrón:
+      `G2:G119`→2018 · `G243:G266`→2019 · `G346:G413`→2020 · `G420:G561`→2021 ·
+      `G639:G674`→2022 · `G753:G781`→2023 · `G892:G907`→2024 · `G908:G1078`→2025.
+      Sueltos: `G267`→`2020-01-01` · `G675`→`2022-12-08` · `G676`→`2022-12-09` ·
+      `G677`→`2022-12-10`.
+      Buscar y reemplazar NO sirve (la columna es de tipo Fecha, no texto).
+      En su lugar: **la columna R de la hoja ya tiene la fórmula armada y
+      confirmada** (R2:R1287, calcula la fecha corregida de cada fila). Falta
+      el último paso: copiar R2:R1287 → pegado especial (solo valores) sobre
+      G2:G1287 → borrar el contenido de R. La fórmula (para si hay que
+      rehacerla, ojo que la hoja usa `;` como separador, no `,`):
+      ```
+      =IF(ROW()=267;DATE(2020;1;1);IF(ROW()=675;DATE(2022;12;8);IF(ROW()=676;DATE(2022;12;9);IF(ROW()=677;DATE(2022;12;10);IF(OR(AND(ROW()>=2;ROW()<=119);AND(ROW()>=243;ROW()<=266);AND(ROW()>=346;ROW()<=413);AND(ROW()>=420;ROW()<=561);AND(ROW()>=639;ROW()<=674);AND(ROW()>=753;ROW()<=781);AND(ROW()>=892;ROW()<=907);AND(ROW()>=908;ROW()<=1078));DATE(YEAR(G2)-1;MONTH(G2);DAY(G2));G2)))))
+      ```
+      Una vez pegado sobre G, `anio_visto` ya va a coincidir solo — no hace
+      falta recalcularlo aparte.
 - [x] **Celdas con año/director mal** (de `cerebro/check_datos.js`, verificadas).
       `D713` `E733` `E509` `E551` `E342` `E1000` `D942`/`E942` `E659` `E674` `E1064`.
 - [x] **`por_ver`:** Amarga Navidad y Charly días de sangre, ya completas.
+- [ ] **`por_ver` tiene 3 pelis ya vistas** (se detectaron preguntándole al bot,
+      con la consulta que ahora lee las 2 listas): filas 4 (Rear Window), 5
+      (The Other) y 6 (Bob & Carol & Ted & Alice) — borrar esas filas.
+- [ ] **2 typos de país** en `catalogo_completo`: `F794` (Parasite)
+      `Corea del Suer` → `Corea del Sur` · `F716` (Enter the Dragon)
+      `Honk Kong` → `Hong Kong`.
 - [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 20 se corrigieron
       solas (`cerebro/rematch_posters.js`, elige por director en vez de por
       popularidad). Quedan más sueltas; se van encontrando con `check_datos.js`.
