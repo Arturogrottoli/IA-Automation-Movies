@@ -11,7 +11,9 @@ Acá solo quedan una copia portable y los scripts de mantenimiento.
 | `catalogo_completo.csv` | Copia portable de la hoja. La refresca `build_site.js`. |
 | `build_site.js` | Baja la hoja publicada y refresca la instantánea embebida en `../index.html` y este CSV. |
 | `build_posters.js` | Backfill de póster/rating/género desde TMDB → `../posters.json` (lee también la pestaña `por_ver`). |
+| `build_actors.js` | Backfill del reparto principal (top 4) desde TMDB → `../actors.json`, usando los ids ya resueltos en `posters.json`. |
 | `fix_posters.js` | Reintento de los que TMDB no matchea bien por typos (mapa de correcciones). |
+| `rematch_posters.js` | Re-matchea pósters puntuales eligiendo por director (no por popularidad) — para homónimos/remakes. |
 | `check_datos.js` | Cruza el catálogo contra TMDB y marca año/director sospechosos. Solo reporta. |
 | `CONFIG.md` | Dónde vive cada secreto (todos en Make, ninguno en el repo). |
 | `tmdb.key` | Token de lectura de TMDB. Ignorado por git. |

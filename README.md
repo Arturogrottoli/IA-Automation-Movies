@@ -18,7 +18,8 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 
 ### Hecho
 - [x] **Registro por chat.** "vi Whiplash" → IA completa la ficha → fila en la hoja.
-- [x] **Sitio + estadísticas** en vivo (5 gráficos + índice paginado).
+- [x] **Sitio + estadísticas** en vivo (6 gráficos + índice paginado).
+- [x] **Actores/actrices más vistos** (de TMDB, junto a directores).
 - [x] **Consultas al bot.** "¿qué vi de Cronenberg?" → responde leyendo la hoja.
 - [x] **Recomendaciones.** "recomendame un thriller" → sugiere pelis no vistas.
 - [x] **Pósters, ratings y géneros (TMDB).** Grilla de tarjetas + gráfico y
@@ -157,14 +158,16 @@ El bot distingue tres cosas por el texto del mensaje:
 ## Estructura
 
 ```
-index.html            el sitio (5 gráficos + índice: lista o grilla de pósters)
+index.html            el sitio (6 gráficos + índice: lista o grilla de pósters)
 posters.json          póster, rating y género por película (de TMDB)
-posters-manual.json   los ~8 que TMDB no tiene (imágenes en img/)
+posters-manual.json   los 9 que TMDB no tiene (imágenes en img/)
+actors.json           reparto principal (top 4) por película (de TMDB)
 docs/                 entregables del curso — arquitectura, datos, costos
 cerebro/
   catalogo_completo.csv   copia portable de las ~1.280 películas
   build_site.js           refresca la instantánea embebida de index.html
   build_posters.js        regenera posters.json desde TMDB (token en tmdb.key)
+  build_actors.js         regenera actors.json desde TMDB
   CONFIG.md               dónde vive cada secreto (todos en Make, ninguno acá)
   README.md               notas sobre los datos
 ```
