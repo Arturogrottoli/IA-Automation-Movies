@@ -63,8 +63,8 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
         módulo de IA no muestra los campos nuevos del schema hasta que el
         módulo corre al menos una vez con datos reales — se resuelve con
         "Run this module only" escribiendo un mensaje a mano en el input.
-- [ ] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
-      del escenario de Make — ya cumplió.
+- [x] **Sacar el módulo temporal** `Make an API Call` (#21, el del `setWebhook`)
+      del escenario de Make — borrado.
 - [x] **Que las consultas vean la lista "quiero ver".** HTTP nuevo (33) baja
       `por_ver`, y el Gemini de consultas ahora recibe las dos listas (vistas
       + pendientes) y sabe distinguirlas. Probado con "qué tengo pendiente
