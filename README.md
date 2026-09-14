@@ -11,6 +11,10 @@ estadísticas.
 Proyecto integrador del curso **IA Automation** (Coderhouse). Toca las tres capas
 del stack: datos, orquestación e inteligencia.
 
+**La historia completa del proyecto** — por qué, en qué orden, qué se rompió y
+qué se aprendió en el camino — está en
+[docs/historia-del-proyecto.md](docs/historia-del-proyecto.md).
+
 ## Estado
 
 **Funcional de punta a punta.** El circuito Telegram → IA → Google Sheets → web
