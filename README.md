@@ -115,10 +115,13 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       la de De Palma — corregida.
 - [x] **Fila 340 (Pelham):** "The taking of pelham 123" → "The Taking of
       Pelham One Two Three", para agrupar con la fila 1177.
-- [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 20 se corrigieron
-      solas (`cerebro/rematch_posters.js`, elige por director en vez de por
-      popularidad). Quedan más sueltas; se van encontrando con `check_datos.js`.
-- [ ] Recalcular `anio_visto` = año de `fecha_vista` una vez arregladas las fechas.
+- [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 39 corregidos
+      hasta ahora en 2 tandas (`cerebro/rematch_posters.js` y `rematch_posters2.js`,
+      eligen por director en vez de por popularidad). 2 sin match real en TMDB
+      (Leaving Neverland, La casa de la playa — no están cargadas como
+      película ahí). Quedan más sueltas; se van encontrando con `check_datos.js`.
+- [ ] **Fila 304:** Alice Doesn't Live Here Anymore, año `1977` → `1974`.
+- [ ] **`por_ver`:** Solaris duplicada (filas 50 y 52, idénticas) — borrar una.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
       módulos "Google Gemini AI" de Make a un modelo vigente antes de esa fecha.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
