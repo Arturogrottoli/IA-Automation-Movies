@@ -120,8 +120,8 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       eligen por director en vez de por popularidad). 2 sin match real en TMDB
       (Leaving Neverland, La casa de la playa — no están cargadas como
       película ahí). Quedan más sueltas; se van encontrando con `check_datos.js`.
-- [ ] **Fila 304:** Alice Doesn't Live Here Anymore, año `1977` → `1974`.
-- [ ] **`por_ver`:** Solaris duplicada (filas 50 y 52, idénticas) — borrar una.
+- [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
+- [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
       módulos "Google Gemini AI" de Make a un modelo vigente antes de esa fecha.
 - [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
