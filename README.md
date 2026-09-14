@@ -82,6 +82,20 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
 - [x] Los 9 títulos que TMDB no tiene — todos con imagen a mano en `img/`.
 
+### Pendiente — parte de data science
+El proyecto sirve tanto para el portfolio de automatización como para el de
+datos: el trabajo de limpieza (fechas, pósters, typos) ya es data engineering
+real, solo faltaba mostrarlo.
+- [x] **Placa V "Detrás de los datos".** Caso de limpieza con números reales
+      (604 fechas, 40 pósters, 13 duplicados, 65 directoras) + metodología.
+- [ ] **Perfil de gusto.** Qué combinación de género/década/director predice
+      que vas a revisitar una película, usando las revisiones como señal
+      (nadie vuelve a ver algo que no le gustó). Se calcula offline en
+      Python, se sirve como JSON — mismo patrón que `posters.json`.
+- [ ] **"Películas parecidas a X" por similitud.** Recomendador basado en
+      contenido (género/director/década, ajustado por el perfil de gusto de
+      arriba), calculado offline, sin Make ni backend.
+
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
 - [x] **Manual de datos** → [docs/manual-de-datos.md](docs/manual-de-datos.md) / [PDF](docs/manual-de-datos.pdf).
