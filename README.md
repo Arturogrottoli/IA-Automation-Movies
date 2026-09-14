@@ -83,12 +83,13 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [x] Los 9 títulos que TMDB no tiene — todos con imagen a mano en `img/`.
 
 ### Pendiente — para cerrar el curso
-- [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) (falta exportar a PDF).
-- [x] **Manual de datos** → [docs/manual-de-datos.md](docs/manual-de-datos.md).
-- [x] **Optimización de costos** → [docs/costos.md](docs/costos.md).
+- [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
+- [x] **Manual de datos** → [docs/manual-de-datos.md](docs/manual-de-datos.md) / [PDF](docs/manual-de-datos.pdf).
+- [x] **Optimización de costos** → [docs/costos.md](docs/costos.md) / [PDF](docs/costos.pdf).
 - [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
 - [ ] **Panel de KPIs de operación** (tasa de aprobación, volumen, errores — máx 4).
-- [ ] **Video demo de 3 min.**
+- [~] **Video demo de 3 min.** Se hace aparte, en YouTube, no como parte del
+      trabajo del proyecto — no es un pendiente activo.
 
 ### Deuda técnica menor
 - [x] **Fechas de visionado (`fecha_vista`) con el año corrido.** Los 8
