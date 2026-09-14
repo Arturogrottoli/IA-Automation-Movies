@@ -100,6 +100,35 @@ real, solo faltaba mostrarlo.
       contenido (género/director/década, ajustado por el perfil de gusto de
       arriba), calculado offline, sin Make ni backend.
 
+#### Ideas para ampliar (sin scopear todavía)
+La idea general: tres capas visibles — **Automation + IA → Data Science →
+aplicación final** — sin tocar la automatización que ya funciona; la segunda
+mitad se suma como módulo aparte, empezando por el perfil de gusto.
+
+- [ ] **Recomendador con 2 métodos, comparados.** Por contenido (género +
+      director + actores + década + país) vs. ese mismo resultado ajustado
+      por el perfil de gusto — mostrar los dos lado a lado, no solo el
+      ajustado. Requiere sumar **duración** al dataset (no está hoy en
+      ningún lado; TMDB la tiene).
+- [ ] **El bot reconoce películas por descripción vaga.** "vi una de Scorsese
+      con DiCaprio de mafiosos" → la IA arma candidatos y pregunta cuál, en
+      vez de necesitar el título exacto. Extiende el mecanismo de "título
+      ambiguo" que ya existe (Cape Fear) a un caso más abierto.
+- [ ] **La IA como interfaz de consulta a los datos.** "¿qué género veo más?",
+      "¿estoy viendo películas más largas últimamente?" — el bot no inventa
+      la respuesta: dispara el análisis Python/pandas real sobre los datos y
+      Gemini solo la traduce a lenguaje natural. Distinto de "consultar" hoy
+      (que lee el CSV crudo) — acá pasa por el análisis primero.
+- [ ] **Dashboard más profundo.** Evolución mensual (no solo anual), duración
+      promedio por año, género vs. rating, país vs. género, revisiones por
+      director, distribución de duración, vistas vs. pendientes,
+      correlaciones. Con más profundidad que los conteos simples de hoy.
+- [ ] **Sección "Lo que mis películas dicen de mí."** El perfil de gusto,
+      recalculado periódicamente y explicado en lenguaje natural por Gemini
+      ("tu década más frecuente es...", "tenés una fuerte preferencia
+      por...") en vez de mostrado como números crudos. Combina las tres
+      capas: Python/pandas → análisis → ML → Gemini → texto → sitio/Telegram.
+
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
 - [x] **Manual de datos** → [docs/manual-de-datos.md](docs/manual-de-datos.md) / [PDF](docs/manual-de-datos.pdf).
