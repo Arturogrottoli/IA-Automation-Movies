@@ -113,9 +113,13 @@ real, solo faltaba mostrarlo.
       - Combos director+actor (ej. Scorsese+DiCaprio), no solo director solo.
       - Clustering de "familias de gusto" por año, para ver si cambió en 9 años.
       - Conectarlo al sitio (hoy solo corre local y escribe el JSON).
-- [ ] **"Películas parecidas a X" por similitud.** Recomendador basado en
-      contenido (género/director/década, ajustado por el perfil de gusto de
-      arriba), calculado offline, sin Make ni backend.
+- [x] **"Películas parecidas a X" por similitud — primera versión.**
+      `cerebro/build_similar.py` (similitud por coseno, director x3 +
+      reparto x2 + género x1 + década x0.5, ver `taste_profile.json` para el
+      porqué de esos pesos). Se muestra en el modal de detalle como chips
+      clickeables. Falta: ajustarlo con el perfil de gusto (hoy no filtra
+      ni prioriza por tasa de revisión), y comparar contra una versión sin
+      ajustar como pide la idea original.
 
 #### Ideas para ampliar (sin scopear todavía)
 La idea general: tres capas visibles — **Automation + IA → Data Science →
