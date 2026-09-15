@@ -92,10 +92,23 @@ datos: el trabajo de limpieza (fechas, pósters, typos) ya es data engineering
 real, solo faltaba mostrarlo.
 - [x] **Placa V "Detrás de los datos".** Caso de limpieza con números reales
       (604 fechas, 40 pósters, 13 duplicados, 65 directoras) + metodología.
-- [ ] **Perfil de gusto.** Qué combinación de género/década/director predice
-      que vas a revisitar una película, usando las revisiones como señal
-      (nadie vuelve a ver algo que no le gustó). Se calcula offline en
-      Python, se sirve como JSON — mismo patrón que `posters.json`.
+- [x] **Perfil de gusto — primera versión.** `cerebro/taste_profile.py`
+      (Python/pandas/sklearn), corre offline, escribe `taste_profile.json`.
+      Hallazgos: Tarantino 63,6% de tasa de revisión (vs 14,3% del mejor
+      género solo, Acción) — el director pesa mucho más que el género. Chad
+      Stahelski 57,1%. La década más fuerte es 2000s (13,6%), no 2010s. El
+      modelo marca la **duración** como la variable de más peso para
+      predecir revisión, pese a que el promedio es casi idéntico entre
+      revisitadas y no (109,6 vs 110,0 min) — sugiere una relación no
+      lineal, no investigada todavía.
+      Falta:
+      - Abrir la duración por rangos (cortas/medias/largas) para entender
+        ese hallazgo raro.
+      - Cruzar la tasa de revisión contra el rating de TMDB (brecha entre
+        lo que el mundo puntúa y lo que vos revisitás).
+      - Combos director+actor (ej. Scorsese+DiCaprio), no solo director solo.
+      - Clustering de "familias de gusto" por año, para ver si cambió en 9 años.
+      - Conectarlo al sitio (hoy solo corre local y escribe el JSON).
 - [ ] **"Películas parecidas a X" por similitud.** Recomendador basado en
       contenido (género/director/década, ajustado por el perfil de gusto de
       arriba), calculado offline, sin Make ni backend.
