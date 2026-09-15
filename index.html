@@ -877,6 +877,10 @@ function boot(){
     const card = e.target.closest(".card[data-key]");
     if(card) openModal(card.dataset.key);
   });
+  $("#pv-grid").addEventListener("click", e=>{
+    const card = e.target.closest(".card[data-pv-t]");
+    if(card) openModalPorVer(card.dataset.pvT, card.dataset.pvD, card.dataset.pvY);
+  });
   const closeModal = () => { $("#modalBackdrop").hidden = true; };
   $("#modalClose").addEventListener("click", closeModal);
   $("#modalBackdrop").addEventListener("click", e=>{ if(e.target.id==="modalBackdrop") closeModal(); });
@@ -912,6 +916,33 @@ function openModal(key){
     </div>
     ${cast.length?`<div class="mm-section"><h4>Reparto</h4><p class="mm-cast">${cast.map(esc).join(", ")}</p></div>`:""}
     ${dates.length?`<div class="mm-section"><h4>${dates.length>1?"Fechas en que la viste":"Fecha en que la viste"}</h4><div class="mm-dates">${dates.map(d=>`<span>${d}</span>`).join("")}</div></div>`:""}
+  `;
+  $("#modalBackdrop").hidden = false;
+}
+
+function openModalPorVer(t, d, y){
+  const x = POSTERS[posterKey(t, y)] || null;
+  const poster = x && x.poster
+    ? `<img src="${x.poster}" alt="${esc(t)}">`
+    : `<div class="ph">${esc(t)}</div>`;
+  const genres = (x && x.genres) || [];
+  const cast = ACTORS[posterKey(t, y)] || [];
+  const dur = RUNTIME[posterKey(t, y)];
+  const rt = x && x.rating;
+  $("#modalBody").innerHTML = `
+    <div class="mm-head">
+      <div class="mm-poster">${poster}</div>
+      <div>
+        <div class="mm-title" id="modalTitle">${esc(t)}</div>
+        <div class="mm-sub">${esc(d)||"—"} · ${y||"—"}</div>
+        <div class="mm-tags">${genres.map(g=>`<span class="mm-tag">${esc(g)}</span>`).join("")}<span class="mm-tag">Quiero ver</span></div>
+        <div class="mm-stats">
+          ${rt!=null?`<div class="mm-stat"><div class="n">${rt.toFixed(1)}</div><div class="l">Rating TMDB</div></div>`:""}
+          ${dur?`<div class="mm-stat"><div class="n">${dur} min</div><div class="l">Duración</div></div>`:""}
+        </div>
+      </div>
+    </div>
+    ${cast.length?`<div class="mm-section"><h4>Reparto</h4><p class="mm-cast">${cast.map(esc).join(", ")}</p></div>`:""}
   `;
   $("#modalBackdrop").hidden = false;
 }
@@ -962,7 +993,7 @@ function renderPorVer(){
     const poster = x && x.poster
       ? `<img loading="lazy" src="${x.poster}" alt="${esc(m.t)}">`
       : `<div class="ph">${esc(m.t)}</div>`;
-    return `<div class="card">
+    return `<div class="card" data-pv-t="${esc(m.t)}" data-pv-d="${esc(m.d||"")}" data-pv-y="${m.y||""}">
       <div class="poster">${poster}${x&&x.rating!=null?`<span class="rt">${x.rating.toFixed(1)}</span>`:""}</div>
       <div class="ct">${esc(m.t)}</div>
       <div class="cm">${m.y||"—"}${m.d?` · ${esc(m.d)}`:""}</div>
