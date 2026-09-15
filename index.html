@@ -310,6 +310,7 @@ tbody tr{cursor:pointer}
 .mm-stats{display:flex; gap:22px; flex-wrap:wrap}
 .mm-stat .n{font-family:"Archivo",sans-serif; font-weight:700; font-size:1.3rem; color:var(--accent)}
 .mm-stat .l{font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-3)}
+.mm-syn{color:var(--ink-2); font-size:.98rem; line-height:1.55; font-family:"Newsreader",serif; font-style:italic}
 .mm-section{border-top:1px solid var(--line); padding-top:16px; margin-top:16px}
 .mm-section h4{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin-bottom:10px}
 .mm-dates{display:flex; flex-wrap:wrap; gap:8px; font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-2)}
@@ -556,6 +557,9 @@ function actorsOf(r){ return ACTORS[posterKey(r[0], r[2])] || []; }
 
 let RUNTIME = {};
 function runtimeOf(r){ return RUNTIME[posterKey(r[0], r[2])] ?? null; }
+
+let SYNOPSIS = {};
+function synopsisOf(r){ return SYNOPSIS[posterKey(r[0], r[2])] || null; }
 
 /* ================= render ================= */
 const rwKey = r => deburr(r[0]).replace(/[^a-z0-9]+/g," ").trim() + "|" + (r[2]||"");
@@ -899,6 +903,7 @@ function openModal(key){
   const genres = genresOf(r);
   const cast = actorsOf(r);
   const dur = runtimeOf(r);
+  const syn = synopsisOf(r);
   const dates = rows.map(rr=>(rr[4]||"").slice(0,10)).filter(Boolean).sort();
   const rt = ratingOf(r);
   $("#modalBody").innerHTML = `
@@ -915,6 +920,7 @@ function openModal(key){
         </div>
       </div>
     </div>
+    ${syn?`<p class="mm-syn">${esc(syn)}</p>`:""}
     ${cast.length?`<div class="mm-section"><h4>Reparto</h4><p class="mm-cast">${cast.map(esc).join(", ")}</p></div>`:""}
     ${dates.length?`<div class="mm-section"><h4>${dates.length>1?"Fechas en que la viste":"Fecha en que la viste"}</h4><div class="mm-dates">${dates.map(d=>`<span>${d}</span>`).join("")}</div></div>`:""}
   `;
@@ -929,6 +935,7 @@ function openModalPorVer(t, d, y){
   const genres = (x && x.genres) || [];
   const cast = ACTORS[posterKey(t, y)] || [];
   const dur = RUNTIME[posterKey(t, y)];
+  const syn = SYNOPSIS[posterKey(t, y)];
   const rt = x && x.rating;
   $("#modalBody").innerHTML = `
     <div class="mm-head">
@@ -943,6 +950,7 @@ function openModalPorVer(t, d, y){
         </div>
       </div>
     </div>
+    ${syn?`<p class="mm-syn">${esc(syn)}</p>`:""}
     ${cast.length?`<div class="mm-section"><h4>Reparto</h4><p class="mm-cast">${cast.map(esc).join(", ")}</p></div>`:""}
   `;
   $("#modalBackdrop").hidden = false;
@@ -1008,11 +1016,12 @@ loadLive().then(live=>{
   if(live && live.length){ DATA = live; LIVE = true; boot(); renderPorVer(); }
 });
 const grab = u => fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
-Promise.all([grab("posters.json"), grab("posters-manual.json"), grab("actors.json"), grab("runtime.json")]).then(([auto, manual, actors, runtime])=>{
+Promise.all([grab("posters.json"), grab("posters-manual.json"), grab("actors.json"), grab("runtime.json"), grab("synopsis.json")]).then(([auto, manual, actors, runtime, synopsis])=>{
   if(auto) POSTERS = auto;
   if(manual) for(const k in manual){ const m=manual[k]; if(m && m.poster) POSTERS[k] = m; }
   if(actors) ACTORS = actors;
   if(runtime) RUNTIME = runtime;
-  if(auto || manual || actors || runtime){ boot(); renderPorVer(); }
+  if(synopsis) SYNOPSIS = synopsis;
+  if(auto || manual || actors || runtime || synopsis){ boot(); renderPorVer(); }
 });
 </script>
