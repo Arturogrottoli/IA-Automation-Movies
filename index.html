@@ -901,7 +901,11 @@ function boot(){
 
 function openModal(key){
   const rows = DATA.filter(r=>movieKey(r)===key);
-  if(!rows.length) return;
+  if(!rows.length){
+    const pv = PORVER.find(m=>posterKey(m.t,m.y)===key);
+    if(pv) openModalPorVer(pv.t, pv.d, pv.y);
+    return;
+  }
   const r = rows[0];
   const x = pxOf(r);
   const poster = x && x.poster
@@ -945,6 +949,7 @@ function openModalPorVer(t, d, y){
   const cast = ACTORS[posterKey(t, y)] || [];
   const dur = RUNTIME[posterKey(t, y)];
   const syn = SYNOPSIS[posterKey(t, y)];
+  const similar = SIMILAR[posterKey(t, y)] || [];
   const rt = x && x.rating;
   $("#modalBody").innerHTML = `
     <div class="mm-head">
@@ -961,6 +966,7 @@ function openModalPorVer(t, d, y){
     </div>
     ${syn?`<p class="mm-syn">${esc(syn)}</p>`:""}
     ${cast.length?`<div class="mm-section"><h4>Reparto</h4><p class="mm-cast">${cast.map(esc).join(", ")}</p></div>`:""}
+    ${similar.length?`<div class="mm-section"><h4>Parecidas</h4><div class="mm-similar">${similar.map(m=>`<button class="mm-sim" onclick="openModal('${esc(posterKey(m.t,m.y))}')">${esc(m.t)} <span>${m.y}</span></button>`).join("")}</div></div>`:""}
   `;
   $("#modalBackdrop").hidden = false;
 }

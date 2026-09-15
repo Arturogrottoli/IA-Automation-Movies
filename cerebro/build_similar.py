@@ -21,6 +21,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 
 ROOT = __file__.rsplit("cerebro", 1)[0]
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1860980534&single=true&output=csv"
+POR_VER_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1297033198&single=true&output=csv"
 
 
 def norm(s):
@@ -44,7 +45,12 @@ def load_json(name):
 
 def main():
     csv_text = urllib.request.urlopen(SHEET_CSV_URL).read().decode("utf-8")
-    df = pd.read_csv(pd.io.common.StringIO(csv_text))
+    df = pd.read_csv(pd.io.common.StringIO(csv_text))[["titulo", "director", "anio_estreno"]]
+
+    pv_text = urllib.request.urlopen(POR_VER_CSV_URL).read().decode("utf-8")
+    pv = pd.read_csv(pd.io.common.StringIO(pv_text))[["titulo", "director", "anio_estreno"]]
+
+    df = pd.concat([df, pv], ignore_index=True)
     df["anio_estreno"] = pd.to_numeric(df["anio_estreno"], errors="coerce")
     df = df.dropna(subset=["titulo", "anio_estreno"])
     df["key"] = df.apply(lambda r: poster_key(r["titulo"], int(r["anio_estreno"])), axis=1)
