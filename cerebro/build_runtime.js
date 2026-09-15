@@ -20,7 +20,7 @@ async function tmdb(u){ for(let i=0;i<4;i++){ const r=await fetch("https://api.t
   for (const [key, v] of entries) {
     done++;
     if (out[key] != null) continue; // ya lo tenemos
-    const d = await tmdb(`/movie/${v.tmdb}`);
+    const d = await tmdb(`/movie/${v.tmdb}?language=es`);
     if (d && typeof d.runtime === "number" && d.runtime > 0) {
       out[key] = d.runtime;
       fetched++;
