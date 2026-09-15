@@ -509,6 +509,9 @@ function ratingOf(r){ const x = pxOf(r); return x && x.rating != null ? x.rating
 let ACTORS = {};
 function actorsOf(r){ return ACTORS[posterKey(r[0], r[2])] || []; }
 
+let RUNTIME = {};
+function runtimeOf(r){ return RUNTIME[posterKey(r[0], r[2])] ?? null; }
+
 /* ================= render ================= */
 const rwKey = r => deburr(r[0]).replace(/[^a-z0-9]+/g," ").trim() + "|" + (r[2]||"");
 function computeRewatches(){
@@ -527,6 +530,8 @@ function renderVitals(){
   const rw = [...computeRewatches().values()].filter(v=>v>1).length;
   const d2010 = DATA.filter(r=>decadeOf(r[2])===2010).length;
   const arg = DATA.filter(r=>canonPais(r[3])==="Argentina").length;
+  const runtimes = DATA.map(runtimeOf).filter(x=>x!=null);
+  const avgRuntime = runtimes.length ? Math.round(runtimes.reduce((a,b)=>a+b,0)/runtimes.length) : null;
   const tiles = [
     [nf(DATA.length), "películas vistas"],
     [nf(dirs.size), "directores distintos"],
@@ -535,6 +540,7 @@ function renderVitals(){
     [nf(rw), "títulos revisitados"],
     [Math.round(arg/DATA.length*100)+"%", "cine argentino"],
   ];
+  if(avgRuntime) tiles.push([avgRuntime+" min", "duración promedio"]);
   $("#vitals").innerHTML = tiles.map(t=>`<div class="vital"><div class="n">${t[0]}</div><div class="l">${t[1]}</div></div>`).join("");
   $("#ebRange").textContent = yMin+" — "+yMax;
   if(LIVE) $("#ebFeed").textContent = "datos en vivo";
@@ -880,10 +886,11 @@ loadLive().then(live=>{
   if(live && live.length){ DATA = live; LIVE = true; boot(); renderPorVer(); }
 });
 const grab = u => fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
-Promise.all([grab("posters.json"), grab("posters-manual.json"), grab("actors.json")]).then(([auto, manual, actors])=>{
+Promise.all([grab("posters.json"), grab("posters-manual.json"), grab("actors.json"), grab("runtime.json")]).then(([auto, manual, actors, runtime])=>{
   if(auto) POSTERS = auto;
   if(manual) for(const k in manual){ const m=manual[k]; if(m && m.poster) POSTERS[k] = m; }
   if(actors) ACTORS = actors;
-  if(auto || manual || actors){ boot(); renderPorVer(); }
+  if(runtime) RUNTIME = runtime;
+  if(auto || manual || actors || runtime){ boot(); renderPorVer(); }
 });
 </script>
