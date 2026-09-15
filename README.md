@@ -24,9 +24,10 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
 - [x] **Registro por chat.** "vi Whiplash" → IA completa la ficha → fila en la hoja.
 - [x] **Sitio + estadísticas** en vivo (6 gráficos + índice paginado).
 - [x] **Actores/actrices más vistos** (de TMDB, junto a directores).
-- [x] **Duración por película** (`runtime.json`, de TMDB) + modal de detalle:
-      click en cualquier película (tabla o grilla) abre la ficha completa —
-      póster, género, rating, duración, reparto y todas las fechas vistas.
+- [x] **Duración y sinopsis por película** (`runtime.json`/`synopsis.json`, de
+      TMDB) + modal de detalle: click en cualquier película (tabla, grilla o
+      "quiero ver") abre la ficha completa — póster, género, rating,
+      duración, sinopsis, reparto y todas las fechas vistas.
 - [x] **Consultas al bot.** "¿qué vi de Cronenberg?" → responde leyendo la hoja.
 - [x] **Recomendaciones.** "recomendame un thriller" → sugiere pelis no vistas.
 - [x] **Pósters, ratings y géneros (TMDB).** Grilla de tarjetas + gráfico y
