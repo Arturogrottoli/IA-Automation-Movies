@@ -681,7 +681,7 @@ function populateFilters(){
   fillSelect($("#fDecade"), "Toda década",
     [...new Set(DATA.map(r=>decadeOf(r[2])).filter(Boolean))].sort((a,b)=>b-a).map(d=>[d, d+"s"]));
   fillSelect($("#fCountry"), "Todo país",
-    [...tally(r=>canonPais(r[3])).entries()].filter(e=>e[0]!=="—").sort((a,b)=>b[1]-a[1]).slice(0,24).map(e=>e[0]));
+    [...tally(r=>canonPais(r[3])).entries()].filter(e=>e[0]!=="—").sort((a,b)=>b[1]-a[1]).map(e=>e[0]));
   fillSelect($("#fYear"), "Todo año visto",
     [...new Set(DATA.map(r=>r[5]).filter(Boolean))].sort((a,b)=>b-a).map(String));
   fillSelect($("#fGenre"), "Todo género",

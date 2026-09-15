@@ -97,6 +97,44 @@
   ],
   "duracion_revisitadas": 109.6,
   "duracion_no_revisitadas": 110.0,
+  "tasa_por_duracion": [
+    {
+      "rango": "<80",
+      "tasa": 9.3,
+      "n": 43
+    },
+    {
+      "rango": "80-95",
+      "tasa": 10.2,
+      "n": 274
+    },
+    {
+      "rango": "95-110",
+      "tasa": 10.4,
+      "n": 346
+    },
+    {
+      "rango": "110-125",
+      "tasa": 8.9,
+      "n": 270
+    },
+    {
+      "rango": "125-140",
+      "tasa": 8.2,
+      "n": 110
+    },
+    {
+      "rango": "140-160",
+      "tasa": 7.1,
+      "n": 56
+    },
+    {
+      "rango": "160+",
+      "tasa": 18.4,
+      "n": 38
+    }
+  ],
+  "nota_duracion": "El salto en peliculas de 160+ min es casi todo Scorsese y Tarantino: la duracion es un proxy del director, no la causa.",
   "variables_mas_importantes": [
     {
       "variable": "duracion",

@@ -113,10 +113,21 @@ def main():
     print("\n--- tasa de revision por director (min 4 peliculas) ---")
     print(dir_rate.assign(**{"mean": (dir_rate["mean"] * 100).round(1)}).head(15))
 
-    # --- 4. duracion: promedio de las revisitadas vs las no ---
+    # --- 4. duracion: promedio de las revisitadas vs las no, y por rangos ---
     con_dur = uniq.dropna(subset=["duracion"])
     print("\n--- duracion promedio ---")
     print(con_dur.groupby("es_revisitada")["duracion"].mean().round(1))
+
+    bins = [0, 80, 95, 110, 125, 140, 160, 2000]
+    labels = ["<80", "80-95", "95-110", "110-125", "125-140", "140-160", "160+"]
+    con_dur = con_dur.copy()
+    con_dur["bucket"] = pd.cut(con_dur["duracion"], bins=bins, labels=labels)
+    dur_bucket = con_dur.groupby("bucket", observed=True)["es_revisitada"].agg(["mean", "count"])
+    print("\n--- tasa de revision por rango de duracion ---")
+    print(dur_bucket.assign(**{"mean": (dur_bucket["mean"] * 100).round(1)}))
+    # el salto en 160+ min es casi todo Scorsese/Tarantino: la duracion es
+    # un proxy del director, no la causa real
+    long_rewatched = uniq[(uniq["duracion"] >= 160) & (uniq["es_revisitada"])]
 
     # --- 5. modelo chico: que tan bien predicen genero+decada+pais si se revisita ---
     model_df = con_genero.copy()
@@ -150,6 +161,14 @@ def main():
         ],
         "duracion_revisitadas": round(con_dur[con_dur["es_revisitada"]]["duracion"].mean(), 1),
         "duracion_no_revisitadas": round(con_dur[~con_dur["es_revisitada"]]["duracion"].mean(), 1),
+        "tasa_por_duracion": [
+            {"rango": b, "tasa": round(row["mean"] * 100, 1), "n": int(row["count"])}
+            for b, row in dur_bucket.iterrows()
+        ],
+        "nota_duracion": (
+            "El salto en peliculas de 160+ min es casi todo Scorsese y "
+            "Tarantino: la duracion es un proxy del director, no la causa."
+        ),
         "variables_mas_importantes": [
             {"variable": v.replace("g_", ""), "peso": round(float(w), 3)}
             for v, w in importances.head(8).items()
