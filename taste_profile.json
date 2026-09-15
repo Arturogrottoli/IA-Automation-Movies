@@ -1,0 +1,134 @@
+{
+  "top_generos": [
+    {
+      "genero": "Animación",
+      "tasa": 17.9,
+      "n": 28
+    },
+    {
+      "genero": "Acción",
+      "tasa": 14.3,
+      "n": 230
+    },
+    {
+      "genero": "Familia",
+      "tasa": 13.5,
+      "n": 37
+    },
+    {
+      "genero": "Crimen",
+      "tasa": 12.0,
+      "n": 242
+    },
+    {
+      "genero": "Romance",
+      "tasa": 11.9,
+      "n": 84
+    }
+  ],
+  "top_decadas": [
+    {
+      "decada": 2000,
+      "tasa": 13.6,
+      "n": 176
+    },
+    {
+      "decada": 1970,
+      "tasa": 13.4,
+      "n": 67
+    },
+    {
+      "decada": 2010,
+      "tasa": 12.0,
+      "n": 358
+    },
+    {
+      "decada": 1980,
+      "tasa": 8.4,
+      "n": 83
+    },
+    {
+      "decada": 1990,
+      "tasa": 8.4,
+      "n": 119
+    }
+  ],
+  "top_directores": [
+    {
+      "director": "Quentin Tarantino",
+      "tasa": 63.6,
+      "n": 11
+    },
+    {
+      "director": "Chad Stahelski",
+      "tasa": 57.1,
+      "n": 7
+    },
+    {
+      "director": "Jeff Tremaine",
+      "tasa": 50.0,
+      "n": 4
+    },
+    {
+      "director": "Bong Joon-ho",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
+      "director": "Adolfo Aristarain",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
+      "director": "Yorgos Lanthimos",
+      "tasa": 33.3,
+      "n": 6
+    },
+    {
+      "director": "Edgar Wright",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Asif Kapadia",
+      "tasa": 25.0,
+      "n": 4
+    }
+  ],
+  "duracion_revisitadas": 109.6,
+  "duracion_no_revisitadas": 110.0,
+  "variables_mas_importantes": [
+    {
+      "variable": "duracion",
+      "peso": 0.272
+    },
+    {
+      "variable": "decada",
+      "peso": 0.177
+    },
+    {
+      "variable": "Acción",
+      "peso": 0.071
+    },
+    {
+      "variable": "Historia",
+      "peso": 0.066
+    },
+    {
+      "variable": "Drama",
+      "peso": 0.057
+    },
+    {
+      "variable": "Terror",
+      "peso": 0.047
+    },
+    {
+      "variable": "Crimen",
+      "peso": 0.044
+    },
+    {
+      "variable": "Comedia",
+      "peso": 0.038
+    }
+  ]
+}
