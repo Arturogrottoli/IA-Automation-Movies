@@ -165,9 +165,11 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       la de De Palma — corregida.
 - [x] **Fila 340 (Pelham):** "The taking of pelham 123" → "The Taking of
       Pelham One Two Three", para agrupar con la fila 1177.
-- [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 39 corregidos
-      hasta ahora en 2 tandas (`cerebro/rematch_posters.js` y `rematch_posters2.js`,
-      eligen por director en vez de por popularidad). 2 sin match real en TMDB
+- [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 41 corregidos
+      hasta ahora (`cerebro/rematch_posters.js` y `rematch_posters2.js`,
+      eligen por director en vez de por popularidad; la última pasada de
+      `check_datos.js` bajó de 45 a 22 alertas, casi todas falsos positivos
+      por nombres en otro alfabeto). 2 sin match real en TMDB
       (Leaving Neverland, La casa de la playa — no están cargadas como
       película ahí). Quedan más sueltas; se van encontrando con `check_datos.js`.
 - [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
