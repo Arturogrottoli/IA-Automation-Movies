@@ -105,21 +105,25 @@ real, solo faltaba mostrarlo.
       predecir revisión, pese a que el promedio es casi idéntico entre
       revisitadas y no (109,6 vs 110,0 min) — sugiere una relación no
       lineal, no investigada todavía.
+      Duración por rangos (hecho, sumado a `taste_profile.py`): el salto en
+      160+ min es casi todo Scorsese/Tarantino — la duración es proxy del
+      director, no la causa.
       Falta:
-      - Abrir la duración por rangos (cortas/medias/largas) para entender
-        ese hallazgo raro.
-      - Cruzar la tasa de revisión contra el rating de TMDB (brecha entre
-        lo que el mundo puntúa y lo que vos revisitás).
+      - Mostrarlo en el sitio — **como su propia placa/sección de Data
+        Science, separada del modal de automatización** (no interactiva por
+        película, es el análisis narrado, mismo formato que la Placa V).
       - Combos director+actor (ej. Scorsese+DiCaprio), no solo director solo.
       - Clustering de "familias de gusto" por año, para ver si cambió en 9 años.
-      - Conectarlo al sitio (hoy solo corre local y escribe el JSON).
-- [x] **"Películas parecidas a X" por similitud — primera versión.**
-      `cerebro/build_similar.py` (similitud por coseno, director x3 +
-      reparto x2 + género x1 + década x0.5, ver `taste_profile.json` para el
-      porqué de esos pesos). Se muestra en el modal de detalle como chips
-      clickeables. Falta: ajustarlo con el perfil de gusto (hoy no filtra
-      ni prioriza por tasa de revisión), y comparar contra una versión sin
-      ajustar como pide la idea original.
+      - Ahí sí, una versión del recomendador ajustada por este perfil, para
+        comparar contra la de contenido puro del modal (no para reemplazarla).
+      Descartado (no interesa): cruzar tasa de revisión contra rating de TMDB.
+- [x] **"Películas parecidas a X" por similitud.** `cerebro/build_similar.py`
+      (similitud por coseno, director x3 + reparto x2 + género x1 + década
+      x0.5, incluye catálogo + "quiero ver", 1.212 películas). Se muestra en
+      el modal de detalle (las dos secciones) como chips clickeables.
+      **Decisión:** esto queda tal cual, es la capa de automatización/sitio
+      — no se ajusta con el perfil de gusto acá. La versión ajustada va
+      aparte, como pieza de Data Science (ver abajo), no mezclada en el modal.
 
 #### Ideas para ampliar (sin scopear todavía)
 La idea general: tres capas visibles — **Automation + IA → Data Science →
