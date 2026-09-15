@@ -105,11 +105,13 @@ La idea general: tres capas visibles — **Automation + IA → Data Science →
 aplicación final** — sin tocar la automatización que ya funciona; la segunda
 mitad se suma como módulo aparte, empezando por el perfil de gusto.
 
+- [x] **Duración por película.** `runtime.json` (1.222/1.229, `cerebro/build_runtime.js`,
+      mismo patrón que actores/pósters). Falta usarla en algún gráfico del
+      sitio y en el recomendador de abajo.
 - [ ] **Recomendador con 2 métodos, comparados.** Por contenido (género +
-      director + actores + década + país) vs. ese mismo resultado ajustado
-      por el perfil de gusto — mostrar los dos lado a lado, no solo el
-      ajustado. Requiere sumar **duración** al dataset (no está hoy en
-      ningún lado; TMDB la tiene).
+      director + actores + década + país + duración) vs. ese mismo resultado
+      ajustado por el perfil de gusto — mostrar los dos lado a lado, no solo
+      el ajustado.
 - [ ] **El bot reconoce películas por descripción vaga.** "vi una de Scorsese
       con DiCaprio de mafiosos" → la IA arma candidatos y pregunta cuál, en
       vez de necesitar el título exacto. Extiende el mecanismo de "título
