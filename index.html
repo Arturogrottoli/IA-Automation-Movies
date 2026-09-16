@@ -388,6 +388,7 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
       <h2 class="sec-title">Quiero ver</h2>
       <p class="sec-intro" id="pv-intro"></p>
       <div class="grid" id="pv-grid"></div>
+      <div class="pager mono" id="pvPager" hidden></div>
     </div>
   </section>
 
@@ -1003,6 +1004,23 @@ async function loadPorVer(){
     renderPorVer();
   }catch(e){}
 }
+let pvPage = 1;
+const PV_PER = 24;
+function renderPvPager(total){
+  const el = $("#pvPager");
+  const pages = Math.ceil(total / PV_PER);
+  if(pages <= 1){ el.hidden = true; return; }
+  el.hidden = false;
+  el.innerHTML = `
+    <button ${pvPage<=1?"disabled":""} data-d="-1">‹ Anterior</button>
+    <span>Página ${pvPage} de ${nf(pages)}</span>
+    <button ${pvPage>=pages?"disabled":""} data-d="1">Siguiente ›</button>`;
+  el.querySelectorAll("button").forEach(b=>b.addEventListener("click", ()=>{
+    pvPage += +b.dataset.d;
+    renderPorVer();
+    $("#porver").scrollIntoView({behavior:"smooth", block:"start"});
+  }));
+}
 function renderPorVer(){
   const sec = $("#porver");
   const seen = new Set(DATA.map(r=>deburr(r[0]).trim()));
@@ -1011,8 +1029,10 @@ function renderPorVer(){
     .sort((a,b)=> (b.added||"").localeCompare(a.added||""));
   if(!pend.length){ sec.hidden = true; return; }
   sec.hidden = false;
+  pvPage = Math.min(pvPage, Math.max(1, Math.ceil(pend.length/PV_PER)));
   $("#pv-intro").innerHTML = `<em>${nf(pend.length)}</em> anotadas para ver. Cuando registrás que la viste, sale sola de acá.`;
-  $("#pv-grid").innerHTML = pend.map(m=>{
+  const pageItems = pend.slice((pvPage-1)*PV_PER, pvPage*PV_PER);
+  $("#pv-grid").innerHTML = pageItems.map(m=>{
     const x = POSTERS[posterKey(m.t, m.y)] || null;
     const poster = x && x.poster
       ? `<img loading="lazy" src="${x.poster}" alt="${esc(m.t)}">`
@@ -1023,6 +1043,7 @@ function renderPorVer(){
       <div class="cm">${m.y||"—"}${m.d?` · ${esc(m.d)}`:""}</div>
     </div>`;
   }).join("");
+  renderPvPager(pend.length);
 }
 
 boot();
