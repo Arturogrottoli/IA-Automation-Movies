@@ -336,6 +336,7 @@ tbody tr{cursor:pointer}
 .mm-action-remove:hover{border-color:#c0392b; color:#c0392b; opacity:1}
 @media(max-width:560px){ .mm-head{flex-direction:column} .mm-poster{width:120px} }
 .modal-confirm{max-width:360px; padding:26px}
+.cf-title{font-family:"Archivo",sans-serif; font-weight:700; font-size:1.05rem; margin:0 0 18px}
 .cf-msg{color:var(--ink); font-size:.98rem; line-height:1.5; margin:0 0 22px; font-family:"Archivo",sans-serif}
 .cf-actions{display:flex; gap:10px; justify-content:flex-end}
 .cf-btn{font-family:"IBM Plex Mono",monospace; font-size:12.5px; letter-spacing:.03em; border-radius:6px; padding:9px 16px; cursor:pointer; border:1px solid var(--line)}
@@ -344,6 +345,16 @@ tbody tr{cursor:pointer}
 .cf-danger{background:#c0392b; color:#fff; border-color:#c0392b}
 .cf-danger:hover{opacity:.88}
 .cf-danger:disabled{opacity:.6; cursor:default}
+.cf-primary{background:var(--accent); color:#0d0d0f; border-color:var(--accent)}
+.cf-primary:hover{opacity:.88}
+.cf-primary:disabled{opacity:.6; cursor:default}
+.af-field{margin-bottom:14px}
+.af-field label{display:block; font-family:"IBM Plex Mono",monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-3); margin-bottom:5px}
+.af-field input{width:100%; box-sizing:border-box; background:var(--bg-2); border:1px solid var(--line); border-radius:6px; padding:9px 11px; font-family:"Archivo",sans-serif; font-size:.95rem; color:var(--ink)}
+.af-field input:focus{outline:none; border-color:var(--accent)}
+.af-err{color:#c0392b; font-size:.85rem; margin:0 0 14px; font-family:"Archivo",sans-serif}
+.pv-add-btn{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink); background:var(--bg-2); border:1px solid var(--line); border-radius:20px; padding:8px 16px; cursor:pointer; margin:2px 0 26px; display:inline-block}
+.pv-add-btn:hover{border-color:var(--accent); color:var(--accent)}
 
 /* ============ footer ============ */
 footer{
@@ -410,6 +421,7 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
       <div class="sec-label">Placa III · Lo que viene</div>
       <h2 class="sec-title">Quiero ver</h2>
       <p class="sec-intro" id="pv-intro"></p>
+      <button class="pv-add-btn" id="pvAddBtn">+ Agregar película</button>
       <div class="grid" id="pv-grid"></div>
       <div class="pager mono" id="pvPager" hidden></div>
     </div>
@@ -492,6 +504,29 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
     <div class="cf-actions">
       <button class="cf-btn cf-cancel" id="confirmCancel">Cancelar</button>
       <button class="cf-btn cf-danger" id="confirmOk">Sacar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="addBackdrop" hidden>
+  <div class="modal modal-confirm" id="addModal" role="dialog" aria-modal="true" aria-labelledby="addTitle">
+    <div class="cf-title" id="addTitle">Agregar a "Quiero ver"</div>
+    <div class="af-field">
+      <label for="addTitulo">Título*</label>
+      <input type="text" id="addTitulo" placeholder="Ej: Perfect Blue" autocomplete="off">
+    </div>
+    <div class="af-field">
+      <label for="addDirector">Director/a</label>
+      <input type="text" id="addDirector" placeholder="Opcional" autocomplete="off">
+    </div>
+    <div class="af-field">
+      <label for="addAnio">Año</label>
+      <input type="number" id="addAnio" placeholder="Opcional" autocomplete="off">
+    </div>
+    <p class="af-err" id="addErr" hidden></p>
+    <div class="cf-actions">
+      <button class="cf-btn cf-cancel" id="addCancel">Cancelar</button>
+      <button class="cf-btn cf-primary" id="addOk">Agregar</button>
     </div>
   </div>
 </div>
@@ -933,7 +968,12 @@ function boot(){
   $("#modalBackdrop").addEventListener("click", e=>{ if(e.target.id==="modalBackdrop") closeModal(); });
   $("#confirmCancel").addEventListener("click", closeConfirm);
   $("#confirmBackdrop").addEventListener("click", e=>{ if(e.target.id==="confirmBackdrop") closeConfirm(); });
-  document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeModal(); closeConfirm(); } });
+  $("#pvAddBtn").addEventListener("click", pvAddOpen);
+  $("#addCancel").addEventListener("click", closeAdd);
+  $("#addBackdrop").addEventListener("click", e=>{ if(e.target.id==="addBackdrop") closeAdd(); });
+  $("#addOk").addEventListener("click", pvAgregarNueva);
+  $("#addTitulo").addEventListener("keydown", e=>{ if(e.key==="Enter") pvAgregarNueva(); });
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeModal(); closeConfirm(); closeAdd(); } });
 }
 
 function closeConfirm(){ $("#confirmBackdrop").hidden = true; }
@@ -1023,22 +1063,50 @@ function openModalPorVer(t, d, y){
   $("#modalBackdrop").hidden = false;
 }
 
-async function pvAgregar(t, d, y){
-  const btn = $("#pvActionBtn");
+async function pvAgregar(t, d, y, btn){
+  btn = btn || $("#pvActionBtn");
   btn.disabled = true; btn.textContent = "Agregando…";
   try{
     await fetch(POR_VER_WEBHOOK_URL, {
       method: "POST",
       headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({accion:"agregar", titulo:t, director:d, anio_estreno:y, pais_origen:""})
+      body: JSON.stringify({accion:"agregar", titulo:t, director:d||"", anio_estreno:y||"", pais_origen:""})
     });
     PORVER.push({t, d, y, added: new Date().toISOString().slice(0,10)});
     btn.textContent = "✓ Agregada";
     renderPorVer();
+    return true;
   }catch(e){
     btn.textContent = "Error, probá de nuevo";
     btn.disabled = false;
+    return false;
   }
+}
+
+function pvAddOpen(){
+  $("#addTitulo").value = "";
+  $("#addDirector").value = "";
+  $("#addAnio").value = "";
+  $("#addErr").hidden = true;
+  const okBtn = $("#addOk");
+  okBtn.disabled = false; okBtn.textContent = "Agregar";
+  $("#addBackdrop").hidden = false;
+  $("#addTitulo").focus();
+}
+
+function closeAdd(){ $("#addBackdrop").hidden = true; }
+
+async function pvAgregarNueva(){
+  const t = $("#addTitulo").value.trim();
+  const d = $("#addDirector").value.trim();
+  const yRaw = $("#addAnio").value.trim();
+  const errEl = $("#addErr");
+  if(!t){ errEl.textContent = "Poné al menos el título."; errEl.hidden = false; return; }
+  if(yRaw && !/^\d{4}$/.test(yRaw)){ errEl.textContent = "El año tiene que ser de 4 dígitos."; errEl.hidden = false; return; }
+  errEl.hidden = true;
+  const y = yRaw ? +yRaw : null;
+  const ok = await pvAgregar(t, d, y, $("#addOk"));
+  if(ok) closeAdd();
 }
 
 async function pvQuitar(t, y, btn){
@@ -1123,14 +1191,15 @@ function renderPvPager(total){
 }
 function renderPorVer(){
   const sec = $("#porver");
+  sec.hidden = false;
   const seen = new Set(DATA.map(r=>deburr(r[0]).trim()));
   const pend = PORVER
     .filter(m => !seen.has(deburr(m.t).trim()))
     .sort((a,b)=> (b.added||"").localeCompare(a.added||""));
-  if(!pend.length){ sec.hidden = true; return; }
-  sec.hidden = false;
-  pvPage = Math.min(pvPage, Math.max(1, Math.ceil(pend.length/PV_PER)));
-  $("#pv-intro").innerHTML = `<em>${nf(pend.length)}</em> anotadas para ver. Cuando registrás que la viste, sale sola de acá.`;
+  pvPage = Math.min(pvPage, Math.max(1, Math.ceil(pend.length/PV_PER) || 1));
+  $("#pv-intro").innerHTML = pend.length
+    ? `<em>${nf(pend.length)}</em> anotadas para ver. Cuando registrás que la viste, sale sola de acá.`
+    : `Todavía no anotaste nada. Sumá una con el botón de abajo.`;
   const pageItems = pend.slice((pvPage-1)*PV_PER, pvPage*PV_PER);
   $("#pv-grid").innerHTML = pageItems.map(m=>{
     const x = POSTERS[posterKey(m.t, m.y)] || null;
