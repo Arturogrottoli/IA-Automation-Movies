@@ -93,7 +93,12 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       confirmación y pega al mismo webhook. Visible al hover en desktop,
       siempre visible en touch. Probado con CDP (headless Chrome): el click
       no abre el modal (`stopPropagation`), la card desaparece de la grilla
-      tras confirmar.
+      tras confirmar. El `confirm()` nativo del navegador se reemplazó por un
+      modal propio (mismo estilo del sitio). También se sumó un botón
+      "+ Agregar película" en la sección, con un formulario (título
+      obligatorio, director/año opcionales) para anotar cualquier título
+      nuevo sin depender de que ya aparezca en el catálogo o en "Parecidas";
+      la sección ahora se muestra siempre, incluso con la lista vacía.
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
       re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
