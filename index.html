@@ -276,6 +276,14 @@ td.rt b{color:var(--accent); font-weight:500}
   background:var(--accent); color:#0d0d0f; border-radius:4px;
   font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:500; padding:1px 5px;
 }
+.card .poster .card-x{
+  position:absolute; right:6px; top:6px; width:22px; height:22px; border-radius:50%;
+  background:#0d0d0fcc; color:#ece6da; border:none; font-size:12px; line-height:1;
+  cursor:pointer; opacity:0; transition:opacity .15s;
+}
+.card:hover .card-x{opacity:1}
+.card .poster .card-x:hover{background:#c0392b}
+@media(hover:none){ .card .poster .card-x{opacity:1} }
 .card .ct{font-family:"Archivo",sans-serif; font-weight:600; font-size:13.5px; line-height:1.25}
 .card .cm{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3); line-height:1.4}
 .card{cursor:pointer}
@@ -1010,9 +1018,9 @@ async function pvAgregar(t, d, y){
   }
 }
 
-async function pvQuitar(t, y){
-  const btn = $("#pvActionBtn");
-  btn.disabled = true; btn.textContent = "Quitando…";
+async function pvQuitar(t, y, btn){
+  btn = btn || $("#pvActionBtn");
+  if(btn){ btn.disabled = true; btn.textContent = btn.classList.contains("card-x") ? "…" : "Quitando…"; }
   try{
     await fetch(POR_VER_WEBHOOK_URL, {
       method: "POST",
@@ -1020,12 +1028,16 @@ async function pvQuitar(t, y){
       body: JSON.stringify({accion:"quitar", titulo:t, director:"", anio_estreno:y, pais_origen:""})
     });
     PORVER = PORVER.filter(m=>posterKey(m.t,m.y)!==posterKey(t,y));
-    $("#modalBackdrop").hidden = true;
+    if(!$("#modalBackdrop").hidden) $("#modalBackdrop").hidden = true;
     renderPorVer();
   }catch(e){
-    btn.textContent = "Error, probá de nuevo";
-    btn.disabled = false;
+    if(btn){ btn.textContent = btn.classList.contains("card-x") ? "!" : "Error, probá de nuevo"; btn.disabled = false; }
   }
+}
+
+function pvQuitarConfirm(t, y, ev){
+  ev.stopPropagation();
+  if(confirm(`¿Sacar "${t}" de tu lista de "Quiero ver"?`)) pvQuitar(t, y, ev.currentTarget);
 }
 
 // tema
@@ -1093,8 +1105,11 @@ function renderPorVer(){
     const poster = x && x.poster
       ? `<img loading="lazy" src="${x.poster}" alt="${esc(m.t)}">`
       : `<div class="ph">${esc(m.t)}</div>`;
+    const tSafe = esc(m.t).replace(/'/g,"&#39;");
     return `<div class="card" data-pv-t="${esc(m.t)}" data-pv-d="${esc(m.d||"")}" data-pv-y="${m.y||""}">
-      <div class="poster">${poster}${x&&x.rating!=null?`<span class="rt">${x.rating.toFixed(1)}</span>`:""}</div>
+      <div class="poster">${poster}${x&&x.rating!=null?`<span class="rt">${x.rating.toFixed(1)}</span>`:""}
+        <button class="card-x" title="Sacar de la lista" onclick="pvQuitarConfirm('${tSafe}',${m.y||"null"},event)">✕</button>
+      </div>
       <div class="ct">${esc(m.t)}</div>
       <div class="cm">${m.y||"—"}${m.d?` · ${esc(m.d)}`:""}</div>
     </div>`;
