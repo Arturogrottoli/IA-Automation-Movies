@@ -81,10 +81,13 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       `por_ver` a mano. Automático = intent `descartar` + Search/Delete Row en Make.
       Sumarle: que al registrar "vi X" con éxito, si X ya estaba en `por_ver`,
       se borre esa fila sola (hoy solo se "esconde" en el sitio, sigue en la hoja).
-- [ ] **Agregar/quitar de "quiero ver" desde el sitio.** Un webhook nuevo en
-      Make (Add/Delete Row en `por_ver`) + botones en el sitio ("+ agregar" en
-      cualquier tarjeta, "quitar" en las de la watchlist) que le peguen a ese
-      webhook por fetch.
+- [x] **Agregar/quitar de "quiero ver" desde el sitio.** Escenario nuevo en
+      Make ("Integration Webhooks"): Custom webhook → Router por `accion`
+      ("agregar" → Add a Row en `por_ver`; "quitar" → Search Rows + Delete a
+      Row). El modal tiene el botón correspondiente según si la película ya
+      está en la lista o no (`openModalAny` decide qué modal mostrar).
+      Probado en vivo de punta a punta (agregar + quitar, confirmado en la
+      hoja). De paso, el reparto en el modal pasó de texto plano a pills.
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
       re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
