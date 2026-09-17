@@ -335,6 +335,15 @@ tbody tr{cursor:pointer}
 .mm-action-remove{background:transparent; color:var(--ink-2); border:1px solid var(--line)}
 .mm-action-remove:hover{border-color:#c0392b; color:#c0392b; opacity:1}
 @media(max-width:560px){ .mm-head{flex-direction:column} .mm-poster{width:120px} }
+.modal-confirm{max-width:360px; padding:26px}
+.cf-msg{color:var(--ink); font-size:.98rem; line-height:1.5; margin:0 0 22px; font-family:"Archivo",sans-serif}
+.cf-actions{display:flex; gap:10px; justify-content:flex-end}
+.cf-btn{font-family:"IBM Plex Mono",monospace; font-size:12.5px; letter-spacing:.03em; border-radius:6px; padding:9px 16px; cursor:pointer; border:1px solid var(--line)}
+.cf-cancel{background:transparent; color:var(--ink-2)}
+.cf-cancel:hover{border-color:var(--ink-3); color:var(--ink)}
+.cf-danger{background:#c0392b; color:#fff; border-color:#c0392b}
+.cf-danger:hover{opacity:.88}
+.cf-danger:disabled{opacity:.6; cursor:default}
 
 /* ============ footer ============ */
 footer{
@@ -474,6 +483,16 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
     <div id="modalBody"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="confirmBackdrop" hidden>
+  <div class="modal modal-confirm" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmMsg">
+    <p class="cf-msg" id="confirmMsg"></p>
+    <div class="cf-actions">
+      <button class="cf-btn cf-cancel" id="confirmCancel">Cancelar</button>
+      <button class="cf-btn cf-danger" id="confirmOk">Sacar</button>
+    </div>
   </div>
 </div>
 
@@ -912,8 +931,12 @@ function boot(){
   const closeModal = () => { $("#modalBackdrop").hidden = true; };
   $("#modalClose").addEventListener("click", closeModal);
   $("#modalBackdrop").addEventListener("click", e=>{ if(e.target.id==="modalBackdrop") closeModal(); });
-  document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
+  $("#confirmCancel").addEventListener("click", closeConfirm);
+  $("#confirmBackdrop").addEventListener("click", e=>{ if(e.target.id==="confirmBackdrop") closeConfirm(); });
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeModal(); closeConfirm(); } });
 }
+
+function closeConfirm(){ $("#confirmBackdrop").hidden = true; }
 
 function openModal(key){
   const rows = DATA.filter(r=>movieKey(r)===key);
@@ -1030,14 +1053,23 @@ async function pvQuitar(t, y, btn){
     PORVER = PORVER.filter(m=>posterKey(m.t,m.y)!==posterKey(t,y));
     if(!$("#modalBackdrop").hidden) $("#modalBackdrop").hidden = true;
     renderPorVer();
+    return true;
   }catch(e){
     if(btn){ btn.textContent = btn.classList.contains("card-x") ? "!" : "Error, probá de nuevo"; btn.disabled = false; }
+    return false;
   }
 }
 
 function pvQuitarConfirm(t, y, ev){
   ev.stopPropagation();
-  if(confirm(`¿Sacar "${t}" de tu lista de "Quiero ver"?`)) pvQuitar(t, y, ev.currentTarget);
+  $("#confirmMsg").textContent = `¿Sacar "${t}" de tu lista de "Quiero ver"?`;
+  const okBtn = $("#confirmOk");
+  okBtn.disabled = false; okBtn.textContent = "Sacar";
+  okBtn.onclick = async () => {
+    const ok = await pvQuitar(t, y, okBtn);
+    if(ok) closeConfirm();
+  };
+  $("#confirmBackdrop").hidden = false;
 }
 
 // tema
