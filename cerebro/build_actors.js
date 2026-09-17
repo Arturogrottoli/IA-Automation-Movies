@@ -7,7 +7,7 @@ const ROOT = path.join(__dirname, "..");
 const token = fs.readFileSync(path.join(__dirname, "tmdb.key"), "utf8").trim();
 const H = { headers: { Authorization: "Bearer " + token, accept: "application/json" } };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const TOP_N = 4;
+const TOP_N = 8;
 
 async function tmdb(u){ for(let i=0;i<4;i++){ const r=await fetch("https://api.themoviedb.org/3"+u,H); if(r.status===429){await sleep(1500);continue;} if(!r.ok)return null; return r.json(); } return null; }
 
