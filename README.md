@@ -88,6 +88,12 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       está en la lista o no (`openModalAny` decide qué modal mostrar).
       Probado en vivo de punta a punta (agregar + quitar, confirmado en la
       hoja). De paso, el reparto en el modal pasó de texto plano a pills.
+      Sumado después: botón ✕ directo en las cards de "Quiero ver" (solo ahí,
+      no en las vistas) para sacarlas sin pasar por el modal — pide
+      confirmación y pega al mismo webhook. Visible al hover en desktop,
+      siempre visible en touch. Probado con CDP (headless Chrome): el click
+      no abre el modal (`stopPropagation`), la card desaparece de la grilla
+      tras confirmar.
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
       re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
