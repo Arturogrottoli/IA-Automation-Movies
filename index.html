@@ -311,9 +311,9 @@ tbody tr{cursor:pointer}
 .mm-poster{width:150px; min-width:150px; aspect-ratio:2/3; border-radius:4px; overflow:hidden; background:var(--line-2); border:1px solid var(--line)}
 .mm-poster img{width:100%; height:100%; object-fit:cover; display:block}
 .mm-poster .ph{width:100%; height:100%; display:flex; align-items:center; justify-content:center; padding:10px; text-align:center; font-family:"Archivo",sans-serif; font-weight:600; font-size:12px; color:var(--ink-3)}
-.mm-title-row{display:flex; align-items:center; gap:10px; margin-bottom:4px; padding-right:30px}
+.mm-title-row{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:4px; padding-right:30px}
 .mm-title{font-size:1.5rem; font-weight:700; letter-spacing:-.01em}
-.mm-x{flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:transparent; color:var(--ink-3); border:1px solid var(--line); font-size:12px; line-height:1; cursor:pointer; transition:color .15s, border-color .15s}
+.mm-x{flex:0 0 auto; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.03em; color:var(--ink-3); background:transparent; border:1px solid var(--line); border-radius:20px; padding:5px 12px; cursor:pointer; transition:color .15s, border-color .15s}
 .mm-x:hover{color:#c0392b; border-color:#c0392b}
 .mm-sub{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-2); margin-bottom:14px}
 .mm-tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px}
@@ -1045,7 +1045,7 @@ function openModalPorVer(t, d, y){
       <div>
         <div class="mm-title-row">
           <div class="mm-title" id="modalTitle">${esc(t)}</div>
-          ${tracked?`<button class="mm-x" title="Sacar de la lista" onclick="pvQuitarConfirm('${tSafe}',${y},event)">✕</button>`:""}
+          ${tracked?`<button class="mm-x" onclick="pvQuitarConfirm('${tSafe}',${y},event)">Quitar de la lista</button>`:""}
         </div>
         <div class="mm-sub">${esc(d)||"—"} · ${y||"—"}</div>
         <div class="mm-tags">${genres.map(g=>`<span class="mm-tag">${esc(g)}</span>`).join("")}${tracked?`<span class="mm-tag">Quiero ver</span>`:""}</div>
