@@ -310,7 +310,10 @@ tbody tr{cursor:pointer}
 .mm-poster{width:150px; min-width:150px; aspect-ratio:2/3; border-radius:4px; overflow:hidden; background:var(--line-2); border:1px solid var(--line)}
 .mm-poster img{width:100%; height:100%; object-fit:cover; display:block}
 .mm-poster .ph{width:100%; height:100%; display:flex; align-items:center; justify-content:center; padding:10px; text-align:center; font-family:"Archivo",sans-serif; font-weight:600; font-size:12px; color:var(--ink-3)}
-.mm-title{font-size:1.5rem; font-weight:700; letter-spacing:-.01em; margin-bottom:4px; padding-right:30px}
+.mm-title-row{display:flex; align-items:center; gap:10px; margin-bottom:4px; padding-right:30px}
+.mm-title{font-size:1.5rem; font-weight:700; letter-spacing:-.01em}
+.mm-x{flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:transparent; color:var(--ink-3); border:1px solid var(--line); font-size:12px; line-height:1; cursor:pointer; transition:color .15s, border-color .15s}
+.mm-x:hover{color:#c0392b; border-color:#c0392b}
 .mm-sub{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-2); margin-bottom:14px}
 .mm-tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px}
 .mm-tag{font-family:"IBM Plex Mono",monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-2); border:1px solid var(--line); border-radius:20px; padding:3px 10px}
@@ -331,8 +334,6 @@ tbody tr{cursor:pointer}
 .mm-action{font-family:"IBM Plex Mono",monospace; font-size:12.5px; letter-spacing:.04em; color:#0d0d0f; background:var(--accent); border:none; border-radius:6px; padding:11px 18px; cursor:pointer; width:100%}
 .mm-action:hover{opacity:.88}
 .mm-action:disabled{opacity:.6; cursor:default}
-.mm-action-remove{background:transparent; color:var(--ink-2); border:1px solid var(--line)}
-.mm-action-remove:hover{border-color:#c0392b; color:#c0392b; opacity:1}
 @media(max-width:560px){ .mm-head{flex-direction:column} .mm-poster{width:120px} }
 .modal-confirm{max-width:360px; padding:26px}
 .cf-title{font-family:"Archivo",sans-serif; font-weight:700; font-size:1.05rem; margin:0 0 18px}
@@ -1041,7 +1042,10 @@ function openModalPorVer(t, d, y){
     <div class="mm-head">
       <div class="mm-poster">${poster}</div>
       <div>
-        <div class="mm-title" id="modalTitle">${esc(t)}</div>
+        <div class="mm-title-row">
+          <div class="mm-title" id="modalTitle">${esc(t)}</div>
+          ${tracked?`<button class="mm-x" title="Sacar de la lista" onclick="pvQuitarConfirm('${tSafe}',${y},event)">✕</button>`:""}
+        </div>
         <div class="mm-sub">${esc(d)||"—"} · ${y||"—"}</div>
         <div class="mm-tags">${genres.map(g=>`<span class="mm-tag">${esc(g)}</span>`).join("")}${tracked?`<span class="mm-tag">Quiero ver</span>`:""}</div>
         <div class="mm-stats">
@@ -1053,11 +1057,9 @@ function openModalPorVer(t, d, y){
     ${syn?`<p class="mm-syn">${esc(syn)}</p>`:""}
     ${cast.length?`<div class="mm-section"><h4>Reparto</h4><div class="mm-cast">${cast.map(a=>`<span class="mm-actor">${esc(a)}</span>`).join("")}</div></div>`:""}
     ${similar.length?`<div class="mm-section"><h4>Parecidas</h4><div class="mm-similar">${similar.map(m=>`<button class="mm-sim" onclick="openModalAny('${esc(m.t).replace(/'/g,"&#39;")}','${esc(m.d||"").replace(/'/g,"&#39;")}',${m.y})">${esc(m.t)} <span>${m.y}</span></button>`).join("")}</div></div>`:""}
-    <div class="mm-section">
-      ${tracked
-        ? `<button class="mm-action mm-action-remove" id="pvActionBtn" onclick="pvQuitar('${tSafe}',${y})">🗑 Quitar de "Quiero ver"</button>`
-        : `<button class="mm-action" id="pvActionBtn" onclick="pvAgregar('${tSafe}','${dSafe}',${y})">+ Agregar a "Quiero ver"</button>`}
-    </div>
+    ${tracked ? "" : `<div class="mm-section">
+      <button class="mm-action" id="pvActionBtn" onclick="pvAgregar('${tSafe}','${dSafe}',${y})">+ Agregar a "Quiero ver"</button>
+    </div>`}
   `;
   $("#modalBackdrop").hidden = false;
 }
