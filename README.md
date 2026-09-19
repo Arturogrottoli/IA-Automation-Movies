@@ -190,6 +190,11 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
 - [x] **Manual de datos** → [docs/manual-de-datos.md](docs/manual-de-datos.md) / [PDF](docs/manual-de-datos.pdf).
 - [x] **Optimización de costos** → [docs/costos.md](docs/costos.md) / [PDF](docs/costos.pdf).
+      Los 3 documentos estaban desactualizados (faltaban las ramas
+      agendar/ambiguo, el escenario "Integration Webhooks", el modelo real,
+      y `manual-de-datos.md` describía como "pendiente" el bug de
+      `anio_visto` que ya se arregló) — corregidos. **Los PDF quedaron sin
+      re-exportar** (a propósito, no es prioridad ahora).
 - [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
 - [ ] **Panel de KPIs de operación** (tasa de aprobación, volumen, errores — máx 4).
 - [~] **Video demo de 3 min.** Se hace aparte, en YouTube, no como parte del
@@ -220,14 +225,18 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       la de De Palma — corregida.
 - [x] **Fila 340 (Pelham):** "The taking of pelham 123" → "The Taking of
       Pelham One Two Three", para agrupar con la fila 1177.
-- [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 42 corregidos
+- [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 43 corregidos
       hasta ahora (`cerebro/rematch_posters.js` y `rematch_posters2.js`,
-      eligen por director en vez de por popularidad). Última pasada de
-      `check_datos.js`: 21 alertas, todas ya revisadas — o falsos positivos
-      por nombres de director en otro alfabeto, o casos de año ambiguos de
-      muy baja prioridad (festival vs. estreno general). Cerca del techo de
-      lo que este método encuentra solo; lo que queda requeriría revisión
-      manual. 2 sin match real en TMDB
+      eligen por director en vez de por popularidad). Última corrección:
+      "Fuck You" (2024) tenía matcheada "Fuck You, Cupid" (ficción de Felipe
+      Marinheiro) en vez del documental real, "Fuck you! El último show"
+      (José Luis García) sobre el último recital de Sumo en Obras — mismo
+      título, director completamente distinto, no detectable por alfabeto.
+      Última pasada de `check_datos.js`: 20 alertas, las 19 restantes
+      revisadas — falsos positivos por nombres de director en otro alfabeto,
+      o casos de año ambiguos de muy baja prioridad (festival vs. estreno
+      general). Cerca del techo de lo que este método encuentra solo; lo que
+      queda requeriría revisión manual. 2 sin match real en TMDB
       (Leaving Neverland, La casa de la playa — no están cargadas como
       película ahí). Quedan más sueltas; se van encontrando con `check_datos.js`.
 - [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
