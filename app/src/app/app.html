@@ -12,19 +12,6 @@
   </div>
 </header>
 
-<main class="wrap">
-  <p class="mono">
-    Fase 1 (debug) — {{ catalog.loading() ? 'cargando…' : catalog.movies().length + ' películas' }}
-    · fuente: {{ catalog.live() ? 'CSV en vivo' : 'instantánea embebida' }}
-  </p>
-  @if (!catalog.loading()) {
-    <ul class="mono">
-      @for (m of catalog.movies().slice(0, 5); track m.key) {
-        <li>
-          {{ m.titulo }} ({{ m.anioEstreno }}) — {{ m.director }} · {{ m.watchDates.length }}x
-          · póster: {{ m.poster ? 'sí' : 'no' }} · reparto: {{ m.cast.length }}
-        </li>
-      }
-    </ul>
-  }
+<main>
+  <app-placa-catalog />
 </main>

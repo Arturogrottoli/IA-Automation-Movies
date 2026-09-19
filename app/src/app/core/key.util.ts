@@ -5,6 +5,10 @@
  * orígenes (args sueltos vs. filas de DATA).
  */
 
+export function nf(n: number): string {
+  return n.toLocaleString('es-AR');
+}
+
 export function deburr(value: string | null | undefined): string {
   return (value ?? '')
     .normalize('NFD')

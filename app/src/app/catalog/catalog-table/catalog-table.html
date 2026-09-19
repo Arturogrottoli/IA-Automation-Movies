@@ -1,0 +1,39 @@
+<div class="tbl-scroll">
+  <table>
+    <thead>
+      <tr>
+        @for (col of columns; track col.key) {
+          <th [attr.data-k]="col.key" [style.width]="col.width" [attr.aria-sort]="ariaSort(col.key)">
+            <button (click)="sortChange.emit(col.key)">{{ col.label }}<span class="arw">{{ arrow(col.key) }}</span></button>
+          </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @if (!viewings().length) {
+        <tr><td colspan="6" class="empty">Ninguna película coincide con el filtro.</td></tr>
+      }
+      @for (v of viewings(); track v.movie.key + '|' + v.fecha) {
+        <tr (click)="open.emit(v.movie.key)">
+          <td class="yr">{{ v.movie.anioEstreno || '—' }}</td>
+          <td class="ti">
+            {{ v.movie.titulo }}
+            @if (v.movie.watchInstances.length > 1) {
+              <span class="rw">×{{ v.movie.watchInstances.length }}</span>
+            }
+          </td>
+          <td class="di">{{ v.movie.director || '—' }}</td>
+          <td class="pa">{{ v.movie.paisOrigen }}</td>
+          <td class="rt">
+            @if (v.movie.rating != null) {
+              <b>{{ v.movie.rating!.toFixed(1) }}</b>
+            } @else {
+              —
+            }
+          </td>
+          <td class="seen">{{ v.fecha }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

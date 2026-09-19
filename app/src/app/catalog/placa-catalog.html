@@ -1,0 +1,42 @@
+<section id="indice">
+  <div class="wrap">
+    <div class="sec-label">Placa IV · El índice completo</div>
+    <h2 class="sec-title">Todas, una por una</h2>
+
+    <app-filter-bar
+      [filters]="filters()"
+      (filtersChange)="onFiltersChange($event)"
+      [decadeOptions]="decadeOptions()"
+      [countryOptions]="countryOptions()"
+      [genreOptions]="genreOptions()"
+      [yearOptions]="yearOptions()"
+    />
+
+    <div class="viewtoggle" role="group" aria-label="Vista">
+      <button [attr.aria-pressed]="view() === 'list'" (click)="setView('list')">Lista</button>
+      <button [attr.aria-pressed]="view() === 'grid'" (click)="setView('grid')">Grilla</button>
+    </div>
+
+    <div class="count mono">{{ countText() }}</div>
+
+    @if (view() === 'list') {
+      <app-catalog-table
+        [viewings]="pagedViewings()"
+        [sort]="sort()"
+        (sortChange)="onSortChange($event)"
+        (open)="onOpenMovie($event)"
+      />
+    } @else {
+      <div class="grid">
+        @if (!pagedGridEntries().length) {
+          <p class="empty">Ninguna película coincide con el filtro.</p>
+        }
+        @for (entry of pagedGridEntries(); track entry.movie.key) {
+          <app-movie-card [movie]="entry.movie" [badgeCount]="entry.count" (open)="onOpenMovie(entry.movie.key)" />
+        }
+      </div>
+    }
+
+    <app-pager [total]="totalForView()" [pageSize]="PAGE_SIZE" [page]="effectivePage()" (pageChange)="onPageChange($event)" />
+  </div>
+</section>

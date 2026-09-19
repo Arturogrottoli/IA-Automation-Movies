@@ -1,0 +1,7 @@
+@if (totalPages() > 1) {
+  <div class="pager mono">
+    <button [disabled]="page() <= 1" (click)="go(-1)">‹ Anterior</button>
+    <span>Página {{ page() }} de {{ totalPages() }}</span>
+    <button [disabled]="page() >= totalPages()" (click)="go(1)">Siguiente ›</button>
+  </div>
+}

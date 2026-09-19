@@ -1,0 +1,17 @@
+<div class="card" (click)="open.emit()">
+  <div class="poster">
+    @if (movie().poster) {
+      <img loading="lazy" [src]="movie().poster!" [alt]="movie().titulo" />
+    } @else {
+      <div class="ph">{{ movie().titulo }}</div>
+    }
+    @if (movie().rating != null) {
+      <span class="rt">{{ movie().rating!.toFixed(1) }}</span>
+    }
+    @if (badgeCount() > 1) {
+      <span class="rw">×{{ badgeCount() }}</span>
+    }
+  </div>
+  <div class="ct">{{ movie().titulo }}</div>
+  <div class="cm">{{ movie().anioEstreno || '—' }} · {{ movie().director || '—' }}</div>
+</div>

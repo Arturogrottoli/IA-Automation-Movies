@@ -1,0 +1,41 @@
+<div class="controls">
+  <input
+    type="search"
+    placeholder="Buscar título o director…"
+    aria-label="Buscar"
+    [value]="filters().search"
+    (input)="updateSearch($any($event.target).value)"
+  />
+  <select aria-label="Década de estreno" [value]="filters().decade ?? ''" (change)="updateDecade($any($event.target).value)">
+    <option value="">Toda década</option>
+    @for (d of decadeOptions(); track d) {
+      <option [value]="d">{{ d }}s</option>
+    }
+  </select>
+  <select aria-label="País" [value]="filters().country" (change)="updateCountry($any($event.target).value)">
+    <option value="">Todo país</option>
+    @for (c of countryOptions(); track c) {
+      <option [value]="c">{{ c }}</option>
+    }
+  </select>
+  <select aria-label="Género" [value]="filters().genre" (change)="updateGenre($any($event.target).value)">
+    <option value="">Todo género</option>
+    @for (g of genreOptions(); track g) {
+      <option [value]="g">{{ g }}</option>
+    }
+  </select>
+  <select aria-label="Año visto" [value]="filters().anioVisto ?? ''" (change)="updateYear($any($event.target).value)">
+    <option value="">Todo año visto</option>
+    @for (y of yearOptions(); track y) {
+      <option [value]="y">{{ y }}</option>
+    }
+  </select>
+  <label class="chk">
+    <input
+      type="checkbox"
+      [checked]="filters().onlyRewatches"
+      (change)="updateOnlyRewatches($any($event.target).checked)"
+    />
+    Solo revisiones
+  </label>
+</div>

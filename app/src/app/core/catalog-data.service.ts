@@ -1,7 +1,7 @@
 import { Injectable, computed, signal } from '@angular/core';
 import { parseCsv } from './csv.util';
 import { canonDir, canonPais, normalizeKey } from './key.util';
-import { EMPTY_ENRICHMENT, EnrichmentFields, Movie } from './models';
+import { EMPTY_ENRICHMENT, EnrichmentFields, Movie, Viewing } from './models';
 import { EnrichmentService } from './enrichment.service';
 
 // Publicado desde Google Sheets ("Publicar en la web"), pestaña catalogo_completo.
@@ -27,6 +27,13 @@ export class CatalogDataService {
   readonly live = signal(false);
   readonly loading = computed(() => this.rawRows().length === 0);
   readonly movies = computed<Movie[]>(() => this.buildMovies(this.rawRows(), this.enrichmentMap()));
+
+  /** Una fila por visionado (una peli revisitada aparece varias veces) — lo que usa la tabla. */
+  readonly viewings = computed<Viewing[]>(() =>
+    this.movies().flatMap((movie) =>
+      movie.watchInstances.map((w) => ({ movie, fecha: w.fecha, anioVisto: w.anioVisto })),
+    ),
+  );
 
   constructor(private readonly enrichment: EnrichmentService) {
     void this.loadSnapshot().then((rows) => {
@@ -55,10 +62,10 @@ export class CatalogDataService {
     const movies: Movie[] = [];
     for (const [key, group] of groups) {
       const [titulo, director, anioEstreno, paisOrigen] = group[0];
-      const watchDates = group
-        .map((r) => (r[4] || '').slice(0, 10))
-        .filter(Boolean)
-        .sort();
+      const watchInstances = group
+        .map((r) => ({ fecha: (r[4] || '').slice(0, 10), anioVisto: r[5] }))
+        .filter((w) => w.fecha)
+        .sort((a, b) => (a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0));
       const enrichmentEntry = enrichmentMap.get(key) ?? EMPTY_ENRICHMENT;
       movies.push({
         key,
@@ -66,7 +73,7 @@ export class CatalogDataService {
         director: canonDir(director),
         anioEstreno,
         paisOrigen: canonPais(paisOrigen),
-        watchDates,
+        watchInstances,
         ...enrichmentEntry,
       });
     }
