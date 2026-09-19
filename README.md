@@ -95,10 +95,26 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       no abre el modal (`stopPropagation`), la card desaparece de la grilla
       tras confirmar. El `confirm()` nativo del navegador se reemplazó por un
       modal propio (mismo estilo del sitio). También se sumó un botón
-      "+ Agregar película" en la sección, con un formulario (título
-      obligatorio, director/año opcionales) para anotar cualquier título
-      nuevo sin depender de que ya aparezca en el catálogo o en "Parecidas";
-      la sección ahora se muestra siempre, incluso con la lista vacía.
+      "+ Agregar película" en la sección, con un formulario para anotar
+      cualquier título nuevo sin depender de que ya aparezca en el catálogo
+      o en "Parecidas"; la sección ahora se muestra siempre, incluso con la
+      lista vacía. En el modal de detalle, el botón de quitar pasó de texto
+      abajo de todo a un botón "Quitar de la lista" al lado del título.
+      **La rama "agregar" ahora pasa por Gemini antes de escribir la fila**
+      (mismo patrón que el bot de Telegram): se agregó un módulo "Extract
+      structured data" que recibe el título tal cual lo escribió el usuario
+      y devuelve título corregido, director, año, país y género en un solo
+      llamado — el Add a Row quedó remapeado para tomar esos campos en vez
+      de los crudos del webhook. Por eso el formulario del sitio se
+      simplificó a un solo campo ("¿Qué querés ver?"): ya no hace falta
+      tipear director/año a mano, igual que escribirle al bot. Probado
+      contra el webhook real: mandando solo "parasite" la fila se completó
+      sola (Bong Joon-ho, 2019, Corea del Sur, Thriller).
+      **Gotcha nuevo:** en el schema de "Response Schema" de Gemini, el
+      campo "Property Name" de cada item hay que escribirlo a mano (texto
+      literal) — si mapeás ahí un valor de otro módulo (por error, con el
+      picker), Gemini usa ese valor como nombre de clave en vez de como
+      contenido, y todo sale mal armado.
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
       re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
