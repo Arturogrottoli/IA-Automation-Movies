@@ -1,0 +1,24 @@
+<section id="revisiones">
+  <div class="wrap">
+    <div class="sec-label">Placa II</div>
+    <h2 class="sec-title">Las que se repiten</h2>
+    <p class="sec-intro">
+      <em>{{ nf(intro().count) }}</em> películas se vieron más de una vez —
+      <em>{{ nf(intro().events) }}</em> revisiones en total. Las que más volvieron:
+    </p>
+    <ul class="rewatch">
+      @for (o of list(); track o.titulo + o.anioEstreno) {
+        <li>
+          <span class="cnt">×{{ o.count }}</span>
+          <span class="ti">
+            {{ o.titulo }}
+            @if (o.director) {
+              <span class="rwd">{{ o.director }}</span>
+            }
+          </span>
+          <span class="yr">{{ o.anioEstreno || '' }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

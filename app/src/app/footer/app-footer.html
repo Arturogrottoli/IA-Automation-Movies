@@ -1,0 +1,31 @@
+<footer>
+  <div class="perf" aria-hidden="true"></div>
+  <div class="wrap">
+    <p>
+      @if (catalog.live()) {
+        <span class="live">● Datos en vivo</span> desde Google Sheets · última entrada {{ lastEntry() }}
+      } @else {
+        Fuente: instantánea del catálogo · última entrada {{ lastEntry() }}
+      }
+    </p>
+    <p>
+      El catálogo vive en una hoja de Google. Un bot de Telegram recibe el título de cada
+      película nueva, una IA le completa director, año, país y género, y la fila se
+      agrega sola.
+    </p>
+    <p>
+      @if (catalog.live()) {
+        El sitio se refresca solo en cada carga. Los pósters (<code>posters.json</code>)
+        se regeneran con <code>node cerebro/build_posters.js</code>.
+      } @else {
+        Para datos en vivo: publicá la hoja en la web como CSV y pegá la URL en
+        <code>SHEET_CSV_URL</code>, dentro de este archivo.
+      }
+    </p>
+    <p class="tmdb">
+      Pósters, ratings y géneros de
+      <a href="https://www.themoviedb.org" style="color: #c8c1b1">The Movie Database</a>.
+      Este producto usa la API de TMDB pero no está avalado ni certificado por TMDB.
+    </p>
+  </div>
+</footer>

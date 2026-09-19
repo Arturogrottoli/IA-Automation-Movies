@@ -1,0 +1,43 @@
+<section id="limpieza">
+  <div class="wrap">
+    <div class="sec-label">Placa V · Detrás de los datos</div>
+    <h2 class="sec-title">Nueve años de errores humanos</h2>
+    <p class="sec-intro">
+      Nadie carga 1.280 filas a mano sin equivocarse. Antes de que cualquiera de los
+      gráficos de arriba significara algo, hubo que encontrar y corregir esto:
+    </p>
+    <div class="dstats">
+      <div class="dstat">
+        <div class="n">604</div>
+        <div class="l">fechas con un año de más — un desfasaje sistemático en 8 bloques del historial</div>
+      </div>
+      <div class="dstat">
+        <div class="n">40</div>
+        <div class="l">pósters que TMDB había matcheado con la película equivocada</div>
+      </div>
+      <div class="dstat">
+        <div class="n">13</div>
+        <div class="l">títulos duplicados por una coma o una letra de más, contados dos veces</div>
+      </div>
+      <div class="dstat">
+        <div class="n">65</div>
+        <div class="l">directoras identificadas cruzando cada director contra TMDB</div>
+      </div>
+    </div>
+    <p class="method">
+      El error más caro de encontrar no fueron los typos — esos saltan a la vista. Fue
+      el desfasaje de fechas: bloques enteros del historial (todo lo cargado bajo
+      "2018", bajo "2021", bajo "2025") tenían el año de <em>visionado</em> bien pero la
+      <em>fecha exacta</em> corrida un año, un típico error de tipeo por inercia al pasar
+      de un año calendario al siguiente. Se detectó comparando ambos campos entre sí, no
+      contra una fuente externa.
+      <br /><br />
+      Para los pósters, el problema es más sutil de lo que parece: buscar "Carrie" en
+      TMDB por título solo no alcanza cuando hay una versión de 1976 y un remake de 2013
+      — <b>hay que cruzar por director</b>, no quedarse con el resultado más popular. La
+      mitad de las alertas iniciales de un chequeo automático, además, eran falsos
+      positivos: directores coreanos, japoneses o chinos cuyo nombre estaba en otro
+      alfabeto en la ficha de TMDB.
+    </p>
+  </div>
+</section>

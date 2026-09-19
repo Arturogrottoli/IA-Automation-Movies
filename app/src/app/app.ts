@@ -3,15 +3,29 @@ import { ThemeService } from './core/theme.service';
 import { CatalogDataService } from './core/catalog-data.service';
 import { VitalsStrip } from './vitals/vitals-strip';
 import { PlacaCharts } from './charts/placa-charts';
+import { PlacaRewatches } from './rewatches/placa-rewatches';
 import { PlacaWatchlist } from './watchlist/placa-watchlist';
 import { PlacaCatalog } from './catalog/placa-catalog';
+import { PlacaCaseStudy } from './case-study/placa-case-study';
+import { AppFooter } from './footer/app-footer';
 import { MovieDetailDialog } from './movie-detail/movie-detail-dialog';
 import { ConfirmDialog } from './shared/confirm-dialog/confirm-dialog';
 import { ChartTooltip } from './shared/chart-tooltip/chart-tooltip';
 
 @Component({
   selector: 'app-root',
-  imports: [VitalsStrip, PlacaCharts, PlacaWatchlist, PlacaCatalog, MovieDetailDialog, ConfirmDialog, ChartTooltip],
+  imports: [
+    VitalsStrip,
+    PlacaCharts,
+    PlacaRewatches,
+    PlacaWatchlist,
+    PlacaCatalog,
+    PlacaCaseStudy,
+    AppFooter,
+    MovieDetailDialog,
+    ConfirmDialog,
+    ChartTooltip,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

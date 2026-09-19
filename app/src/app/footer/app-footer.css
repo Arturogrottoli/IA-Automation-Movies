@@ -1,0 +1,27 @@
+footer {
+  background: #0b0b0d;
+  color: #8b8471;
+  border-top: 1px solid #000;
+}
+footer .perf {
+  margin-bottom: 40px;
+}
+footer .wrap {
+  padding-bottom: 56px;
+}
+footer p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  max-width: 64ch;
+  margin: 0 0 12px;
+}
+footer .live {
+  color: #e6a94a;
+}
+footer code {
+  background: #17171a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #c8c1b1;
+}
