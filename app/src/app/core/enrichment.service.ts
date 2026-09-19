@@ -18,10 +18,14 @@ interface RawSimilarStub {
  * Absoluta a propósito: estos JSON viven en la raíz del repo (los actualiza
  * cerebro/*.js/py de forma independiente al build de Angular), no dentro de
  * app/. Una ruta relativa solo resolvería bien si Angular se sirve desde esa
- * misma raíz — no en dev (`ng serve`) ni en un preview en subpath. Mismo
+ * misma raíz — no en dev (`ng serve`) ni en el sitio final en Vercel. Mismo
  * criterio que las URLs de los CSV (SHEET_CSV_URL), que ya son absolutas.
+ *
+ * raw.githubusercontent.com en vez de GitHub Pages: sirve el archivo tal
+ * cual está en el repo (con CORS abierto, `Access-Control-Allow-Origin: *`),
+ * sin depender de que Pages siga habilitado en este repo.
  */
-const DATA_BASE_URL = 'https://arturogrottoli.github.io/IA-Automation-Movies/';
+const DATA_BASE_URL = 'https://raw.githubusercontent.com/Arturogrottoli/IA-Automation-Movies/main/';
 
 /**
  * Fetch + merge de los 6 JSON de enriquecimiento (TMDB, generados offline
