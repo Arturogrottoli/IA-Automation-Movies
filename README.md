@@ -243,9 +243,13 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
       módulos "Google Gemini AI" de Make a un modelo vigente antes de esa fecha.
-- [ ] Evaluar migrar el sitio a un framework (React / Next / Astro). Hoy es HTML
-      plano sin dependencias — funciona bien; tendría sentido si crece mucho o
-      como pieza de portfolio que demuestre ese stack.
+- [~] **Migración a Angular, en curso.** Decidido: Angular (no React/Astro),
+      para portfolio. Se construye en paralelo en `app/`, sin tocar
+      `index.html` (que sigue sirviendo el sitio en vivo) hasta un corte
+      final deliberado. Plan completo, fase por fase, en
+      [docs/plan-migracion-angular.md](docs/plan-migracion-angular.md).
+      **Fase 0 hecha:** workspace Angular 20 (standalone, signals, zoneless),
+      tema portado 1:1 (misma cascada de 3 niveles), probado con CDP.
 
 ## Cómo funciona
 
