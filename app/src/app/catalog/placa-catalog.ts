@@ -12,6 +12,7 @@ import {
   sortViewings,
 } from '../core/catalog-filters.util';
 import { decadeOf, nf, tally } from '../core/key.util';
+import { DialogService } from '../core/dialog.service';
 import { FilterBar } from './filter-bar/filter-bar';
 import { CatalogTable } from './catalog-table/catalog-table';
 import { MovieCard } from '../shared/movie-card/movie-card';
@@ -89,7 +90,10 @@ export class PlacaCatalog {
     return `Mostrando ${nf(this.filteredSortedViewings().length)} de ${nf(this.catalog.viewings().length)} películas`;
   });
 
-  constructor(protected readonly catalog: CatalogDataService) {}
+  constructor(
+    protected readonly catalog: CatalogDataService,
+    private readonly dialog: DialogService,
+  ) {}
 
   protected onFiltersChange(filters: CatalogFilters): void {
     this.filters.set(filters);
@@ -111,7 +115,6 @@ export class PlacaCatalog {
   }
 
   protected onOpenMovie(key: string): void {
-    // TODO Fase 3: abrir el modal de detalle con esta clave.
-    console.log('abrir película', key);
+    this.dialog.open(key);
   }
 }

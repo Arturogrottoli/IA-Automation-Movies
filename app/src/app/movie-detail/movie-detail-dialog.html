@@ -1,0 +1,79 @@
+<app-dialog [open]="!!movie()" (closed)="close()">
+  @if (movie(); as m) {
+    <div class="mm-head">
+      <div class="mm-poster">
+        @if (m.poster) {
+          <img [src]="m.poster" [alt]="m.titulo" />
+        } @else {
+          <div class="ph">{{ m.titulo }}</div>
+        }
+      </div>
+      <div>
+        <div class="mm-title" id="modalTitle">{{ m.titulo }}</div>
+        <div class="mm-sub">{{ m.director || '—' }} · {{ m.anioEstreno || '—' }} · {{ m.paisOrigen }}</div>
+        <div class="mm-tags">
+          @for (g of m.genres; track g) {
+            <span class="mm-tag">{{ g }}</span>
+          }
+        </div>
+        <div class="mm-stats">
+          @if (m.rating != null) {
+            <div class="mm-stat">
+              <div class="n">{{ m.rating.toFixed(1) }}</div>
+              <div class="l">Rating TMDB</div>
+            </div>
+          }
+          @if (m.runtimeMin) {
+            <div class="mm-stat">
+              <div class="n">{{ m.runtimeMin }} min</div>
+              <div class="l">Duración</div>
+            </div>
+          }
+          <div class="mm-stat">
+            <div class="n">×{{ dates().length || 1 }}</div>
+            <div class="l">{{ dates().length > 1 ? 'Veces vista' : 'Vista' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @if (m.synopsis) {
+      <p class="mm-syn">{{ m.synopsis }}</p>
+    }
+
+    @if (m.cast.length) {
+      <div class="mm-section">
+        <h4>Reparto</h4>
+        <div class="mm-cast">
+          @for (a of m.cast; track a) {
+            <span class="mm-actor">{{ a }}</span>
+          }
+        </div>
+      </div>
+    }
+
+    @if (dates().length) {
+      <div class="mm-section">
+        <h4>{{ dates().length > 1 ? 'Fechas en que la viste' : 'Fecha en que la viste' }}</h4>
+        <div class="mm-dates">
+          @for (d of dates(); track d) {
+            <span>{{ d }}</span>
+          }
+        </div>
+      </div>
+    }
+
+    @if (m.similar.length) {
+      <div class="mm-section">
+        <h4>Parecidas</h4>
+        <div class="mm-similar">
+          @for (s of m.similar; track s.titulo + s.anioEstreno) {
+            <button class="mm-sim" (click)="openSimilar(s.titulo, s.anioEstreno)">
+              {{ s.titulo }} <span>{{ s.anioEstreno }}</span>
+            </button>
+          }
+        </div>
+      </div>
+    }
+  }
+</app-dialog>
