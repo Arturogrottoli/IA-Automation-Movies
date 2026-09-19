@@ -45,3 +45,42 @@ a{color:inherit}
 .wrap{max-width:1080px; margin:0 auto; padding:0 24px}
 
 @media(prefers-reduced-motion:reduce){ *{transition:none!important} }
+
+/* ============ diálogos (confirmar / agregar a "Quiero ver") ============ */
+.cf-title{font-family:"Archivo",sans-serif; font-weight:700; font-size:1.05rem; margin:0 0 18px}
+.cf-msg{color:var(--ink); font-size:.98rem; line-height:1.5; margin:0 0 22px; font-family:"Archivo",sans-serif}
+.cf-actions{display:flex; gap:10px; justify-content:flex-end}
+.cf-btn{font-family:"IBM Plex Mono",monospace; font-size:12.5px; letter-spacing:.03em; border-radius:6px; padding:9px 16px; cursor:pointer; border:1px solid var(--line)}
+.cf-cancel{background:transparent; color:var(--ink-2)}
+.cf-cancel:hover{border-color:var(--ink-3); color:var(--ink)}
+.cf-danger{background:#c0392b; color:#fff; border-color:#c0392b}
+.cf-danger:hover{opacity:.88}
+.cf-danger:disabled{opacity:.6; cursor:default}
+.cf-primary{background:var(--accent); color:#0d0d0f; border-color:var(--accent)}
+.cf-primary:hover{opacity:.88}
+.cf-primary:disabled{opacity:.6; cursor:default}
+.af-field{margin-bottom:14px}
+.af-field label{display:block; font-family:"IBM Plex Mono",monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-3); margin-bottom:5px}
+.af-field input{width:100%; box-sizing:border-box; background:var(--bg-2); border:1px solid var(--line); border-radius:6px; padding:9px 11px; font-family:"Archivo",sans-serif; font-size:.95rem; color:var(--ink)}
+.af-field input:focus{outline:none; border-color:var(--accent)}
+.af-err{color:#c0392b; font-size:.85rem; margin:0 0 14px; font-family:"Archivo",sans-serif}
+.af-hint{color:var(--ink-3); font-size:.85rem; margin:0 0 18px; font-family:"Archivo",sans-serif; font-style:italic}
+
+/* ============ secciones / placas (compartido entre todas) ============ */
+section{padding:64px 0; border-top:1px solid var(--line)}
+.sec-label{
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--ink-3);
+  display:flex; align-items:center; gap:14px; margin-bottom:8px;
+}
+.sec-label::after{content:""; flex:1; height:1px; background:var(--line)}
+.sec-title{font-size:clamp(1.6rem,3.5vw,2.2rem); letter-spacing:-.01em; margin-bottom:14px}
+.sec-intro{max-width:60ch; color:var(--ink-2); margin-bottom:40px; font-size:1.05rem}
+.sec-intro em{color:var(--ink)}
+
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:22px 18px; border-top:1px solid var(--line); padding-top:26px;
+}
+@media(max-width:520px){ .grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:18px 12px} }
+.empty{padding:50px 14px; text-align:center; color:var(--ink-3); font-style:italic}

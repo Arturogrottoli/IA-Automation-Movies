@@ -115,6 +115,9 @@ export class PlacaCatalog {
   }
 
   protected onOpenMovie(key: string): void {
-    this.dialog.open(key);
+    const movie = this.catalog.movies().find((m) => m.key === key);
+    if (movie) {
+      this.dialog.open({ key: movie.key, titulo: movie.titulo, director: movie.director, anioEstreno: movie.anioEstreno });
+    }
   }
 }

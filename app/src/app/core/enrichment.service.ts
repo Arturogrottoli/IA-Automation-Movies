@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { EnrichmentFields, SimilarStub } from './models';
 
 interface RawPosterEntry {
@@ -34,7 +34,24 @@ const DATA_BASE_URL = 'https://arturogrottoli.github.io/IA-Automation-Movies/';
  */
 @Injectable({ providedIn: 'root' })
 export class EnrichmentService {
-  async load(): Promise<Map<string, EnrichmentFields>> {
+  /** Última resolución de `load()`, para lookups síncronos (ej. resolver un
+   * "parecida" que no está ni en el catálogo ni en la watchlist). */
+  readonly map = signal<Map<string, EnrichmentFields>>(new Map());
+
+  private cached: Promise<Map<string, EnrichmentFields>> | null = null;
+
+  /** Memoizado: aunque lo llamen varios servicios, el fetch de los 6 JSON pasa una sola vez. */
+  load(): Promise<Map<string, EnrichmentFields>> {
+    if (!this.cached) {
+      this.cached = this.fetchAndMerge().then((merged) => {
+        this.map.set(merged);
+        return merged;
+      });
+    }
+    return this.cached;
+  }
+
+  private async fetchAndMerge(): Promise<Map<string, EnrichmentFields>> {
     const [auto, manual, actors, runtime, synopsis, similar] = await Promise.all([
       this.grab<Record<string, RawPosterEntry>>('posters.json'),
       this.grab<Record<string, RawPosterEntry>>('posters-manual.json'),

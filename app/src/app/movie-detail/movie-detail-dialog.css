@@ -31,12 +31,41 @@
   font-size: 12px;
   color: var(--ink-3);
 }
+.mm-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  padding-right: 30px;
+}
 .mm-title {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   margin-bottom: 4px;
   padding-right: 30px;
+}
+.mm-title-row .mm-title {
+  margin-bottom: 0;
+  padding-right: 0;
+}
+.mm-x {
+  flex: 0 0 auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.mm-x:hover {
+  color: #c0392b;
+  border-color: #c0392b;
 }
 .mm-sub {
   font-family: 'IBM Plex Mono', monospace;
@@ -147,6 +176,25 @@
 }
 .mm-sim span {
   color: var(--ink-3);
+}
+.mm-action {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: #0d0d0f;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  padding: 11px 18px;
+  cursor: pointer;
+  width: 100%;
+}
+.mm-action:hover {
+  opacity: 0.88;
+}
+.mm-action:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 @media (max-width: 560px) {
   .mm-head {

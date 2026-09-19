@@ -1,0 +1,16 @@
+.pv-add-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 2px 0 26px;
+  display: inline-block;
+}
+.pv-add-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

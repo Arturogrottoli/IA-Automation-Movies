@@ -1,0 +1,58 @@
+<section id="porver">
+  <div class="wrap">
+    <div class="sec-label">Placa III · Lo que viene</div>
+    <h2 class="sec-title">Quiero ver</h2>
+    <p class="sec-intro">
+      @if (pendingItems().length) {
+        <em>{{ pendingItems().length }}</em> anotadas para ver. Cuando registrás que la viste, sale sola de acá.
+      } @else {
+        Todavía no anotaste nada. Sumá una con el botón de abajo.
+      }
+    </p>
+    <button class="pv-add-btn" (click)="openAdd()">+ Agregar película</button>
+
+    <div class="grid">
+      @for (item of pagedItems(); track item.key) {
+        <app-movie-card
+          [movie]="item"
+          [showRemove]="true"
+          (open)="openMovie(item)"
+          (remove)="requestRemove(item)"
+        />
+      }
+    </div>
+
+    <app-pager
+      [total]="pendingItems().length"
+      [pageSize]="PAGE_SIZE"
+      [page]="effectivePage()"
+      (pageChange)="onPageChange($event)"
+    />
+  </div>
+</section>
+
+<app-dialog [open]="addOpen()" [compact]="true" [showCloseButton]="false" (closed)="closeAdd()">
+  <div class="cf-title">Agregar a "Quiero ver"</div>
+  <div class="af-field">
+    <label for="addTitulo">¿Qué querés ver?</label>
+    <input
+      type="text"
+      id="addTitulo"
+      placeholder="Ej: Perfect Blue"
+      autocomplete="off"
+      [value]="addTitulo()"
+      (input)="addTitulo.set($any($event.target).value)"
+      (keydown.enter)="submitAdd()"
+    />
+  </div>
+  <p class="af-hint">Con el título alcanza — director, año y género se completan solos.</p>
+  @if (addError(); as err) {
+    <p class="af-err">{{ err }}</p>
+  }
+  <div class="cf-actions">
+    <button class="cf-btn cf-cancel" (click)="closeAdd()">Cancelar</button>
+    <button class="cf-btn cf-primary" [disabled]="addPending()" (click)="submitAdd()">
+      {{ addPending() ? 'Agregando…' : 'Agregar' }}
+    </button>
+  </div>
+</app-dialog>

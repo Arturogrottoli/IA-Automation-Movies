@@ -11,6 +11,9 @@
     @if (badgeCount() > 1) {
       <span class="rw">×{{ badgeCount() }}</span>
     }
+    @if (showRemove()) {
+      <button class="card-x" title="Sacar de la lista" (click)="onRemoveClick($event)">✕</button>
+    }
   </div>
   <div class="ct">{{ movie().titulo }}</div>
   <div class="cm">{{ movie().anioEstreno || '—' }} · {{ movie().director || '—' }}</div>

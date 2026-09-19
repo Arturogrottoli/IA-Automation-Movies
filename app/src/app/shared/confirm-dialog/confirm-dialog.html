@@ -1,0 +1,11 @@
+<app-dialog [open]="!!confirmService.request()" [compact]="true" [showCloseButton]="false" (closed)="cancel()">
+  @if (confirmService.request(); as req) {
+    <p class="cf-msg">{{ req.message }}</p>
+    <div class="cf-actions">
+      <button class="cf-btn cf-cancel" (click)="cancel()">Cancelar</button>
+      <button class="cf-btn cf-danger" [disabled]="pending()" (click)="confirm()">
+        {{ pending() ? '…' : req.confirmLabel }}
+      </button>
+    </div>
+  }
+</app-dialog>

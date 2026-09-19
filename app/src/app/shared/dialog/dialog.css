@@ -38,3 +38,7 @@
   color: var(--ink);
   border-color: var(--ink-3);
 }
+.modal-confirm {
+  max-width: 360px;
+  padding: 26px;
+}

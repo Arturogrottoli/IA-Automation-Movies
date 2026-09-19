@@ -1,7 +1,9 @@
 @if (open()) {
   <div class="modal-backdrop" (click)="onBackdropClick($event)">
-    <div class="modal" role="dialog" aria-modal="true">
-      <button class="modal-close" aria-label="Cerrar" (click)="closed.emit()">✕</button>
+    <div class="modal" [class.modal-confirm]="compact()" role="dialog" aria-modal="true">
+      @if (showCloseButton()) {
+        <button class="modal-close" aria-label="Cerrar" (click)="closed.emit()">✕</button>
+      }
       <ng-content />
     </div>
   </div>
