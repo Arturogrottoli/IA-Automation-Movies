@@ -73,7 +73,7 @@
   opacity: 0;
   transition: opacity 0.15s;
 }
-.card:hover .card-x {
+.card:hover .poster .card-x {
   opacity: 1;
 }
 .card .poster .card-x:hover {
