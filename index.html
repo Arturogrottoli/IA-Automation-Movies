@@ -354,6 +354,7 @@ tbody tr{cursor:pointer}
 .af-field input{width:100%; box-sizing:border-box; background:var(--bg-2); border:1px solid var(--line); border-radius:6px; padding:9px 11px; font-family:"Archivo",sans-serif; font-size:.95rem; color:var(--ink)}
 .af-field input:focus{outline:none; border-color:var(--accent)}
 .af-err{color:#c0392b; font-size:.85rem; margin:0 0 14px; font-family:"Archivo",sans-serif}
+.af-hint{color:var(--ink-3); font-size:.85rem; margin:0 0 18px; font-family:"Archivo",sans-serif; font-style:italic}
 .pv-add-btn{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink); background:var(--bg-2); border:1px solid var(--line); border-radius:20px; padding:8px 16px; cursor:pointer; margin:2px 0 26px; display:inline-block}
 .pv-add-btn:hover{border-color:var(--accent); color:var(--accent)}
 
@@ -513,17 +514,10 @@ footer code{background:#17171a; padding:2px 6px; border-radius:4px; color:#c8c1b
   <div class="modal modal-confirm" id="addModal" role="dialog" aria-modal="true" aria-labelledby="addTitle">
     <div class="cf-title" id="addTitle">Agregar a "Quiero ver"</div>
     <div class="af-field">
-      <label for="addTitulo">Título*</label>
+      <label for="addTitulo">¿Qué querés ver?</label>
       <input type="text" id="addTitulo" placeholder="Ej: Perfect Blue" autocomplete="off">
     </div>
-    <div class="af-field">
-      <label for="addDirector">Director/a</label>
-      <input type="text" id="addDirector" placeholder="Opcional" autocomplete="off">
-    </div>
-    <div class="af-field">
-      <label for="addAnio">Año</label>
-      <input type="number" id="addAnio" placeholder="Opcional" autocomplete="off">
-    </div>
+    <p class="af-hint">Con el título alcanza — director, año y género se completan solos.</p>
     <p class="af-err" id="addErr" hidden></p>
     <div class="cf-actions">
       <button class="cf-btn cf-cancel" id="addCancel">Cancelar</button>
@@ -1087,8 +1081,6 @@ async function pvAgregar(t, d, y, btn){
 
 function pvAddOpen(){
   $("#addTitulo").value = "";
-  $("#addDirector").value = "";
-  $("#addAnio").value = "";
   $("#addErr").hidden = true;
   const okBtn = $("#addOk");
   okBtn.disabled = false; okBtn.textContent = "Agregar";
@@ -1100,14 +1092,10 @@ function closeAdd(){ $("#addBackdrop").hidden = true; }
 
 async function pvAgregarNueva(){
   const t = $("#addTitulo").value.trim();
-  const d = $("#addDirector").value.trim();
-  const yRaw = $("#addAnio").value.trim();
   const errEl = $("#addErr");
   if(!t){ errEl.textContent = "Poné al menos el título."; errEl.hidden = false; return; }
-  if(yRaw && !/^\d{4}$/.test(yRaw)){ errEl.textContent = "El año tiene que ser de 4 dígitos."; errEl.hidden = false; return; }
   errEl.hidden = true;
-  const y = yRaw ? +yRaw : null;
-  const ok = await pvAgregar(t, d, y, $("#addOk"));
+  const ok = await pvAgregar(t, "", null, $("#addOk"));
   if(ok) closeAdd();
 }
 
