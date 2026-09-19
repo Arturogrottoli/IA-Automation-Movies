@@ -1,7 +1,8 @@
 # Migración del sitio a Angular
 
-> Progreso: **Fase 0 hecha** (`app/` scaffoldeado, tema portado y probado). El
-> resto de las fases sigue este documento en orden.
+> Progreso: **Fases 0 y 1 hechas** (scaffolding + tema; capa de datos
+> end-to-end con datos reales en vivo). El resto de las fases sigue este
+> documento en orden.
 
 ## Contexto
 
@@ -93,7 +94,7 @@ Cascada CSS exacta en `app/src/styles.css` (global, no por componente): `:root` 
 ## Plan de fases (cada una demostrable con `ng serve`)
 
 0. **Scaffolding** ✅ — workspace, `styles.css` con la cascada de tema, `ThemeService` + botón, shell mínimo. Probado con CDP (headless Chrome): toggle cambia `data-theme` y el fondo, persiste en localStorage.
-1. **Capa de datos end-to-end** (mayor riesgo arquitectónico, primero a propósito) — `normalizeKey`, parser, `EnrichmentService`, `CatalogDataService`, snapshot embebido. Sin UI real todavía, solo un dump de depuración.
+1. **Capa de datos end-to-end** ✅ (mayor riesgo arquitectónico, primero a propósito) — `normalizeKey`, parser, `EnrichmentService`, `CatalogDataService`, snapshot embebido. Sin UI real todavía, solo un dump de depuración. Probado con CDP contra datos en vivo: 1293 filas → 1154 películas agrupadas, póster/reparto/director OK. Gotcha resuelto: los JSON de TMDB viven en la raíz del repo, no en `app/` — se fetchean con URL absoluta al sitio en vivo (`DATA_BASE_URL` en `enrichment.service.ts`), no con ruta relativa.
 2. **Placa IV (catálogo)** — filtros, tabla, grilla, pager, orden. La primera página real, ejercita pager/card/sort que se reusan después.
 3. **Modal de detalle** — `DialogComponent`, las dos variantes, chips de "parecidas".
 4. **Placa III (watchlist) + escritura** — alta/baja real contra el webhook, confirm dialog.
