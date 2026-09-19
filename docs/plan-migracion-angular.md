@@ -1,9 +1,10 @@
 # Migración del sitio a Angular
 
-> Progreso: **Fases 0 a 4 hechas** (scaffolding + tema; capa de datos
+> Progreso: **Fases 0 a 5 hechas** (scaffolding + tema; capa de datos
 > end-to-end; Placa IV completa; modal de detalle con sus 3 variantes;
-> Placa III completa con escritura real al webhook). El resto de las fases
-> sigue este documento en orden.
+> Placa III completa con escritura real al webhook; Placa I + vitals,
+> verificadas número por número contra el sitio en vivo). El resto de las
+> fases sigue este documento en orden.
 
 ## Contexto
 
@@ -99,7 +100,7 @@ Cascada CSS exacta en `app/src/styles.css` (global, no por componente): `:root` 
 2. **Placa IV (catálogo)** ✅ — filtros, tabla, grilla, pager, orden. La primera página real, ejercita pager/card/sort que se reusan después. Probado con CDP contra datos en vivo: búsqueda, orden, conteos y badges de revisión verificados.
 3. **Modal de detalle** ✅ — `Dialog` genérico + las 3 variantes (vista / en la lista / ninguna de las dos, resuelta con TMDB solo). Completado en la Fase 4 junto con `WatchlistDataService`.
 4. **Placa III (watchlist) + escritura** ✅ — grilla con paginado (24/página), agregar/quitar real contra el webhook (mockeado en el test para no tocar la hoja), `ConfirmDialog` genérico reusado desde la card y desde el modal. Probado con CDP: las 3 variantes del modal, payloads del webhook, cierres correctos.
-5. **Placa I (gráficos) + vitals**.
+5. **Placa I (gráficos) + vitals** ✅ — `BarChart` único (vertical/horizontal) con tooltip compartido, los 6 gráficos + sus observaciones, y las tiles de vitals. Comparado número por número contra el sitio en vivo: encontró y corrigió un bug real (ver commit) donde "directores distintos"/"países de origen" contaban distinto por deduplicar de más.
 6. **Placa II (revisiones) + Placa V (caso de estudio) + footer** — lo de menor riesgo, mayormente estático.
 7. **Deploy + corte** — preview en subpath (conviene arrancarlo ya desde la fase 2, no esperar al final), regresión completa contra el sitio en vivo, y recién ahí el corte final descripto arriba.
 
