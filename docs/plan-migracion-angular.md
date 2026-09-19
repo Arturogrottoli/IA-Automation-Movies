@@ -1,8 +1,11 @@
 # Migración del sitio a Angular
 
-> Progreso: **Fases 0 a 6 hechas — las 5 placas + vitals + footer del sitio
-> original ya están completas en Angular.** Quedan las fases 7 (deploy +
-> corte final).
+> Progreso: **Fases 0 a 7 — el sitio está migrado, deployado y en vivo en
+> Vercel: [turimoviesdatabase.vercel.app](https://turimoviesdatabase.vercel.app).**
+> Cambio de plan sobre la marcha: el deploy final terminó siendo en **Vercel**,
+> no GitHub Pages (decisión del usuario, ver sección "Build y deploy"
+> actualizada más abajo). Quedan tareas de cierre — ver "Pendiente" al final
+> de este documento.
 
 ## Contexto
 
@@ -86,10 +89,15 @@ Cascada CSS exacta en `app/src/styles.css` (global, no por componente): `:root` 
 
 **Sin Angular Router por ahora.** El original no tiene rutas — es una sola página con anchors. El modal de detalle se maneja con `DialogService`, no con rutas. (Mejora futura razonable pero fuera de este alcance: un `:key` opcional para poder linkear una película directo — anotarlo como posible siguiente paso, no construirlo ahora.)
 
-### Build y deploy
+### Build y deploy (actualizado — terminó siendo Vercel, no GitHub Pages)
 
-- `angular-cli-ghpages` para deploys de preview a un subpath (ej. `/app-preview/`) mientras se construye — el `index.html` de la raíz no se toca en ningún momento de esta fase.
-- **Corte final** (única vez, al final): cambiar la fuente de GitHub Pages de "Deploy from a branch" a "GitHub Actions" (build de `app/`, publica su `dist/` como artifact) — evita commitear JS compilado a la raíz del repo, más prolijo para portfolio. Recién ahí se borra/reemplaza el `index.html` viejo, en un commit dedicado y reversible.
+El plan original proponía quedarse en GitHub Pages (`angular-cli-ghpages` + cambiar la fuente de Pages a GitHub Actions al final). El usuario prefirió **Vercel** — mejor experiencia para Angular (preview deploys automáticos por push, build en el momento) y ya tenía el flujo aprendido de otros proyectos. Cómo quedó armado:
+
+- Proyecto de Vercel **`turimoviesdatabase`** conectado directo al repo de GitHub (`Arturogrottoli/IA-Automation-Movies`, rama `main`) — cada push redeploya solo.
+- **Root Directory**: `app` (el repo tiene el proyecto Angular en una subcarpeta, no en la raíz — Vercel soporta esto nativamente).
+- **Output Directory**: `dist/app/browser` (Angular 20 mete el build ahí, no en `dist/app` a secas — Vercel no lo infiere bien solo, hay que pisarlo a mano).
+- **Gotcha real encontrado:** `EnrichmentService` leía los 6 JSON de TMDB desde `arturogrottoli.github.io/...` (la URL de GitHub Pages). Si se apaga Pages, esa URL deja de responder y la app se queda sin pósters/reparto/etc. Se cambió a `raw.githubusercontent.com/Arturogrottoli/IA-Automation-Movies/main/` — sirve el contenido del repo tal cual está, con CORS abierto (`Access-Control-Allow-Origin: *`), sin depender de si Pages sigue prendido. Verificado que carga igual que antes.
+- El `index.html` de la raíz y GitHub Pages **siguen activos** (no se tocaron) — bajarlo es una tarea aparte, ver "Pendiente".
 
 ## Plan de fases (cada una demostrable con `ng serve`)
 
@@ -100,13 +108,21 @@ Cascada CSS exacta en `app/src/styles.css` (global, no por componente): `:root` 
 4. **Placa III (watchlist) + escritura** ✅ — grilla con paginado (24/página), agregar/quitar real contra el webhook (mockeado en el test para no tocar la hoja), `ConfirmDialog` genérico reusado desde la card y desde el modal. Probado con CDP: las 3 variantes del modal, payloads del webhook, cierres correctos.
 5. **Placa I (gráficos) + vitals** ✅ — `BarChart` único (vertical/horizontal) con tooltip compartido, los 6 gráficos + sus observaciones, y las tiles de vitals. Comparado número por número contra el sitio en vivo: encontró y corrigió un bug real (ver commit) donde "directores distintos"/"países de origen" contaban distinto por deduplicar de más.
 6. **Placa II (revisiones) + Placa V (caso de estudio) + footer** ✅ — comparado texto por texto contra el sitio en vivo, todo coincide exacto.
-7. **Deploy + corte** — preview en subpath (conviene arrancarlo ya desde la fase 2, no esperar al final), regresión completa contra el sitio en vivo, y recién ahí el corte final descripto arriba.
+7. **Deploy** ✅ — en Vercel (no GitHub Pages, ver sección de arriba), verificado en la URL real: vitals, catálogo, gráficos y modal con póster cargando bien. Falta el "corte" propiamente dicho (bajar el `index.html`/Pages viejo) — ver "Pendiente".
 
 ## Verificación
 
 - **Fixture fija de 6-8 películas reales** de la hoja en vivo (una revisión múltiple, una con póster manual, una sin sinopsis/duración, una recién agregada a "quiero ver", una de cine argentino) — chequear estos mismos datos puntuales al final de cada fase que toque renderizado, comparando contra `index.html` abierto en otra pestaña con el mismo tema.
 - **Fase 4 (escritura):** confirmar en la pestaña de Network que el POST tiene exactamente el mismo body shape que hoy, y verificar en la hoja de Google real que la fila se agrega/borra.
 - Sin suite de tests automatizados obligatoria, pero vale la pena agregar unit tests (Vitest/Jasmine) para las funciones puras de la fase 1 (`normalizeKey`, `canonPais`, `canonDir`, el parser, el merge de `posters-manual`) — son las piezas con mayor riesgo de bug silencioso y las más baratas de testear.
+
+## Pendiente
+
+- [ ] **Bajar el GitHub Pages viejo** (Settings del repo → Pages → Disable) y decidir qué hacer con `index.html` en la raíz (borrarlo, o dejarlo archivado un tiempo por las dudas). No es urgente — los JSON de datos ya no dependen de que Pages siga prendido (se movieron a `raw.githubusercontent.com`), así que se puede bajar cuando se confirme que Vercel anda bien con uso real.
+- [ ] **Regresión completa manual** — todavía no hubo una pasada sistemática única cubriendo cada placa + los dos temas (claro/oscuro) + mobile en el sitio de Vercel ya deployado; lo que hay son las verificaciones puntuales de cada fase (con CDP, contra datos reales).
+- [ ] **Investigar el problema de Gemini sin completar datos.** Una prueba real de "agregar a Quiero ver" (vía Angular, y confirmado también con un curl directo al webhook) volvió con el título corregido pero director/año/país/género vacíos — algo que sí funcionaba antes en esta misma sesión. Sospecha: créditos de Make agotándose (el usuario ya había avisado que se estaba por quedar sin créditos este mes). No es un problema de Angular — el mismo webhook lo usa el sitio viejo — pero afecta a ambos por igual y conviene confirmar la causa.
+- [ ] Actualizar el `README.md` del repo para que apunte a la URL de Vercel como el sitio "oficial", una vez que se baje Pages.
+- [ ] Opcional / más adelante (fuera del alcance de esta migración): `:key` en la URL para poder linkear una película del modal directo (ver sección Routing).
 
 ## Archivos clave de referencia
 
