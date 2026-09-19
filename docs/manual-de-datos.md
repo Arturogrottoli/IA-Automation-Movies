@@ -48,26 +48,46 @@ Telegram "vi X"
     K = "Bot Telegram", A/B/I por fórmula
 ```
 
-## Pósters, ratings y géneros (fuera de la hoja)
+## Datos enriquecidos (fuera de la hoja, desde TMDB)
 
-Están en **`posters.json`** (raíz del repo), no en la hoja. Clave:
-`normalizar(titulo) + "|" + anio_estreno`. Valor: `{ poster, rating, genres, tmdb }`.
+Viven en archivos JSON en la raíz del repo, no en la hoja — todos con la misma
+clave: `normalizar(titulo) + "|" + anio_estreno`.
 
-- `cerebro/build_posters.js` — backfill masivo desde TMDB (1.156/1.164).
-- `cerebro/fix_posters.js` — reintento de los que fallan por typos (mapa de correcciones).
-- `posters-manual.json` + `img/` — los ~8 que TMDB no tiene (docs argentinos), a mano.
+| Archivo | Contenido | Script que lo genera | Cobertura |
+|---|---|---|---|
+| `posters.json` | `{ poster, rating, genres, tmdb }` | `cerebro/build_posters.js` | 1.229/1.242 |
+| `actors.json` | reparto (top 8) | `cerebro/build_actors.js` | 1.230 |
+| `runtime.json` | duración en minutos | `cerebro/build_runtime.js` | 1.229 |
+| `synopsis.json` | sinopsis (TMDB) | `cerebro/build_synopsis.js` | 1.207 |
+| `similar.json` | 5 películas parecidas (similitud por coseno) | `cerebro/build_similar.py` | 1.211 |
+
+Cada script sigue el mismo patrón: lee el `tmdb` id ya resuelto en
+`posters.json` (nunca vuelve a buscar por título), y salta las claves que ya
+están pobladas — para regenerar de cero hay que borrar el archivo de salida
+primero.
+
+- `cerebro/fix_posters.js` / `rematch_posters.js` / `rematch_posters2.js` —
+  recorrecciones de matches errados (eligen por director, no por popularidad).
+- `posters-manual.json` + `img/` — las 11 que TMDB no tiene o matchea mal, a mano.
 
 El sitio mergea `posters-manual.json` **encima** de `posters.json`, así que
 regenerar el backfill no pisa lo cargado a mano.
 
-## Quirk conocido: `anio_visto` vs `fecha_vista`
+**Gotcha:** corregir el `anio_estreno` de una fila en la hoja **huérfana** la
+clave vieja en estos JSON (`título|2023` → `título|2025`) — hay que
+re-buscar o re-mapear la clave a mano, si no el póster/reparto/etc. quedan
+sin datos aunque el título esté bien escrito.
 
-`fecha_vista` es el dato bueno (cargado a mano). `anio_visto` quedó con el año
-**corrido** en varios bloques (la lista "2018" tiene fechas de 2019; la "2021",
-de 2022; la "2025", de 2026). El sitio usa `anio_visto` para el gráfico "por año".
+## `anio_visto` vs `fecha_vista` (resuelto)
 
-**Pendiente:** recalcular `anio_visto` = año de `fecha_vista`. Cambia los conteos
-de ese gráfico y requiere escritura en la hoja (service account).
+`anio_visto` llegó a tener el año **corrido** respecto a `fecha_vista` en 8
+bloques de la planilla histórica + 4 filas sueltas (la lista "2018" tenía
+fechas de 2019; la "2021", de 2022; la "2025", de 2026) — arrastre de cómo
+se armaban las pestañas anuales originales. Se corrigió con una fórmula en
+columna auxiliar + pegado especial (solo valores) sobre `fecha_vista`, y
+`anio_visto` se recalculó a partir de eso. Verificado contra las 1.288 filas
+del CSV publicado: 0 mismatches. El gráfico "por año" del sitio usa
+`anio_visto`, ya consistente.
 
 ## Acceso
 

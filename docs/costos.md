@@ -5,9 +5,9 @@
 | Servicio | Plan | Límite | Uso real del proyecto |
 |---|---|---|---|
 | Telegram Bot API | gratis | sin límite práctico | unos mensajes por día |
-| Make | Free | 1.000 operaciones/mes | ~3-4 ops por registro, ~4 por consulta → margen enorme |
-| Google Gemini API | Free tier | ~15 req/min, cuota diaria amplia | 1-2 llamadas por mensaje |
-| Google Sheets | gratis | 10M celdas | ~22.000 celdas |
+| Make | Free | 1.000 operaciones/mes | ~3-4 ops por registro/consulta; agregar desde el sitio suma otro ~3 (webhook + Gemini + Add a Row) → margen enorme |
+| Google Gemini API | Free tier | ~15 req/min, cuota diaria amplia | 1-2 llamadas por mensaje o por acción del sitio |
+| Google Sheets | gratis | 10M celdas | ~23.000 celdas (dos pestañas) |
 | TMDB API | gratis | límite altísimo | solo en backfills manuales |
 | GitHub Pages | gratis | 100 GB/mes de tráfico | trivial |
 | **Total** | | | **USD 0** |
@@ -21,7 +21,8 @@ razonamiento, procesamiento por lotes para el volumen no urgente.**
 |---|---|---|---|
 | Clasificar intención + extraer ficha | Mecánico, repetitivo, alto volumen potencial | **Gemini Flash** (gratis) | Tarea acotada con esquema fijo; un modelo chico la resuelve igual de bien. |
 | Responder consultas / recomendar | Razonamiento sobre ~1.280 filas de contexto | **Gemini Flash** con ventana larga | Alcanza para listar y recomendar. Si se quisiera más matiz: Gemini Pro o Claude, pagando por uso. |
-| Backfill de 1.156 pósters | Volumen alto, **no urgente**, una sola vez | **Script local + TMDB**, NO Make | 1.156 llamadas por Make = más que el límite mensual entero. Un script en la máquina lo hace en 2 min, gratis. |
+| Backfill de pósters, reparto, duración, sinopsis y similitud (~1.230 películas c/u) | Volumen alto, **no urgente**, se recorre entero cada vez que hace falta | **Scripts locales + TMDB**, NO Make | ~1.230 llamadas por Make = más que el límite mensual entero, por cada archivo. Un script en la máquina lo hace en minutos, gratis. |
+| Completar director/año/país/género al agregar **un** título desde el sitio | Puntual, un solo ítem por vez | **Gemini vía Make**, sí | Acá sí tiene sentido: es 1 llamada, en tiempo real, no un backfill. |
 | Backfill de embeddings (si se hace) | Volumen alto, no urgente | **Lote** (Batch API) o script local | Nunca en el flujo en tiempo real. |
 
 ## Qué NO hacer
