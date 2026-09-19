@@ -1,9 +1,9 @@
 # Migración del sitio a Angular
 
-> Progreso: **Fases 0 a 3 hechas** (scaffolding + tema; capa de datos
-> end-to-end; Placa IV completa — catálogo con filtros/orden/paginado/vistas;
-> modal de detalle, variante "vista"). El resto de las fases sigue este
-> documento en orden.
+> Progreso: **Fases 0 a 4 hechas** (scaffolding + tema; capa de datos
+> end-to-end; Placa IV completa; modal de detalle con sus 3 variantes;
+> Placa III completa con escritura real al webhook). El resto de las fases
+> sigue este documento en orden.
 
 ## Contexto
 
@@ -97,8 +97,8 @@ Cascada CSS exacta en `app/src/styles.css` (global, no por componente): `:root` 
 0. **Scaffolding** ✅ — workspace, `styles.css` con la cascada de tema, `ThemeService` + botón, shell mínimo. Probado con CDP (headless Chrome): toggle cambia `data-theme` y el fondo, persiste en localStorage.
 1. **Capa de datos end-to-end** ✅ (mayor riesgo arquitectónico, primero a propósito) — `normalizeKey`, parser, `EnrichmentService`, `CatalogDataService`, snapshot embebido. Sin UI real todavía, solo un dump de depuración. Probado con CDP contra datos en vivo: 1293 filas → 1154 películas agrupadas, póster/reparto/director OK. Gotcha resuelto: los JSON de TMDB viven en la raíz del repo, no en `app/` — se fetchean con URL absoluta al sitio en vivo (`DATA_BASE_URL` en `enrichment.service.ts`), no con ruta relativa.
 2. **Placa IV (catálogo)** ✅ — filtros, tabla, grilla, pager, orden. La primera página real, ejercita pager/card/sort que se reusan después. Probado con CDP contra datos en vivo: búsqueda, orden, conteos y badges de revisión verificados.
-3. **Modal de detalle** ✅ (parcial) — `Dialog` genérico + variante "película vista" (chips de "parecidas" incluidas). La variante "Quiero ver" queda para la Fase 4, junto con `WatchlistDataService`. Probado con CDP: datos completos, navegación por "parecidas", cierre con Escape.
-4. **Placa III (watchlist) + escritura** — alta/baja real contra el webhook, confirm dialog.
+3. **Modal de detalle** ✅ — `Dialog` genérico + las 3 variantes (vista / en la lista / ninguna de las dos, resuelta con TMDB solo). Completado en la Fase 4 junto con `WatchlistDataService`.
+4. **Placa III (watchlist) + escritura** ✅ — grilla con paginado (24/página), agregar/quitar real contra el webhook (mockeado en el test para no tocar la hoja), `ConfirmDialog` genérico reusado desde la card y desde el modal. Probado con CDP: las 3 variantes del modal, payloads del webhook, cierres correctos.
 5. **Placa I (gráficos) + vitals**.
 6. **Placa II (revisiones) + Placa V (caso de estudio) + footer** — lo de menor riesgo, mayormente estático.
 7. **Deploy + corte** — preview en subpath (conviene arrancarlo ya desde la fase 2, no esperar al final), regresión completa contra el sitio en vivo, y recién ahí el corte final descripto arriba.
