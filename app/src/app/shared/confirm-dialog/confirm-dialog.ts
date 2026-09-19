@@ -7,6 +7,7 @@ import { ConfirmService } from '../../core/confirm.service';
   selector: 'app-confirm-dialog',
   imports: [Dialog],
   templateUrl: './confirm-dialog.html',
+  styleUrl: './confirm-dialog.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmDialog {

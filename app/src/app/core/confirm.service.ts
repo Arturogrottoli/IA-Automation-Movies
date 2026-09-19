@@ -1,7 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 
 export interface ConfirmRequest {
-  message: string;
+  titulo: string;
+  poster: string | null;
   confirmLabel: string;
   /** Devuelve si la acción se completó — si es false, el diálogo queda abierto para reintentar. */
   onConfirm: () => Promise<boolean>;
@@ -12,8 +13,8 @@ export interface ConfirmRequest {
 export class ConfirmService {
   readonly request = signal<ConfirmRequest | null>(null);
 
-  ask(message: string, confirmLabel: string, onConfirm: () => Promise<boolean>): void {
-    this.request.set({ message, confirmLabel, onConfirm });
+  ask(titulo: string, poster: string | null, confirmLabel: string, onConfirm: () => Promise<boolean>): void {
+    this.request.set({ titulo, poster, confirmLabel, onConfirm });
   }
 
   close(): void {

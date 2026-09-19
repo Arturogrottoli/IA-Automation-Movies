@@ -61,7 +61,7 @@ export class PlacaWatchlist {
   }
 
   protected requestRemove(item: WatchlistItem): void {
-    this.confirmService.ask(`¿Sacar "${item.titulo}" de tu lista de "Quiero ver"?`, 'Sacar', () =>
+    this.confirmService.ask(item.titulo, item.poster, 'Sacar', () =>
       this.watchlist.remove(item.titulo, item.anioEstreno),
     );
   }

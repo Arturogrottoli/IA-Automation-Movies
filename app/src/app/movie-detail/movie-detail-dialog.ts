@@ -77,7 +77,7 @@ export class MovieDetailDialog {
   }
 
   protected requestRemove(item: WatchlistItem): void {
-    this.confirmService.ask(`¿Sacar "${item.titulo}" de tu lista de "Quiero ver"?`, 'Sacar', async () => {
+    this.confirmService.ask(item.titulo, item.poster, 'Sacar', async () => {
       const ok = await this.watchlist.remove(item.titulo, item.anioEstreno);
       if (ok) this.dialog.close();
       return ok;
