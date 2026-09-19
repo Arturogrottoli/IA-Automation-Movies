@@ -31,7 +31,13 @@ export class CatalogDataService {
   /** Una fila por visionado (una peli revisitada aparece varias veces) — lo que usa la tabla. */
   readonly viewings = computed<Viewing[]>(() =>
     this.movies().flatMap((movie) =>
-      movie.watchInstances.map((w) => ({ movie, fecha: w.fecha, anioVisto: w.anioVisto })),
+      movie.watchInstances.map((w) => ({
+        movie,
+        fecha: w.fecha,
+        anioVisto: w.anioVisto,
+        director: w.director,
+        paisOrigen: w.paisOrigen,
+      })),
     ),
   );
 
@@ -63,7 +69,12 @@ export class CatalogDataService {
     for (const [key, group] of groups) {
       const [titulo, director, anioEstreno, paisOrigen] = group[0];
       const watchInstances = group
-        .map((r) => ({ fecha: (r[4] || '').slice(0, 10), anioVisto: r[5] }))
+        .map((r) => ({
+          fecha: (r[4] || '').slice(0, 10),
+          anioVisto: r[5],
+          director: canonDir(r[1]),
+          paisOrigen: canonPais(r[3]),
+        }))
         .filter((w) => w.fecha)
         .sort((a, b) => (a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0));
       const enrichmentEntry = enrichmentMap.get(key) ?? EMPTY_ENRICHMENT;

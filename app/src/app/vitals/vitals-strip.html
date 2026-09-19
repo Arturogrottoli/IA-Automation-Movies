@@ -1,0 +1,12 @@
+<div class="vitals">
+  <div class="wrap">
+    <div class="vitals-grid">
+      @for (t of tiles(); track t.l) {
+        <div class="vital">
+          <div class="n">{{ t.n }}</div>
+          <div class="l">{{ t.l }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

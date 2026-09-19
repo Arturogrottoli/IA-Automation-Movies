@@ -1,0 +1,38 @@
+.chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.chart text {
+  font-family: 'IBM Plex Mono', monospace;
+  fill: var(--ink-3);
+}
+.chart .val {
+  fill: var(--ink-2);
+}
+.chart .lbl {
+  fill: var(--ink-2);
+}
+.chart .bar {
+  fill: var(--bar);
+  transition: opacity 0.15s;
+}
+.chart .bar.soft {
+  fill: var(--bar-soft);
+}
+.chart .bar:hover {
+  opacity: 0.72;
+}
+.chart .grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.chart .base {
+  stroke: var(--line-2);
+  stroke-width: 1;
+}
+.chart .hit {
+  fill: transparent;
+  cursor: default;
+}

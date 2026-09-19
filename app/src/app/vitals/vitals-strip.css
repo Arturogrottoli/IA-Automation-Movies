@@ -1,0 +1,39 @@
+.vitals {
+  background: #0b0b0d;
+  color: #ece6da;
+  padding-bottom: 52px;
+}
+.vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #1c1c1f;
+  border: 1px solid #1c1c1f;
+}
+.vital {
+  background: #0b0b0d;
+  padding: 22px 20px;
+}
+.vital .n {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 2.7rem);
+  line-height: 1;
+  color: #e6a94a;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.vital .l {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8b8471;
+  margin-top: 10px;
+  line-height: 1.45;
+}
+@media (max-width: 640px) {
+  .vitals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

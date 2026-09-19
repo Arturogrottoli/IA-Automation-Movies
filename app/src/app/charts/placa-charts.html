@@ -1,0 +1,50 @@
+<section id="forma">
+  <div class="wrap">
+    <div class="sec-label">Placa I</div>
+    <h2 class="sec-title">La forma de una obsesión</h2>
+    <p class="sec-intro">
+      Nueve años de funciones no forman una línea recta. Hay años de atracón y años flojos, una debilidad
+      marcada por cierta década, y un puñado de directores a los que se vuelve una y otra vez.
+    </p>
+    <div class="plates">
+      <div class="plate">
+        <h3>Películas por año</h3>
+        <app-bar-chart [entries]="byYear()" orientation="vertical" [softKey]="lastYear()" />
+        <p class="obs">{{ yearObs() }}</p>
+      </div>
+      <div class="plate">
+        <h3>Por década de estreno</h3>
+        <app-bar-chart [entries]="byDecade()" orientation="vertical" />
+        <p class="obs">{{ decadeObs() }}</p>
+      </div>
+      <div class="plate">
+        <h3>Por país de origen</h3>
+        <app-bar-chart [entries]="byCountry()" orientation="horizontal" />
+        <p class="obs">{{ countryObs() }}</p>
+      </div>
+      <div class="plate">
+        <h3>Por género</h3>
+        @if (byGenre().length) {
+          <app-bar-chart [entries]="byGenre()" orientation="horizontal" />
+          <p class="obs">{{ genreObs() }}</p>
+        } @else {
+          <p class="obs">Cargando géneros…</p>
+        }
+      </div>
+      <div class="plate">
+        <h3>Directores más vistos</h3>
+        <app-bar-chart [entries]="byDirector()" orientation="horizontal" />
+        <p class="obs">{{ directorObs() }}</p>
+      </div>
+      <div class="plate">
+        <h3>Actores y actrices más vistos</h3>
+        @if (byActor().length) {
+          <app-bar-chart [entries]="byActor()" orientation="horizontal" />
+          <p class="obs">{{ actorObs() }}</p>
+        } @else {
+          <p class="obs">Cargando actores…</p>
+        }
+      </div>
+    </div>
+  </div>
+</section>

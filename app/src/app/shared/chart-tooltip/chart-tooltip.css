@@ -1,0 +1,15 @@
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  transform: translate(-50%, -125%);
+}

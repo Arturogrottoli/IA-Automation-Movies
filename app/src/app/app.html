@@ -2,7 +2,7 @@
   <button class="theme-btn" aria-label="Cambiar tema" (click)="theme.toggle()">◑</button>
   <div class="wrap">
     <div class="eyebrow">
-      <span>Registro personal</span><span>·</span><span>2018 — 2026</span><span>·</span><span>alimentado por un bot</span>
+      <span>Registro personal</span><span>·</span><span>{{ eyebrowRange() }}</span><span>·</span><span>{{ eyebrowFeed() }}</span>
     </div>
     <h1>Diario de<br />proyección</h1>
     <p class="lede">
@@ -11,11 +11,16 @@
     </p>
   </div>
 </header>
+<div class="perf" aria-hidden="true"></div>
+
+<app-vitals-strip />
 
 <main>
+  <app-placa-charts />
   <app-placa-watchlist />
   <app-placa-catalog />
 </main>
 
 <app-movie-detail-dialog />
 <app-confirm-dialog />
+<app-chart-tooltip />

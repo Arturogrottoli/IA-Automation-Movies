@@ -1,0 +1,51 @@
+<svg class="chart" [attr.viewBox]="viewBox()" role="img">
+  @if (orientation() === 'vertical') {
+    @for (g of gridlines(); track g.y) {
+      <line class="grid" x1="6" x2="634" [attr.y1]="g.y" [attr.y2]="g.y" />
+    }
+    <line class="base" x1="6" x2="634" [attr.y1]="baseY" [attr.y2]="baseY" />
+    @for (bar of vBars(); track bar.entry.label) {
+      <rect
+        class="bar"
+        [class.soft]="bar.soft"
+        [attr.x]="bar.x"
+        [attr.y]="bar.y"
+        [attr.width]="bar.width"
+        [attr.height]="bar.height"
+        rx="1.5"
+      />
+      <rect
+        class="hit"
+        [attr.x]="bar.x"
+        y="18"
+        [attr.width]="bar.width"
+        [attr.height]="198"
+        (pointermove)="onHover($event, bar.entry, bar.soft)"
+        (pointerleave)="tooltip.hide()"
+      />
+      <text class="val" [attr.x]="bar.labelX" [attr.y]="bar.valueY" text-anchor="middle" font-size="10.5">
+        {{ bar.entry.value }}
+      </text>
+      <text class="lbl" [attr.x]="bar.labelX" [attr.y]="bar.labelY" text-anchor="middle" font-size="10.5">
+        {{ bar.entry.label }}
+      </text>
+    }
+  } @else {
+    @for (bar of hBars(); track bar.entry.label) {
+      <text class="lbl" [attr.x]="labelW" [attr.y]="bar.labelY" text-anchor="end" font-size="11.5">
+        {{ bar.entry.label }}
+      </text>
+      <rect class="bar" [attr.x]="trackX" [attr.y]="bar.barY" [attr.width]="bar.barWidth" [attr.height]="bar.barHeight" rx="1.5" />
+      <rect
+        class="hit"
+        [attr.x]="trackX"
+        [attr.y]="bar.y"
+        [attr.width]="trackW"
+        [attr.height]="rowH"
+        (pointermove)="onHover($event, bar.entry, false)"
+        (pointerleave)="tooltip.hide()"
+      />
+      <text class="val" [attr.x]="bar.valueX" [attr.y]="bar.labelY" font-size="11">{{ bar.entry.value }}</text>
+    }
+  }
+</svg>

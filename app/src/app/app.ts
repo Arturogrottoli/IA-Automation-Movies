@@ -1,16 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { ThemeService } from './core/theme.service';
-import { PlacaCatalog } from './catalog/placa-catalog';
+import { CatalogDataService } from './core/catalog-data.service';
+import { VitalsStrip } from './vitals/vitals-strip';
+import { PlacaCharts } from './charts/placa-charts';
 import { PlacaWatchlist } from './watchlist/placa-watchlist';
+import { PlacaCatalog } from './catalog/placa-catalog';
 import { MovieDetailDialog } from './movie-detail/movie-detail-dialog';
 import { ConfirmDialog } from './shared/confirm-dialog/confirm-dialog';
+import { ChartTooltip } from './shared/chart-tooltip/chart-tooltip';
 
 @Component({
   selector: 'app-root',
-  imports: [PlacaWatchlist, PlacaCatalog, MovieDetailDialog, ConfirmDialog],
+  imports: [VitalsStrip, PlacaCharts, PlacaWatchlist, PlacaCatalog, MovieDetailDialog, ConfirmDialog, ChartTooltip],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
-  constructor(protected readonly theme: ThemeService) {}
+  constructor(
+    protected readonly theme: ThemeService,
+    protected readonly catalog: CatalogDataService,
+  ) {}
+
+  protected readonly eyebrowRange = computed(() => {
+    const years = this.catalog
+      .viewings()
+      .map((v) => v.anioVisto)
+      .filter((y): y is number => !!y);
+    if (!years.length) return '2018 — 2026';
+    return `${Math.min(...years)} — ${Math.max(...years)}`;
+  });
+
+  protected readonly eyebrowFeed = computed(() => (this.catalog.live() ? 'datos en vivo' : 'alimentado por un bot'));
 }

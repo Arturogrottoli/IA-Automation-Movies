@@ -1,0 +1,10 @@
+<div
+  class="tooltip"
+  [style.left.px]="tooltip.position().x"
+  [style.top.px]="tooltip.position().y"
+  [style.opacity]="tooltip.data() ? 1 : 0"
+>
+  @if (tooltip.data(); as d) {
+    <b>{{ d.label }}</b> · {{ d.value }}{{ d.note ? ' (' + d.note + ')' : '' }}
+  }
+</div>
