@@ -243,13 +243,14 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
       módulos "Google Gemini AI" de Make a un modelo vigente antes de esa fecha.
-- [~] **Migración a Angular, en curso.** Decidido: Angular (no React/Astro),
-      para portfolio. Se construye en paralelo en `app/`, sin tocar
-      `index.html` (que sigue sirviendo el sitio en vivo) hasta un corte
-      final deliberado. Plan completo, fase por fase, en
+- [~] **Migración a Angular — deployada, quedan tareas de cierre.** Angular
+      20 (standalone, signals, zoneless), las 5 placas + vitals + footer
+      portadas 1:1 y verificadas contra el sitio original. Deployada y en
+      vivo en Vercel: [turimoviesdatabase.vercel.app](https://turimoviesdatabase.vercel.app)
+      (cambio de plan: terminó siendo Vercel, no GitHub Pages). El
+      `index.html`/GitHub Pages viejo sigue activo por ahora, sin tocar.
+      Detalle fase por fase y lo que falta en
       [docs/plan-migracion-angular.md](docs/plan-migracion-angular.md).
-      **Fase 0 hecha:** workspace Angular 20 (standalone, signals, zoneless),
-      tema portado 1:1 (misma cascada de 3 niveles), probado con CDP.
 
 ## Cómo funciona
 
