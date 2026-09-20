@@ -44,6 +44,8 @@ export interface WatchInstance {
   anioVisto: number | null;
   director: string;
   paisOrigen: string;
+  /** "Bot Telegram" | "CSV historico" — de dónde vino esta fila (columna `fuente`). */
+  fuente: string;
 }
 
 /** Una entrada por título+año distinto — agrupa todas las veces vista. */

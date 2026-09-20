@@ -10,8 +10,8 @@ const SHEET_CSV_URL =
 
 const SNAPSHOT_URL = 'data/catalog-snapshot.json';
 
-/** [titulo, director, anio_estreno, pais_origen, fecha_vista, anio_visto] */
-type RawWatchRow = [string, string, number | null, string, string, number | null];
+/** [titulo, director, anio_estreno, pais_origen, fecha_vista, anio_visto, fuente] */
+type RawWatchRow = [string, string, number | null, string, string, number | null, string];
 
 /**
  * Dueño de los datos del catálogo (pestaña catalogo_completo): lee la
@@ -74,6 +74,7 @@ export class CatalogDataService {
           anioVisto: r[5],
           director: canonDir(r[1]),
           paisOrigen: canonPais(r[3]),
+          fuente: r[6] || '',
         }))
         .filter((w) => w.fecha)
         .sort((a, b) => (a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0));
@@ -116,12 +117,13 @@ export class CatalogDataService {
         p: idx('pais_origen'),
         f: idx('fecha_vista'),
         vy: idx('anio_visto'),
+        fu: idx('fuente'),
       };
       if (c.t < 0) return null;
       const out: RawWatchRow[] = rows
         .slice(1)
         .filter((r) => r.length > c.t && (r[c.t] || '').trim())
-        .map((r) => [r[c.t], r[c.d] || '', +r[c.ay] || null, r[c.p] || '', r[c.f] || '', +r[c.vy] || null]);
+        .map((r) => [r[c.t], r[c.d] || '', +r[c.ay] || null, r[c.p] || '', r[c.f] || '', +r[c.vy] || null, r[c.fu] || '']);
       return out.length ? out : null;
     } catch {
       return null;

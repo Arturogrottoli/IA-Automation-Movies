@@ -9,6 +9,7 @@ import { PlacaRewatches } from './rewatches/placa-rewatches';
 import { PlacaWatchlist } from './watchlist/placa-watchlist';
 import { PlacaCatalog } from './catalog/placa-catalog';
 import { PlacaCaseStudy } from './case-study/placa-case-study';
+import { PlacaKpis } from './kpis/placa-kpis';
 import { AppFooter } from './footer/app-footer';
 import { MovieDetailDialog } from './movie-detail/movie-detail-dialog';
 import { ConfirmDialog } from './shared/confirm-dialog/confirm-dialog';
@@ -23,6 +24,7 @@ import { ChartTooltip } from './shared/chart-tooltip/chart-tooltip';
     PlacaWatchlist,
     PlacaCatalog,
     PlacaCaseStudy,
+    PlacaKpis,
     AppFooter,
     MovieDetailDialog,
     ConfirmDialog,

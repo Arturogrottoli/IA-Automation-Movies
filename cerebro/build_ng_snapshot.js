@@ -20,10 +20,10 @@ fetch(src[1]).then(r => r.text()).then(txt => {
   const rows = parseCSV(txt);
   const h = rows[0].map(x => x.trim());
   const ix = k => h.indexOf(k);
-  const c = { t:ix("titulo"), d:ix("director"), ay:ix("anio_estreno"), p:ix("pais_origen"), f:ix("fecha_vista"), vy:ix("anio_visto") };
+  const c = { t:ix("titulo"), d:ix("director"), ay:ix("anio_estreno"), p:ix("pais_origen"), f:ix("fecha_vista"), vy:ix("anio_visto"), fu:ix("fuente") };
   const data = rows.slice(1)
     .filter(r => r.length > c.t && (r[c.t]||"").trim())
-    .map(r => [r[c.t], r[c.d]||"", +r[c.ay]||null, r[c.p]||"", r[c.f]||"", +r[c.vy]||null]);
+    .map(r => [r[c.t], r[c.d]||"", +r[c.ay]||null, r[c.p]||"", r[c.f]||"", +r[c.vy]||null, r[c.fu]||""]);
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, JSON.stringify(data));
   console.log(`Refrescado app/public/data/catalog-snapshot.json con ${data.length} filas.`);
