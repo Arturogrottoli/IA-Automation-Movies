@@ -110,6 +110,24 @@ td.rt b {
   color: var(--accent);
   font-weight: 500;
 }
+/*
+ * El original no tiene <meta viewport>, así que en mobile el navegador
+ * renderiza la página a ancho de escritorio y la reduce visualmente — la
+ * tabla nunca se achica de verdad, así que esto nunca se dispara ahí. Acá
+ * sí (viewport correcto), y con 4 columnas de ancho fijo (año/país/★/vista
+ * = 294px) título/director quedan con ~24px cada una en ~390px de pantalla.
+ * Se esconden país y ★ en mobile — están igual en la ficha al tocar la fila,
+ * y en la vista Grilla.
+ */
+@media (max-width: 640px) {
+  th[data-k='p'],
+  td.pa,
+  th[data-k='r'],
+  td.rt {
+    display: none;
+  }
+}
+
 .empty {
   padding: 50px 14px;
   text-align: center;
