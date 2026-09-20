@@ -25,7 +25,7 @@ interface RawSimilarStub {
  * cual está en el repo (con CORS abierto, `Access-Control-Allow-Origin: *`),
  * sin depender de que Pages siga habilitado en este repo.
  */
-const DATA_BASE_URL = 'https://raw.githubusercontent.com/Arturogrottoli/IA-Automation-Movies/main/';
+export const DATA_BASE_URL = 'https://raw.githubusercontent.com/Arturogrottoli/IA-Automation-Movies/main/';
 
 /**
  * Fetch + merge de los 6 JSON de enriquecimiento (TMDB, generados offline

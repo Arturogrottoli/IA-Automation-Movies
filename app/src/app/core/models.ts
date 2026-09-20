@@ -74,6 +74,24 @@ export interface ChartEntry {
   value: number;
 }
 
+/** Una entrada género/década/director → tasa de revisión, de `taste_profile.json`. */
+export interface TasteRate {
+  tasa: number;
+  n: number;
+}
+
+/** Salida de `cerebro/taste_profile.py` (pandas + sklearn, corrida offline). */
+export interface TasteProfile {
+  top_generos: (TasteRate & { genero: string })[];
+  top_decadas: (TasteRate & { decada: number })[];
+  top_directores: (TasteRate & { director: string })[];
+  duracion_revisitadas: number;
+  duracion_no_revisitadas: number;
+  tasa_por_duracion: (TasteRate & { rango: string })[];
+  nota_duracion: string;
+  variables_mas_importantes: { variable: string; peso: number }[];
+}
+
 /** Una fila de la pestaña por_ver. */
 export interface WatchlistItem extends EnrichmentFields {
   key: string;

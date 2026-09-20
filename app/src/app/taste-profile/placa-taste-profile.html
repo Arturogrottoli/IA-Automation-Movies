@@ -1,0 +1,68 @@
+<section id="perfil-de-gusto">
+  <div class="wrap">
+    <div class="sec-label">Placa VII · Lo que mis películas dicen de mí</div>
+    <h2 class="sec-title">Lo que revisito, no lo que miro</h2>
+    <p class="sec-intro">
+      Mirar una película una vez dice poco. Volver a verla dice mucho — nadie
+      revisita algo que no le gustó de verdad. Un modelo entrenado sobre las
+      1.155 películas únicas del catálogo busca qué combinación de género,
+      década, director y duración predice esa segunda vuelta.
+    </p>
+    @if (profile(); as p) {
+      <div class="dstats">
+        @if (topGenero(); as g) {
+          <div class="dstat">
+            <div class="n">{{ g.tasa }}%</div>
+            <div class="l">tasa de revisión en {{ g.genero }} (el género más alto, sobre {{ g.n }} películas)</div>
+          </div>
+        }
+        @if (topDecada(); as d) {
+          <div class="dstat">
+            <div class="n">{{ d.tasa }}%</div>
+            <div class="l">tasa de revisión en la década {{ d.decada }}s (la más alta, sobre {{ d.n }} películas)</div>
+          </div>
+        }
+        @if (topDirector(); as dr) {
+          <div class="dstat">
+            <div class="n">{{ dr.tasa }}%</div>
+            <div class="l">tasa de revisión con {{ dr.director }} (sobre {{ dr.n }} películas)</div>
+          </div>
+        }
+        <div class="dstat">
+          <div class="n">{{ p.duracion_revisitadas }} / {{ p.duracion_no_revisitadas }}</div>
+          <div class="l">minutos de promedio: revisitadas vs. no revisitadas — casi idéntico</div>
+        </div>
+      </div>
+      <p class="method">
+        El director pesa más que el género: con {{ topDirector()?.director }} la tasa de
+        revisión es {{ topDirector()?.tasa }}%
+        @if (segundoDirector(); as d2) {
+          , con {{ d2.director }} {{ d2.tasa }}%
+        }
+        — muy por arriba del mejor género solo ({{ topGenero()?.genero }}, {{ topGenero()?.tasa }}%). La
+        década {{ topDecada()?.decada }}s es la más revisitada, no la más reciente.
+        <br /><br />
+        Lo más contraintuitivo: el modelo marca la <b>duración</b> como la variable de
+        mayor peso para predecir una revisión
+        @if (pesoDuracion(); as pd) {
+          ({{ pd.peso }} de importancia, la más alta de todas)
+        }
+        — pese a que el promedio de minutos es casi idéntico entre revisitadas y no
+        ({{ p.duracion_revisitadas }} contra {{ p.duracion_no_revisitadas }}). No es que "las
+        cortas" o "las largas" se revisiten más en general: es una relación no lineal.
+        @if (rango160(); as r160) {
+          El rango 160+ min tiene la tasa más alta de todas ({{ r160.tasa }}%, sobre
+          {{ r160.n }} películas), y ese salto es casi todo Scorsese y Tarantino —
+          la duración funciona como proxy del director, no como causa.
+        }
+      </p>
+      <p class="snapshot-note">
+        Snapshot recalculado a mano con <code>python cerebro/taste_profile.py</code> — no
+        se actualiza solo. La versión narrada en lenguaje natural por Gemini, en vivo,
+        queda pendiente de Make.
+      </p>
+    } @else {
+      <p class="obs">Cargando perfil de gusto…</p>
+    }
+  </div>
+</section>

@@ -7,7 +7,7 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.3,
+      "tasa": 14.8,
       "n": 230
     },
     {
@@ -16,21 +16,21 @@
       "n": 37
     },
     {
-      "genero": "Crimen",
-      "tasa": 12.0,
-      "n": 242
+      "genero": "Fantasía",
+      "tasa": 12.8,
+      "n": 86
     },
     {
-      "genero": "Romance",
-      "tasa": 11.9,
-      "n": 84
+      "genero": "Crimen",
+      "tasa": 12.4,
+      "n": 242
     }
   ],
   "top_decadas": [
     {
       "decada": 2000,
       "tasa": 13.6,
-      "n": 176
+      "n": 177
     },
     {
       "decada": 1970,
@@ -40,17 +40,17 @@
     {
       "decada": 2010,
       "tasa": 12.0,
-      "n": 358
+      "n": 359
+    },
+    {
+      "decada": 1950,
+      "tasa": 10.0,
+      "n": 10
     },
     {
       "decada": 1980,
-      "tasa": 8.4,
+      "tasa": 9.6,
       "n": 83
-    },
-    {
-      "decada": 1990,
-      "tasa": 8.4,
-      "n": 119
     }
   ],
   "top_directores": [
@@ -70,19 +70,19 @@
       "n": 4
     },
     {
-      "director": "Bong Joon-ho",
-      "tasa": 40.0,
-      "n": 5
-    },
-    {
       "director": "Adolfo Aristarain",
       "tasa": 40.0,
       "n": 5
     },
     {
+      "director": "Bong Joon-ho",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
       "director": "Yorgos Lanthimos",
-      "tasa": 33.3,
-      "n": 6
+      "tasa": 28.6,
+      "n": 7
     },
     {
       "director": "Edgar Wright",
@@ -90,18 +90,18 @@
       "n": 4
     },
     {
-      "director": "Asif Kapadia",
+      "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
     }
   ],
-  "duracion_revisitadas": 109.6,
+  "duracion_revisitadas": 109.8,
   "duracion_no_revisitadas": 110.0,
   "tasa_por_duracion": [
     {
       "rango": "<80",
-      "tasa": 9.3,
-      "n": 43
+      "tasa": 9.1,
+      "n": 44
     },
     {
       "rango": "80-95",
@@ -111,17 +111,17 @@
     {
       "rango": "95-110",
       "tasa": 10.4,
-      "n": 346
+      "n": 347
     },
     {
       "rango": "110-125",
-      "tasa": 8.9,
-      "n": 270
+      "tasa": 8.8,
+      "n": 273
     },
     {
       "rango": "125-140",
-      "tasa": 8.2,
-      "n": 110
+      "tasa": 9.0,
+      "n": 111
     },
     {
       "rango": "140-160",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.272
+      "peso": 0.28
     },
     {
       "variable": "decada",
-      "peso": 0.177
+      "peso": 0.158
     },
     {
       "variable": "Acción",
-      "peso": 0.071
+      "peso": 0.085
     },
     {
       "variable": "Historia",
-      "peso": 0.066
+      "peso": 0.064
     },
     {
       "variable": "Drama",
-      "peso": 0.057
-    },
-    {
-      "variable": "Terror",
-      "peso": 0.047
+      "peso": 0.058
     },
     {
       "variable": "Crimen",
-      "peso": 0.044
+      "peso": 0.05
+    },
+    {
+      "variable": "Terror",
+      "peso": 0.042
     },
     {
       "variable": "Comedia",
-      "peso": 0.038
+      "peso": 0.039
     }
   ]
 }
