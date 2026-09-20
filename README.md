@@ -243,6 +243,18 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       queda requeriría revisión manual. 2 sin match real en TMDB
       (Leaving Neverland, La casa de la playa — no están cargadas como
       película ahí). Quedan más sueltas; se van encontrando con `check_datos.js`.
+      **Pasada nueva (2026-09-20): 19 alertas, las 19 revisadas.** 16 son el
+      mismo falso positivo de siempre (director en cirílico/chino/japonés/
+      coreano/télugu/griego). De los 3 años marcados, 2 confirmaron que el
+      catálogo tenía razón — TMDB comparaba contra un relanzamiento, no el
+      estreno real: "Historia de lo oculto" (catálogo 2020 = estreno en
+      Argentina 2020-11-22; TMDB devolvía 2023, un relanzamiento en EE.UU.) y
+      "Terrifier" (catálogo 2016 = estreno en EE.UU. 2016-10-15; TMDB
+      devolvía 2018, el estreno teatral más amplio). Queda un solo caso
+      dudoso de verdad: "Super Size Me 2" (catálogo 2017, TMDB solo tiene
+      registrado 2019-09-06) — no encontré una fecha de 2017 en ningún país,
+      puede ser una premiere de festival sin cargar en TMDB o un error real;
+      sin verificar todavía.
 - [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
