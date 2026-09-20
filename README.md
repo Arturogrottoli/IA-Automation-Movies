@@ -256,11 +256,12 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       estreno real: "Historia de lo oculto" (catálogo 2020 = estreno en
       Argentina 2020-11-22; TMDB devolvía 2023, un relanzamiento en EE.UU.) y
       "Terrifier" (catálogo 2016 = estreno en EE.UU. 2016-10-15; TMDB
-      devolvía 2018, el estreno teatral más amplio). Queda un solo caso
-      dudoso de verdad: "Super Size Me 2" (catálogo 2017, TMDB solo tiene
-      registrado 2019-09-06) — no encontré una fecha de 2017 en ningún país,
-      puede ser una premiere de festival sin cargar en TMDB o un error real;
-      sin verificar todavía.
+      devolvía 2018, el estreno teatral más amplio). **Cerrado (2026-09-20):**
+      el tercer caso, "Super Size Me 2", también confirma que el catálogo
+      tenía razón — TMDB sí tiene registrado un estreno en Canadá
+      (2017-09-08, premiere de TIFF) que coincide exacto con el 2017 del
+      catálogo; el campo principal de TMDB solo mostraba el estreno general
+      de EE.UU. en 2019. Las 19 alertas de la última pasada, cerradas.
 - [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
