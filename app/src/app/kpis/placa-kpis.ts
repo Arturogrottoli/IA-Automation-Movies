@@ -6,7 +6,7 @@ import { BarChart } from '../shared/bar-chart/bar-chart';
 const fmtFecha = (iso: string): string => `${iso.slice(8, 10)}/${iso.slice(5, 7)}`;
 
 /**
- * Placa VI · KPIs de la automatización en sí, no del catálogo de películas.
+ * Placa VIII · KPIs de la automatización en sí, no del catálogo de películas.
  * Solo volumen (registros vía bot, `fuente = "Bot Telegram"`) — tasa de
  * aprobación y errores no dejan rastro en la hoja hoy (ver docs/kpis-operacion.md).
  * Contenido narrado, mismo formato no interactivo que la Placa V.

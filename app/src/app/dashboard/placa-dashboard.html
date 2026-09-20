@@ -1,0 +1,45 @@
+<section id="dashboard">
+  <div class="wrap">
+    <div class="sec-label">Placa VI</div>
+    <h2 class="sec-title">Más profundo que un conteo</h2>
+    <p class="sec-intro">
+      Los gráficos de arriba cuentan. Estos cruzan: duración contra año, género
+      contra rating, mes del año, y lo que ya vi contra lo que todavía me falta.
+    </p>
+    <div class="plates">
+      <div class="plate">
+        <h3>Duración promedio por año</h3>
+        <app-bar-chart [entries]="durPorAnio()" orientation="vertical" />
+        <p class="obs">{{ durPorAnioObs() }}</p>
+      </div>
+      <div class="plate">
+        <h3>Distribución de duración</h3>
+        <app-bar-chart [entries]="durDistribucion()" orientation="vertical" />
+        <p class="obs">{{ durDistribucionObs() }}</p>
+      </div>
+      <div class="plate">
+        <h3>Rating promedio por género</h3>
+        <app-bar-chart [entries]="ratingPorGenero()" orientation="horizontal" />
+        <p class="obs">{{ ratingPorGeneroObs() }}</p>
+      </div>
+      <div class="plate">
+        <h3>Estacionalidad: por mes del año</h3>
+        <app-bar-chart [entries]="porMes()" orientation="vertical" />
+        <p class="obs">{{ porMesObs() }}</p>
+      </div>
+      <div class="plate wide">
+        <h3>Vistas vs. pendientes, por década</h3>
+        <div class="vsvp">
+          <div>
+            <p class="vsvp-label">Catálogo (vistas)</p>
+            <app-bar-chart [entries]="decadaVistas()" orientation="vertical" />
+          </div>
+          <div>
+            <p class="vsvp-label">Quiero ver (pendientes)</p>
+            <app-bar-chart [entries]="decadaPendientes()" orientation="vertical" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
