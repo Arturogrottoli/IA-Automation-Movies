@@ -35,10 +35,8 @@
       </div>
       <p class="method">
         El director pesa más que el género: con {{ topDirector()?.director }} la tasa de
-        revisión es {{ topDirector()?.tasa }}%
-        @if (segundoDirector(); as d2) {
-          , con {{ d2.director }} {{ d2.tasa }}%
-        }
+        revisión es {{ topDirector()?.tasa }}%@if (segundoDirector(); as d2) {, con {{ d2.director }}
+        {{ d2.tasa }}%}
         — muy por arriba del mejor género solo ({{ topGenero()?.genero }}, {{ topGenero()?.tasa }}%). La
         década {{ topDecada()?.decada }}s es la más revisitada, no la más reciente.
         <br /><br />

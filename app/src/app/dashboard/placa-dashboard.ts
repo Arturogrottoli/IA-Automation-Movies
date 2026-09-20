@@ -5,7 +5,7 @@ import { ChartEntry, Movie } from '../core/models';
 import { decadeOf } from '../core/key.util';
 import { BarChart } from '../shared/bar-chart/bar-chart';
 
-const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+const MESES = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 
 /** Mismos cortes que `cerebro/taste_profile.py` — una sola escala de duración en todo el sitio. */
 const DUR_BINS: { max: number; label: string }[] = [
