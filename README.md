@@ -6,7 +6,7 @@ le completa director, año, país y género, y la fila se agrega a una hoja de
 Google. Un sitio web lee esa hoja en vivo y muestra el catálogo y sus
 estadísticas.
 
-**Sitio:** https://arturogrottoli.github.io/IA-Automation-Movies/
+**Sitio:** https://turimoviesdatabase.vercel.app
 
 Proyecto integrador del curso **IA Automation** (Coderhouse). Toca las tres capas
 del stack: datos, orquestación e inteligencia.
@@ -247,13 +247,13 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
       módulos "Google Gemini AI" de Make a un modelo vigente antes de esa fecha.
-- [~] **Migración a Angular — deployada, quedan tareas de cierre.** Angular
-      20 (standalone, signals, zoneless), las 5 placas + vitals + footer
-      portadas 1:1 y verificadas contra el sitio original. Deployada y en
-      vivo en Vercel: [turimoviesdatabase.vercel.app](https://turimoviesdatabase.vercel.app)
+- [x] **Migración a Angular, completa.** Angular 20 (standalone, signals,
+      zoneless), las 5 placas + vitals + footer portadas 1:1 y verificadas
+      contra el sitio original. Deployada y en vivo en Vercel:
+      [turimoviesdatabase.vercel.app](https://turimoviesdatabase.vercel.app)
       (cambio de plan: terminó siendo Vercel, no GitHub Pages). El
-      `index.html`/GitHub Pages viejo sigue activo por ahora, sin tocar.
-      Detalle fase por fase y lo que falta en
+      GitHub Pages viejo ya está dado de baja; el `index.html` original queda
+      en el repo como referencia, sin servir más. Detalle fase por fase en
       [docs/plan-migracion-angular.md](docs/plan-migracion-angular.md).
 
 ## Cómo funciona
