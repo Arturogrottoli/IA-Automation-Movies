@@ -116,7 +116,11 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       picker), Gemini usa ese valor como nombre de clave en vez de como
       contenido, y todo sale mal armado.
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
-      re-correrlo; sumar un paso de TMDB a la rama `agendar` de Make.
+      re-correrlo a mano; sumar un paso de TMDB a la rama `agendar`/`agregar`
+      de Make (HTTP call por título+año, guardar poster/género como columnas
+      nuevas en `por_ver`). **A propósito sin tocar todavía** — esperar a que
+      se renueven los créditos de Make este mes antes de sumar otro paso al
+      escenario.
 - [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
 - [x] Los 9 títulos que TMDB no tiene — todos con imagen a mano en `img/`.
 
