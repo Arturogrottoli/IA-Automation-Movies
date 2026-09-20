@@ -130,22 +130,23 @@ datos: el trabajo de limpieza (fechas, pósters, typos) ya es data engineering
 real, solo faltaba mostrarlo.
 - [x] **Placa V "Detrás de los datos".** Caso de limpieza con números reales
       (604 fechas, 40 pósters, 13 duplicados, 65 directoras) + metodología.
-- [x] **Perfil de gusto — primera versión.** `cerebro/taste_profile.py`
+- [x] **Perfil de gusto, en el sitio.** `cerebro/taste_profile.py`
       (Python/pandas/sklearn), corre offline, escribe `taste_profile.json`.
-      Hallazgos: Tarantino 63,6% de tasa de revisión (vs 14,3% del mejor
-      género solo, Acción) — el director pesa mucho más que el género. Chad
-      Stahelski 57,1%. La década más fuerte es 2000s (13,6%), no 2010s. El
-      modelo marca la **duración** como la variable de más peso para
-      predecir revisión, pese a que el promedio es casi idéntico entre
-      revisitadas y no (109,6 vs 110,0 min) — sugiere una relación no
-      lineal, no investigada todavía.
-      Duración por rangos (hecho, sumado a `taste_profile.py`): el salto en
-      160+ min es casi todo Scorsese/Tarantino — la duración es proxy del
-      director, no la causa.
-      Falta:
-      - Mostrarlo en el sitio — **como su propia placa/sección de Data
-        Science, separada del modal de automatización** (no interactiva por
-        película, es el análisis narrado, mismo formato que la Placa V).
+      Se muestra en el sitio como su propia placa — Placa VII "Lo que mis
+      películas dicen de mí" ([app/src/app/taste-profile](app/src/app/taste-profile)) —
+      no interactiva por película, prosa fija (escrita a mano, no generada
+      en runtime; la narración por Gemini en vivo queda pendiente de Make)
+      interpolando los números reales vía `TasteProfileService`.
+      Última corrida (2026-09-20, 1.155 películas únicas): Tarantino 63,6%
+      de tasa de revisión (vs 17,9% del mejor género solo, Animación) — el
+      director pesa mucho más que el género. Chad Stahelski 57,1%. La
+      década más fuerte es 2000s (13,6%), no 2010s. El modelo marca la
+      **duración** como la variable de más peso para predecir revisión,
+      pese a que el promedio es casi idéntico entre revisitadas y no
+      (109,8 vs 110,0 min) — relación no lineal: el rango 160+ min tiene la
+      tasa más alta (18,4%), pero es casi todo Scorsese/Tarantino — la
+      duración es proxy del director, no la causa.
+      Falta (sin scopear todavía):
       - Combos director+actor (ej. Scorsese+DiCaprio), no solo director solo.
       - Clustering de "familias de gusto" por año, para ver si cambió en 9 años.
       - Ahí sí, una versión del recomendador ajustada por este perfil, para
@@ -180,15 +181,19 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       la respuesta: dispara el análisis Python/pandas real sobre los datos y
       Gemini solo la traduce a lenguaje natural. Distinto de "consultar" hoy
       (que lee el CSV crudo) — acá pasa por el análisis primero.
-- [ ] **Dashboard más profundo.** Evolución mensual (no solo anual), duración
-      promedio por año, género vs. rating, país vs. género, revisiones por
-      director, distribución de duración, vistas vs. pendientes,
-      correlaciones. Con más profundidad que los conteos simples de hoy.
-- [ ] **Sección "Lo que mis películas dicen de mí."** El perfil de gusto,
-      recalculado periódicamente y explicado en lenguaje natural por Gemini
-      ("tu década más frecuente es...", "tenés una fuerte preferencia
-      por...") en vez de mostrado como números crudos. Combina las tres
-      capas: Python/pandas → análisis → ML → Gemini → texto → sitio/Telegram.
+- [x] **Dashboard más profundo** → Placa VI en el sitio
+      ([app/src/app/dashboard](app/src/app/dashboard)). Duración promedio
+      por año, distribución de duración (histograma), rating promedio por
+      género, estacionalidad por mes del año (interpretación de "evolución
+      mensual" — una línea de tiempo mes a mes real, ~100 puntos en 9 años,
+      no entra en el gráfico de barras que existe hoy), y vistas vs.
+      pendientes por década. Todo calculado con signals sobre datos ya
+      cargados, sin JSON nuevo. "País vs. género" y "correlaciones" quedaron
+      afuera — no entran en el vocabulario de gráfico de barras actual
+      (harían falta un heatmap o un scatter, no construidos todavía).
+- [x] **Sección "Lo que mis películas dicen de mí"** → ver el ítem de
+      arriba, "Perfil de gusto, en el sitio". La versión narrada por Gemini
+      en vivo (en vez de la prosa fija actual) queda pendiente de Make.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
