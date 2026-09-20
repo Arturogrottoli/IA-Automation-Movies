@@ -200,7 +200,12 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       `anio_visto` que ya se arregló) — corregidos. **Los PDF quedaron sin
       re-exportar** (a propósito, no es prioridad ahora).
 - [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
-- [ ] **Panel de KPIs de operación** (tasa de aprobación, volumen, errores — máx 4).
+- [~] **Panel de KPIs de operación** → [docs/kpis-operacion.md](docs/kpis-operacion.md).
+      Solo **volumen** (15 registros vía bot, 1,07/día en las últimas 2
+      semanas) es calculable hoy — **tasa de aprobación** y **errores**
+      necesitan datos que el sistema no registra en ningún lugar accesible
+      (el ❌ del HITL no escribe nada en la hoja a propósito, y todavía no
+      hay Error Handler). Documentado en detalle por qué en el doc.
 - [~] **Video demo de 3 min.** Se hace aparte, en YouTube, no como parte del
       trabajo del proyecto — no es un pendiente activo.
 

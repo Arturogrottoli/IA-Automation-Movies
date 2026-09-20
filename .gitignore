@@ -17,6 +17,9 @@ cerebro/Pelis_backup_*.xlsx
 # Salida de check_datos.js (se corre a demanda, no se versiona)
 cerebro/check_datos.txt
 
+# Salida de kpis_operacion.js (snapshot que cambia en cada corrida)
+cerebro/kpis_operacion.json
+
 # Material del curso (fuera del repo)
 Filminas/
 Pelis.xlsx
