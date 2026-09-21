@@ -1,0 +1,62 @@
+<section id="recomendador">
+  <div class="wrap">
+    <div class="sec-label">Placa VIII · Recomendador, 2 métodos comparados</div>
+    <h2 class="sec-title">Por contenido vs. ajustado por tu perfil</h2>
+    <p class="sec-intro">
+      Elegí una película ya vista. A la izquierda, las 5 más parecidas por
+      contenido (género, director, reparto, década, más similitud de sinopsis).
+      A la derecha, las mismas candidatas, pero reponderadas: director y
+      género por tu tasa de revisión real, década y duración por el peso que
+      les dio el modelo de la Placa VII — no por pesos fijos a mano.
+    </p>
+    <div class="rec-search">
+      <input
+        type="search"
+        placeholder="Buscar una película que ya viste…"
+        aria-label="Buscar película"
+        [value]="query()"
+        (input)="updateQuery($any($event.target).value)"
+      />
+      @if (selected()) {
+        <button class="rec-clear" (click)="clear()">Buscar otra</button>
+      }
+    </div>
+    @if (matches().length) {
+      <div class="rec-matches">
+        @for (m of matches(); track m.key) {
+          <button class="rec-match" (click)="select(m)">{{ m.titulo }} <span>{{ m.anioEstreno }}</span></button>
+        }
+      </div>
+    }
+    @if (selected(); as s) {
+      <div class="rec-cols">
+        <div class="rec-col">
+          <h3>Por contenido</h3>
+          @if (porContenido().length) {
+            <div class="rec-chips">
+              @for (r of porContenido(); track r.titulo + r.anioEstreno) {
+                <span class="rec-chip">{{ r.titulo }} <em>{{ r.anioEstreno }}</em></span>
+              }
+            </div>
+          } @else {
+            <p class="obs">Sin datos suficientes para esta película.</p>
+          }
+        </div>
+        <div class="rec-col">
+          <h3>Ajustado por tu perfil</h3>
+          @if (porPerfil().length) {
+            <div class="rec-chips">
+              @for (r of porPerfil(); track r.titulo + r.anioEstreno) {
+                <span class="rec-chip">{{ r.titulo }} <em>{{ r.anioEstreno }}</em></span>
+              }
+            </div>
+          } @else {
+            <p class="obs">Sin datos suficientes para esta película.</p>
+          }
+        </div>
+      </div>
+    } @else if (!matches().length && query().trim()) {
+      <p class="obs">Sin resultados para "{{ query() }}".</p>
+    }
+  </div>
+</section>

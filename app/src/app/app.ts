@@ -11,6 +11,7 @@ import { PlacaCatalog } from './catalog/placa-catalog';
 import { PlacaCaseStudy } from './case-study/placa-case-study';
 import { PlacaDashboard } from './dashboard/placa-dashboard';
 import { PlacaTasteProfile } from './taste-profile/placa-taste-profile';
+import { PlacaRecommender } from './recommender/placa-recommender';
 import { PlacaKpis } from './kpis/placa-kpis';
 import { AppFooter } from './footer/app-footer';
 import { MovieDetailDialog } from './movie-detail/movie-detail-dialog';
@@ -28,6 +29,7 @@ import { ChartTooltip } from './shared/chart-tooltip/chart-tooltip';
     PlacaCaseStudy,
     PlacaDashboard,
     PlacaTasteProfile,
+    PlacaRecommender,
     PlacaKpis,
     AppFooter,
     MovieDetailDialog,

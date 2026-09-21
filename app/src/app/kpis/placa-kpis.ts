@@ -24,7 +24,7 @@ const GRANULARIDADES: { value: Granularidad; label: string; titulo: string }[] =
 ];
 
 /**
- * Placa VIII · KPIs de la automatización en sí, no del catálogo de películas.
+ * Placa IX · KPIs de la automatización en sí, no del catálogo de películas.
  * Solo volumen (registros vía bot, `fuente = "Bot Telegram"`) — tasa de
  * aprobación y errores no dejan rastro en la hoja hoy (ver docs/kpis-operacion.md).
  * Contenido narrado, mismo formato no interactivo que la Placa V.
