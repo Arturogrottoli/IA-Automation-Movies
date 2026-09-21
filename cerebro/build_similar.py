@@ -1,7 +1,13 @@
 """
 Recomendador por similitud de contenido: para cada pelicula, las 5 mas
-parecidas segun genero, director, reparto y decada (ponderado - director y
-actores pesan mas que genero, que pesa mas que decada).
+parecidas segun genero, director, reparto, decada (ponderado - director y
+actores pesan mas que genero, que pesa mas que decada) Y similitud de texto
+de la sinopsis (TF-IDF, no embeddings neuronales -- el entorno no tiene
+PyTorch/sentence-transformers instalado, y no vale la pena esa dependencia
+pesada para este proyecto). Las dos senales se combinan como promedio
+ponderado de sus matrices de similitud coseno (no concatenando los vectores
+crudos -- las dummies categoricas 0/1 y el TF-IDF continuo tienen escalas
+distintas, mezclarlas por hstack distorsiona el coseno).
 
 Corre offline (no toca Make). Escribe ../similar.json:
   { "titulo_norm|anio": [{"t","y","d"}, ...5], ... }
@@ -16,8 +22,12 @@ import urllib.request
 
 import numpy as np
 import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MultiLabelBinarizer
+
+PESO_CATEGORICO = 0.7
+PESO_TEXTO = 0.3
 
 ROOT = __file__.rsplit("cerebro", 1)[0]
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1860980534&single=true&output=csv"
@@ -59,10 +69,12 @@ def main():
 
     posters = load_json("posters.json")
     actors = load_json("actors.json")
+    synopsis = load_json("synopsis.json")
 
     uniq["generos"] = uniq["key"].map(lambda k: (posters.get(k) or {}).get("genres") or [])
     uniq["reparto"] = uniq["key"].map(lambda k: actors.get(k) or [])
     uniq["director_norm"] = uniq["director"].fillna("").map(lambda d: norm(str(d).split(",")[0].split("/")[0].strip()))
+    uniq["sinopsis"] = uniq["key"].map(lambda k: synopsis.get(k) or "")
 
     print(f"peliculas unicas: {len(uniq)}")
 
@@ -82,7 +94,15 @@ def main():
     DEC = dec_dummies.values * 0.5  # peso chico
 
     X = np.hstack([G, A, D, DEC])
-    sim = cosine_similarity(X)
+    sim_cat = cosine_similarity(X)
+
+    con_sinopsis = (uniq["sinopsis"].str.strip() != "").sum()
+    print(f"peliculas con sinopsis (para TF-IDF): {con_sinopsis}/{len(uniq)}")
+    tfidf = TfidfVectorizer(max_df=0.6, min_df=2, stop_words=None)
+    tfidf_matrix = tfidf.fit_transform(uniq["sinopsis"])
+    sim_text = cosine_similarity(tfidf_matrix)
+
+    sim = PESO_CATEGORICO * sim_cat + PESO_TEXTO * sim_text
     np.fill_diagonal(sim, -1)  # no recomendarse a si misma
 
     out = {}
