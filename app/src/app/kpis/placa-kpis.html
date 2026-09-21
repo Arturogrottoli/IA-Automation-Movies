@@ -29,8 +29,20 @@
         </div>
       </div>
       <div class="plate">
-        <h3>Registros por día</h3>
-        <app-bar-chart [entries]="porDia()" orientation="vertical" />
+        <div class="plate-head">
+          <h3>{{ tituloGrafico() }}</h3>
+          <select
+            class="gran-select"
+            aria-label="Agrupar por"
+            [value]="granularidad()"
+            (change)="setGranularidad($any($event.target).value)"
+          >
+            @for (g of granularidades; track g.value) {
+              <option [value]="g.value">{{ g.label }}</option>
+            }
+          </select>
+        </div>
+        <app-bar-chart [entries]="porPeriodo()" orientation="vertical" />
       </div>
     } @else {
       <p class="obs">Todavía no hay registros vía bot.</p>
