@@ -15,8 +15,9 @@ import urllib.request
 from collections import Counter, defaultdict
 
 import pandas as pd
+from sklearn.cluster import KMeans
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn.preprocessing import MultiLabelBinarizer, StandardScaler
 
 ROOT = __file__.rsplit("cerebro", 1)[0]
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1860980534&single=true&output=csv"
@@ -145,6 +146,52 @@ def main():
     print("\n--- que tanto pesa cada variable para predecir revision (random forest) ---")
     print(importances.head(12).round(3))
 
+    # --- 6. combos director+actor (con >= 2 peliculas juntos) ---
+    combo_rows = []
+    for _, r in uniq.iterrows():
+        d = str(r.get("director") or "")
+        dirs = [n.strip() for n in re.split(r",| y |/|&", d) if n.strip()]
+        for dn in dirs:
+            for an in r["reparto"]:
+                combo_rows.append({"director": dn, "actor": an, "revisitada": r["es_revisitada"]})
+    combo_df = pd.DataFrame(combo_rows)
+    combo_rate = (
+        combo_df.groupby(["director", "actor"])["revisitada"]
+        .agg(["mean", "count"])
+        .query("count >= 2")
+        .sort_values("mean", ascending=False)
+    )
+    print("\n--- tasa de revision por combo director+actor (min 2 peliculas juntos) ---")
+    print(combo_rate.assign(**{"mean": (combo_rate["mean"] * 100).round(1)}).head(10))
+
+    # --- 7. clustering: "familias de gusto" por anio visto ---
+    df["duracion"] = df["key"].map(lambda k: runtime.get(k))
+    df["generos"] = df["key"].map(lambda k: (posters.get(k) or {}).get("genres") or [])
+    top_generos_global = genre_df["genero"].value_counts().head(5).index.tolist()
+
+    anios = sorted(df["anio_visto"].dropna().unique())
+    feat_rows = []
+    for a in anios:
+        sub = df[df["anio_visto"] == a]
+        row = {
+            "anio": int(a),
+            "decada_prom": sub["decada"].mean(),
+            "duracion_prom": sub["duracion"].mean(),
+            "tasa_revision": sub["es_revisitada"].mean() * 100,
+        }
+        for g in top_generos_global:
+            row[f"pct_{g}"] = sub["generos"].map(lambda gs: g in gs).mean()
+        feat_rows.append(row)
+    feat_df = pd.DataFrame(feat_rows).fillna(0)
+    feat_cols = [c for c in feat_df.columns if c != "anio"]
+    X_years = StandardScaler().fit_transform(feat_df[feat_cols])
+
+    n_clusters = min(3, len(anios))
+    km = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
+    feat_df["cluster"] = km.fit_predict(X_years)
+    print(f"\n--- clustering de {len(anios)} anios en {n_clusters} familias de gusto ---")
+    print(feat_df[["anio", "decada_prom", "duracion_prom", "tasa_revision", "cluster"]].round(1))
+
     # --- guardar resumen para el sitio ---
     out = {
         "top_generos": [
@@ -172,6 +219,31 @@ def main():
         "variables_mas_importantes": [
             {"variable": v.replace("g_", ""), "peso": round(float(w), 3)}
             for v, w in importances.head(8).items()
+        ],
+        "genre_rate_full": [
+            {"genero": g, "tasa": round(row["mean"] * 100, 1), "n": int(row["count"])}
+            for g, row in genre_rate.iterrows()
+        ],
+        "dir_rate_full": [
+            {"director": d, "tasa": round(row["mean"] * 100, 1), "n": int(row["count"])}
+            for d, row in dir_rate.iterrows()
+        ],
+        "top_combos": [
+            {"director": d, "actor": a, "tasa": round(row["mean"] * 100, 1), "n": int(row["count"])}
+            for (d, a), row in combo_rate.head(5).iterrows()
+        ],
+        "clusters_anio": [
+            {"anio": int(r["anio"]), "cluster": int(r["cluster"])} for _, r in feat_df.iterrows()
+        ],
+        "cluster_resumen": [
+            {
+                "cluster": int(c),
+                "anios": sorted(int(a) for a in feat_df[feat_df["cluster"] == c]["anio"]),
+                "decada_prom": round(float(feat_df[feat_df["cluster"] == c]["decada_prom"].mean()), 0),
+                "duracion_prom": round(float(feat_df[feat_df["cluster"] == c]["duracion_prom"].mean()), 1),
+                "tasa_revision_prom": round(float(feat_df[feat_df["cluster"] == c]["tasa_revision"].mean()), 1),
+            }
+            for c in sorted(feat_df["cluster"].unique())
         ],
     }
     with open(ROOT + "taste_profile.json", "w", encoding="utf-8") as f:

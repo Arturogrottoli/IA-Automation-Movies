@@ -34,8 +34,8 @@
     },
     {
       "decada": 1970,
-      "tasa": 13.4,
-      "n": 67
+      "tasa": 13.0,
+      "n": 69
     },
     {
       "decada": 2010,
@@ -70,12 +70,12 @@
       "n": 4
     },
     {
-      "director": "Adolfo Aristarain",
+      "director": "Bong Joon-ho",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Bong Joon-ho",
+      "director": "Adolfo Aristarain",
       "tasa": 40.0,
       "n": 5
     },
@@ -85,12 +85,12 @@
       "n": 7
     },
     {
-      "director": "Edgar Wright",
+      "director": "Asif Kapadia",
       "tasa": 25.0,
       "n": 4
     },
     {
-      "director": "Robert Eggers",
+      "director": "Edgar Wright",
       "tasa": 25.0,
       "n": 4
     }
@@ -167,6 +167,395 @@
     {
       "variable": "Comedia",
       "peso": 0.039
+    }
+  ],
+  "genre_rate_full": [
+    {
+      "genero": "Animación",
+      "tasa": 17.9,
+      "n": 28
+    },
+    {
+      "genero": "Acción",
+      "tasa": 14.8,
+      "n": 230
+    },
+    {
+      "genero": "Familia",
+      "tasa": 13.5,
+      "n": 37
+    },
+    {
+      "genero": "Fantasía",
+      "tasa": 12.8,
+      "n": 86
+    },
+    {
+      "genero": "Crimen",
+      "tasa": 12.4,
+      "n": 242
+    },
+    {
+      "genero": "Romance",
+      "tasa": 11.9,
+      "n": 84
+    },
+    {
+      "genero": "Terror",
+      "tasa": 11.8,
+      "n": 246
+    },
+    {
+      "genero": "Comedia",
+      "tasa": 11.5,
+      "n": 338
+    },
+    {
+      "genero": "Ciencia ficción",
+      "tasa": 11.5,
+      "n": 131
+    },
+    {
+      "genero": "Suspense",
+      "tasa": 10.4,
+      "n": 367
+    },
+    {
+      "genero": "Aventura",
+      "tasa": 8.6,
+      "n": 81
+    },
+    {
+      "genero": "Misterio",
+      "tasa": 8.0,
+      "n": 113
+    },
+    {
+      "genero": "Drama",
+      "tasa": 7.7,
+      "n": 505
+    },
+    {
+      "genero": "Música",
+      "tasa": 6.5,
+      "n": 62
+    },
+    {
+      "genero": "Documental",
+      "tasa": 6.1,
+      "n": 98
+    },
+    {
+      "genero": "Historia",
+      "tasa": 1.8,
+      "n": 57
+    },
+    {
+      "genero": "Bélica",
+      "tasa": 0.0,
+      "n": 16
+    }
+  ],
+  "dir_rate_full": [
+    {
+      "director": "Quentin Tarantino",
+      "tasa": 63.6,
+      "n": 11
+    },
+    {
+      "director": "Chad Stahelski",
+      "tasa": 57.1,
+      "n": 7
+    },
+    {
+      "director": "Jeff Tremaine",
+      "tasa": 50.0,
+      "n": 4
+    },
+    {
+      "director": "Bong Joon-ho",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
+      "director": "Adolfo Aristarain",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
+      "director": "Yorgos Lanthimos",
+      "tasa": 28.6,
+      "n": 7
+    },
+    {
+      "director": "Asif Kapadia",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Edgar Wright",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Robert Eggers",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Danny Boyle",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Martin Scorsese",
+      "tasa": 24.0,
+      "n": 25
+    },
+    {
+      "director": "Adam McKay",
+      "tasa": 20.0,
+      "n": 5
+    },
+    {
+      "director": "Tim Burton",
+      "tasa": 20.0,
+      "n": 5
+    },
+    {
+      "director": "Sidney Lumet",
+      "tasa": 16.7,
+      "n": 6
+    },
+    {
+      "director": "Ethan Coen",
+      "tasa": 14.3,
+      "n": 7
+    },
+    {
+      "director": "John Carpenter",
+      "tasa": 14.3,
+      "n": 7
+    },
+    {
+      "director": "Joel Coen",
+      "tasa": 14.3,
+      "n": 7
+    },
+    {
+      "director": "Paul Thomas Anderson",
+      "tasa": 14.3,
+      "n": 7
+    },
+    {
+      "director": "David Fincher",
+      "tasa": 9.1,
+      "n": 11
+    },
+    {
+      "director": "Steven Spielberg",
+      "tasa": 8.3,
+      "n": 12
+    },
+    {
+      "director": "Alfred Hitchcock",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Antoine Fuqua",
+      "tasa": 0.0,
+      "n": 5
+    },
+    {
+      "director": "Denis Villeneuve",
+      "tasa": 0.0,
+      "n": 5
+    },
+    {
+      "director": "Marcelo Piñeyro",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "M. Night Shyamalan",
+      "tasa": 0.0,
+      "n": 5
+    },
+    {
+      "director": "Joel Schumacher",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Christopher Nolan",
+      "tasa": 0.0,
+      "n": 8
+    },
+    {
+      "director": "Damien Leone",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Clint Eastwood",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "David Cronenberg",
+      "tasa": 0.0,
+      "n": 5
+    },
+    {
+      "director": "Matt Bettinelli-Olpin",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Ridley Scott",
+      "tasa": 0.0,
+      "n": 6
+    },
+    {
+      "director": "Pedro Almodovar",
+      "tasa": 0.0,
+      "n": 7
+    },
+    {
+      "director": "Michael Mann",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Paul Schrader",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Sylvester Stallone",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Tyler Gillett",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Wes Craven",
+      "tasa": 0.0,
+      "n": 8
+    },
+    {
+      "director": "Woody Allen",
+      "tasa": 0.0,
+      "n": 5
+    }
+  ],
+  "top_combos": [
+    {
+      "director": "Ti West",
+      "actor": "Mia Goth",
+      "tasa": 100.0,
+      "n": 3
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Common",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Bridget Moynahan",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Andrew Adamson",
+      "actor": "Eddie Murphy",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Andrew Adamson",
+      "actor": "Cameron Diaz",
+      "tasa": 100.0,
+      "n": 2
+    }
+  ],
+  "clusters_anio": [
+    {
+      "anio": 2018,
+      "cluster": 1
+    },
+    {
+      "anio": 2019,
+      "cluster": 0
+    },
+    {
+      "anio": 2020,
+      "cluster": 0
+    },
+    {
+      "anio": 2021,
+      "cluster": 0
+    },
+    {
+      "anio": 2022,
+      "cluster": 2
+    },
+    {
+      "anio": 2023,
+      "cluster": 2
+    },
+    {
+      "anio": 2024,
+      "cluster": 0
+    },
+    {
+      "anio": 2025,
+      "cluster": 2
+    },
+    {
+      "anio": 2026,
+      "cluster": 1
+    }
+  ],
+  "cluster_resumen": [
+    {
+      "cluster": 0,
+      "anios": [
+        2019,
+        2020,
+        2021,
+        2024
+      ],
+      "decada_prom": 2002.0,
+      "duracion_prom": 112.6,
+      "tasa_revision_prom": 21.9
+    },
+    {
+      "cluster": 1,
+      "anios": [
+        2018,
+        2026
+      ],
+      "decada_prom": 1999.0,
+      "duracion_prom": 107.2,
+      "tasa_revision_prom": 16.0
+    },
+    {
+      "cluster": 2,
+      "anios": [
+        2022,
+        2023,
+        2025
+      ],
+      "decada_prom": 2007.0,
+      "duracion_prom": 109.9,
+      "tasa_revision_prom": 18.8
     }
   ]
 }

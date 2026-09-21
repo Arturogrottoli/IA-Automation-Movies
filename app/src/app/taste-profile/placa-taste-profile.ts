@@ -26,6 +26,17 @@ export class PlacaTasteProfile {
   protected readonly pesoDuracion = computed(() => this.profile()?.variables_mas_importantes[0] ?? null);
   protected readonly rango160 = computed(() => this.profile()?.tasa_por_duracion.at(-1) ?? null);
 
+  protected readonly topCombo = computed(() => this.profile()?.top_combos[0] ?? null);
+
+  protected readonly clusterAlto = computed(() => {
+    const r = this.profile()?.cluster_resumen;
+    return r?.length ? [...r].sort((a, b) => b.tasa_revision_prom - a.tasa_revision_prom)[0] : null;
+  });
+  protected readonly clusterBajo = computed(() => {
+    const r = this.profile()?.cluster_resumen;
+    return r?.length ? [...r].sort((a, b) => a.tasa_revision_prom - b.tasa_revision_prom)[0] : null;
+  });
+
   constructor(private readonly tasteProfile: TasteProfileService) {
     void this.tasteProfile.load();
   }

@@ -54,6 +54,23 @@
           la duración funciona como proxy del director, no como causa.
         }
       </p>
+      <p class="method">
+        @if (topCombo(); as tc) {
+          El director solo no es el techo: con {{ tc.director }} y {{ tc.actor }} juntos la
+          tasa de revisión llega a {{ tc.tasa }}% (sobre {{ tc.n }} películas) — el combo
+          director+actor puede pesar más que cualquiera de los dos por separado.
+        }
+        <br /><br />
+        @if (clusterAlto(); as ca) {
+          @if (clusterBajo(); as cb) {
+            Agrupando los años de registro por década/duración/género promedio (clustering,
+            3 familias), el gusto no fue constante en el tiempo: los años {{ ca.anios.join(', ') }}
+            tienen la tasa de revisión más alta del grupo ({{ ca.tasa_revision_prom }}%), contra
+            {{ cb.tasa_revision_prom }}% en {{ cb.anios.join(', ') }}. No hay una tendencia lineal
+            — son fases, no una curva.
+          }
+        }
+      </p>
       <p class="snapshot-note">
         Snapshot recalculado a mano con <code>python cerebro/taste_profile.py</code> — no
         se actualiza solo. La versión narrada en lenguaje natural por Gemini, en vivo,

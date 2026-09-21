@@ -90,6 +90,9 @@ export interface TasteProfile {
   tasa_por_duracion: (TasteRate & { rango: string })[];
   nota_duracion: string;
   variables_mas_importantes: { variable: string; peso: number }[];
+  top_combos: { director: string; actor: string; tasa: number; n: number }[];
+  clusters_anio: { anio: number; cluster: number }[];
+  cluster_resumen: { cluster: number; anios: number[]; decada_prom: number; duracion_prom: number; tasa_revision_prom: number }[];
 }
 
 /** Una fila de la pestaña por_ver. */
