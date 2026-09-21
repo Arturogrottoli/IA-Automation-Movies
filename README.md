@@ -121,7 +121,14 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       nuevas en `por_ver`). **A propósito sin tocar todavía** — esperar a que
       se renueven los créditos de Make este mes antes de sumar otro paso al
       escenario.
-- [ ] **Similitud por embeddings.** "pelis parecidas a X", "director parecido a otro".
+- [x] **Similitud por embeddings** (mitad del alcance original — ver decisión
+      abajo). `cerebro/build_similar.py` suma TF-IDF de sinopsis (scikit-learn,
+      sin dependencias pesadas nuevas) a la similitud categórica que ya
+      existía, combinando las dos matrices de coseno por separado (70%
+      categórico + 30% texto). Mismo `similar.json`, mismos chips "Parecidas"
+      del modal — mejor señal, sin tocar la UI. **Decisión:** "director
+      parecido a otro" queda afuera — no existe nada hoy, necesitaría una UI
+      nueva; se deja para más adelante si hace falta.
 - [x] Los 9 títulos que TMDB no tiene — todos con imagen a mano en `img/`.
 
 ### Pendiente — parte de data science
@@ -146,12 +153,26 @@ real, solo faltaba mostrarlo.
       (109,8 vs 110,0 min) — relación no lineal: el rango 160+ min tiene la
       tasa más alta (18,4%), pero es casi todo Scorsese/Tarantino — la
       duración es proxy del director, no la causa.
-      Falta (sin scopear todavía):
-      - Combos director+actor (ej. Scorsese+DiCaprio), no solo director solo.
-      - Clustering de "familias de gusto" por año, para ver si cambió en 9 años.
-      - Ahí sí, una versión del recomendador ajustada por este perfil, para
-        comparar contra la de contenido puro del modal (no para reemplazarla).
+      **Combos director+actor y clustering, hechos (2026-09-21)** — sumados
+      al mismo `taste_profile.json`, narrados en la misma Placa VII: top
+      combo real "Ti West + Mia Goth" (100% de tasa de revisión, sobre 3
+      películas juntos — el combo pesa más que el director solo). Clustering
+      (KMeans, sklearn) de los 9 años de registro en 3 "familias de gusto"
+      por década/duración/género promedio: no hay tendencia lineal en el
+      tiempo, son fases (2019/2020/2021/2024 con 21,9% de tasa de revisión
+      promedio vs. 16% en 2018/2026).
       Descartado (no interesa): cruzar tasa de revisión contra rating de TMDB.
+- [x] **Recomendador con 2 métodos comparados** → Placa VIII en el sitio
+      ([app/src/app/recommender](app/src/app/recommender)), primera placa
+      interactiva del cluster de Data Science. `cerebro/build_similar_ajustado.py`
+      repondera el mismo candidate pool de `build_similar.py`, pero con
+      señales reales de `taste_profile.json` en vez de pesos fijos a mano:
+      director/género escalados por tasa de revisión real, década por el
+      peso del Random Forest, y **duración sumada como feature nueva**
+      (el método por contenido no la usa) escalada por su propio peso RF
+      (el más alto de todos). Buscador de una película ya vista → 2
+      columnas de chips ("por contenido" vs. "ajustado por tu perfil"),
+      puramente de lectura.
 - [x] **"Películas parecidas a X" por similitud.** `cerebro/build_similar.py`
       (similitud por coseno, director x3 + reparto x2 + género x1 + década
       x0.5, incluye catálogo + "quiero ver", 1.212 películas). Se muestra en
@@ -267,6 +288,10 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       (2017-09-08, premiere de TIFF) que coincide exacto con el 2017 del
       catálogo; el campo principal de TMDB solo mostraba el estreno general
       de EE.UU. en 2019. Las 19 alertas de la última pasada, cerradas.
+      **Pasada nueva (2026-09-21):** mismas 19 alertas de siempre, ya todas
+      revisadas y confirmadas en pasadas anteriores — nada nuevo. Confirma
+      que sigue en el techo de lo que `check_datos.js` encuentra solo; lo
+      que quede requeriría revisión manual, no un patrón automatizable.
 - [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
