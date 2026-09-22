@@ -38,7 +38,15 @@ export const DEFAULT_SORT_DIR: Record<SortKey, 1 | -1> = {
 /** Filtros que aplican a nivel película (todas sus visitas comparten estos valores). */
 function matchesMovieFilters(movie: Movie, filters: CatalogFilters): boolean {
   const q = deburr(filters.search.trim());
-  if (q && !(deburr(movie.titulo).includes(q) || deburr(movie.director).includes(q))) return false;
+  if (
+    q &&
+    !(
+      deburr(movie.titulo).includes(q) ||
+      deburr(movie.director).includes(q) ||
+      movie.cast.some((a) => deburr(a).includes(q))
+    )
+  )
+    return false;
   if (filters.decade && decadeOf(movie.anioEstreno) !== filters.decade) return false;
   if (filters.country && movie.paisOrigen !== filters.country) return false;
   if (filters.genre && !movie.genres.includes(filters.genre)) return false;
