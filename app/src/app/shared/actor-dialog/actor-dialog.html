@@ -1,0 +1,49 @@
+<app-dialog [open]="!!nombre()" [compact]="true" (closed)="close()">
+  @if (nombre(); as n) {
+    @if (info() === undefined) {
+      <div class="ad-head">
+        <div class="ad-photo ad-photo-ph" aria-hidden="true">🎭</div>
+        <div>
+          <p class="ad-name">{{ n }}</p>
+          <p class="ad-status">Buscando en TMDB…</p>
+        </div>
+      </div>
+    } @else if (info() === null) {
+      <div class="ad-head">
+        <div class="ad-photo ad-photo-ph" aria-hidden="true">🎭</div>
+        <div>
+          <p class="ad-name">{{ n }}</p>
+          <p class="ad-status">No encontrado en TMDB.</p>
+        </div>
+      </div>
+    } @else if (info(); as p) {
+      <div class="ad-head">
+        @if (p.foto) {
+          <img class="ad-photo" [src]="p.foto" [alt]="p.nombre" />
+        } @else {
+          <div class="ad-photo ad-photo-ph" aria-hidden="true">🎭</div>
+        }
+        <div>
+          <p class="ad-name">{{ p.nombre }}</p>
+          @if (p.knownFor.length) {
+            <p class="ad-status">Conocido/a por</p>
+          }
+        </div>
+      </div>
+      @if (p.knownFor.length) {
+        <div class="ad-movies">
+          @for (m of p.knownFor; track m.titulo + m.anioEstreno) {
+            <button class="ad-movie" (click)="openMovie(m)">
+              @if (m.poster) {
+                <img [src]="m.poster" [alt]="m.titulo" />
+              } @else {
+                <div class="ad-movie-ph">{{ m.titulo }}</div>
+              }
+              <span>{{ m.titulo }} <em>{{ m.anioEstreno }}</em></span>
+            </button>
+          }
+        </div>
+      }
+    }
+  }
+</app-dialog>

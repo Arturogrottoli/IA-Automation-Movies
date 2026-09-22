@@ -45,7 +45,7 @@
         <h4>Reparto</h4>
         <div class="mm-cast">
           @for (a of m.cast; track a) {
-            <span class="mm-actor">{{ a }}</span>
+            <button class="mm-actor" (click)="openActor(a)">{{ a }}</button>
           }
         </div>
       </div>
@@ -138,7 +138,7 @@
         <h4>Reparto</h4>
         <div class="mm-cast">
           @for (a of m.cast; track a) {
-            <span class="mm-actor">{{ a }}</span>
+            <button class="mm-actor" (click)="openActor(a)">{{ a }}</button>
           }
         </div>
       </div>

@@ -8,7 +8,7 @@ import { normalizeKey } from './key.util';
  * límite de TMDB es por IP, no por token (developer.themoviedb.org/docs/rate-limiting).
  * Sitio lúdico, no hay nada sensible detrás de este token.
  */
-const TMDB_TOKEN =
+export const TMDB_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYzRkNjIyOTJmNGRmYzI3OTliYjkxN2IzODBhZTFiNCIsIm5iZiI6MTc4ODgyODA2Ni44MjksInN1YiI6IjZhOWY1OWEyZTM0OTJlMmJiMDRiMTUwMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NSHR3ISSnourzx14izK0qLQTUdgLN82hLoELPLWsX8U';
 
 export interface LiveRec {

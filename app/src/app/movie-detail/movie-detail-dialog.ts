@@ -7,6 +7,7 @@ import { ConfirmService } from '../core/confirm.service';
 import { DialogService } from '../core/dialog.service';
 import { TmdbLiveService } from '../core/tmdb-live.service';
 import { ToastService } from '../core/toast.service';
+import { ActorDialogService } from '../core/actor-dialog.service';
 import { EMPTY_ENRICHMENT, WatchlistItem } from '../core/models';
 import { normalizeKey } from '../core/key.util';
 
@@ -63,6 +64,8 @@ export class MovieDetailDialog {
       agregadaEl: '',
       ...(enrichmentEntry ?? EMPTY_ENRICHMENT),
       ...(live ? { poster: live.poster, synopsis: live.synopsis, rating: live.rating, tmdbId: live.tmdbId } : {}),
+      // el que abrió (ej. la fichita de actor) ya tenía póster/tmdbId a mano — pisa el placeholder vacío.
+      ...(!enrichmentEntry?.poster && !live && target.poster ? { poster: target.poster, tmdbId: target.tmdbId ?? null } : {}),
     };
   });
 
@@ -114,6 +117,7 @@ export class MovieDetailDialog {
     private readonly confirmService: ConfirmService,
     private readonly tmdbLive: TmdbLiveService,
     private readonly toast: ToastService,
+    private readonly actorDialog: ActorDialogService,
   ) {
     effect(() => {
       const id = this.activeTmdbId();
@@ -127,6 +131,10 @@ export class MovieDetailDialog {
 
   protected openSimilar(titulo: string, director: string, anioEstreno: number | null): void {
     this.dialog.open({ key: normalizeKey(titulo, anioEstreno), titulo, director, anioEstreno });
+  }
+
+  protected openActor(nombre: string): void {
+    this.actorDialog.open(nombre);
   }
 
   protected requestRemove(item: WatchlistItem): void {

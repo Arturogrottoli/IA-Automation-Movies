@@ -18,6 +18,7 @@ import { MovieDetailDialog } from './movie-detail/movie-detail-dialog';
 import { ConfirmDialog } from './shared/confirm-dialog/confirm-dialog';
 import { ChartTooltip } from './shared/chart-tooltip/chart-tooltip';
 import { Toast } from './shared/toast/toast';
+import { ActorDialog } from './shared/actor-dialog/actor-dialog';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +38,7 @@ import { Toast } from './shared/toast/toast';
     ConfirmDialog,
     ChartTooltip,
     Toast,
+    ActorDialog,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

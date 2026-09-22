@@ -6,6 +6,10 @@ export interface MovieStub {
   titulo: string;
   director: string;
   anioEstreno: number | null;
+  /** Opcional: cuando quien abre ya tiene el póster a mano (ej. desde la fichita de actor)
+   * — evita mostrar el placeholder vacío mientras se resuelve el resto. */
+  poster?: string | null;
+  tmdbId?: number | null;
 }
 
 /**
