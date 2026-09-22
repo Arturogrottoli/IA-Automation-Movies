@@ -301,6 +301,12 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       revisadas y confirmadas en pasadas anteriores — nada nuevo. Confirma
       que sigue en el techo de lo que `check_datos.js` encuentra solo; lo
       que quede requeriría revisión manual, no un patrón automatizable.
+      **Pasada nueva (2026-09-22):** mismas 19 alertas de siempre, sin
+      cambios. También se revisó el otro ángulo — películas sin ningún match
+      en `posters.json` (lo que `check_datos.js` ni evalúa, porque solo
+      compara contra matches ya existentes) — y siguen siendo las mismas 2
+      de siempre: "Leaving Neverland" y "La Casa de la playa", que TMDB
+      directamente no tiene cargadas como película. Nada nuevo para cazar.
 - [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
