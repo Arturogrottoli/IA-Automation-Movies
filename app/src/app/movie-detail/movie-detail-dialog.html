@@ -63,14 +63,29 @@
     @if (recomendadas().length) {
       <div class="mm-section">
         <h4>Parecidas y recomendadas</h4>
-        <p class="mm-legend"><span class="dot vista"></span> ya la viste <span class="dot nueva"></span> para descubrir</p>
-        <div class="mm-similar">
-          @for (s of recomendadas(); track s.titulo + s.anioEstreno) {
-            <button class="mm-sim" [class.vista]="s.yaVista" [class.nueva]="!s.yaVista" (click)="openSimilar(s.titulo, s.director, s.anioEstreno)">
-              {{ s.titulo }} <span>{{ s.anioEstreno }}</span>
-            </button>
-          }
-        </div>
+        @if (parecidasVistas().length) {
+          <p class="mm-subhead">Ya viste</p>
+          <div class="mm-similar">
+            @for (s of parecidasVistas(); track s.titulo + s.anioEstreno) {
+              <button class="mm-sim vista" (click)="openSimilar(s.titulo, s.director, s.anioEstreno)">
+                {{ s.titulo }} <span>{{ s.anioEstreno }}</span>
+              </button>
+            }
+          </div>
+        }
+        @if (parecidasVistas().length && parecidasNuevas().length) {
+          <hr class="mm-divider" />
+        }
+        @if (parecidasNuevas().length) {
+          <p class="mm-subhead">Para descubrir</p>
+          <div class="mm-similar">
+            @for (s of parecidasNuevas(); track s.titulo + s.anioEstreno) {
+              <button class="mm-sim nueva" (click)="openSimilar(s.titulo, s.director, s.anioEstreno)">
+                {{ s.titulo }} <span>{{ s.anioEstreno }}</span>
+              </button>
+            }
+          </div>
+        }
       </div>
     }
   } @else if (watchlistVariant(); as m) {
@@ -131,14 +146,29 @@
     @if (recomendadas().length) {
       <div class="mm-section">
         <h4>Parecidas y recomendadas</h4>
-        <p class="mm-legend"><span class="dot vista"></span> ya la viste <span class="dot nueva"></span> para descubrir</p>
-        <div class="mm-similar">
-          @for (s of recomendadas(); track s.titulo + s.anioEstreno) {
-            <button class="mm-sim" [class.vista]="s.yaVista" [class.nueva]="!s.yaVista" (click)="openSimilar(s.titulo, s.director, s.anioEstreno)">
-              {{ s.titulo }} <span>{{ s.anioEstreno }}</span>
-            </button>
-          }
-        </div>
+        @if (parecidasVistas().length) {
+          <p class="mm-subhead">Ya viste</p>
+          <div class="mm-similar">
+            @for (s of parecidasVistas(); track s.titulo + s.anioEstreno) {
+              <button class="mm-sim vista" (click)="openSimilar(s.titulo, s.director, s.anioEstreno)">
+                {{ s.titulo }} <span>{{ s.anioEstreno }}</span>
+              </button>
+            }
+          </div>
+        }
+        @if (parecidasVistas().length && parecidasNuevas().length) {
+          <hr class="mm-divider" />
+        }
+        @if (parecidasNuevas().length) {
+          <p class="mm-subhead">Para descubrir</p>
+          <div class="mm-similar">
+            @for (s of parecidasNuevas(); track s.titulo + s.anioEstreno) {
+              <button class="mm-sim nueva" (click)="openSimilar(s.titulo, s.director, s.anioEstreno)">
+                {{ s.titulo }} <span>{{ s.anioEstreno }}</span>
+              </button>
+            }
+          </div>
+        }
       </div>
     }
     @if (!tracked()) {

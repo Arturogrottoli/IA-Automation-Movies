@@ -102,6 +102,9 @@ export class MovieDetailDialog {
     return out;
   });
 
+  protected readonly parecidasVistas = computed(() => this.recomendadas().filter((r) => r.yaVista));
+  protected readonly parecidasNuevas = computed(() => this.recomendadas().filter((r) => !r.yaVista));
+
   constructor(
     protected readonly dialog: DialogService,
     private readonly catalog: CatalogDataService,
