@@ -10,7 +10,18 @@
       </div>
       <div>
         <div class="mm-title" id="modalTitle">{{ m.titulo }}</div>
-        <div class="mm-sub">{{ m.director || '—' }} · {{ m.anioEstreno || '—' }} · {{ m.paisOrigen }}</div>
+        <div class="mm-sub">
+          @if (splitDir(m.director); as dirs) {
+            @if (dirs.length) {
+              @for (d of dirs; track d; let last = $last) {
+                <button class="mm-dir" (click)="openActor(d)">{{ d }}</button>{{ last ? '' : ', ' }}
+              }
+            } @else {
+              —
+            }
+          }
+          · {{ m.anioEstreno || '—' }} · {{ m.paisOrigen }}
+        </div>
         <div class="mm-tags">
           @for (g of m.genres; track g) {
             <span class="mm-tag">{{ g }}</span>
@@ -104,7 +115,18 @@
             <button class="mm-x" (click)="requestRemove(m)">Quitar de la lista</button>
           }
         </div>
-        <div class="mm-sub">{{ m.director || '—' }} · {{ m.anioEstreno || '—' }}</div>
+        <div class="mm-sub">
+          @if (splitDir(m.director); as dirs) {
+            @if (dirs.length) {
+              @for (d of dirs; track d; let last = $last) {
+                <button class="mm-dir" (click)="openActor(d)">{{ d }}</button>{{ last ? '' : ', ' }}
+              }
+            } @else {
+              —
+            }
+          }
+          · {{ m.anioEstreno || '—' }}
+        </div>
         <div class="mm-tags">
           @for (g of m.genres; track g) {
             <span class="mm-tag">{{ g }}</span>

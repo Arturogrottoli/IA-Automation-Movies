@@ -9,7 +9,7 @@ import { TmdbLiveService } from '../core/tmdb-live.service';
 import { ToastService } from '../core/toast.service';
 import { ActorDialogService } from '../core/actor-dialog.service';
 import { EMPTY_ENRICHMENT, WatchlistItem } from '../core/models';
-import { normalizeKey } from '../core/key.util';
+import { normalizeKey, splitDirectores } from '../core/key.util';
 
 export interface RecomendadaEntry {
   titulo: string;
@@ -135,6 +135,10 @@ export class MovieDetailDialog {
 
   protected openActor(nombre: string): void {
     this.actorDialog.open(nombre);
+  }
+
+  protected splitDir(raw: string): string[] {
+    return splitDirectores(raw);
   }
 
   protected requestRemove(item: WatchlistItem): void {

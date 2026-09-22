@@ -73,6 +73,22 @@
   color: var(--ink-2);
   margin-bottom: 14px;
 }
+.mm-dir {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+.mm-dir:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
 .mm-tags {
   display: flex;
   flex-wrap: wrap;

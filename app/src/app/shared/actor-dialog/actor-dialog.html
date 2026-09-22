@@ -25,9 +25,7 @@
         }
         <div>
           <p class="ad-name">{{ p.nombre }}</p>
-          @if (p.knownFor.length) {
-            <p class="ad-status">Conocido/a por</p>
-          }
+          <p class="ad-status">{{ p.knownFor.length ? 'Conocido/a por' : 'Sin películas registradas en TMDB' }}</p>
         </div>
       </div>
       @if (p.knownFor.length) {

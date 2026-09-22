@@ -65,6 +65,14 @@ export function canonDir(raw: string | null | undefined): string {
   return DIR_ALIAS[d] || d;
 }
 
+/** "Joel Coen, Ethan Coen" -> ["Joel Coen", "Ethan Coen"] — mismo criterio que cerebro/taste_profile.py. */
+export function splitDirectores(raw: string | null | undefined): string[] {
+  return (raw ?? '')
+    .split(/,| y |\/|&/)
+    .map((d) => canonDir(d))
+    .filter(Boolean);
+}
+
 export function decadeOf(year: number | null | undefined): number | null {
   return year ? Math.floor(year / 10) * 10 : null;
 }
