@@ -133,6 +133,13 @@ export class MovieDetailDialog {
   protected readonly parecidasVistas = computed(() => this.recomendadas().filter((r) => r.yaVista));
   protected readonly parecidasNuevas = computed(() => this.recomendadas().filter((r) => !r.yaVista));
 
+  /** Mientras `loadDetails` sigue en vuelo para algo que no está vista/anotada — el director puede tardar en llegar. */
+  protected readonly detailsPending = computed(() => {
+    if (this.watchedMovie() || this.watchlistItem()) return false;
+    const id = this.candidateTmdbId();
+    return !!id && !this.tmdbLive.detailsCache().has(id);
+  });
+
   constructor(
     protected readonly dialog: DialogService,
     private readonly catalog: CatalogDataService,

@@ -27,6 +27,7 @@ export interface LiveDetails {
   runtimeMin: number | null;
   genres: string[];
   cast: string[];
+  director: string;
 }
 
 /**
@@ -98,7 +99,8 @@ export class TmdbLiveService {
       const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=es&append_to_response=credits`, {
         headers: { Authorization: `Bearer ${TMDB_TOKEN}`, accept: 'application/json' },
       });
-      let details: LiveDetails = { poster: null, synopsis: null, rating: null, runtimeMin: null, genres: [], cast: [] };
+      const empty: LiveDetails = { poster: null, synopsis: null, rating: null, runtimeMin: null, genres: [], cast: [], director: '' };
+      let details: LiveDetails = empty;
       if (res.ok) {
         const j = await res.json();
         details = {
@@ -108,11 +110,15 @@ export class TmdbLiveService {
           runtimeMin: j.runtime || null,
           genres: (j.genres ?? []).map((g: { name: string }) => g.name),
           cast: (j.credits?.cast ?? []).slice(0, 4).map((c: { name: string }) => c.name),
+          director: (j.credits?.crew ?? [])
+            .filter((c: { job: string }) => c.job === 'Director')
+            .map((c: { name: string }) => c.name)
+            .join(', '),
         };
       }
       this.detailsCache.update((m) => new Map(m).set(tmdbId, details));
     } catch {
-      this.detailsCache.update((m) => new Map(m).set(tmdbId, { poster: null, synopsis: null, rating: null, runtimeMin: null, genres: [], cast: [] }));
+      this.detailsCache.update((m) => new Map(m).set(tmdbId, { poster: null, synopsis: null, rating: null, runtimeMin: null, genres: [], cast: [], director: '' }));
     } finally {
       this.pendingDetails.delete(tmdbId);
     }

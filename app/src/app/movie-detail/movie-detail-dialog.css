@@ -89,6 +89,10 @@
   color: var(--accent);
   text-decoration-color: var(--accent);
 }
+.mm-loading {
+  font-style: italic;
+  color: var(--ink-3);
+}
 .mm-tags {
   display: flex;
   flex-wrap: wrap;

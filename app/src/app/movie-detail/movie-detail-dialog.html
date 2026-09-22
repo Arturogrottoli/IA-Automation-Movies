@@ -16,6 +16,8 @@
               @for (d of dirs; track d; let last = $last) {
                 <button class="mm-dir" (click)="openActor(d)">{{ d }}</button>{{ last ? '' : ', ' }}
               }
+            } @else if (detailsPending()) {
+              <span class="mm-loading">buscando director…</span>
             } @else {
               —
             }
@@ -121,6 +123,8 @@
               @for (d of dirs; track d; let last = $last) {
                 <button class="mm-dir" (click)="openActor(d)">{{ d }}</button>{{ last ? '' : ', ' }}
               }
+            } @else if (detailsPending()) {
+              <span class="mm-loading">buscando director…</span>
             } @else {
               —
             }
