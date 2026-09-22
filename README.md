@@ -241,8 +241,9 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       no registra en ningún lugar accesible (el ❌ del HITL no escribe nada
       en la hoja a propósito, y todavía no hay Error Handler). Documentado
       en detalle por qué en el doc.
-- [~] **Video demo de 3 min.** Se hace aparte, en YouTube, no como parte del
-      trabajo del proyecto — no es un pendiente activo.
+- [~] **Video demo de 3 min — descartado (2026-09-22).** Decisión del
+      usuario: no se va a hacer. Se hacía aparte, en YouTube, de cualquier
+      forma no era parte del trabajo del proyecto.
 
 ### Deuda técnica menor
 - [x] **Fechas de visionado (`fecha_vista`) con el año corrido.** Los 8
