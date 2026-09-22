@@ -115,6 +115,15 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       literal) — si mapeás ahí un valor de otro módulo (por error, con el
       picker), Gemini usa ese valor como nombre de clave en vez de como
       contenido, y todo sale mal armado.
+      **Roto ahora mismo (2026-09-22), pendiente de retomar con Make:**
+      agregar desde el sitio no escribe nada en la hoja — probado con "The
+      Rati Horror Show", cero filas nuevas en `por_ver`. **No es créditos
+      agotados de la cuenta** (el usuario confirmó que registrar por
+      Telegram sigue andando bien) — es puntual del escenario "Integration
+      Webhooks". Falta entrar a Make → Scenarios → "Integration Webhooks" y
+      revisar si el toggle sigue en ON y qué dice la History de las últimas
+      ejecuciones (probable causa: Make desactiva un escenario solo después
+      de demasiados errores seguidos).
 - [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
       re-correrlo a mano; sumar un paso de TMDB a la rama `agendar`/`agregar`
       de Make (HTTP call por título+año, guardar poster/género como columnas

@@ -1,0 +1,5 @@
+<div class="toast" [class.visible]="!!toast.message()" role="status" aria-live="polite">
+  @if (toast.message(); as m) {
+    {{ m }}
+  }
+</div>

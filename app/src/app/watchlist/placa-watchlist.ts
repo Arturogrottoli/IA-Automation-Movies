@@ -3,6 +3,7 @@ import { CatalogDataService } from '../core/catalog-data.service';
 import { WatchlistDataService } from '../core/watchlist-data.service';
 import { DialogService } from '../core/dialog.service';
 import { ConfirmService } from '../core/confirm.service';
+import { ToastService } from '../core/toast.service';
 import { WatchlistItem } from '../core/models';
 import { canonDir, deburr } from '../core/key.util';
 import { MovieCard } from '../shared/movie-card/movie-card';
@@ -64,6 +65,7 @@ export class PlacaWatchlist {
     protected readonly watchlist: WatchlistDataService,
     private readonly dialog: DialogService,
     private readonly confirmService: ConfirmService,
+    private readonly toast: ToastService,
   ) {}
 
   protected onPageChange(page: number): void {
@@ -102,6 +104,7 @@ export class PlacaWatchlist {
     this.addPending.set(false);
     if (ok) {
       this.closeAdd();
+      this.toast.show(`"${t}" agregada a "Quiero ver"`);
     } else {
       this.addError.set('Error, probá de nuevo.');
     }

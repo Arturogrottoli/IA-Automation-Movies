@@ -6,6 +6,7 @@ import { EnrichmentService } from '../core/enrichment.service';
 import { ConfirmService } from '../core/confirm.service';
 import { DialogService } from '../core/dialog.service';
 import { TmdbLiveService } from '../core/tmdb-live.service';
+import { ToastService } from '../core/toast.service';
 import { EMPTY_ENRICHMENT, WatchlistItem } from '../core/models';
 import { normalizeKey } from '../core/key.util';
 
@@ -112,6 +113,7 @@ export class MovieDetailDialog {
     private readonly enrichment: EnrichmentService,
     private readonly confirmService: ConfirmService,
     private readonly tmdbLive: TmdbLiveService,
+    private readonly toast: ToastService,
   ) {
     effect(() => {
       const id = this.activeTmdbId();
@@ -137,7 +139,8 @@ export class MovieDetailDialog {
 
   protected async addToWatchlist(item: WatchlistItem): Promise<void> {
     this.addPending.set(true);
-    await this.watchlist.add(item.titulo);
+    const ok = await this.watchlist.add(item.titulo);
     this.addPending.set(false);
+    if (ok) this.toast.show(`"${item.titulo}" agregada a "Quiero ver"`);
   }
 }
