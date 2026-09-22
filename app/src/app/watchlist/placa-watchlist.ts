@@ -5,7 +5,7 @@ import { DialogService } from '../core/dialog.service';
 import { ConfirmService } from '../core/confirm.service';
 import { ToastService } from '../core/toast.service';
 import { WatchlistItem } from '../core/models';
-import { canonDir, deburr } from '../core/key.util';
+import { deburr } from '../core/key.util';
 import { MovieCard } from '../shared/movie-card/movie-card';
 import { Pager } from '../shared/pager/pager';
 import { Dialog } from '../shared/dialog/dialog';
@@ -30,24 +30,24 @@ export class PlacaWatchlist {
   protected readonly addPending = signal(false);
 
   // Una vez que registrás que la viste, sale sola de "Quiero ver" — match por
-  // título (igual que el original) O por director+año (agregado: el mismo
-  // título puede quedar escrito en idiomas distintos entre "por_ver" y
+  // título (igual que el original) O por tmdbId (agregado: el mismo título
+  // puede quedar escrito en idiomas distintos entre "por_ver" y
   // "catalogo_completo" -- ej. "Asesinato en el Orient Express" vs. "Murder
   // on the Orient Express" -- y el match de texto nunca los va a reconocer
-  // como la misma película).
+  // como la misma película). tmdbId es el identificador real de TMDB, ya
+  // verificado en el backfill -- más confiable que director+año, que da
+  // falsos positivos cuando un director estrena más de una película el
+  // mismo año (ej. Coppola 1974: "The Conversation" y "The Godfather 2" son
+  // películas distintas, probado con un intento anterior de este fix).
   protected readonly pendingItems = computed(() => {
     const movies = this.catalog.movies();
     const seenTitles = new Set(movies.map((m) => deburr(m.titulo).trim()));
-    const seenDirYear = new Set(
-      movies
-        .filter((m) => m.director && m.anioEstreno)
-        .map((m) => `${deburr(canonDir(m.director)).trim()}|${m.anioEstreno}`),
-    );
+    const seenTmdbIds = new Set(movies.filter((m) => m.tmdbId != null).map((m) => m.tmdbId));
     return this.watchlist
       .items()
       .filter((i) => {
         if (seenTitles.has(deburr(i.titulo).trim())) return false;
-        if (i.director && i.anioEstreno && seenDirYear.has(`${deburr(canonDir(i.director)).trim()}|${i.anioEstreno}`)) return false;
+        if (i.tmdbId != null && seenTmdbIds.has(i.tmdbId)) return false;
         return true;
       })
       .sort((a, b) => (b.agregadaEl || '').localeCompare(a.agregadaEl || ''));
