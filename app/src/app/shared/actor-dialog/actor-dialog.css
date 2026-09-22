@@ -38,9 +38,9 @@
   margin: 0;
 }
 .ad-movies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 84px);
+  gap: 10px 12px;
 }
 .ad-movie {
   width: 84px;
@@ -81,7 +81,10 @@
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   line-height: 1.3;
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .ad-movie:hover span {
   color: var(--accent);
