@@ -48,12 +48,39 @@ export class MovieDetailDialog {
     return this.watchlist.items().find((i) => i.key === target.key) ?? null;
   });
 
+  /**
+   * El mejor tmdbId que tengamos para lo que está abierto, resuelto ANTES de
+   * armar `fallbackItem` (así no depende circularmente de él): del
+   * catálogo/watchlist si ya está vista/anotada, del enriquecimiento local,
+   * de la pista que haya pasado quien abrió (ej. la fichita de actor/director,
+   * que ya trae el id de TMDB de esa película puntual), o de lo que ya esté
+   * cacheado en `tmdbLive` por haber aparecido como recomendación de otra.
+   */
+  private readonly candidateTmdbId = computed(() => {
+    const target = this.dialog.openTarget();
+    if (!target) return null;
+    return (
+      this.watchedMovie()?.tmdbId ??
+      this.watchlistItem()?.tmdbId ??
+      this.enrichment.map().get(target.key)?.tmdbId ??
+      target.tmdbId ??
+      this.tmdbLive.findByKey(target.key)?.tmdbId ??
+      null
+    );
+  });
+
   /** Solo cuando no está ni vista ni en la lista: una ficha mínima armada con el stub + TMDB (local o, si no hay, en vivo). */
   private readonly fallbackItem = computed<WatchlistItem | null>(() => {
     const target = this.dialog.openTarget();
     if (!target || this.watchedMovie() || this.watchlistItem()) return null;
     const enrichmentEntry = this.enrichment.map().get(target.key);
-    const live = enrichmentEntry?.poster ? null : this.tmdbLive.findByKey(target.key);
+    const id = this.candidateTmdbId();
+    // ficha completa (duración/género/reparto/sinopsis/rating) — la única fuente
+    // real para algo que nunca estuvo en el catálogo ni en "Quiero ver".
+    const details = id ? this.tmdbLive.detailsCache().get(id) : null;
+    // encadenado explícito para el póster: no queremos que un `details.poster`
+    // null (todavía sin cargar, o TMDB sin póster) pise una pista o dato local válido.
+    const poster = details?.poster ?? enrichmentEntry?.poster ?? target.poster ?? null;
     return {
       key: target.key,
       titulo: target.titulo,
@@ -63,9 +90,9 @@ export class MovieDetailDialog {
       genero: '',
       agregadaEl: '',
       ...(enrichmentEntry ?? EMPTY_ENRICHMENT),
-      ...(live ? { poster: live.poster, synopsis: live.synopsis, rating: live.rating, tmdbId: live.tmdbId } : {}),
-      // el que abrió (ej. la fichita de actor) ya tenía póster/tmdbId a mano — pisa el placeholder vacío.
-      ...(!enrichmentEntry?.poster && !live && target.poster ? { poster: target.poster, tmdbId: target.tmdbId ?? null } : {}),
+      ...(details ?? {}),
+      poster,
+      tmdbId: id,
     };
   });
 
@@ -73,9 +100,6 @@ export class MovieDetailDialog {
   protected readonly tracked = computed(() => !!this.watchlistItem());
   protected readonly dates = computed(() => this.watchedMovie()?.watchInstances.map((w) => w.fecha) ?? []);
   protected readonly isOpen = computed(() => !!this.watchedMovie() || !!this.watchlistVariant());
-
-  /** El tmdbId de lo que esté abierto ahora, sea cual sea la variante — dispara la carga en vivo. */
-  private readonly activeTmdbId = computed(() => this.watchedMovie()?.tmdbId ?? this.watchlistVariant()?.tmdbId ?? null);
 
   /**
    * "Parecidas" + "Recomendadas (que no viste)" fusionadas en una sola grilla:
@@ -85,7 +109,7 @@ export class MovieDetailDialog {
    */
   protected readonly recomendadas = computed<RecomendadaEntry[]>(() => {
     const base = this.watchedMovie()?.similar ?? this.watchlistVariant()?.similar ?? [];
-    const id = this.activeTmdbId();
+    const id = this.candidateTmdbId();
     const live = id ? (this.tmdbLive.cache().get(id) ?? []) : [];
     const movieKeys = new Set(this.catalog.movies().map((m) => m.key));
     const seen = new Set<string>();
@@ -120,8 +144,12 @@ export class MovieDetailDialog {
     private readonly actorDialog: ActorDialogService,
   ) {
     effect(() => {
-      const id = this.activeTmdbId();
-      if (id) void this.tmdbLive.load(id);
+      const id = this.candidateTmdbId();
+      if (!id) return;
+      void this.tmdbLive.load(id); // recomendaciones
+      // ficha completa: solo hace falta cuando no está vista/anotada -- si está,
+      // ya tenemos todo del catálogo/watchlist, no vale la pena el llamado extra.
+      if (!this.watchedMovie() && !this.watchlistItem()) void this.tmdbLive.loadDetails(id);
     });
   }
 

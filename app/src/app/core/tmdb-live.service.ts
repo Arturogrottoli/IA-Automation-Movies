@@ -20,6 +20,15 @@ export interface LiveRec {
   rating: number | null;
 }
 
+export interface LiveDetails {
+  poster: string | null;
+  synopsis: string | null;
+  rating: number | null;
+  runtimeMin: number | null;
+  genres: string[];
+  cast: string[];
+}
+
 /**
  * Recomendaciones en vivo de TMDB (`/movie/{id}/recommendations`) — a
  * diferencia de similar.json (precomputado, solo cubre lo que ya está en la
@@ -70,5 +79,42 @@ export class TmdbLiveService {
       if (found) return found;
     }
     return null;
+  }
+
+  readonly detailsCache = signal<Map<number, LiveDetails>>(new Map());
+  private readonly pendingDetails = new Set<number>();
+
+  /**
+   * Ficha completa de una película por tmdbId (duración, géneros, reparto,
+   * sinopsis, rating) — un solo llamado con `append_to_response=credits`
+   * para no necesitar una segunda consulta. Para películas que no están en
+   * el catálogo/watchlist del usuario (ej. abiertas desde una fichita de
+   * actor/director), es la única forma de completar la ficha entera.
+   */
+  async loadDetails(tmdbId: number): Promise<void> {
+    if (this.detailsCache().has(tmdbId) || this.pendingDetails.has(tmdbId)) return;
+    this.pendingDetails.add(tmdbId);
+    try {
+      const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=es&append_to_response=credits`, {
+        headers: { Authorization: `Bearer ${TMDB_TOKEN}`, accept: 'application/json' },
+      });
+      let details: LiveDetails = { poster: null, synopsis: null, rating: null, runtimeMin: null, genres: [], cast: [] };
+      if (res.ok) {
+        const j = await res.json();
+        details = {
+          poster: j.poster_path ? `https://image.tmdb.org/t/p/w342${j.poster_path}` : null,
+          synopsis: j.overview || null,
+          rating: j.vote_average ? Math.round(j.vote_average * 10) / 10 : null,
+          runtimeMin: j.runtime || null,
+          genres: (j.genres ?? []).map((g: { name: string }) => g.name),
+          cast: (j.credits?.cast ?? []).slice(0, 4).map((c: { name: string }) => c.name),
+        };
+      }
+      this.detailsCache.update((m) => new Map(m).set(tmdbId, details));
+    } catch {
+      this.detailsCache.update((m) => new Map(m).set(tmdbId, { poster: null, synopsis: null, rating: null, runtimeMin: null, genres: [], cast: [] }));
+    } finally {
+      this.pendingDetails.delete(tmdbId);
+    }
   }
 }
