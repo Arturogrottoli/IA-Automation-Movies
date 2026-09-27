@@ -223,6 +223,14 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
 - [x] **Sección "Lo que mis películas dicen de mí"** → ver el ítem de
       arriba, "Perfil de gusto, en el sitio". La versión narrada por Gemini
       en vivo (en vez de la prosa fija actual) queda pendiente de Make.
+- [x] **Buscar por persona** → Placa IX en el sitio
+      ([app/src/app/person](app/src/app/person)); los KPIs pasaron a Placa X.
+      Autocompleta actor/actriz/director: primero gente del catálogo (con
+      cuántas viste), después TMDB en vivo. Al elegir: cuántas películas suyas
+      viste (dirigidas/actuadas, con repeticiones), su tasa de revisión si
+      está en el perfil de gusto, y las que faltan ordenadas por rating
+      bayesiano de TMDB (piso de 200 votos, para sacar cortos) con un
+      empujón de ±10% según la tasa de revisión de sus géneros. Sin Make.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).

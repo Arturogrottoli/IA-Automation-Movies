@@ -1,0 +1,139 @@
+<section id="personas">
+  <div class="wrap">
+    <div class="sec-label">Placa IX · Buscar por persona</div>
+    <h2 class="sec-title">¿Cuánto vi de…?</h2>
+    <p class="sec-intro">
+      Escribí un actor, actriz o director. Te sugiere primero a la gente que ya
+      está en el catálogo y después al resto de TMDB. Al elegir: cuántas de sus
+      películas viste, y cuáles te faltan que más te pueden gustar — por rating
+      de TMDB, ajustado por los géneros que más revisitás.
+    </p>
+
+    <div class="ps-search">
+      <div class="ps-combo">
+        <input
+          type="search"
+          role="combobox"
+          placeholder="Ej. Tarantino, Emma Stone…"
+          aria-label="Buscar actor, actriz o director"
+          aria-autocomplete="list"
+          aria-controls="ps-list"
+          [attr.aria-expanded]="open() && suggestions().length > 0"
+          [attr.aria-activedescendant]="open() && suggestions().length ? 'ps-opt-' + active() : null"
+          autocomplete="off"
+          [value]="query()"
+          (input)="updateQuery($any($event.target).value)"
+          (keydown)="onKey($event)"
+          (focus)="open.set(true)"
+          (blur)="onBlur()"
+        />
+        @if (open() && suggestions().length) {
+          <ul class="ps-list" id="ps-list" role="listbox">
+            @for (s of suggestions(); track s.nombre + s.tmdbId; let i = $index) {
+              <li
+                role="option"
+                [id]="'ps-opt-' + i"
+                [class.active]="i === active()"
+                [attr.aria-selected]="i === active()"
+                (mousedown)="$event.preventDefault()"
+                (click)="select(s)"
+                (mouseenter)="active.set(i)"
+              >
+                <span class="ps-name">{{ s.nombre }}</span>
+                <span class="ps-meta" [class.seen]="!!s.local">{{ s.detalle }}</span>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+      @if (selectedLabel()) {
+        <button class="ps-clear" (click)="clear()">Buscar otra persona</button>
+      }
+    </div>
+
+    @if (selectedLabel(); as nombre) {
+      @if (notFound()) {
+        <p class="obs">No encontré a "{{ nombre }}" en TMDB.</p>
+      } @else {
+        <div class="ps-head">
+          @if (filmography()?.foto; as foto) {
+            <img class="ps-photo" [src]="foto" [alt]="nombre" />
+          } @else {
+            <div class="ps-photo ps-photo-ph" aria-hidden="true">🎭</div>
+          }
+          <div>
+            <p class="ps-big">
+              @if (watched().length) {
+                Viste <strong>{{ watched().length }}</strong> película{{ watched().length === 1 ? '' : 's' }} de {{ nombre }}
+              } @else {
+                Todavía no viste nada de {{ nombre }}
+              }
+            </p>
+            @if (watched().length) {
+              <p class="ps-sub">
+                @if (comoDirector() && comoDirector() < watched().length) {
+                  {{ comoDirector() }} dirigida{{ comoDirector() === 1 ? '' : 's' }} · {{ watched().length - comoDirector() }} actuada{{ watched().length - comoDirector() === 1 ? '' : 's' }}
+                } @else if (comoDirector()) {
+                  Todas como director/a
+                } @else {
+                  Todas en el reparto
+                }
+                @if (vistasTotales() > watched().length) {
+                  · {{ vistasTotales() }} visionados contando repeticiones
+                }
+              </p>
+            }
+            @if (tasaRevision(); as t) {
+              <p class="ps-sub">Revisitás el {{ t.tasa }}% de sus películas</p>
+            }
+          </div>
+        </div>
+
+        @if (watched().length) {
+          <h3 class="ps-h3">Las que viste</h3>
+          <div class="ps-grid">
+            @for (w of watched(); track w.movie.key) {
+              <button class="ps-movie" (click)="openWatched(w.movie)">
+                @if (w.movie.poster) {
+                  <img [src]="w.movie.poster" [alt]="w.movie.titulo" loading="lazy" />
+                } @else {
+                  <div class="ps-movie-ph">{{ w.movie.titulo }}</div>
+                }
+                <span>{{ w.movie.titulo }} <em>{{ w.movie.anioEstreno }}</em></span>
+                @if (w.vecesVista > 1) {
+                  <span class="ps-tag">×{{ w.vecesVista }}</span>
+                }
+              </button>
+            }
+          </div>
+        }
+
+        <h3 class="ps-h3">Te pueden gustar</h3>
+        @if (filmography() === undefined) {
+          <p class="obs">Buscando su filmografía en TMDB…</p>
+        } @else if (recs().length) {
+          <div class="ps-grid">
+            @for (r of recs(); track r.credit.tmdbId) {
+              <button class="ps-movie" (click)="openCredit(r.credit)">
+                @if (r.credit.poster) {
+                  <img [src]="r.credit.poster" [alt]="r.credit.titulo" loading="lazy" />
+                } @else {
+                  <div class="ps-movie-ph">{{ r.credit.titulo }}</div>
+                }
+                <span>{{ r.credit.titulo }} <em>{{ r.credit.anioEstreno }}</em></span>
+                <span class="ps-why">
+                  ★ {{ r.credit.rating }}@if (r.credit.genres.length) { · {{ r.credit.genres.slice(0, 2).join(', ') }} }
+                </span>
+                @if (r.enLista) {
+                  <span class="ps-tag">en tu lista</span>
+                }
+              </button>
+            }
+          </div>
+        } @else {
+          <p class="obs">Nada más para recomendar: ya viste lo más relevante de su filmografía.</p>
+        }
+      }
+    }
+  </div>
+</section>

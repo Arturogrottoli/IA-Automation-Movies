@@ -90,6 +90,9 @@ export interface TasteProfile {
   tasa_por_duracion: (TasteRate & { rango: string })[];
   nota_duracion: string;
   variables_mas_importantes: { variable: string; peso: number }[];
+  /** Como top_generos/top_directores, pero sin cortar (todos los que pasan el mínimo de n). */
+  genre_rate_full: (TasteRate & { genero: string })[];
+  dir_rate_full: (TasteRate & { director: string })[];
   top_combos: { director: string; actor: string; tasa: number; n: number }[];
   clusters_anio: { anio: number; cluster: number }[];
   cluster_resumen: { cluster: number; anios: number[]; decada_prom: number; duracion_prom: number; tasa_revision_prom: number }[];

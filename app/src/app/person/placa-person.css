@@ -1,0 +1,215 @@
+.ps-search {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.ps-combo {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 420px;
+}
+.ps-combo input {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 11px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ps-combo input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.ps-list {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  max-height: 340px;
+  overflow-y: auto;
+}
+.ps-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 11px;
+  cursor: pointer;
+}
+.ps-list li.active {
+  background: var(--sel);
+}
+.ps-name {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.ps-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.ps-meta.seen {
+  color: var(--accent);
+}
+.ps-clear {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-2);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.ps-clear:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ps-head {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.ps-photo {
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--line-2);
+  border: 1px solid var(--line);
+  display: block;
+}
+.ps-photo-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+.ps-big {
+  font-family: 'Archivo', sans-serif;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+.ps-big strong {
+  color: var(--accent);
+}
+.ps-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  color: var(--ink-2);
+  margin: 0 0 3px;
+}
+
+.ps-h3 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 18px;
+}
+.ps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 16px 14px;
+  margin-bottom: 36px;
+}
+.ps-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--ink);
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+.ps-movie img,
+.ps-movie-ph {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  display: block;
+  margin-bottom: 4px;
+}
+.ps-movie-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  background: var(--line-2);
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  text-align: center;
+}
+.ps-movie:hover img,
+.ps-movie:hover .ps-movie-ph {
+  border-color: var(--accent);
+}
+.ps-movie:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.ps-movie em {
+  color: var(--ink-3);
+  font-style: normal;
+}
+.ps-why {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  color: var(--ink-3);
+}
+.ps-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 1px 7px;
+}
+.obs {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  font-style: italic;
+  margin-bottom: 36px;
+}
+@media (max-width: 520px) {
+  .ps-grid {
+    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  }
+  .ps-head {
+    align-items: flex-start;
+  }
+}
