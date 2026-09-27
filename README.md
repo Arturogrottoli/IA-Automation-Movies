@@ -231,8 +231,11 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       Los 3 documentos estaban desactualizados (faltaban las ramas
       agendar/ambiguo, el escenario "Integration Webhooks", el modelo real,
       y `manual-de-datos.md` describía como "pendiente" el bug de
-      `anio_visto` que ya se arregló) — corregidos. **Los PDF quedaron sin
-      re-exportar** (a propósito, no es prioridad ahora).
+      `anio_visto` que ya se arregló) — corregidos. **PDF re-exportados
+      (2026-09-27)** con `cerebro/export_docs_pdf.js` (Chrome headless). De
+      paso: el diagrama Mermaid de arquitectura no renderizaba (comillas sin
+      escapar en los subgraph) y los docs todavía decían GitHub Pages —
+      actualizados a Angular + Vercel.
 - [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
 - [~] **Panel de KPIs de operación** → [docs/kpis-operacion.md](docs/kpis-operacion.md)
       y en el sitio (Placa VI, al final de la página). Solo **volumen** (15
@@ -307,6 +310,9 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       compara contra matches ya existentes) — y siguen siendo las mismas 2
       de siempre: "Leaving Neverland" y "La Casa de la playa", que TMDB
       directamente no tiene cargadas como película. Nada nuevo para cazar.
+      **Pasada nueva (2026-09-27):** mismas 19 alertas, sin cambios; las 5
+      películas recién sumadas (Sleepaway Camp, Gremlins, Last Night in Soho,
+      Acusada, RoboCop) no generaron ninguna.
 - [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
@@ -360,6 +366,7 @@ cerebro/
   build_site.js           refresca la instantánea embebida de index.html
   build_posters.js        regenera posters.json desde TMDB (token en tmdb.key)
   build_actors.js         regenera actors.json desde TMDB
+  export_docs_pdf.js      exporta docs/*.md del curso a PDF (Chrome headless)
   CONFIG.md               dónde vive cada secreto (todos en Make, ninguno acá)
   README.md               notas sobre los datos
 ```

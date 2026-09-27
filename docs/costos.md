@@ -9,7 +9,7 @@
 | Google Gemini API | Free tier | ~15 req/min, cuota diaria amplia | 1-2 llamadas por mensaje o por acción del sitio |
 | Google Sheets | gratis | 10M celdas | ~23.000 celdas (dos pestañas) |
 | TMDB API | gratis | límite altísimo | solo en backfills manuales |
-| GitHub Pages | gratis | 100 GB/mes de tráfico | trivial |
+| Vercel | Hobby (gratis) | 100 GB/mes de tráfico | trivial |
 | **Total** | | | **USD 0** |
 
 ## Estrategia por tarea

@@ -9,7 +9,7 @@ registrar y consultar un catálogo personal de películas.
 |---|---|---|
 | **Cerebro** — los datos | Dos tablas: `catalogo_completo` (~1.290 filas, una por visionado) y `por_ver` (watchlist, ~60 filas). Fuente de verdad única. | Google Sheets |
 | **Corazón** — la lógica | Dos escenarios de Make. "Telegram Bot, Google Sheets": escucha el chat, clasifica la intención, llama a la IA, y según el caso escribe/lee una fila o responde. "Integration Webhooks": recibe pedidos del sitio (agregar/quitar de `por_ver`) por un webhook propio. | Make + Google Gemini |
-| **Voz** — entrada y salida | El chat para registrar, agendar y preguntar; la web para explorar el catálogo, ver estadísticas y manejar la lista "Quiero ver". | Telegram + sitio estático (GitHub Pages) |
+| **Voz** — entrada y salida | El chat para registrar, agendar y preguntar; la web para explorar el catálogo, ver estadísticas y manejar la lista "Quiero ver". | Telegram + sitio en Angular (Vercel) |
 
 ## Diagrama de flujo
 
@@ -18,7 +18,7 @@ flowchart TD
     U([Usuario en Telegram]) -->|mensaje| WU[Telegram · Watch Updates]
     WU -->|filtro: no empieza con /| G1
 
-    subgraph CORAZON [Corazón · Make — escenario "Telegram Bot, Google Sheets"]
+    subgraph CORAZON ["Corazón · Make — escenario #quot;Telegram Bot, Google Sheets#quot;"]
       G1[Gemini · Extract structured data<br/>clasifica intención + extrae ficha<br/>marca si el título es ambiguo]
       G1 --> R{Router}
       R -->|registrar, no ambiguo| HITL[Telegram · ficha + botones ✅/❌]
@@ -31,7 +31,7 @@ flowchart TD
       HTTP --> G2[Gemini · Generate a response<br/>responde con ambas listas como contexto]
     end
 
-    subgraph WEBHOOKS [Corazón · Make — escenario "Integration Webhooks"]
+    subgraph WEBHOOKS ["Corazón · Make — escenario #quot;Integration Webhooks#quot;"]
       WH[Custom Webhook] --> R2{Router por accion}
       R2 -->|agregar| G4[Gemini · Extract structured data<br/>completa director/año/país/género] --> ADD2[Google Sheets · Add a Row en por_ver]
       R2 -->|quitar| SR[Google Sheets · Search Rows] --> DEL[Google Sheets · Delete a Row]
@@ -44,7 +44,7 @@ flowchart TD
     ADD --> C1[Telegram · confirmación]
     G2 --> C2[Telegram · respuesta]
 
-    S -->|CSV publicado| WEB[index.html · GitHub Pages]
+    S -->|CSV publicado| WEB[Sitio Angular · Vercel]
     PV -->|CSV publicado| WEB
     TMDB[(TMDB API)] -.->|posters/actors/runtime/synopsis/similar.json, offline| WEB
     WEB -->|fetch al agregar/quitar de Quiero ver| WH
@@ -117,21 +117,25 @@ Click en la X de una card / "Quitar de la lista" en el modal → POST con accion
 
 ## El sitio
 
-`index.html` es un solo archivo, sin build ni dependencias. Al cargar:
+App en Angular 20 (carpeta `app/`, standalone + signals). Al cargar:
 
 1. `fetch` al CSV publicado de `catalogo_completo` y de `por_ver` → datos en
-   vivo (cae a una instantánea embebida del catálogo si no hay conexión).
+   vivo (cae a una instantánea del catálogo, `app/public/data/catalog-snapshot.json`,
+   si no hay conexión).
 2. `fetch` a `posters.json` + `posters-manual.json` + `actors.json` +
-   `runtime.json` + `synopsis.json` + `similar.json` → póster, rating,
-   género, reparto, duración, sinopsis y películas parecidas por título
-   (todo de TMDB, generado offline; los que TMDB no tiene o matchea mal se
-   cargan a mano en `img/` + `posters-manual.json`).
+   `runtime.json` + `synopsis.json` → póster, rating, género, reparto,
+   duración y sinopsis por título (de TMDB, generado offline; los que TMDB
+   no tiene o matchea mal se cargan a mano en `img/` + `posters-manual.json`).
+   Más `similar.json`, `similar_ajustado.json` y `taste_profile.json`
+   (recomendador y perfil de gusto, generados offline con Python). Todos se
+   leen directo del repo de GitHub.
 3. Renderiza: tiles de stats, gráficos SVG (sin librería), placas temáticas
    (incluida una de data cleaning, "Detrás de los datos"), índice completo
    en vista lista o grilla, sección "Quiero ver" paginada (con alta/baja
    propia) y un modal de detalle por película (sinopsis, reparto, parecidas).
 
-Cada `git push` a `main` redeploya GitHub Pages solo.
+Cada `git push` a `main` redeploya Vercel solo. Los JSON de datos se leen
+directo del repo, así que actualizarlos no necesita redeploy.
 
 ## Componentes y dónde vive cada cosa
 
@@ -143,7 +147,7 @@ Cada `git push` a `main` redeploya GitHub Pages solo.
 | IA | Google Gemini (`gemini-3.1-flash-lite`) | varias llamadas: clasificar/extraer, desambiguar, responder, completar título libre del sitio |
 | Base de datos | Google Sheet · pestañas `catalogo_completo` y `por_ver` | publicadas como CSV para lectura |
 | Datos enriquecidos | `posters.json`, `actors.json`, `runtime.json`, `synopsis.json`, `similar.json` (TMDB) + `posters-manual.json` + `img/` | generados por scripts en `cerebro/`, ver [manual-de-datos.md](manual-de-datos.md) |
-| Sitio | `index.html` en GitHub Pages | `arturogrottoli.github.io/IA-Automation-Movies` |
+| Sitio | `app/` (Angular) en Vercel | `turimoviesdatabase.vercel.app` |
 | Secretos | conexiones de Make (token de Telegram, key de Gemini) · `cerebro/tmdb.key` (local, ignorado) | nada de esto en el repo |
 
 ## Requisitos del proyecto integrador

@@ -7,8 +7,8 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.8,
-      "n": 230
+      "tasa": 14.6,
+      "n": 233
     },
     {
       "genero": "Familia",
@@ -17,13 +17,13 @@
     },
     {
       "genero": "Fantasía",
-      "tasa": 12.8,
-      "n": 86
+      "tasa": 12.5,
+      "n": 88
     },
     {
       "genero": "Crimen",
-      "tasa": 12.4,
-      "n": 242
+      "tasa": 12.2,
+      "n": 245
     }
   ],
   "top_decadas": [
@@ -39,8 +39,8 @@
     },
     {
       "decada": 2010,
-      "tasa": 12.0,
-      "n": 359
+      "tasa": 11.9,
+      "n": 360
     },
     {
       "decada": 1950,
@@ -49,8 +49,8 @@
     },
     {
       "decada": 1980,
-      "tasa": 9.6,
-      "n": 83
+      "tasa": 9.4,
+      "n": 85
     }
   ],
   "top_directores": [
@@ -90,7 +90,7 @@
       "n": 4
     },
     {
-      "director": "Edgar Wright",
+      "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
     }
@@ -100,28 +100,28 @@
   "tasa_por_duracion": [
     {
       "rango": "<80",
-      "tasa": 9.1,
-      "n": 44
+      "tasa": 8.9,
+      "n": 45
     },
     {
       "rango": "80-95",
       "tasa": 10.2,
-      "n": 274
+      "n": 275
     },
     {
       "rango": "95-110",
-      "tasa": 10.4,
-      "n": 347
+      "tasa": 10.3,
+      "n": 349
     },
     {
       "rango": "110-125",
-      "tasa": 8.8,
-      "n": 273
+      "tasa": 8.7,
+      "n": 277
     },
     {
       "rango": "125-140",
-      "tasa": 9.0,
-      "n": 111
+      "tasa": 8.9,
+      "n": 112
     },
     {
       "rango": "140-160",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.28
+      "peso": 0.247
     },
     {
       "variable": "decada",
-      "peso": 0.158
+      "peso": 0.172
     },
     {
       "variable": "Acción",
-      "peso": 0.085
+      "peso": 0.081
     },
     {
       "variable": "Historia",
-      "peso": 0.064
+      "peso": 0.062
     },
     {
       "variable": "Drama",
-      "peso": 0.058
+      "peso": 0.061
     },
     {
       "variable": "Crimen",
-      "peso": 0.05
-    },
-    {
-      "variable": "Terror",
-      "peso": 0.042
+      "peso": 0.051
     },
     {
       "variable": "Comedia",
-      "peso": 0.039
+      "peso": 0.045
+    },
+    {
+      "variable": "Terror",
+      "peso": 0.043
     }
   ],
   "genre_rate_full": [
@@ -177,8 +177,8 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.8,
-      "n": 230
+      "tasa": 14.6,
+      "n": 233
     },
     {
       "genero": "Familia",
@@ -187,13 +187,13 @@
     },
     {
       "genero": "Fantasía",
-      "tasa": 12.8,
-      "n": 86
+      "tasa": 12.5,
+      "n": 88
     },
     {
       "genero": "Crimen",
-      "tasa": 12.4,
-      "n": 242
+      "tasa": 12.2,
+      "n": 245
     },
     {
       "genero": "Romance",
@@ -202,23 +202,23 @@
     },
     {
       "genero": "Terror",
-      "tasa": 11.8,
-      "n": 246
+      "tasa": 11.6,
+      "n": 250
     },
     {
       "genero": "Comedia",
       "tasa": 11.5,
-      "n": 338
+      "n": 339
     },
     {
       "genero": "Ciencia ficción",
-      "tasa": 11.5,
-      "n": 131
+      "tasa": 11.4,
+      "n": 132
     },
     {
       "genero": "Suspense",
-      "tasa": 10.4,
-      "n": 367
+      "tasa": 10.2,
+      "n": 372
     },
     {
       "genero": "Aventura",
@@ -227,13 +227,13 @@
     },
     {
       "genero": "Misterio",
-      "tasa": 8.0,
-      "n": 113
+      "tasa": 7.8,
+      "n": 115
     },
     {
       "genero": "Drama",
       "tasa": 7.7,
-      "n": 505
+      "n": 507
     },
     {
       "genero": "Música",
@@ -293,11 +293,6 @@
       "n": 4
     },
     {
-      "director": "Edgar Wright",
-      "tasa": 25.0,
-      "n": 4
-    },
-    {
       "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
@@ -319,6 +314,11 @@
     },
     {
       "director": "Tim Burton",
+      "tasa": 20.0,
+      "n": 5
+    },
+    {
+      "director": "Edgar Wright",
       "tasa": 20.0,
       "n": 5
     },
@@ -461,14 +461,8 @@
       "n": 3
     },
     {
-      "director": "Chad Stahelski",
-      "actor": "Common",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Bridget Moynahan",
+      "director": "Andrew Adamson",
+      "actor": "Cameron Diaz",
       "tasa": 100.0,
       "n": 2
     },
@@ -479,8 +473,14 @@
       "n": 2
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Cameron Diaz",
+      "director": "Chad Stahelski",
+      "actor": "Common",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Christopher Miller",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
     }
@@ -543,8 +543,8 @@
         2026
       ],
       "decada_prom": 1999.0,
-      "duracion_prom": 107.2,
-      "tasa_revision_prom": 16.0
+      "duracion_prom": 107.3,
+      "tasa_revision_prom": 15.8
     },
     {
       "cluster": 2,
