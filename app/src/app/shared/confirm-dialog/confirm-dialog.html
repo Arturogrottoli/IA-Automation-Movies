@@ -8,7 +8,7 @@
       }
       <div>
         <p class="cf-subject">{{ req.titulo }}</p>
-        <p class="cf-question">¿Sacar de tu lista de "Quiero ver"?</p>
+        <p class="cf-question">{{ req.pregunta ?? '¿Sacar de tu lista de "Quiero ver"?' }}</p>
       </div>
     </div>
     <div class="cf-actions">

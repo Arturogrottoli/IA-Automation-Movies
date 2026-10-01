@@ -1,0 +1,147 @@
+<section id="mis9">
+  <div class="wrap">
+    <div class="sec-label">Placa X · Mis 9 películas</div>
+    <h2 class="sec-title">Nueve que me definen</h2>
+    <p class="sec-intro">
+      Nueve casilleros, nueve películas. Buscá por título, elegí, y cuando
+      completes los nueve generá una imagen cuadrada para compartir. Tu
+      selección queda guardada en el link: guardalo y vuelve tal cual.
+    </p>
+
+    @if (hasOwner()) {
+      <div class="n9-tabs" role="tablist">
+        <button role="tab" [attr.aria-selected]="mode() === 'owner'" [class.on]="mode() === 'owner'" (click)="setMode('owner')">
+          Las de {{ ownerName() || 'la casa' }}
+        </button>
+        <button role="tab" [attr.aria-selected]="mode() === 'mine'" [class.on]="mode() === 'mine'" (click)="setMode('mine')">
+          Armá la tuya
+        </button>
+      </div>
+    }
+
+    @if (mode() === 'mine') {
+      @if (fromLink()) {
+        <p class="n9-note">Estás viendo una selección que llegó por link. Si la cambiás, pasa a ser la tuya.</p>
+      }
+      <div class="n9-search">
+        <div class="n9-combo">
+          <input
+            #searchInput
+            type="search"
+            role="combobox"
+            autocomplete="off"
+            aria-label="Buscar película"
+            aria-autocomplete="list"
+            aria-controls="n9-list"
+            [attr.aria-expanded]="hits().length > 0"
+            [attr.aria-activedescendant]="hits().length ? 'n9-opt-' + activeHit() : null"
+            [placeholder]="targetSlot() == null ? 'Completo: tocá uno para cambiarlo' : 'Buscar para el casillero ' + (targetSlot()! + 1) + '…'"
+            [disabled]="targetSlot() == null"
+            [value]="query()"
+            (input)="updateQuery($any($event.target).value)"
+            (keydown)="onKey($event)"
+          />
+          @if (hits().length) {
+            <ul class="n9-list" id="n9-list" role="listbox">
+              @for (h of hits(); track h.origen + (h.pick.tmdbId ?? h.pick.key); let i = $index) {
+                <li
+                  role="option"
+                  [id]="'n9-opt-' + i"
+                  [class.active]="i === activeHit()"
+                  [class.taken]="h.yaElegida"
+                  [attr.aria-selected]="i === activeHit()"
+                  [attr.aria-disabled]="h.yaElegida"
+                  (mousedown)="$event.preventDefault()"
+                  (click)="choose(h)"
+                  (mouseenter)="activeHit.set(i)"
+                >
+                  @if (posterUrl(h.pick.poster); as src) {
+                    <img [src]="src" alt="" loading="lazy" />
+                  } @else {
+                    <span class="n9-thumb-ph" aria-hidden="true"></span>
+                  }
+                  <span class="n9-hit-title">{{ h.pick.titulo }} <em>{{ h.pick.anioEstreno }}</em></span>
+                  <span class="n9-hit-meta" [class.seen]="h.origen === 'vista'">{{ h.yaElegida ? 'ya elegida' : h.origen }}</span>
+                </li>
+              }
+            </ul>
+          } @else if (query().trim().length >= 2 && !searching()) {
+            <p class="n9-empty">Sin resultados para "{{ query() }}".</p>
+          }
+        </div>
+      </div>
+    }
+
+    <div class="n9-grid" [class.readonly]="mode() === 'owner'">
+      @for (i of slots; track i) {
+        @let p = picks()[i];
+        <div
+          class="n9-slot"
+          [class.empty]="!p"
+          [class.target]="mode() === 'mine' && targetSlot() === i && !full()"
+          [class.active]="activeSlot() === i"
+        >
+          <button
+            class="n9-slot-main"
+            [disabled]="mode() === 'owner'"
+            [attr.aria-label]="p ? 'Cambiar ' + p.titulo + ' (casillero ' + (i + 1) + ')' : 'Elegir película para el casillero ' + (i + 1)"
+            (click)="pickSlot(i)"
+          >
+            @if (p) {
+              @if (posterUrl(p.poster); as src) {
+                <img [src]="src" [alt]="p.titulo" />
+              } @else {
+                <span class="n9-ph">{{ p.titulo }}</span>
+              }
+            } @else {
+              <span class="n9-plus" aria-hidden="true">+</span>
+              <span class="n9-num">{{ i + 1 }}</span>
+            }
+          </button>
+          @if (p) {
+            <p class="n9-title">{{ p.titulo }} <em>{{ p.anioEstreno }}</em></p>
+            @if (mode() === 'mine') {
+              <button class="n9-remove" [attr.aria-label]="'Quitar ' + p.titulo" (click)="removeSlot(i, $event)">×</button>
+            }
+          }
+        </div>
+      }
+    </div>
+
+    @if (resolving()) {
+      <p class="n9-note">Cargando selección…</p>
+    }
+
+    <div class="n9-actions">
+      @if (mode() === 'mine') {
+        <span class="n9-count">{{ filled() }}/9</span>
+        <label class="n9-name">
+          <span>Tu nombre (opcional)</span>
+          <input type="text" maxlength="40" [value]="nombre()" (input)="updateName($any($event.target).value)" placeholder="para firmar la imagen" />
+        </label>
+      }
+      <button class="n9-btn primary" [disabled]="!full() || generating()" (click)="generate()">
+        {{ generating() ? 'Generando…' : 'Generar mi selección' }}
+      </button>
+      <button class="n9-btn" [disabled]="!filled()" (click)="copyLink()">Copiar link</button>
+      @if (mode() === 'mine' && filled()) {
+        <button class="n9-btn ghost" (click)="clearAll()">Vaciar</button>
+      }
+    </div>
+    @if (!full() && mode() === 'mine') {
+      <p class="n9-hint">Completá los 9 para generar la imagen.</p>
+    }
+
+    @if (imageUrl(); as src) {
+      <div class="n9-result">
+        <img [src]="src" alt="Composición con las 9 películas elegidas" />
+        <div class="n9-result-actions">
+          <a class="n9-btn primary" [href]="src" download="mis-9-peliculas.png">Descargar imagen</a>
+          @if (canShareFiles) {
+            <button class="n9-btn" (click)="share()">Compartir</button>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

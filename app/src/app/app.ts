@@ -13,6 +13,7 @@ import { PlacaDashboard } from './dashboard/placa-dashboard';
 import { PlacaTasteProfile } from './taste-profile/placa-taste-profile';
 import { PlacaRecommender } from './recommender/placa-recommender';
 import { PlacaPerson } from './person/placa-person';
+import { PlacaNine } from './nine/placa-nine';
 import { PlacaKpis } from './kpis/placa-kpis';
 import { AppFooter } from './footer/app-footer';
 import { MovieDetailDialog } from './movie-detail/movie-detail-dialog';
@@ -34,6 +35,7 @@ import { ActorDialog } from './shared/actor-dialog/actor-dialog';
     PlacaTasteProfile,
     PlacaRecommender,
     PlacaPerson,
+    PlacaNine,
     PlacaKpis,
     AppFooter,
     MovieDetailDialog,

@@ -231,6 +231,15 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       está en el perfil de gusto, y las que faltan ordenadas por rating
       bayesiano de TMDB (piso de 200 votos, para sacar cortos) con un
       empujón de ±10% según la tasa de revisión de sus géneros. Sin Make.
+- [x] **Mis 9 películas** → Placa X en el sitio
+      ([app/src/app/nine](app/src/app/nine)); los KPIs pasaron a Placa XI.
+      Grilla 3x3: buscar por título (catálogo y "Quiero ver" primero, después
+      TMDB en vivo), elegir, cambiar o quitar. "Generar mi selección" dibuja
+      una imagen de 1080×1080 en el navegador (canvas; TMDB y el repo sirven
+      los pósters con CORS abierto) para descargar o compartir. Sin usuarios
+      ni backend: la selección vive en el link (`?nueve=`) y en el navegador.
+      La del dueño del sitio se fija con `node cerebro/set_mis9.js "<link>" "Nombre"`
+      → `mis9.json`, y aparece como pestaña aparte.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
@@ -375,6 +384,7 @@ cerebro/
   build_posters.js        regenera posters.json desde TMDB (token en tmdb.key)
   build_actors.js         regenera actors.json desde TMDB
   export_docs_pdf.js      exporta docs/*.md del curso a PDF (Chrome headless)
+  set_mis9.js             fija "Mis 9 películas" del dueño en mis9.json
   CONFIG.md               dónde vive cada secreto (todos en Make, ninguno acá)
   README.md               notas sobre los datos
 ```
