@@ -18,7 +18,9 @@ const AUTH = { headers: { Authorization: `Bearer ${TMDB_TOKEN}`, accept: 'applic
  * películas ya vistas, que rotan con un fundido. Cada visita elige al azar
  * entre las favoritas — revisitadas o bien puntuadas — y pide los backdrops
  * de a uno (`/movie/{id}`), precargando la imagen antes de mostrarla.
- * Con "reducir movimiento" se queda en una sola imagen fija.
+ * Rota siempre (con "reducir movimiento" el sistema operativo lo pide muy
+ * seguido — p. ej. Windows con efectos de animación apagados — y quedarse
+ * fijo parecía roto); en ese caso solo se saca el zoom lento, ver el CSS.
  */
 @Component({
   selector: 'app-hero-backdrop',
@@ -31,7 +33,6 @@ export class HeroBackdrop {
   protected readonly active = signal(0);
   protected readonly current = computed(() => this.slides()[this.active()] ?? null);
 
-  private readonly reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   private started = false;
   private timer: ReturnType<typeof setInterval> | null = null;
 
@@ -52,12 +53,12 @@ export class HeroBackdrop {
 
   private async start(movies: Movie[]): Promise<void> {
     const favoritas = movies.filter((m) => m.tmdbId && (m.watchInstances.length > 1 || (m.rating ?? 0) >= 7.3));
-    const elegidas = shuffle(favoritas).slice(0, this.reducedMotion ? 1 : SLIDES);
+    const elegidas = shuffle(favoritas).slice(0, SLIDES);
     for (const movie of elegidas) {
       const url = await backdropUrl(movie.tmdbId!);
       if (!url || !(await preload(url))) continue;
       this.slides.update((s) => [...s, { movie, url }]);
-      if (this.slides().length === 2 && !this.reducedMotion) this.startRotation();
+      if (this.slides().length === 2) this.startRotation();
     }
   }
 

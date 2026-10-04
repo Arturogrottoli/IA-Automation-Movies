@@ -263,7 +263,8 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       TMDB de 8 películas vistas elegidas al azar entre las favoritas
       (revisitadas o rating ≥ 7,3), con fundido cada 9 s y un epígrafe que
       abre la ficha ([app/src/app/shared/hero-backdrop](app/src/app/shared/hero-backdrop)).
-      Con "reducir movimiento" queda una sola imagen fija.
+      Rota siempre; con "reducir movimiento" (ej. Windows con efectos de
+      animación apagados) solo se saca el zoom lento.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).

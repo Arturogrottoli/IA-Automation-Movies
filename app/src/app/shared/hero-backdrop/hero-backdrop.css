@@ -99,11 +99,10 @@
     display: none;
   }
 }
+/* Menos movimiento: sin zoom; queda solo el fundido entre imágenes. */
 @media (prefers-reduced-motion: reduce) {
   .hb-slide,
-  .hb-slide.on,
-  .hb-caption {
-    transition: none;
+  .hb-slide.on {
     animation: none;
     transform: none;
   }
