@@ -259,6 +259,11 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       forma de una obsesión · II Revisitas · III Detrás de los datos ·
       IV Dashboard · V Perfil de gusto · VI KPIs. (Las menciones de
       "Placa N" más arriba en este README son de la numeración vieja, única.)
+- [x] **Portada con fotogramas rotativos** — detrás del título, backdrops de
+      TMDB de 8 películas vistas elegidas al azar entre las favoritas
+      (revisitadas o rating ≥ 7,3), con fundido cada 9 s y un epígrafe que
+      abre la ficha ([app/src/app/shared/hero-backdrop](app/src/app/shared/hero-backdrop)).
+      Con "reducir movimiento" queda una sola imagen fija.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).

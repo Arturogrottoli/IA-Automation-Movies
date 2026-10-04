@@ -6,8 +6,14 @@
   position: relative;
 }
 .masthead .wrap {
+  position: relative; /* por encima del fondo rotativo */
+  z-index: 1;
+  pointer-events: none; /* las zonas vacías dejan pasar el clic al epígrafe del fondo */
   padding-top: 44px;
   padding-bottom: 0;
+}
+.masthead .wrap > * {
+  pointer-events: auto;
 }
 .eyebrow {
   font-family: 'IBM Plex Mono', monospace;
@@ -38,6 +44,7 @@
 }
 .theme-btn {
   position: absolute;
+  z-index: 2;
   top: 22px;
   right: 24px;
   background: transparent;
@@ -63,6 +70,8 @@
 }
 .sections {
   display: flex;
+  width: max-content; /* no tapar el epígrafe del fondo, a la derecha */
+  max-width: 100%;
   gap: 4px;
   margin-bottom: -1px; /* pisa el borde del masthead: la pestaña activa "abre" hacia abajo */
 }

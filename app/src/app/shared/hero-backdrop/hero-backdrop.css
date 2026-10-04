@@ -1,0 +1,110 @@
+:host {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hb {
+  position: absolute;
+  inset: 0;
+}
+.hb-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1.8s ease;
+}
+.hb-slide.on {
+  opacity: 1;
+  animation: hb-drift 14s ease-out forwards;
+}
+@keyframes hb-drift {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+/* Degradé: casi negro del lado del texto, la imagen respira a la derecha, y se funde abajo con las pestañas. */
+.hb-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #0b0b0d 0%, rgba(11, 11, 13, 0.92) 30%, rgba(11, 11, 13, 0.55) 62%, rgba(11, 11, 13, 0.35) 100%),
+    linear-gradient(0deg, #0b0b0d 0%, rgba(11, 11, 13, 0) 35%);
+}
+
+.hb-caption {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  color: #c8c1b1;
+  text-align: right;
+  max-width: 40%;
+  animation: hb-cap-in 1.8s ease both;
+}
+/* El epígrafe espera a que la imagen nueva ya se vea (el fundido dura 1.8s). */
+@keyframes hb-cap-in {
+  0%,
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.hb-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ece6da;
+}
+.hb-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a49d8f;
+}
+.hb-caption:hover .hb-title,
+.hb-caption:focus-visible .hb-title {
+  color: #e6a94a;
+}
+.hb-caption:focus-visible {
+  outline: 2px solid #e6a94a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .hb-shade {
+    background:
+      linear-gradient(90deg, rgba(11, 11, 13, 0.82) 0%, rgba(11, 11, 13, 0.5) 100%),
+      linear-gradient(0deg, #0b0b0d 0%, rgba(11, 11, 13, 0) 40%);
+  }
+  /* En pantallas angostas las pestañas ocupan todo el ancho: el epígrafe no tiene lugar. */
+  .hb-caption {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hb-slide,
+  .hb-slide.on,
+  .hb-caption {
+    transition: none;
+    animation: none;
+    transform: none;
+  }
+}

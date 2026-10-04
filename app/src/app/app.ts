@@ -12,6 +12,7 @@ import { ChartTooltip } from './shared/chart-tooltip/chart-tooltip';
 import { Toast } from './shared/toast/toast';
 import { ActorDialog } from './shared/actor-dialog/actor-dialog';
 import { MovieBot } from './shared/movie-bot/movie-bot';
+import { HeroBackdrop } from './shared/hero-backdrop/hero-backdrop';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ import { MovieBot } from './shared/movie-bot/movie-bot';
     Toast,
     ActorDialog,
     MovieBot,
+    HeroBackdrop,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

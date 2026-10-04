@@ -1,0 +1,13 @@
+<div class="hb" aria-hidden="true">
+  @for (s of slides(); track s.url; let i = $index) {
+    <div class="hb-slide" [class.on]="i === active()" [style.background-image]="'url(' + s.url + ')'"></div>
+  }
+  <div class="hb-shade"></div>
+</div>
+<!-- @for con un solo elemento: se recrea en cada cambio, así el fundido de entrada se repite -->
+@for (c of current() ? [current()!] : []; track c.url) {
+  <button class="hb-caption" (click)="openCurrent()" [attr.aria-label]="'Ver la ficha de ' + c.movie.titulo">
+    <span class="hb-title">{{ c.movie.titulo }}</span>
+    <span class="hb-meta">{{ c.movie.anioEstreno }} · {{ veces(c.movie) }}</span>
+  </button>
+}
