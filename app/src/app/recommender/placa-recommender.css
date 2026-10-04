@@ -94,6 +94,15 @@
   background: var(--line-2);
   border-radius: 20px;
   padding: 5px 12px 5px 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.rec-chip:hover,
+.rec-chip:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: none;
 }
 .rec-chip em {
   color: var(--ink-3);
@@ -103,4 +112,8 @@
   font-size: 0.95rem;
   color: var(--ink-2);
   font-style: italic;
+}
+
+.sec-intro a {
+  color: var(--accent);
 }

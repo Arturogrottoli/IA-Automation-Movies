@@ -1,10 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { CatalogDataService } from '../core/catalog-data.service';
 import { RecommenderService } from '../core/recommender.service';
-import { Movie } from '../core/models';
+import { Movie, SimilarStub } from '../core/models';
+import { DialogService } from '../core/dialog.service';
+import { normalizeKey } from '../core/key.util';
+import { RouterLink } from '@angular/router';
 
 /**
- * Datos, Placa VI · recomendador de 2 métodos, comparados lado a lado. Primera
+ * Películas, Placa IV · recomendador de 2 métodos, comparados lado a lado. Primera
  * placa interactiva del cluster de Data Science (las de arriba son todas
  * narradas/estáticas) — puramente de lectura, no dispara ninguna escritura.
  *
@@ -16,7 +19,7 @@ import { Movie } from '../core/models';
  */
 @Component({
   selector: 'app-placa-recommender',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './placa-recommender.html',
   styleUrl: './placa-recommender.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -48,6 +51,7 @@ export class PlacaRecommender {
   constructor(
     private readonly catalog: CatalogDataService,
     private readonly recommender: RecommenderService,
+    private readonly dialog: DialogService,
   ) {
     void this.recommender.load();
   }
@@ -60,6 +64,10 @@ export class PlacaRecommender {
   protected select(m: Movie): void {
     this.query.set(m.titulo);
     this.selectedKey.set(m.key);
+  }
+
+  protected open(r: SimilarStub): void {
+    this.dialog.open({ key: normalizeKey(r.titulo, r.anioEstreno), titulo: r.titulo, director: r.director, anioEstreno: r.anioEstreno });
   }
 
   protected clear(): void {

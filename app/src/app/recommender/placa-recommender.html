@@ -1,13 +1,15 @@
 <section id="recomendador">
   <div class="wrap">
-    <div class="sec-label">Placa VI · Recomendador, 2 métodos comparados</div>
-    <h2 class="sec-title">Por contenido vs. ajustado por tu perfil</h2>
+    <div class="sec-label">Placa IV · Recomendador</div>
+    <h2 class="sec-title">Parecidas, dentro de tu diario</h2>
     <p class="sec-intro">
-      Elegí una película ya vista. A la izquierda, las 5 más parecidas por
-      contenido (género, director, reparto, década, más similitud de sinopsis).
-      A la derecha, las mismas candidatas, pero reponderadas: director y
-      género por tu tasa de revisión real, década y duración por el peso que
-      les dio el modelo de la Placa V — no por pesos fijos a mano.
+      Elegí una película que ya viste y te muestro las 5 más parecidas entre las
+      que ya están en el diario (vistas o en "Quiero ver"), calculadas de dos
+      maneras: <em>por contenido</em> (género, director, reparto, época y de
+      qué trata) y <em>ajustadas a tu gusto</em> (pesa más lo que más
+      revisitás, según el
+      <a routerLink="/datos" fragment="perfil-de-gusto">perfil de gusto</a> de la sección Datos). Tocá
+      cualquiera para ver su ficha.
     </p>
     <div class="rec-search">
       <input
@@ -35,7 +37,7 @@
           @if (porContenido().length) {
             <div class="rec-chips">
               @for (r of porContenido(); track r.titulo + r.anioEstreno) {
-                <span class="rec-chip">{{ r.titulo }} <em>{{ r.anioEstreno }}</em></span>
+                <button class="rec-chip" (click)="open(r)">{{ r.titulo }} <em>{{ r.anioEstreno }}</em></button>
               }
             </div>
           } @else {
@@ -43,11 +45,11 @@
           }
         </div>
         <div class="rec-col">
-          <h3>Ajustado por tu perfil</h3>
+          <h3>Ajustado a tu gusto</h3>
           @if (porPerfil().length) {
             <div class="rec-chips">
               @for (r of porPerfil(); track r.titulo + r.anioEstreno) {
-                <span class="rec-chip">{{ r.titulo }} <em>{{ r.anioEstreno }}</em></span>
+                <button class="rec-chip" (click)="open(r)">{{ r.titulo }} <em>{{ r.anioEstreno }}</em></button>
               }
             </div>
           } @else {
