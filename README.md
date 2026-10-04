@@ -271,10 +271,10 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       escalones 1 · 2–5 · 6–20 · 21–100 · 101+ de un solo tono (la distribución
       va de 1 a ~800; lineal dejaba todo igual). Tooltip al pasar, clic o
       búsqueda por país → las vistas; si no hay ninguna, sugerencias de TMDB
-      (). Lista de países como vista de
-      tabla. Geometría: world-atlas 110m en , d3-geo.
-      Nombres de país en español con  + alias (USA, UK,
-      Unión Soviética…), en .
+      (`/discover/movie?with_origin_country=`). Lista de países como vista de
+      tabla. Geometría: world-atlas 110m en `app/public/data`, d3-geo.
+      Nombres de país en español con `Intl.DisplayNames` + alias (USA, UK,
+      Unión Soviética…), en `core/countries.util.ts`.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
