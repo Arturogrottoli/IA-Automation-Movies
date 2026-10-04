@@ -6,6 +6,8 @@
 // visto y de "Quiero ver" (cacheada 10 min en memoria), más un resumen ya
 // contado acá — los LLM cuentan mal, así que los números van precalculados.
 
+import type { IncomingMessage, ServerResponse } from 'node:http';
+
 const SHEET_CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1860980534&single=true&output=csv';
 const POR_VER_CSV_URL =
@@ -249,7 +251,40 @@ function json(body: unknown, status = 200): Response {
 
 // ---------- handler ----------
 
-export async function POST(request: Request): Promise<Response> {
+/**
+ * Entrada de Vercel: firma clásica de Node (req, res), la que funciona en
+ * cualquier proyecto que no es Next.js. Adapta el pedido a un `Request`
+ * estándar y delega en `handleChat` (que es lo que se prueba localmente).
+ */
+export default async function handler(req: IncomingMessage & { body?: unknown }, res: ServerResponse): Promise<void> {
+  if (req.method !== 'POST') {
+    res.statusCode = 405;
+    res.setHeader('allow', 'POST');
+    res.end();
+    return;
+  }
+  // Vercel ya parsea el JSON en req.body; si no vino parseado, se lee el stream.
+  let body: string;
+  if (req.body !== undefined) body = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
+  else {
+    const chunks: Buffer[] = [];
+    for await (const c of req) chunks.push(c as Buffer);
+    body = Buffer.concat(chunks).toString('utf8');
+  }
+  const forwarded = req.headers['x-forwarded-for'];
+  const response = await handleChat(
+    new Request('http://localhost/api/chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-forwarded-for': (Array.isArray(forwarded) ? forwarded[0] : forwarded) ?? '' },
+      body,
+    }),
+  );
+  res.statusCode = response.status;
+  res.setHeader('content-type', 'application/json; charset=utf-8');
+  res.end(await response.text());
+}
+
+export async function handleChat(request: Request): Promise<Response> {
   const key = process.env['GEMINI_API_KEY'];
   if (!key) return json({ error: 'El bot todavía no está configurado (falta GEMINI_API_KEY en Vercel).' }, 503);
 

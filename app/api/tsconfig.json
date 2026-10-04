@@ -1,0 +1,16 @@
+{
+  // Config propia para las funciones de Vercel: sin esto, Vercel compila api/
+  // con el tsconfig de Angular ("module": "preserve"), que deja `export` en un
+  // .js que Node carga como CommonJS y la función se cae al arrancar.
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["ES2022", "DOM"],
+    "types": ["node"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["*.ts"]
+}
