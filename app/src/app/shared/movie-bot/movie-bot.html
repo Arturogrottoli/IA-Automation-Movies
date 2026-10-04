@@ -1,9 +1,9 @@
 @if (open()) {
-  <div class="bot-panel" role="dialog" aria-label="HALfred Hitchcock, el bot peliculero">
+  <div class="bot-panel" role="dialog" aria-label="CinefilIA, el bot de películas">
     <header class="bot-head">
       <div>
-        <p class="bot-title"><span class="bot-eye" aria-hidden="true"></span>HALfred Hitchcock</p>
-        <p class="bot-sub">El bot peliculero de este diario: películas, directores, actores y recomendaciones.</p>
+        <p class="bot-title"><span aria-hidden="true">🎬</span><span>Cinefil<span class="bot-ia">IA</span></span></p>
+        <p class="bot-sub">El bot de películas de este diario: películas, directores, actores y recomendaciones.</p>
       </div>
       <div class="bot-head-actions">
         @if (messages().length) {
@@ -16,7 +16,7 @@
     <div class="bot-log" #log aria-live="polite">
       @if (!messages().length) {
         <!-- en una sola línea: .bot-msg usa white-space: pre-wrap y mostraría la indentación -->
-        <p class="bot-msg model">Buenas noches. Soy HALfred, la IA peliculera de este diario: conozco todo lo que Turi vio y bastante de cine en general. Solo hablo de películas; para otras cosas, me temo que no puedo hacer eso 🍿</p>
+        <p class="bot-msg model">¡Hola! Soy CinefilIA, el bot de películas de este diario: conozco todo lo que Turi vio y bastante de cine en general. Solo hablo de cine, así que preguntame por películas, directores o actores 🍿</p>
         <div class="bot-suggest">
           @for (s of sugerencias; track s) {
             <button (click)="send(s)">{{ s }}</button>
@@ -50,10 +50,10 @@
   </div>
 }
 
-<button class="bot-fab" [class.on]="open()" [attr.aria-expanded]="open()" aria-label="Abrir el chat con HALfred, el bot peliculero" (click)="toggle()">
+<button class="bot-fab" [class.on]="open()" [attr.aria-expanded]="open()" aria-label="Abrir CinefilIA, el bot de películas" (click)="toggle()">
   @if (open()) {
     <span aria-hidden="true">×</span>
   } @else {
-    <span class="bot-eye" aria-hidden="true"></span><span class="bot-fab-label">Preguntale a HALfred</span>
+    <span aria-hidden="true">🎬</span><span class="bot-fab-label">Cinefil<span class="bot-ia">IA</span> · el bot de películas</span>
   }
 </button>

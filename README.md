@@ -240,8 +240,7 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       ni backend: la selección vive en el link (`?nueve=`) y en el navegador.
       La del dueño del sitio se fija con `node cerebro/set_mis9.js "<link>" "Nombre"`
       → `mis9.json`, y aparece como pestaña aparte.
-- [x] **HALfred Hitchcock, el bot peliculero** (HAL 9000 + Alfred
-      Hitchcock) — botón flotante abajo a la derecha
+- [x] **CinefilIA, el bot de películas** — botón flotante abajo a la derecha
       ([app/src/app/shared/movie-bot](app/src/app/shared/movie-bot)) que
       habla con una función de Vercel ([app/api/chat.ts](app/api/chat.ts)) →
       Gemini (plan gratis). Sin Make. La clave va como `GEMINI_API_KEY` en
