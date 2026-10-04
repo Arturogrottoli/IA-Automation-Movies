@@ -322,12 +322,20 @@ export async function handleChat(request: Request): Promise<Response> {
   // "agradecía" en la respuesta). Lo que igual quede, se saca a mano.
   const titulos = catalogCache?.data.titulos;
   if (titulos && isRecommendationRequest(turns[turns.length - 1].text)) {
-    const yaVistas = recommendedButSeen(reply, titulos);
-    if (yaVistas.length) {
-      const nota = `\n\nATENCIÓN: en esta respuesta NO recomiendes ${yaVistas.join(', ')}: Turi ya las vio.`;
+    const evitar = new Set<string>();
+    for (let intento = 0; intento < 2; intento++) {
+      const yaVistas = recommendedButSeen(reply, titulos);
+      if (!yaVistas.length) break;
+      yaVistas.forEach((v) => evitar.add(v));
+      const nota = `\n\nATENCIÓN: en esta respuesta NO recomiendes ${[...evitar].join(', ')}: Turi ya las vio.`;
       const retry = await askGemini(key, systemPrompt(context) + nota, contents);
-      if (!('error' in retry) && retry.reply) reply = retry.reply;
-      reply = dropSeenLines(reply, titulos);
+      if ('error' in retry || !retry.reply) break;
+      reply = retry.reply;
+    }
+    const tenia = reply.split('\n').some((l) => REC_LINE.test(l));
+    reply = dropSeenLines(reply, titulos);
+    if (tenia && !reply.split('\n').some((l) => REC_LINE.test(l))) {
+      reply = 'Uy, todo lo que se me ocurría ya lo viste 😅 Probá pedírmelo más específico (un director, una década, un país) y busco mejor.';
     }
   }
   return json({ reply: reply || OFF_TOPIC_REPLY });
