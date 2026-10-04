@@ -255,7 +255,7 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       router; `app/vercel.json` reescribe todo a index.html salvo `/api/`).
       Cada sección numera sus placas desde I. **Películas:** I Índice ·
       II Quiero ver · III Buscar por persona · IV Recomendador (parecidas dentro
-      del diario; las sugerencias abren la ficha) · V Mis 9. **Datos:** I La
+      del diario; las sugerencias abren la ficha) · V Mis 9 · VI Mapa del mundo. **Datos:** I La
       forma de una obsesión · II Revisitas · III Detrás de los datos ·
       IV Dashboard · V Perfil de gusto · VI KPIs. (Las menciones de
       "Placa N" más arriba en este README son de la numeración vieja, única.)
@@ -265,6 +265,16 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       abre la ficha ([app/src/app/shared/hero-backdrop](app/src/app/shared/hero-backdrop)).
       Rota siempre; con "reducir movimiento" (ej. Windows con efectos de
       animación apagados) solo se saca el zoom lento.
+- [x] **Mapa del mundo** (Películas, Placa VI,
+      [app/src/app/world](app/src/app/world)) — cada país coloreado por cuántas
+      películas suyas vi (país de origen, el primero si es coproducción), en
+      escalones 1 · 2–5 · 6–20 · 21–100 · 101+ de un solo tono (la distribución
+      va de 1 a ~800; lineal dejaba todo igual). Tooltip al pasar, clic o
+      búsqueda por país → las vistas; si no hay ninguna, sugerencias de TMDB
+      (). Lista de países como vista de
+      tabla. Geometría: world-atlas 110m en , d3-geo.
+      Nombres de país en español con  + alias (USA, UK,
+      Unión Soviética…), en .
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).

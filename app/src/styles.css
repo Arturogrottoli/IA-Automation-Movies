@@ -6,6 +6,8 @@
   --line:#d3cbb6; --line-2:#e3ddcc;
   --bar:#a8631d; --bar-soft:#c99a5f;
   --sel:#e9c98f66;
+  /* mapa: escala secuencial de un solo tono (ámbar), claro→oscuro; 0 = gris neutro */
+  --map-0:#e4e1d8; --map-1:#ecc988; --map-2:#d9a052; --map-3:#b97829; --map-4:#8c4f12; --map-5:#552f08;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
@@ -16,6 +18,7 @@
     --line:#26262a; --line-2:#1f1f22;
     --bar:#e0a446; --bar-soft:#8a6a3c;
     --sel:#e3a63f22;
+    --map-0:#2a2a2e; --map-1:#4b3a22; --map-2:#7a5a2b; --map-3:#ae7c34; --map-4:#e0a446; --map-5:#ffd892;
     color-scheme:dark;
   }
 }
@@ -26,6 +29,7 @@
   --line:#26262a; --line-2:#1f1f22;
   --bar:#e0a446; --bar-soft:#8a6a3c;
   --sel:#e3a63f22;
+  --map-0:#2a2a2e; --map-1:#4b3a22; --map-2:#7a5a2b; --map-3:#ae7c34; --map-4:#e0a446; --map-5:#ffd892;
   color-scheme:dark;
 }
 

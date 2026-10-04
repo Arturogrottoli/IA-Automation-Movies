@@ -1,0 +1,135 @@
+<section id="mundo">
+  <div class="wrap">
+    <div class="sec-label">Placa VI · El mundo en películas</div>
+    <h2 class="sec-title">De dónde vienen</h2>
+    <p class="sec-intro">
+      Cada país, coloreado por cuántas películas suyas vi ({{ paises() }} países en total; cuenta el país
+      de origen, el primero si es coproducción). Pasá el mouse para ver el número, tocá un país o
+      buscalo: si no vi ninguna de ahí, te sugiero las mejor puntuadas.
+    </p>
+
+    <div class="wm-search">
+      <input
+        type="search"
+        role="combobox"
+        autocomplete="off"
+        placeholder="Buscar un país…"
+        aria-label="Buscar un país"
+        aria-autocomplete="list"
+        aria-controls="wm-list"
+        [attr.aria-expanded]="matches().length > 0"
+        [attr.aria-activedescendant]="matches().length ? 'wm-opt-' + activeOpt() : null"
+        [value]="query()"
+        (input)="updateQuery($any($event.target).value)"
+        (keydown)="onKey($event)"
+      />
+      @if (matches().length) {
+        <ul class="wm-list" id="wm-list" role="listbox">
+          @for (o of matches(); track o.a2; let i = $index) {
+            <li
+              role="option"
+              [id]="'wm-opt-' + i"
+              [class.active]="i === activeOpt()"
+              [attr.aria-selected]="i === activeOpt()"
+              (mousedown)="$event.preventDefault()"
+              (click)="select(o.a2)"
+              (mouseenter)="activeOpt.set(i)"
+            >
+              <span>{{ o.nombre }}</span>
+              <span class="wm-count" [class.zero]="!o.vistas">{{ o.vistas ? o.vistas + (o.vistas === 1 ? ' vista' : ' vistas') : 'ninguna' }}</span>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+
+    <figure class="wm-figure">
+      @if (shapes().length) {
+        <svg [attr.viewBox]="'0 0 ' + W + ' ' + H" role="img" [attr.aria-label]="'Mapa del mundo: películas vistas de ' + paises() + ' países. La lista completa está debajo del mapa.'">
+          @for (s of shapes(); track s.a2) {
+            <path
+              [attr.d]="s.d"
+              [attr.class]="'wm-c b' + bin(s.a2)"
+              [class.sel]="selected() === s.a2"
+              (mousemove)="hover($event, s)"
+              (mouseleave)="hideTip()"
+              (click)="select(s.a2)"
+            ></path>
+          }
+        </svg>
+      } @else {
+        <div class="wm-loading">Cargando el mapa…</div>
+      }
+      <figcaption class="wm-legend">
+        <span class="wm-legend-title">Películas vistas</span>
+        <span class="wm-key"><i class="wm-sw b0"></i>ninguna</span>
+        @for (b of bins; track b.label; let i = $index) {
+          <span class="wm-key"><i class="wm-sw" [class]="'wm-sw b' + (i + 1)"></i>{{ b.label }}</span>
+        }
+      </figcaption>
+    </figure>
+
+    @if (selectedInfo(); as info) {
+      <div class="wm-panel" aria-live="polite">
+        <h3 class="wm-h3">
+          {{ info.nombre }}
+          <span>{{ info.movies.length ? info.movies.length + (info.movies.length === 1 ? ' película vista' : ' películas vistas') : 'ninguna vista todavía' }}</span>
+        </h3>
+        @if (info.movies.length) {
+          <div class="wm-grid">
+            @for (m of info.movies; track m.key) {
+              <button class="wm-movie" (click)="openMovie(m)">
+                @if (m.poster) {
+                  <img [src]="m.poster" [alt]="m.titulo" loading="lazy" />
+                } @else {
+                  <span class="wm-ph">{{ m.titulo }}</span>
+                }
+                <span>{{ m.titulo }} <em>{{ m.anioEstreno }}</em></span>
+              </button>
+            }
+          </div>
+        } @else {
+          <p class="wm-note">Te sugiero las mejor puntuadas de {{ info.nombre }} en TMDB:</p>
+          @if (suggestions(); as sugs) {
+            @if (sugs.length) {
+              <div class="wm-grid">
+                @for (s of sugs; track s.tmdbId) {
+                  <button class="wm-movie" (click)="openSuggestion(s)">
+                    @if (s.poster) {
+                      <img [src]="s.poster" [alt]="s.titulo" loading="lazy" />
+                    } @else {
+                      <span class="wm-ph">{{ s.titulo }}</span>
+                    }
+                    <span>{{ s.titulo }} <em>{{ s.anioEstreno }}</em></span>
+                    @if (s.rating) {
+                      <span class="wm-rating">★ {{ s.rating }}</span>
+                    }
+                    @if (s.enLista) {
+                      <span class="wm-tag">en tu lista</span>
+                    }
+                  </button>
+                }
+              </div>
+            } @else {
+              <p class="wm-note">TMDB no tiene películas registradas de este país.</p>
+            }
+          } @else {
+            <p class="wm-note">Buscando en TMDB…</p>
+          }
+        }
+      </div>
+    }
+
+    <details class="wm-table">
+      <summary>Ver la lista de países ({{ ranking().length }})</summary>
+      <ol>
+        @for (o of ranking(); track o.a2) {
+          <li>
+            <button (click)="select(o.a2)">{{ o.nombre }}</button>
+            <span>{{ o.vistas }}</span>
+          </li>
+        }
+      </ol>
+    </details>
+  </div>
+</section>
