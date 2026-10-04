@@ -5,13 +5,13 @@ import { PlacaPerson } from '../person/placa-person';
 import { PlacaRecommender } from '../recommender/placa-recommender';
 import { PlacaNine } from '../nine/placa-nine';
 
-/** Sección principal: las películas en sí — lo que viene, el índice completo, buscar por persona, recomendador, Mis 9. */
+/** Sección principal: las películas en sí — el índice completo, lo que viene, buscar por persona, recomendador, Mis 9. */
 @Component({
   selector: 'app-movies-page',
   imports: [PlacaWatchlist, PlacaCatalog, PlacaPerson, PlacaRecommender, PlacaNine],
   template: `
-    <app-placa-watchlist />
     <app-placa-catalog />
+    <app-placa-watchlist />
     <app-placa-person />
     <app-placa-recommender />
     <app-placa-nine />

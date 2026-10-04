@@ -253,8 +253,8 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       Angular la función se caía en Vercel.
 - [x] **Dos secciones: Películas y Datos** — rutas `/` y `/datos` (Angular
       router; `app/vercel.json` reescribe todo a index.html salvo `/api/`).
-      Cada sección numera sus placas desde I. **Películas:** I Quiero ver ·
-      II Índice · III Buscar por persona · IV Recomendador (parecidas dentro
+      Cada sección numera sus placas desde I. **Películas:** I Índice ·
+      II Quiero ver · III Buscar por persona · IV Recomendador (parecidas dentro
       del diario; las sugerencias abren la ficha) · V Mis 9. **Datos:** I La
       forma de una obsesión · II Revisitas · III Detrás de los datos ·
       IV Dashboard · V Perfil de gusto · VI KPIs. (Las menciones de
