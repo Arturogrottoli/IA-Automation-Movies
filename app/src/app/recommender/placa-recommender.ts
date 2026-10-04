@@ -4,7 +4,7 @@ import { RecommenderService } from '../core/recommender.service';
 import { Movie } from '../core/models';
 
 /**
- * Placa VIII · recomendador de 2 métodos, comparados lado a lado. Primera
+ * Datos, Placa VI · recomendador de 2 métodos, comparados lado a lado. Primera
  * placa interactiva del cluster de Data Science (las de arriba son todas
  * narradas/estáticas) — puramente de lectura, no dispara ninguna escritura.
  *

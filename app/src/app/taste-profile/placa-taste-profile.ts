@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { TasteProfileService } from '../core/taste-profile.service';
 
 /**
- * Placa VII · perfil de gusto — snapshot de `taste_profile.json`
+ * Datos, Placa V · perfil de gusto — snapshot de `taste_profile.json`
  * (`cerebro/taste_profile.py`, pandas + sklearn corrido offline). Prosa fija
  * escrita a mano sobre los signals reales, mismo formato no interactivo que
- * la Placa V. La narración en lenguaje natural por Gemini queda pendiente de
+ * la Placa III de Datos. La narración en lenguaje natural por Gemini queda pendiente de
  * Make (ver README) — esto no depende de eso.
  */
 @Component({

@@ -56,3 +56,58 @@
   border-color: #5a564d;
   color: #ece6da;
 }
+
+/* ============ secciones: Películas / Datos ============ */
+.masthead .lede {
+  margin-bottom: 28px;
+}
+.sections {
+  display: flex;
+  gap: 4px;
+  margin-bottom: -1px; /* pisa el borde del masthead: la pestaña activa "abre" hacia abajo */
+}
+.sections a {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 20px 14px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  color: #8b8471;
+  text-decoration: none;
+}
+.sections a:hover {
+  color: #ece6da;
+}
+.sections a.on {
+  color: #ece6da;
+  border-color: #26262a;
+  background: #131315;
+  box-shadow: inset 0 2px 0 #e6a94a;
+}
+.sections a:focus-visible {
+  outline: 2px solid #e6a94a;
+  outline-offset: 2px;
+}
+.sections-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+.sections-desc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+@media (max-width: 520px) {
+  .sections a {
+    flex: 1;
+    padding: 10px 12px 12px;
+  }
+  .sections-desc {
+    font-size: 9.5px;
+  }
+}

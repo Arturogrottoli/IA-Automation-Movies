@@ -35,7 +35,7 @@ function toDecadeEntries(movies: { anioEstreno: number | null }[]): ChartEntry[]
 }
 
 /**
- * Placa VI · dashboard más profundo — 100% signals sobre datos que ya están
+ * Datos, Placa IV · dashboard más profundo — 100% signals sobre datos que ya están
  * cargados (catálogo + watchlist), sin JSON nuevo ni paso por Python. Mismo
  * esqueleto que placa-charts.ts (un `BarChart` reusado, sin cambios, por gráfico).
  */

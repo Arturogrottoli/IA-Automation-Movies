@@ -9,6 +9,16 @@
       Cada película que vi desde enero de 2018, anotada el día que la vi. Esto es
       lo que se ve cuando se apila todo.
     </p>
+    <nav class="sections" aria-label="Secciones">
+      <a routerLink="/" routerLinkActive="on" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">
+        <span class="sections-name">Películas</span>
+        <span class="sections-desc">índice, listas, búsquedas</span>
+      </a>
+      <a routerLink="/datos" routerLinkActive="on" ariaCurrentWhenActive="page">
+        <span class="sections-name">Datos</span>
+        <span class="sections-desc">gráficos y machine learning</span>
+      </a>
+    </nav>
   </div>
 </header>
 <div class="perf" aria-hidden="true"></div>
@@ -16,17 +26,7 @@
 <app-vitals-strip />
 
 <main>
-  <app-placa-charts />
-  <app-placa-rewatches />
-  <app-placa-watchlist />
-  <app-placa-catalog />
-  <app-placa-case-study />
-  <app-placa-dashboard />
-  <app-placa-taste-profile />
-  <app-placa-recommender />
-  <app-placa-person />
-  <app-placa-nine />
-  <app-placa-kpis />
+  <router-outlet />
 </main>
 
 <app-footer />

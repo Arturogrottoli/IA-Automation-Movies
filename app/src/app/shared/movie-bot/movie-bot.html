@@ -1,9 +1,9 @@
 @if (open()) {
-  <div class="bot-panel" role="dialog" aria-label="Bot peliculero">
+  <div class="bot-panel" role="dialog" aria-label="HALfred Hitchcock, el bot peliculero">
     <header class="bot-head">
       <div>
-        <p class="bot-title">🎬 Bot peliculero</p>
-        <p class="bot-sub">Preguntame de películas, directores y actores, o pedime recomendaciones.</p>
+        <p class="bot-title"><span class="bot-eye" aria-hidden="true"></span>HALfred Hitchcock</p>
+        <p class="bot-sub">El bot peliculero de este diario: películas, directores, actores y recomendaciones.</p>
       </div>
       <div class="bot-head-actions">
         @if (messages().length) {
@@ -15,10 +15,8 @@
 
     <div class="bot-log" #log aria-live="polite">
       @if (!messages().length) {
-        <p class="bot-msg model">
-          ¡Hola! Soy un bot de películas. Conozco todo lo que hay en este diario y bastante de cine en general.
-          Solo hablo de cine: para otras cosas, mejor buscá en otro lado 🍿
-        </p>
+        <!-- en una sola línea: .bot-msg usa white-space: pre-wrap y mostraría la indentación -->
+        <p class="bot-msg model">Buenas noches. Soy HALfred, la IA peliculera de este diario: conozco todo lo que Turi vio y bastante de cine en general. Solo hablo de películas; para otras cosas, me temo que no puedo hacer eso 🍿</p>
         <div class="bot-suggest">
           @for (s of sugerencias; track s) {
             <button (click)="send(s)">{{ s }}</button>
@@ -52,10 +50,10 @@
   </div>
 }
 
-<button class="bot-fab" [class.on]="open()" [attr.aria-expanded]="open()" aria-label="Abrir el bot peliculero" (click)="toggle()">
+<button class="bot-fab" [class.on]="open()" [attr.aria-expanded]="open()" aria-label="Abrir el chat con HALfred, el bot peliculero" (click)="toggle()">
   @if (open()) {
     <span aria-hidden="true">×</span>
   } @else {
-    <span aria-hidden="true">🎬</span><span class="bot-fab-label">¿Dudas de cine?</span>
+    <span class="bot-eye" aria-hidden="true"></span><span class="bot-fab-label">Preguntale a HALfred</span>
   }
 </button>

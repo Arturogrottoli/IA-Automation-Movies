@@ -41,7 +41,7 @@ const PRIOR_RATING = 6.3;
 const MIN_VOTOS = 200;
 
 /**
- * Placa X · buscar un actor/actriz o director/a. Autocompleta primero con la
+ * Películas, Placa III · buscar un actor/actriz o director/a. Autocompleta primero con la
  * gente que ya está en el catálogo (con cuántas películas suyas viste) y
  * después con TMDB en vivo, para gente de la que todavía no viste nada.
  * Al elegir: filmografía completa de TMDB cruzada contra lo visto, y las que

@@ -238,3 +238,24 @@
     animation: none;
   }
 }
+
+/* El ojo de HAL 9000: lente roja con brillo, en el botón y en el título. */
+.bot-eye {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #ffd27a 0 8%, #ff3b1f 22%, #b3120a 48%, #3a0603 72%, #111 74%);
+  box-shadow: 0 0 0 2px #2a2a2e, 0 0 8px rgba(255, 59, 31, 0.55);
+}
+.bot-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.bot-title .bot-eye {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+}

@@ -50,7 +50,7 @@ interface RawCredit {
 }
 
 /**
- * Buscador de personas en vivo (TMDB) para la Placa X: sugerencias por nombre
+ * Buscador de personas en vivo (TMDB) para la Placa III de Películas: sugerencias por nombre
  * (`/search/person`) y filmografía completa (`/person/{id}/movie_credits`,
  * actuadas + dirigidas, con géneros). A diferencia de `ActorLiveService`, que
  * solo trae las 8 más populares para la fichita, acá hace falta TODO el

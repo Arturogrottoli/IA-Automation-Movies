@@ -240,14 +240,25 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       ni backend: la selección vive en el link (`?nueve=`) y en el navegador.
       La del dueño del sitio se fija con `node cerebro/set_mis9.js "<link>" "Nombre"`
       → `mis9.json`, y aparece como pestaña aparte.
-- [x] **Bot peliculero en el sitio** — botón flotante abajo a la derecha
+- [x] **HALfred Hitchcock, el bot peliculero** (HAL 9000 + Alfred
+      Hitchcock) — botón flotante abajo a la derecha
       ([app/src/app/shared/movie-bot](app/src/app/shared/movie-bot)) que
       habla con una función de Vercel ([app/api/chat.ts](app/api/chat.ts)) →
       Gemini (plan gratis). Sin Make. La clave va como `GEMINI_API_KEY` en
       Vercel (nunca en el navegador); `GEMINI_MODEL` es opcional. Recibe el
-      catálogo real + "Quiero ver" + un resumen ya contado (los LLM cuentan
-      mal), y solo habla de cine: lo demás → "Solo soy un simple bot
-      peliculero". Límite: 15 consultas cada 10 min por IP.
+      resumen ya contado (los LLM cuentan mal), títulos de todas las vistas y
+      el detalle de las relacionadas con la pregunta; verifica del lado del
+      servidor que no recomiende algo ya visto. Solo habla de cine: lo demás
+      → "Solo soy un simple bot peliculero". Límite: 15 consultas cada 10
+      min por IP. `api/` tiene su propio tsconfig (commonjs): con el de
+      Angular la función se caía en Vercel.
+- [x] **Dos secciones: Películas y Datos** — rutas `/` y `/datos` (Angular
+      router; `app/vercel.json` reescribe todo a index.html salvo `/api/`).
+      Cada sección numera sus placas desde I. **Películas:** I Quiero ver ·
+      II Índice · III Buscar por persona · IV Mis 9. **Datos:** I La forma de
+      una obsesión · II Revisitas · III Detrás de los datos · IV Dashboard ·
+      V Perfil de gusto · VI Recomendador · VII KPIs. (Las menciones de
+      "Placa N" más arriba en este README son de la numeración vieja, única.)
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).

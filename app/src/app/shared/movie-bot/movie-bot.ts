@@ -7,7 +7,7 @@ interface BotMessage {
 
 const STORAGE_KEY = 'bot-peliculero';
 const ENDPOINT = '/api/chat';
-const SUGERENCIAS = ['¿Qué vi de Tarantino?', 'Recomendame una de terror que no haya visto', '¿Quién dirigió Oldboy?'];
+const SUGERENCIAS = ['¿Qué vi de Hitchcock?', 'Recomendame una de terror que no haya visto', '¿Quién dirigió Oldboy?'];
 
 /**
  * Bot peliculero: botón flotante abajo a la derecha que abre un chat. Habla

@@ -19,7 +19,7 @@ interface SearchHit {
 const NAME_KEY = 'mis9-nombre';
 
 /**
- * Placa X · "Mis 9 películas" (inspirado en My 9 Movies). Dos vistas: la
+ * Películas, Placa IV · "Mis 9 películas" (inspirado en My 9 Movies). Dos vistas: la
  * selección fija del dueño (`mis9.json` en el repo) y la del visitante,
  * editable, que vive en el link (`?nueve=`) y en localStorage. Busca primero
  * en el catálogo y la watchlist (ya tienen póster), después en TMDB en vivo.

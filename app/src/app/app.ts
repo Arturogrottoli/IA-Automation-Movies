@@ -1,20 +1,10 @@
 import { Component, computed, effect } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ThemeService } from './core/theme.service';
 import { CatalogDataService } from './core/catalog-data.service';
 import { WatchlistDataService } from './core/watchlist-data.service';
 import { DialogService } from './core/dialog.service';
 import { VitalsStrip } from './vitals/vitals-strip';
-import { PlacaCharts } from './charts/placa-charts';
-import { PlacaRewatches } from './rewatches/placa-rewatches';
-import { PlacaWatchlist } from './watchlist/placa-watchlist';
-import { PlacaCatalog } from './catalog/placa-catalog';
-import { PlacaCaseStudy } from './case-study/placa-case-study';
-import { PlacaDashboard } from './dashboard/placa-dashboard';
-import { PlacaTasteProfile } from './taste-profile/placa-taste-profile';
-import { PlacaRecommender } from './recommender/placa-recommender';
-import { PlacaPerson } from './person/placa-person';
-import { PlacaNine } from './nine/placa-nine';
-import { PlacaKpis } from './kpis/placa-kpis';
 import { AppFooter } from './footer/app-footer';
 import { MovieDetailDialog } from './movie-detail/movie-detail-dialog';
 import { ConfirmDialog } from './shared/confirm-dialog/confirm-dialog';
@@ -26,18 +16,10 @@ import { MovieBot } from './shared/movie-bot/movie-bot';
 @Component({
   selector: 'app-root',
   imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
     VitalsStrip,
-    PlacaCharts,
-    PlacaRewatches,
-    PlacaWatchlist,
-    PlacaCatalog,
-    PlacaCaseStudy,
-    PlacaDashboard,
-    PlacaTasteProfile,
-    PlacaRecommender,
-    PlacaPerson,
-    PlacaNine,
-    PlacaKpis,
     AppFooter,
     MovieDetailDialog,
     ConfirmDialog,
