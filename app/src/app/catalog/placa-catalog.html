@@ -13,11 +13,14 @@
     />
 
     <div class="viewtoggle" role="group" aria-label="Vista">
-      <button [attr.aria-pressed]="view() === 'list'" (click)="setView('list')">Lista</button>
       <button [attr.aria-pressed]="view() === 'grid'" (click)="setView('grid')">Grilla</button>
+      <button [attr.aria-pressed]="view() === 'list'" (click)="setView('list')">Lista</button>
     </div>
 
-    <div class="count mono">{{ countText() }}</div>
+    <div class="results-head">
+      <h3 class="results-title">{{ heading() }}</h3>
+      <div class="count mono">{{ countText() }}</div>
+    </div>
 
     @if (view() === 'list') {
       <app-catalog-table

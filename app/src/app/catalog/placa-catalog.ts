@@ -34,7 +34,7 @@ export class PlacaCatalog {
 
   protected readonly filters = signal<CatalogFilters>(EMPTY_FILTERS);
   protected readonly sort = signal<SortState>({ key: 's', dir: -1 });
-  protected readonly view = signal<ViewMode>('list');
+  protected readonly view = signal<ViewMode>('grid');
   protected readonly page = signal(1);
 
   // Las opciones de los selects se calculan sobre TODOS los visionados (no
@@ -81,6 +81,15 @@ export class PlacaCatalog {
   protected readonly pagedGridEntries = computed(() => {
     const p = this.effectivePage();
     return this.gridEntries().slice((p - 1) * PAGE_SIZE, p * PAGE_SIZE);
+  });
+
+  /** Sin búsqueda ni filtros y con el orden por defecto (fecha vista, más reciente primero): son las últimas vistas. */
+  protected readonly heading = computed(() => {
+    const f = this.filters();
+    const sinFiltros = !f.search.trim() && f.decade == null && !f.country && f.anioVisto == null && !f.genre && !f.onlyRewatches;
+    const ordenDefault = this.sort().key === 's' && this.sort().dir === -1;
+    if (!sinFiltros) return 'Lo que coincide con tu búsqueda';
+    return ordenDefault ? 'Últimas vistas' : 'Todas las películas';
   });
 
   protected readonly countText = computed(() => {
