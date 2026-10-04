@@ -21,6 +21,7 @@ import { ConfirmDialog } from './shared/confirm-dialog/confirm-dialog';
 import { ChartTooltip } from './shared/chart-tooltip/chart-tooltip';
 import { Toast } from './shared/toast/toast';
 import { ActorDialog } from './shared/actor-dialog/actor-dialog';
+import { MovieBot } from './shared/movie-bot/movie-bot';
 
 @Component({
   selector: 'app-root',
@@ -43,6 +44,7 @@ import { ActorDialog } from './shared/actor-dialog/actor-dialog';
     ChartTooltip,
     Toast,
     ActorDialog,
+    MovieBot,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

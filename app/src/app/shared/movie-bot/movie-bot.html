@@ -1,0 +1,61 @@
+@if (open()) {
+  <div class="bot-panel" role="dialog" aria-label="Bot peliculero">
+    <header class="bot-head">
+      <div>
+        <p class="bot-title">🎬 Bot peliculero</p>
+        <p class="bot-sub">Preguntame de películas, directores y actores, o pedime recomendaciones.</p>
+      </div>
+      <div class="bot-head-actions">
+        @if (messages().length) {
+          <button class="bot-icon" title="Empezar de nuevo" aria-label="Empezar de nuevo" (click)="reset()">↺</button>
+        }
+        <button class="bot-icon" title="Cerrar" aria-label="Cerrar" (click)="toggle()">×</button>
+      </div>
+    </header>
+
+    <div class="bot-log" #log aria-live="polite">
+      @if (!messages().length) {
+        <p class="bot-msg model">
+          ¡Hola! Soy un bot de películas. Conozco todo lo que hay en este diario y bastante de cine en general.
+          Solo hablo de cine: para otras cosas, mejor buscá en otro lado 🍿
+        </p>
+        <div class="bot-suggest">
+          @for (s of sugerencias; track s) {
+            <button (click)="send(s)">{{ s }}</button>
+          }
+        </div>
+      }
+      @for (m of messages(); track $index) {
+        <p class="bot-msg" [class.user]="m.role === 'user'" [class.model]="m.role === 'model'">{{ m.text }}</p>
+      }
+      @if (pending()) {
+        <p class="bot-msg model bot-typing" aria-label="Escribiendo"><span></span><span></span><span></span></p>
+      }
+      @if (error(); as e) {
+        <p class="bot-error">{{ e }}</p>
+      }
+    </div>
+
+    <form class="bot-form" (submit)="$event.preventDefault(); send()">
+      <textarea
+        #input
+        rows="1"
+        maxlength="600"
+        placeholder="Escribí tu pregunta…"
+        aria-label="Tu pregunta"
+        [value]="draft()"
+        (input)="draft.set($any($event.target).value)"
+        (keydown)="onKey($event)"
+      ></textarea>
+      <button type="submit" class="bot-send" [disabled]="pending() || !draft().trim()" aria-label="Enviar">➤</button>
+    </form>
+  </div>
+}
+
+<button class="bot-fab" [class.on]="open()" [attr.aria-expanded]="open()" aria-label="Abrir el bot peliculero" (click)="toggle()">
+  @if (open()) {
+    <span aria-hidden="true">×</span>
+  } @else {
+    <span aria-hidden="true">🎬</span><span class="bot-fab-label">¿Dudas de cine?</span>
+  }
+</button>

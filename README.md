@@ -240,6 +240,14 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       ni backend: la selección vive en el link (`?nueve=`) y en el navegador.
       La del dueño del sitio se fija con `node cerebro/set_mis9.js "<link>" "Nombre"`
       → `mis9.json`, y aparece como pestaña aparte.
+- [x] **Bot peliculero en el sitio** — botón flotante abajo a la derecha
+      ([app/src/app/shared/movie-bot](app/src/app/shared/movie-bot)) que
+      habla con una función de Vercel ([app/api/chat.ts](app/api/chat.ts)) →
+      Gemini (plan gratis). Sin Make. La clave va como `GEMINI_API_KEY` en
+      Vercel (nunca en el navegador); `GEMINI_MODEL` es opcional. Recibe el
+      catálogo real + "Quiero ver" + un resumen ya contado (los LLM cuentan
+      mal), y solo habla de cine: lo demás → "Solo soy un simple bot
+      peliculero". Límite: 15 consultas cada 10 min por IP.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
