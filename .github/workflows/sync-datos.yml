@@ -1,5 +1,6 @@
 # Sincroniza solo los datos de las películas: corre los scripts de cerebro/
-# (TMDB + recomendador + perfil de gusto) y, si algo cambió, lo commitea.
+# (TMDB + recomendador + perfil de gusto), guarda un respaldo de la hoja y,
+# si algo cambió, lo commitea.
 # El sitio lee estos JSON directo del repo, así que las películas nuevas
 # aparecen con póster, reparto, duración y sinopsis sin correr nada a mano.
 # Sin Make. Necesita el secreto TMDB_TOKEN (Settings → Secrets → Actions).
@@ -44,6 +45,12 @@ jobs:
           if [ -z "$TMDB_TOKEN" ]; then echo "::error::Falta el secreto TMDB_TOKEN"; exit 1; fi
           printf '%s' "$TMDB_TOKEN" > cerebro/tmdb.key
 
+      - name: Respaldo de la hoja (catalogo_completo.csv)
+        run: |
+          curl -sfL "https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1860980534&single=true&output=csv" -o /tmp/catalogo.csv
+          # Solo si bajó algo con pinta de catálogo: un error de Google no debe pisar el respaldo.
+          if head -1 /tmp/catalogo.csv | grep -q titulo; then mv /tmp/catalogo.csv cerebro/catalogo_completo.csv; else echo "::warning::No se pudo bajar la hoja, queda el respaldo anterior"; fi
+
       - name: TMDB (pósters, reparto, duración, sinopsis)
         run: |
           node cerebro/build_posters.js
@@ -60,7 +67,7 @@ jobs:
       - name: Commit si hubo cambios
         run: |
           rm -f cerebro/tmdb.key
-          git add posters.json actors.json runtime.json synopsis.json similar.json similar_ajustado.json taste_profile.json
+          git add cerebro/catalogo_completo.csv posters.json actors.json runtime.json synopsis.json similar.json similar_ajustado.json taste_profile.json
           if git diff --cached --quiet; then
             echo "Sin cambios: no hay películas nuevas."
             exit 0

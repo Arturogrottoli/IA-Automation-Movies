@@ -333,7 +333,8 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
 - [x] **Fila 340 (Pelham):** "The taking of pelham 123" → "The Taking of
       Pelham One Two Three", para agrupar con la fila 1177.
 - [ ] `posters.json` matcheó mal más pelis (remakes/homónimos) — 43 corregidos
-      hasta ahora (`cerebro/rematch_posters.js` y `rematch_posters2.js`,
+      hasta ahora (`cerebro/rematch_posters.js` y `rematch_posters2.js`, ya
+      borrados — siguen en el historial de git;
       eligen por director en vez de por popularidad). Última corrección:
       "Fuck You" (2024) tenía matcheada "Fuck You, Cupid" (ficción de Felipe
       Marinheiro) en vez del documental real, "Fuck you! El último show"
@@ -415,27 +416,23 @@ El bot distingue tres cosas por el texto del mensaje:
 ## Estructura
 
 ```
-index.html            el sitio (6 gráficos + índice: lista o grilla de pósters)
-posters.json          póster, rating y género por película (de TMDB)
-posters-manual.json   los 9 que TMDB no tiene (imágenes en img/)
-actors.json           reparto principal (top 4) por película (de TMDB)
+app/                  el sitio (Angular, en Vercel): secciones Películas y Datos
+  api/chat.ts           CinefilIA, el chat del sitio (función de Vercel → Gemini)
+  src/app/              placas, servicios y componentes
+*.json (raíz)         datos de enriquecimiento que el sitio lee del repo:
+                      posters, actors, runtime, synopsis, similar,
+                      similar_ajustado, taste_profile (+ posters-manual, mis9)
+img/                  pósters a mano para los que TMDB no tiene
+cerebro/              scripts de datos y respaldo de la hoja (ver cerebro/README.md)
+.github/workflows/    sync-datos.yml: sincronización diaria de los datos
 docs/                 entregables del curso — arquitectura, datos, costos
-cerebro/
-  catalogo_completo.csv   copia portable de las ~1.280 películas
-  build_site.js           refresca la instantánea embebida de index.html
-  build_posters.js        regenera posters.json desde TMDB (token en tmdb.key)
-  build_actors.js         regenera actors.json desde TMDB
-  export_docs_pdf.js      exporta docs/*.md del curso a PDF (Chrome headless)
-  set_mis9.js             fija "Mis 9 películas" del dueño en mis9.json
-  CONFIG.md               dónde vive cada secreto (todos en Make, ninguno acá)
-  README.md               notas sobre los datos
+index.html            el sitio viejo, ya no se publica; los scripts leen de
+                      acá la URL de la hoja (SHEET_CSV_URL)
 ```
 
 ## Datos en vivo
 
-1. En la hoja: *Archivo → Compartir → Publicar en la Web → pestaña
-   `catalogo_completo` → CSV*.
-2. Pegar esa URL en `SHEET_CSV_URL`, arriba del `<script>` de `index.html`.
-
-Sin eso, el sitio funciona igual con la instantánea (`node cerebro/build_site.js`
-la actualiza).
+El sitio lee la hoja publicada como CSV (`SHEET_CSV_URL` en
+`app/src/app/core/catalog-data.service.ts`). Si no responde, usa la
+instantánea `app/public/data/catalog-snapshot.json`
+(`node cerebro/build_ng_snapshot.js` la actualiza).

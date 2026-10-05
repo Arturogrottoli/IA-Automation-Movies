@@ -2,25 +2,54 @@
 
 La fuente de verdad del catálogo es la **hoja de Google** (pestaña
 `catalogo_completo`), que se mantiene sola vía el bot de Telegram + Make.
-Acá solo quedan una copia portable y los scripts de mantenimiento.
+Acá están los scripts que enriquecen esos datos y un respaldo de la hoja.
 
-## Archivos
+## Sincronización diaria (automática)
+
+[`../.github/workflows/sync-datos.yml`](../.github/workflows/sync-datos.yml)
+corre todos los días a las 07:00 (AR) en GitHub Actions, en este orden, y
+commitea solo si algo cambió. No hace falta correrlos a mano.
+
+| Archivo | Qué hace |
+|---|---|
+| `catalogo_completo.csv` | Respaldo diario de la hoja (lo baja la sincronización). |
+| `build_posters.js` | Póster, rating y género desde TMDB → `../posters.json` (también lee la pestaña `por_ver`). Solo busca lo nuevo. |
+| `build_actors.js` | Reparto principal → `../actors.json`, con los ids ya resueltos en `posters.json`. |
+| `build_runtime.js` | Duración en minutos → `../runtime.json`. |
+| `build_synopsis.js` | Sinopsis en castellano → `../synopsis.json`. |
+| `taste_profile.py` | Perfil de gusto (pandas + scikit-learn, `random_state` fijo) → `../taste_profile.json`. |
+| `build_similar.py` | Recomendador por contenido → `../similar.json`. |
+| `build_similar_ajustado.py` | Recomendador ajustado por el perfil de gusto → `../similar_ajustado.json`. |
+| `requirements.txt` | Versiones exactas de Python para la sincronización (las mismas que local). |
+
+Para correrlos a mano (ej. para ver algo nuevo ya, sin esperar): los cuatro
+`.js` con `node`, después los tres `.py` con `py` (en Windows `python` abre la
+Microsoft Store). O en GitHub: Actions → "Sincronizar datos de películas" →
+Run workflow.
+
+## Herramientas (a mano, cuando hagan falta)
+
+| Archivo | Para qué |
+|---|---|
+| `check_datos.js` | Cruza el catálogo contra TMDB y marca año/director sospechosos (pósters mal matcheados). Solo reporta, en `check_datos.txt`. |
+| `export_docs_pdf.js` | Exporta los docs del curso (`../docs/*.md`) a PDF con Chrome headless. |
+| `set_mis9.js` | Fija "Mis 9 películas" del dueño en `../mis9.json` desde el link de la placa. |
+| `kpis_operacion.js` | Volumen de registros vía bot, para `../docs/kpis-operacion.md`. Solo imprime. |
+| `build_ng_snapshot.js` | Refresca la instantánea offline del catálogo que usa el sitio si la hoja no responde (`../app/public/data/catalog-snapshot.json`). |
+
+## Configuración
 
 | Archivo | Qué es |
 |---|---|
-| `catalogo_completo.csv` | Copia portable de la hoja. La refresca `build_site.js`. |
-| `build_site.js` | Baja la hoja publicada y refresca la instantánea embebida en `../index.html` y este CSV. |
-| `build_posters.js` | Backfill de póster/rating/género desde TMDB → `../posters.json` (lee también la pestaña `por_ver`). |
-| `build_actors.js` | Backfill del reparto principal (top 4) desde TMDB → `../actors.json`, usando los ids ya resueltos en `posters.json`. |
-| `fix_posters.js` | Reintento de los que TMDB no matchea bien por typos (mapa de correcciones). |
-| `rematch_posters.js` | Re-matchea pósters puntuales eligiendo por director (no por popularidad) — para homónimos/remakes. |
-| `check_datos.js` | Cruza el catálogo contra TMDB y marca año/director sospechosos. Solo reporta. |
-| `CONFIG.md` | Dónde vive cada secreto (todos en Make, ninguno en el repo). |
-| `tmdb.key` | Token de lectura de TMDB. Ignorado por git. |
+| `CONFIG.md` | Dónde vive cada secreto. |
+| `tmdb.key` | Token de lectura de TMDB para correr los scripts local. Ignorado por git. |
 
-Los scripts y fuentes que armaron el catálogo inicial
-(`build_2026.js`, `build_catalogo.js`, `peliculas_import.csv`, `pelis_2026.csv`)
-ya cumplieron y se sacaron; siguen en el historial de git si hicieran falta.
+Los scripts de arreglos puntuales (`fix_posters.js`, `rematch_posters.js`,
+`rematch_posters2.js`) y el del sitio viejo (`build_site.js`) ya cumplieron:
+sus correcciones quedaron guardadas en `posters.json` (la sincronización no
+las pisa, solo agrega lo nuevo). También los que armaron el catálogo inicial
+(`build_2026.js`, `build_catalogo.js`, `peliculas_import.csv`,
+`pelis_2026.csv`). Todos siguen en el historial de git.
 
 ## Esquema de la tabla `catalogo_completo`
 
