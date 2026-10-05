@@ -1,0 +1,4 @@
+# Mismas versiones que en la máquina local: resultados idénticos (el perfil de gusto usa random_state fijo).
+pandas==3.0.3
+numpy==2.5.1
+scikit-learn==1.9.0

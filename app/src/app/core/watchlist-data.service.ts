@@ -3,6 +3,7 @@ import { parseCsv } from './csv.util';
 import { canonDir, canonPais, normalizeKey } from './key.util';
 import { EMPTY_ENRICHMENT, WatchlistItem } from './models';
 import { EnrichmentService } from './enrichment.service';
+import { LivePosterService } from './live-poster.service';
 
 const POR_VER_CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1297033198&single=true&output=csv';
@@ -29,9 +30,20 @@ export class WatchlistDataService {
   private readonly rawItems = signal<WatchlistItem[]>([]);
   readonly loaded = signal(false);
 
-  readonly items = computed(() => this.rawItems());
+  /** Con el póster en vivo para las agregadas desde la última sincronización diaria. */
+  readonly items = computed(() => {
+    const live = this.livePosters.map();
+    if (!live.size) return this.rawItems();
+    return this.rawItems().map((i) => {
+      const l = !i.poster ? live.get(i.key) : undefined;
+      return l ? { ...i, poster: l.poster, tmdbId: i.tmdbId ?? l.tmdbId } : i;
+    });
+  });
 
-  constructor(private readonly enrichment: EnrichmentService) {
+  constructor(
+    private readonly enrichment: EnrichmentService,
+    private readonly livePosters: LivePosterService,
+  ) {
     void this.bootstrap();
   }
 
@@ -53,6 +65,7 @@ export class WatchlistDataService {
     });
     this.rawItems.set(items);
     this.loaded.set(true);
+    if (enrichmentMap.size) this.livePosters.request(items.filter((i) => !enrichmentMap.has(i.key)));
   }
 
   /** Título libre — Make completa director/año/país/género vía Gemini, igual que el bot. */

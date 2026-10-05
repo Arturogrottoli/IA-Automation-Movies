@@ -1,8 +1,9 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, effect, signal } from '@angular/core';
 import { parseCsv } from './csv.util';
 import { canonDir, canonPais, normalizeKey } from './key.util';
 import { EMPTY_ENRICHMENT, EnrichmentFields, Movie, Viewing } from './models';
 import { EnrichmentService } from './enrichment.service';
+import { LivePosterService } from './live-poster.service';
 
 // Publicado desde Google Sheets ("Publicar en la web"), pestaña catalogo_completo.
 const SHEET_CSV_URL =
@@ -26,7 +27,16 @@ export class CatalogDataService {
 
   readonly live = signal(false);
   readonly loading = computed(() => this.rawRows().length === 0);
-  readonly movies = computed<Movie[]>(() => this.buildMovies(this.rawRows(), this.enrichmentMap()));
+  private readonly baseMovies = computed<Movie[]>(() => this.buildMovies(this.rawRows(), this.enrichmentMap()));
+  /** Con el póster en vivo para las que todavía no pasaron por la sincronización diaria. */
+  readonly movies = computed<Movie[]>(() => {
+    const live = this.livePosters.map();
+    if (!live.size) return this.baseMovies();
+    return this.baseMovies().map((m) => {
+      const l = !m.poster ? live.get(m.key) : undefined;
+      return l ? { ...m, poster: l.poster, tmdbId: m.tmdbId ?? l.tmdbId } : m;
+    });
+  });
 
   /** Una fila por visionado (una peli revisitada aparece varias veces) — lo que usa la tabla. */
   readonly viewings = computed<Viewing[]>(() =>
@@ -41,7 +51,17 @@ export class CatalogDataService {
     ),
   );
 
-  constructor(private readonly enrichment: EnrichmentService) {
+  constructor(
+    private readonly enrichment: EnrichmentService,
+    private readonly livePosters: LivePosterService,
+  ) {
+    // Películas que no figuran en ningún JSON de enriquecimiento: recién agregadas.
+    effect(() => {
+      const map = this.enrichmentMap();
+      if (!map.size) return; // todavía no cargó (o falló): no pedir las 1.200
+      const nuevas = this.baseMovies().filter((m) => !map.has(m.key));
+      if (nuevas.length) this.livePosters.request(nuevas);
+    });
     void this.loadSnapshot().then((rows) => {
       if (rows && !this.live()) this.rawRows.set(rows);
     });

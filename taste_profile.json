@@ -17,8 +17,8 @@
     },
     {
       "genero": "Fantasía",
-      "tasa": 12.5,
-      "n": 88
+      "tasa": 12.4,
+      "n": 89
     },
     {
       "genero": "Crimen",
@@ -29,8 +29,8 @@
   "top_decadas": [
     {
       "decada": 2000,
-      "tasa": 13.6,
-      "n": 177
+      "tasa": 13.5,
+      "n": 178
     },
     {
       "decada": 1970,
@@ -40,17 +40,17 @@
     {
       "decada": 2010,
       "tasa": 11.9,
-      "n": 360
+      "n": 361
+    },
+    {
+      "decada": 1980,
+      "tasa": 10.5,
+      "n": 86
     },
     {
       "decada": 1950,
       "tasa": 10.0,
       "n": 10
-    },
-    {
-      "decada": 1980,
-      "tasa": 9.4,
-      "n": 85
     }
   ],
   "top_directores": [
@@ -70,53 +70,53 @@
       "n": 4
     },
     {
-      "director": "Bong Joon-ho",
-      "tasa": 40.0,
-      "n": 5
-    },
-    {
       "director": "Adolfo Aristarain",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Yorgos Lanthimos",
-      "tasa": 28.6,
-      "n": 7
-    },
-    {
-      "director": "Asif Kapadia",
-      "tasa": 25.0,
-      "n": 4
+      "director": "Bong Joon-ho",
+      "tasa": 40.0,
+      "n": 5
     },
     {
       "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
+    },
+    {
+      "director": "Danny Boyle",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Asif Kapadia",
+      "tasa": 25.0,
+      "n": 4
     }
   ],
-  "duracion_revisitadas": 109.8,
-  "duracion_no_revisitadas": 110.0,
+  "duracion_revisitadas": 109.6,
+  "duracion_no_revisitadas": 109.9,
   "tasa_por_duracion": [
     {
       "rango": "<80",
-      "tasa": 8.9,
-      "n": 45
+      "tasa": 8.7,
+      "n": 46
     },
     {
       "rango": "80-95",
-      "tasa": 10.2,
-      "n": 275
+      "tasa": 10.4,
+      "n": 279
     },
     {
       "rango": "95-110",
       "tasa": 10.3,
-      "n": 349
+      "n": 350
     },
     {
       "rango": "110-125",
-      "tasa": 8.7,
-      "n": 277
+      "tasa": 8.6,
+      "n": 278
     },
     {
       "rango": "125-140",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.247
+      "peso": 0.268
     },
     {
       "variable": "decada",
-      "peso": 0.172
+      "peso": 0.166
     },
     {
       "variable": "Acción",
-      "peso": 0.081
-    },
-    {
-      "variable": "Historia",
-      "peso": 0.062
+      "peso": 0.077
     },
     {
       "variable": "Drama",
-      "peso": 0.061
+      "peso": 0.076
+    },
+    {
+      "variable": "Historia",
+      "peso": 0.066
     },
     {
       "variable": "Crimen",
-      "peso": 0.051
-    },
-    {
-      "variable": "Comedia",
-      "peso": 0.045
+      "peso": 0.046
     },
     {
       "variable": "Terror",
-      "peso": 0.043
+      "peso": 0.039
+    },
+    {
+      "variable": "Comedia",
+      "peso": 0.035
     }
   ],
   "genre_rate_full": [
@@ -187,8 +187,8 @@
     },
     {
       "genero": "Fantasía",
-      "tasa": 12.5,
-      "n": 88
+      "tasa": 12.4,
+      "n": 89
     },
     {
       "genero": "Crimen",
@@ -197,18 +197,18 @@
     },
     {
       "genero": "Romance",
-      "tasa": 11.9,
-      "n": 84
-    },
-    {
-      "genero": "Terror",
-      "tasa": 11.6,
-      "n": 250
+      "tasa": 11.8,
+      "n": 85
     },
     {
       "genero": "Comedia",
+      "tasa": 11.6,
+      "n": 344
+    },
+    {
+      "genero": "Terror",
       "tasa": 11.5,
-      "n": 339
+      "n": 253
     },
     {
       "genero": "Ciencia ficción",
@@ -232,8 +232,8 @@
     },
     {
       "genero": "Drama",
-      "tasa": 7.7,
-      "n": 507
+      "tasa": 7.6,
+      "n": 510
     },
     {
       "genero": "Música",
@@ -273,24 +273,14 @@
       "n": 4
     },
     {
-      "director": "Bong Joon-ho",
-      "tasa": 40.0,
-      "n": 5
-    },
-    {
       "director": "Adolfo Aristarain",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Yorgos Lanthimos",
-      "tasa": 28.6,
-      "n": 7
-    },
-    {
-      "director": "Asif Kapadia",
-      "tasa": 25.0,
-      "n": 4
+      "director": "Bong Joon-ho",
+      "tasa": 40.0,
+      "n": 5
     },
     {
       "director": "Robert Eggers",
@@ -299,6 +289,21 @@
     },
     {
       "director": "Danny Boyle",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Asif Kapadia",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Yorgos Lanthimos",
+      "tasa": 25.0,
+      "n": 8
+    },
+    {
+      "director": "Sam Raimi",
       "tasa": 25.0,
       "n": 4
     },
@@ -328,17 +333,17 @@
       "n": 6
     },
     {
+      "director": "Joel Coen",
+      "tasa": 14.3,
+      "n": 7
+    },
+    {
       "director": "Ethan Coen",
       "tasa": 14.3,
       "n": 7
     },
     {
       "director": "John Carpenter",
-      "tasa": 14.3,
-      "n": 7
-    },
-    {
-      "director": "Joel Coen",
       "tasa": 14.3,
       "n": 7
     },
@@ -358,6 +363,11 @@
       "n": 12
     },
     {
+      "director": "Christopher Nolan",
+      "tasa": 0.0,
+      "n": 8
+    },
+    {
       "director": "Alfred Hitchcock",
       "tasa": 0.0,
       "n": 4
@@ -368,9 +378,9 @@
       "n": 5
     },
     {
-      "director": "Denis Villeneuve",
+      "director": "Matt Bettinelli-Olpin",
       "tasa": 0.0,
-      "n": 5
+      "n": 4
     },
     {
       "director": "Marcelo Piñeyro",
@@ -388,9 +398,9 @@
       "n": 4
     },
     {
-      "director": "Christopher Nolan",
+      "director": "David Cronenberg",
       "tasa": 0.0,
-      "n": 8
+      "n": 5
     },
     {
       "director": "Damien Leone",
@@ -403,24 +413,14 @@
       "n": 4
     },
     {
-      "director": "David Cronenberg",
+      "director": "Denis Villeneuve",
       "tasa": 0.0,
       "n": 5
-    },
-    {
-      "director": "Matt Bettinelli-Olpin",
-      "tasa": 0.0,
-      "n": 4
     },
     {
       "director": "Ridley Scott",
       "tasa": 0.0,
       "n": 6
-    },
-    {
-      "director": "Pedro Almodovar",
-      "tasa": 0.0,
-      "n": 7
     },
     {
       "director": "Michael Mann",
@@ -431,6 +431,11 @@
       "director": "Paul Schrader",
       "tasa": 0.0,
       "n": 4
+    },
+    {
+      "director": "Pedro Almodovar",
+      "tasa": 0.0,
+      "n": 7
     },
     {
       "director": "Sylvester Stallone",
@@ -455,32 +460,32 @@
   ],
   "top_combos": [
     {
+      "director": "Chad Stahelski",
+      "actor": "Peter Stormare",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Ruby Rose",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
       "director": "Ti West",
       "actor": "Mia Goth",
       "tasa": 100.0,
       "n": 3
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Cameron Diaz",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Eddie Murphy",
+      "director": "Chad Stahelski",
+      "actor": "Bridget Moynahan",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Common",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Christopher Miller",
-      "actor": "Channing Tatum",
+      "actor": "Riccardo Scamarcio",
       "tasa": 100.0,
       "n": 2
     }
@@ -492,23 +497,23 @@
     },
     {
       "anio": 2019,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2020,
-      "cluster": 0
+      "cluster": 2
     },
     {
       "anio": 2021,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2022,
-      "cluster": 2
+      "cluster": 1
     },
     {
       "anio": 2023,
-      "cluster": 2
+      "cluster": 1
     },
     {
       "anio": 2024,
@@ -516,7 +521,7 @@
     },
     {
       "anio": 2025,
-      "cluster": 2
+      "cluster": 0
     },
     {
       "anio": 2026,
@@ -527,35 +532,35 @@
     {
       "cluster": 0,
       "anios": [
-        2019,
-        2020,
-        2021,
-        2024
+        2024,
+        2025
       ],
-      "decada_prom": 2002.0,
-      "duracion_prom": 112.6,
-      "tasa_revision_prom": 21.9
+      "decada_prom": 2006.0,
+      "duracion_prom": 107.7,
+      "tasa_revision_prom": 21.1
     },
     {
       "cluster": 1,
       "anios": [
         2018,
+        2019,
+        2021,
+        2022,
+        2023,
         2026
       ],
-      "decada_prom": 1999.0,
-      "duracion_prom": 107.3,
-      "tasa_revision_prom": 15.8
+      "decada_prom": 2003.0,
+      "duracion_prom": 110.2,
+      "tasa_revision_prom": 20.0
     },
     {
       "cluster": 2,
       "anios": [
-        2022,
-        2023,
-        2025
+        2020
       ],
-      "decada_prom": 2007.0,
-      "duracion_prom": 109.9,
-      "tasa_revision_prom": 18.8
+      "decada_prom": 1999.0,
+      "duracion_prom": 117.3,
+      "tasa_revision_prom": 14.3
     }
   ]
 }

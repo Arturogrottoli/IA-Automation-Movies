@@ -124,12 +124,19 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       revisar si el toggle sigue en ON y qué dice la History de las últimas
       ejecuciones (probable causa: Make desactiva un escenario solo después
       de demasiados errores seguidos).
-- [ ] **Pósters de la watchlist automáticos.** Hoy `build_posters.js` los trae al
-      re-correrlo a mano; sumar un paso de TMDB a la rama `agendar`/`agregar`
-      de Make (HTTP call por título+año, guardar poster/género como columnas
-      nuevas en `por_ver`). **A propósito sin tocar todavía** — esperar a que
-      se renueven los créditos de Make este mes antes de sumar otro paso al
-      escenario.
+- [x] **Pósters y datos automáticos, sin Make** (resuelto 2026-10-05, en vez
+      del paso de TMDB en Make que se había pensado). Dos piezas:
+      - [.github/workflows/sync-datos.yml](.github/workflows/sync-datos.yml):
+        GitHub Actions corre todos los días a las 07:00 (AR) los scripts de
+        `cerebro/` (pósters, reparto, duración, sinopsis, perfil de gusto,
+        recomendador) y commitea solo si cambió algo. Se puede correr a mano
+        desde Actions → "Sincronizar datos de películas" → Run workflow.
+        Necesita el secreto `TMDB_TOKEN` en Settings → Secrets → Actions.
+        Versiones de Python fijas en `cerebro/requirements.txt` (mismas que
+        la máquina local, para que los resultados no cambien solos).
+      - `app/src/app/core/live-poster.service.ts`: si una película no figura
+        en ningún JSON (agregada después de la última sincronización), el
+        sitio busca su póster en TMDB en el momento. Tope de 30 por visita.
 - [x] **Similitud por embeddings** (mitad del alcance original — ver decisión
       abajo). `cerebro/build_similar.py` suma TF-IDF de sinopsis (scikit-learn,
       sin dependencias pesadas nuevas) a la similitud categórica que ya
