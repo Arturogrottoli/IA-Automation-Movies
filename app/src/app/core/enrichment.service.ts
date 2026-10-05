@@ -25,7 +25,9 @@ interface RawSimilarStub {
  * cual está en el repo (con CORS abierto, `Access-Control-Allow-Origin: *`),
  * sin depender de que Pages siga habilitado en este repo.
  */
-export const DATA_BASE_URL = 'https://raw.githubusercontent.com/Arturogrottoli/IA-Automation-Movies/main/';
+export const REPO_RAW_URL = 'https://raw.githubusercontent.com/Arturogrottoli/IA-Automation-Movies/main/';
+/** Los JSON de enriquecimiento viven en data/ (los escribe cerebro/, los sincroniza .github/workflows/sync-datos.yml). */
+export const DATA_BASE_URL = REPO_RAW_URL + 'data/';
 
 /**
  * Fetch + merge de los 6 JSON de enriquecimiento (TMDB, generados offline
@@ -86,7 +88,9 @@ export class EnrichmentService {
       const p = posters[key];
       const rawSimilar = similar?.[key] ?? [];
       merged.set(key, {
-        poster: p?.poster ?? null,
+        // Los manuales vienen como "img/x.jpg", relativo a la raíz del repo: en Vercel esa
+        // ruta no existe (devolvía la página), así que se resuelven contra GitHub.
+        poster: p?.poster ? (/^https?:/.test(p.poster) ? p.poster : REPO_RAW_URL + p.poster) : null,
         rating: p?.rating ?? null,
         genres: p?.genres ?? [],
         tmdbId: p?.tmdb ?? null,

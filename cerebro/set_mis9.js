@@ -1,10 +1,10 @@
-// Fija "Mis 9 películas" del dueño del sitio -> ../mis9.json (lo lee la Placa X).
+// Fija "Mis 9 películas" del dueño del sitio -> ../data/mis9.json (lo lee la Placa X).
 // Armá la selección en el sitio, tocá "Copiar link" y pasalo acá:
 //   node cerebro/set_mis9.js "<link copiado>" "Tu nombre"
 // Sin argumentos muestra lo que hay guardado.
 const fs = require("fs");
 const path = require("path");
-const OUT = path.join(__dirname, "..", "mis9.json");
+const OUT = path.join(__dirname, "..", "data", "mis9.json");
 
 const [link, nombre] = process.argv.slice(2);
 if (!link) {

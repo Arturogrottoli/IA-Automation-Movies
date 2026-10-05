@@ -129,7 +129,7 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       - [.github/workflows/sync-datos.yml](.github/workflows/sync-datos.yml):
         GitHub Actions corre todos los días a las 07:00 (AR) los scripts de
         `cerebro/` (pósters, reparto, duración, sinopsis, perfil de gusto,
-        recomendador) y commitea solo si cambió algo. Se puede correr a mano
+        recomendador) sobre `data/` y commitea solo si cambió algo. Se puede correr a mano
         desde Actions → "Sincronizar datos de películas" → Run workflow.
         Necesita el secreto `TMDB_TOKEN` en Settings → Secrets → Actions.
         Versiones de Python fijas en `cerebro/requirements.txt` (mismas que
@@ -419,9 +419,9 @@ El bot distingue tres cosas por el texto del mensaje:
 app/                  el sitio (Angular, en Vercel): secciones Películas y Datos
   api/chat.ts           CinefilIA, el chat del sitio (función de Vercel → Gemini)
   src/app/              placas, servicios y componentes
-*.json (raíz)         datos de enriquecimiento que el sitio lee del repo:
-                      posters, actors, runtime, synopsis, similar,
-                      similar_ajustado, taste_profile (+ posters-manual, mis9)
+data/                 datos de enriquecimiento que el sitio lee del repo
+                      (posters, posters-manual, actors, runtime, synopsis,
+                      similar, similar_ajustado, taste_profile, mis9)
 img/                  pósters a mano para los que TMDB no tiene
 cerebro/              scripts de datos y respaldo de la hoja (ver cerebro/README.md)
 .github/workflows/    sync-datos.yml: sincronización diaria de los datos

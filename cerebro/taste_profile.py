@@ -4,7 +4,7 @@ que una pelicula se vuelva a ver (revisiones como senal de "le gusto de
 verdad", nadie revisita algo que no le gusto).
 
 Corre offline (no toca Make). Lee el catalogo publicado + posters.json +
-actors.json + runtime.json, y escribe ../taste_profile.json para el sitio.
+actors.json + runtime.json, y escribe ../data/taste_profile.json para el sitio.
 
   python cerebro/taste_profile.py
 """
@@ -20,6 +20,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import MultiLabelBinarizer, StandardScaler
 
 ROOT = __file__.rsplit("cerebro", 1)[0]
+DATA = ROOT + "data/"  # los JSON del sitio viven en data/
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1860980534&single=true&output=csv"
 
 
@@ -38,7 +39,7 @@ def poster_key(title, year):
 
 
 def load_json(name):
-    with open(ROOT + name, "r", encoding="utf-8") as f:
+    with open(DATA + name, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -246,7 +247,7 @@ def main():
             for c in sorted(feat_df["cluster"].unique())
         ],
     }
-    with open(ROOT + "taste_profile.json", "w", encoding="utf-8") as f:
+    with open(DATA + "taste_profile.json", "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
     print("\nGuardado en taste_profile.json")
 

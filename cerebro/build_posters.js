@@ -1,4 +1,4 @@
-// Backfill de pósters, rating y género desde TMDB → posters.json (junto a index.html).
+// Backfill de pósters, rating y género desde TMDB → data/posters.json.
 // Corre una vez (o cuando quieras refrescar). El token va en cerebro/tmdb.key (ignorado por git).
 //   node cerebro/build_posters.js
 const fs = require("fs");
@@ -52,7 +52,7 @@ async function tmdb(url){
   const GEN = Object.fromEntries((gl?.genres || []).map(g => [g.id, g.name]));
 
   // cargar lo ya resuelto para no re-consultar
-  const outPath = path.join(ROOT, "posters.json");
+  const outPath = path.join(ROOT, "data", "posters.json");
   const prev = fs.existsSync(outPath) ? JSON.parse(fs.readFileSync(outPath, "utf8")) : {};
   const out = { ...prev };
 

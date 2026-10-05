@@ -12,7 +12,7 @@ const SHEET_CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1860980534&single=true&output=csv';
 const POR_VER_CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1297033198&single=true&output=csv';
-const DATA_BASE_URL = 'https://raw.githubusercontent.com/Arturogrottoli/IA-Automation-Movies/main/';
+const DATA_BASE_URL = 'https://raw.githubusercontent.com/Arturogrottoli/IA-Automation-Movies/main/data/';
 
 export const OFF_TOPIC_REPLY = 'Solo soy un simple bot peliculero 🎬 De eso no sé nada, pero si querés hablamos de películas, directores o actores.';
 

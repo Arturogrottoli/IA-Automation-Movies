@@ -1,4 +1,4 @@
-// Backfill del reparto principal desde TMDB -> ../actors.json
+// Backfill del reparto principal desde TMDB -> ../data/actors.json
 // Usa el id de TMDB ya resuelto en posters.json (no vuelve a buscar por título).
 //   node cerebro/build_actors.js
 const fs = require("fs");
@@ -12,8 +12,8 @@ const TOP_N = 8;
 async function tmdb(u){ for(let i=0;i<4;i++){ const r=await fetch("https://api.themoviedb.org/3"+u,H); if(r.status===429){await sleep(1500);continue;} if(!r.ok)return null; return r.json(); } return null; }
 
 (async () => {
-  const posters = JSON.parse(fs.readFileSync(path.join(ROOT, "posters.json"), "utf8"));
-  const outPath = path.join(ROOT, "actors.json");
+  const posters = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "posters.json"), "utf8"));
+  const outPath = path.join(ROOT, "data", "actors.json");
   const out = fs.existsSync(outPath) ? JSON.parse(fs.readFileSync(outPath, "utf8")) : {};
 
   const entries = Object.entries(posters).filter(([k, v]) => v && v.tmdb);

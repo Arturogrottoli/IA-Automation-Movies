@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { DATA_BASE_URL } from './enrichment.service';
+import { DATA_BASE_URL, REPO_RAW_URL } from './enrichment.service';
 import { TMDB_TOKEN } from './tmdb-live.service';
 
 /** Una película elegida para un casillero. */
@@ -13,7 +13,7 @@ export interface NinePick {
   poster: string | null;
 }
 
-/** `mis9.json` en la raíz del repo: la selección fija del dueño del sitio. */
+/** `data/mis9.json` en el repo: la selección fija del dueño del sitio. */
 export interface OwnerNine {
   nombre: string;
   picks: (string | number | null)[];
@@ -24,10 +24,10 @@ const STORAGE_KEY = 'mis9';
 export const URL_PARAM = 'nueve';
 const AUTH = { headers: { Authorization: `Bearer ${TMDB_TOKEN}`, accept: 'application/json' } };
 
-/** Pósters manuales vienen como ruta relativa del repo (`img/x.jpg`). */
+/** Pósters manuales vienen como ruta relativa a la raíz del repo (`img/x.jpg`), no a data/. */
 export function posterUrl(p: string | null): string | null {
   if (!p) return null;
-  return /^https?:/.test(p) ? p : DATA_BASE_URL + p;
+  return /^https?:/.test(p) ? p : REPO_RAW_URL + p;
 }
 
 /** Token de un casillero para el link: el id de TMDB, o la clave del catálogo. Vacío = casillero libre. */

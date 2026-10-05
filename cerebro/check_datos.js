@@ -25,7 +25,7 @@ function dirMatch(a, b){
 }
 
 (async () => {
-  const posters = JSON.parse(fs.readFileSync(path.join(ROOT, "posters.json"), "utf8"));
+  const posters = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "posters.json"), "utf8"));
   const pkey = (t,y) => norm(t) + "|" + (y||"");
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
   const url = html.match(/const SHEET_CSV_URL = "([^"]+)"/)[1];

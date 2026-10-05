@@ -14,7 +14,7 @@ repondera cada bloque con senales reales de taste_profile.json:
     central del perfil de gusto (Placa VII).
 
 Requiere haber corrido taste_profile.py antes (lee taste_profile.json).
-Escribe ../similar_ajustado.json, mismo shape que similar.json:
+Escribe ../data/similar_ajustado.json, mismo shape que similar.json:
   { "titulo_norm|anio": [{"t","y","d"}, ...5], ... }
 
   python cerebro/taste_profile.py
@@ -30,6 +30,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
 ROOT = __file__.rsplit("cerebro", 1)[0]
+DATA = ROOT + "data/"  # los JSON del sitio viven en data/
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1860980534&single=true&output=csv"
 POR_VER_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQix1DRbjfgI7Cm-2-52QLMrGrTaDt_B5tHsGd8QV6wqb_jJfduRa1q1kVezcrz0okXo-gtVybYe3zX/pub?gid=1297033198&single=true&output=csv"
 
@@ -49,7 +50,7 @@ def poster_key(title, year):
 
 
 def load_json(name):
-    with open(ROOT + name, "r", encoding="utf-8") as f:
+    with open(DATA + name, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -132,7 +133,7 @@ def main():
             for j in top_idx
         ]
 
-    with open(ROOT + "similar_ajustado.json", "w", encoding="utf-8") as f:
+    with open(DATA + "similar_ajustado.json", "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False)
 
     for title in ["whiplash|2014", "john wick|2014", "the godfather|1972"]:

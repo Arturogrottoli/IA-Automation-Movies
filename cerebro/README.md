@@ -13,13 +13,13 @@ commitea solo si algo cambió. No hace falta correrlos a mano.
 | Archivo | Qué hace |
 |---|---|
 | `catalogo_completo.csv` | Respaldo diario de la hoja (lo baja la sincronización). |
-| `build_posters.js` | Póster, rating y género desde TMDB → `../posters.json` (también lee la pestaña `por_ver`). Solo busca lo nuevo. |
-| `build_actors.js` | Reparto principal → `../actors.json`, con los ids ya resueltos en `posters.json`. |
-| `build_runtime.js` | Duración en minutos → `../runtime.json`. |
-| `build_synopsis.js` | Sinopsis en castellano → `../synopsis.json`. |
-| `taste_profile.py` | Perfil de gusto (pandas + scikit-learn, `random_state` fijo) → `../taste_profile.json`. |
-| `build_similar.py` | Recomendador por contenido → `../similar.json`. |
-| `build_similar_ajustado.py` | Recomendador ajustado por el perfil de gusto → `../similar_ajustado.json`. |
+| `build_posters.js` | Póster, rating y género desde TMDB → `../data/posters.json` (también lee la pestaña `por_ver`). Solo busca lo nuevo. |
+| `build_actors.js` | Reparto principal → `../data/actors.json`, con los ids ya resueltos en `posters.json`. |
+| `build_runtime.js` | Duración en minutos → `../data/runtime.json`. |
+| `build_synopsis.js` | Sinopsis en castellano → `../data/synopsis.json`. |
+| `taste_profile.py` | Perfil de gusto (pandas + scikit-learn, `random_state` fijo) → `../data/taste_profile.json`. |
+| `build_similar.py` | Recomendador por contenido → `../data/similar.json`. |
+| `build_similar_ajustado.py` | Recomendador ajustado por el perfil de gusto → `../data/similar_ajustado.json`. |
 | `requirements.txt` | Versiones exactas de Python para la sincronización (las mismas que local). |
 
 Para correrlos a mano (ej. para ver algo nuevo ya, sin esperar): los cuatro
@@ -33,7 +33,7 @@ Run workflow.
 |---|---|
 | `check_datos.js` | Cruza el catálogo contra TMDB y marca año/director sospechosos (pósters mal matcheados). Solo reporta, en `check_datos.txt`. |
 | `export_docs_pdf.js` | Exporta los docs del curso (`../docs/*.md`) a PDF con Chrome headless. |
-| `set_mis9.js` | Fija "Mis 9 películas" del dueño en `../mis9.json` desde el link de la placa. |
+| `set_mis9.js` | Fija "Mis 9 películas" del dueño en `../data/mis9.json` desde el link de la placa. |
 | `kpis_operacion.js` | Volumen de registros vía bot, para `../docs/kpis-operacion.md`. Solo imprime. |
 | `build_ng_snapshot.js` | Refresca la instantánea offline del catálogo que usa el sitio si la hoja no responde (`../app/public/data/catalog-snapshot.json`). |
 
