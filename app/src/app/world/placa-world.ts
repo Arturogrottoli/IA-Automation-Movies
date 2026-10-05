@@ -122,12 +122,13 @@ export class PlacaWorld {
     private readonly dialog: DialogService,
   ) {
     void this.loadMap();
-    // Sin vistas de ese país: sugerencias de TMDB.
+    // Sugerencias de TMDB para el país elegido (haya vistas o no). Depende solo
+    // del país: si recargara con cada cambio del catálogo, volvería a pedirlas.
     effect(() => {
-      const info = this.selectedInfo();
+      const a2 = this.selected();
       untracked(() => {
         this.suggestions.set(null);
-        if (info && !info.movies.length) void this.loadSuggestions(info.a2);
+        if (a2) void this.loadSuggestions(a2);
       });
     });
   }
@@ -214,20 +215,35 @@ export class PlacaWorld {
   private async loadSuggestions(a2: string): Promise<void> {
     const lista = this.watchlist.items();
     const listaIds = new Set(lista.map((i) => i.tmdbId).filter((x) => x != null));
-    const fetchPage = async (minVotos: number) => {
+    // Fuera las ya vistas, de cualquier país (una coproducción puede estar anotada con otro).
+    const vistasIds = new Set(this.catalog.movies().map((m) => m.tmdbId).filter((x) => x != null));
+    const hoy = new Date().toISOString().slice(0, 10);
+    type RawResult = { id: number; title: string; release_date?: string; poster_path?: string | null; vote_average?: number };
+    const discover = async (params: string, page: number): Promise<RawResult[]> => {
       const res = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?with_origin_country=${a2}&sort_by=vote_average.desc&vote_count.gte=${minVotos}&language=es&include_adult=false`,
+        `https://api.themoviedb.org/3/discover/movie?with_origin_country=${a2}&${params}&primary_release_date.lte=${hoy}&language=es&include_adult=false&page=${page}`,
         AUTH,
       );
       return res.ok ? ((await res.json()).results ?? []) : [];
     };
     try {
-      // Países con poca producción en TMDB: si con 150 votos no hay casi nada, se baja el piso.
-      let results = await fetchPage(150);
-      if (results.length < 4) results = await fetchPage(20);
+      // Las más votadas entre las bien puntuadas (7+): reconocidas y buenas. Ordenar por
+      // puntaje a secas premiaba estrenos con pocos votos y nota inflada.
+      // Hasta 3 páginas: en países muy vistos (EE.UU.) las primeras están casi todas vistas.
+      let results: RawResult[] = [];
+      for (let page = 1; page <= 3; page++) {
+        const batch = await discover('sort_by=vote_count.desc&vote_average.gte=7&vote_count.gte=100', page);
+        results.push(...batch);
+        if (batch.length < 20 || results.filter((r) => !vistasIds.has(r.id)).length >= 8) break;
+      }
+      // Países con poca producción en TMDB: se relaja a las mejor puntuadas con pocos votos.
+      if (results.filter((r) => !vistasIds.has(r.id)).length < 4) {
+        results = [...results, ...(await discover('sort_by=vote_average.desc&vote_count.gte=20', 1))];
+      }
       if (this.selected() !== a2) return;
+      const unicas = [...new Map(results.map((r) => [r.id, r])).values()];
       this.suggestions.set(
-        results.slice(0, 8).map((r: { id: number; title: string; release_date?: string; poster_path?: string | null; vote_average?: number }) => ({
+        unicas.filter((r) => !vistasIds.has(r.id)).slice(0, 8).map((r) => ({
           tmdbId: r.id,
           titulo: r.title,
           anioEstreno: r.release_date ? +r.release_date.slice(0, 4) : null,

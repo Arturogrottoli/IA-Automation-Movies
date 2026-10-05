@@ -88,9 +88,13 @@
               </button>
             }
           </div>
+        }
+        @if (info.movies.length) {
+          <h4 class="wm-h4">Más de {{ info.nombre }} que te pueden gustar</h4>
         } @else {
           <p class="wm-note">Te sugiero las mejor puntuadas de {{ info.nombre }} en TMDB:</p>
-          @if (suggestions(); as sugs) {
+        }
+        @if (suggestions(); as sugs) {
             @if (sugs.length) {
               <div class="wm-grid">
                 @for (s of sugs; track s.tmdbId) {
@@ -111,11 +115,12 @@
                 }
               </div>
             } @else {
-              <p class="wm-note">TMDB no tiene películas registradas de este país.</p>
+              <p class="wm-note">
+                {{ info.movies.length ? 'Ya viste las mejor puntuadas de este país en TMDB.' : 'TMDB no tiene películas registradas de este país.' }}
+              </p>
             }
-          } @else {
-            <p class="wm-note">Buscando en TMDB…</p>
-          }
+        } @else {
+          <p class="wm-note">Buscando en TMDB…</p>
         }
       </div>
     }
