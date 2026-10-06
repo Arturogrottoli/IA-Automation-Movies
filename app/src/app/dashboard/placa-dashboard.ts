@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { CatalogDataService } from '../core/catalog-data.service';
 import { WatchlistDataService } from '../core/watchlist-data.service';
-import { ChartEntry, Movie } from '../core/models';
+import { ChartEntry } from '../core/models';
 import { decadeOf } from '../core/key.util';
 import { BarChart } from '../shared/bar-chart/bar-chart';
+import { CountToggle } from '../shared/count-toggle/count-toggle';
+import { CountModeService } from '../core/count-mode.service';
 
 const MESES = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 
@@ -41,7 +43,7 @@ function toDecadeEntries(movies: { anioEstreno: number | null }[]): ChartEntry[]
  */
 @Component({
   selector: 'app-placa-dashboard',
-  imports: [BarChart],
+  imports: [BarChart, CountToggle],
   templateUrl: './placa-dashboard.html',
   styleUrl: './placa-dashboard.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -50,15 +52,21 @@ export class PlacaDashboard {
   constructor(
     private readonly catalog: CatalogDataService,
     private readonly watchlist: WatchlistDataService,
+    private readonly modes: CountModeService,
   ) {}
 
   private readonly viewings = computed(() => this.catalog.viewings());
-  private readonly movies = computed(() => this.catalog.movies());
+  // Según el selector "Sin repetir / Contando repetidas" (compartido con la Placa I).
+  // Los de fecha agrupan por período: sin repetir, una peli cuenta una vez por año / por mes.
+  private readonly rows = computed(() => this.modes.rows(this.viewings()));
+  private readonly rowsPorAnio = computed(() => this.modes.rows(this.viewings(), (v) => v.anioVisto));
+  private readonly rowsPorMes = computed(() => this.modes.rows(this.viewings(), (v) => v.fecha.slice(0, 7)));
+  private readonly unidad = computed(() => this.modes.unit());
 
   // --- duración promedio por año ---
   protected readonly durPorAnio = computed<ChartEntry[]>(() => {
     const byYear = new Map<number, number[]>();
-    for (const v of this.viewings()) {
+    for (const v of this.rowsPorAnio()) {
       if (!v.anioVisto || v.movie.runtimeMin == null) continue;
       const arr = byYear.get(v.anioVisto) ?? [];
       arr.push(v.movie.runtimeMin);
@@ -79,7 +87,7 @@ export class PlacaDashboard {
   // --- distribución de duración ---
   protected readonly durDistribucion = computed<ChartEntry[]>(() => {
     const counts = new Map(DUR_BINS.map((b) => [b.label, 0]));
-    for (const m of this.movies()) {
+    for (const { movie: m } of this.rows()) {
       if (m.runtimeMin == null) continue;
       const bin = DUR_BINS.find((b) => m.runtimeMin! < b.max)!;
       counts.set(bin.label, (counts.get(bin.label) ?? 0) + 1);
@@ -89,13 +97,13 @@ export class PlacaDashboard {
   protected readonly durDistribucionObs = computed(() => {
     const entries = this.durDistribucion();
     const top = [...entries].sort((a, b) => b.value - a.value)[0];
-    return top ? `El rango ${top.label} min concentra la mayoría, con ${top.value} películas.` : '';
+    return top ? `El rango ${top.label} min concentra la mayoría, con ${top.value} ${this.unidad()}.` : '';
   });
 
   // --- rating promedio por género ---
   protected readonly ratingPorGenero = computed<ChartEntry[]>(() => {
     const byGenre = new Map<string, number[]>();
-    for (const v of this.viewings()) {
+    for (const v of this.rows()) {
       if (v.movie.rating == null) continue;
       for (const g of v.movie.genres) {
         const arr = byGenre.get(g) ?? [];
@@ -116,7 +124,7 @@ export class PlacaDashboard {
   // --- estacionalidad ---
   protected readonly porMes = computed<ChartEntry[]>(() => {
     const counts = new Array(12).fill(0);
-    for (const v of this.viewings()) {
+    for (const v of this.rowsPorMes()) {
       if (!v.fecha) continue;
       const m = +v.fecha.slice(5, 7) - 1;
       if (m >= 0 && m < 12) counts[m]++;
@@ -127,10 +135,10 @@ export class PlacaDashboard {
     const entries = this.porMes();
     if (!entries.length) return '';
     const top = [...entries].sort((a, b) => b.value - a.value)[0];
-    return `${top.label} es el mes con más películas vistas, sumando los ${new Set(this.viewings().map((v) => v.anioVisto)).size} años de registro.`;
+    return `${top.label} es el mes con más ${this.unidad()}, sumando los ${new Set(this.viewings().map((v) => v.anioVisto)).size} años de registro.`;
   });
 
   // --- vistas vs. pendientes, por década ---
-  protected readonly decadaVistas = computed<ChartEntry[]>(() => toDecadeEntries(this.movies() as Movie[]));
+  protected readonly decadaVistas = computed<ChartEntry[]>(() => toDecadeEntries(this.rows().map((v) => v.movie)));
   protected readonly decadaPendientes = computed<ChartEntry[]>(() => toDecadeEntries(this.watchlist.items()));
 }
