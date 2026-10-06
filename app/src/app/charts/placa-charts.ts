@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { CatalogDataService } from '../core/catalog-data.service';
 import { ChartEntry, Viewing } from '../core/models';
-import { decadeOf, nf, tally } from '../core/key.util';
+import { decadeOf, nf, splitDirectores, tally } from '../core/key.util';
 import { BarChart } from '../shared/bar-chart/bar-chart';
 
 function toEntries(counts: Map<string, number>): ChartEntry[] {
@@ -70,15 +70,22 @@ export class PlacaCharts {
   });
 
   // --- directores ---
-  protected readonly byDirector = computed<ChartEntry[]>(() =>
-    toEntries(tally(this.viewings(), (v: Viewing) => v.director))
+  // Mismo criterio que actores: películas distintas (antes contaba visionados y
+  // decía "32 películas" de Scorsese, que son 25), codirecciones por separado
+  // como en "¿Cuánto vi de…?", y los empatados con el 15° entran todos.
+  protected readonly byDirector = computed<ChartEntry[]>(() => {
+    const sorted = toEntries(tally(this.catalog.movies(), (m) => splitDirectores(m.director)))
       .filter((e) => e.label)
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 15),
-  );
+      .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'es'));
+    const corte = sorted[14]?.value ?? 0;
+    return sorted.filter((e, i) => i < 15 || e.value === corte);
+  });
   protected readonly directorObs = computed(() => {
-    const top = this.byDirector()[0];
-    return top ? `${top.label} encabeza con ${top.value} películas.` : '';
+    const entries = this.byDirector();
+    const top = entries[0];
+    if (!top) return '';
+    const empate = entries.length > 15 ? ` Con ${entries.at(-1)!.value} hay empate en el último puesto: entran todos.` : '';
+    return `${top.label} encabeza con ${top.value} películas.${empate}`;
   });
 
   // --- género (TMDB) ---
@@ -95,16 +102,22 @@ export class PlacaCharts {
   });
 
   // --- actores/actrices (TMDB) ---
-  protected readonly byActor = computed<ChartEntry[]>(() =>
-    toEntries(tally(this.viewings(), (v: Viewing) => v.movie.cast))
+  // Por película distinta, no por visionado: el texto dice "películas" y así
+  // coincide con "¿Cuánto vi de…?" (antes una peli vista 3 veces sumaba 3).
+  // Top 15, pero los empatados con el 15° entran todos: cortar un empate deja
+  // afuera a alguien con el mismo número que el último que se ve.
+  protected readonly byActor = computed<ChartEntry[]>(() => {
+    const sorted = toEntries(tally(this.catalog.movies(), (m) => m.cast))
       .filter((e) => e.label)
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 15),
-  );
+      .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'es'));
+    const corte = sorted[14]?.value ?? 0;
+    return sorted.filter((e, i) => i < 15 || e.value === corte);
+  });
   protected readonly actorObs = computed(() => {
     const entries = this.byActor();
     if (!entries.length) return '';
-    const conActores = this.viewings().filter((v) => v.movie.cast.length).length;
-    return `${entries[0].label} encabeza con ${entries[0].value} películas. Sobre ${nf(conActores)} con reparto identificado.`;
+    const conActores = this.catalog.movies().filter((m) => m.cast.length).length;
+    const empate = entries.length > 15 ? ` Con ${entries.at(-1)!.value} hay empate en el último puesto: entran todos.` : '';
+    return `${entries[0].label} encabeza con ${entries[0].value} películas. Sobre ${nf(conActores)} películas con reparto identificado.${empate}`;
   });
 }
