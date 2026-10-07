@@ -23,7 +23,7 @@
     {
       "genero": "Crimen",
       "tasa": 12.2,
-      "n": 245
+      "n": 246
     }
   ],
   "top_decadas": [
@@ -44,8 +44,8 @@
     },
     {
       "decada": 1980,
-      "tasa": 10.5,
-      "n": 86
+      "tasa": 10.3,
+      "n": 87
     },
     {
       "decada": 1950,
@@ -70,22 +70,22 @@
       "n": 4
     },
     {
-      "director": "Adolfo Aristarain",
-      "tasa": 40.0,
-      "n": 5
-    },
-    {
       "director": "Bong Joon-ho",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Robert Eggers",
+      "director": "Adolfo Aristarain",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
+      "director": "Danny Boyle",
       "tasa": 25.0,
       "n": 4
     },
     {
-      "director": "Danny Boyle",
+      "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
     },
@@ -106,7 +106,7 @@
     {
       "rango": "80-95",
       "tasa": 10.4,
-      "n": 279
+      "n": 280
     },
     {
       "rango": "95-110",
@@ -125,8 +125,8 @@
     },
     {
       "rango": "140-160",
-      "tasa": 7.1,
-      "n": 56
+      "tasa": 7.0,
+      "n": 57
     },
     {
       "rango": "160+",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.268
+      "peso": 0.286
     },
     {
       "variable": "decada",
-      "peso": 0.166
+      "peso": 0.159
     },
     {
       "variable": "Acción",
-      "peso": 0.077
-    },
-    {
-      "variable": "Drama",
-      "peso": 0.076
+      "peso": 0.075
     },
     {
       "variable": "Historia",
-      "peso": 0.066
+      "peso": 0.067
     },
     {
-      "variable": "Crimen",
-      "peso": 0.046
-    },
-    {
-      "variable": "Terror",
-      "peso": 0.039
+      "variable": "Drama",
+      "peso": 0.063
     },
     {
       "variable": "Comedia",
-      "peso": 0.035
+      "peso": 0.038
+    },
+    {
+      "variable": "Terror",
+      "peso": 0.037
+    },
+    {
+      "variable": "Crimen",
+      "peso": 0.036
     }
   ],
   "genre_rate_full": [
@@ -193,7 +193,7 @@
     {
       "genero": "Crimen",
       "tasa": 12.2,
-      "n": 245
+      "n": 246
     },
     {
       "genero": "Romance",
@@ -203,12 +203,12 @@
     {
       "genero": "Comedia",
       "tasa": 11.6,
-      "n": 344
+      "n": 345
     },
     {
       "genero": "Terror",
-      "tasa": 11.5,
-      "n": 253
+      "tasa": 11.4,
+      "n": 254
     },
     {
       "genero": "Ciencia ficción",
@@ -273,22 +273,22 @@
       "n": 4
     },
     {
-      "director": "Adolfo Aristarain",
-      "tasa": 40.0,
-      "n": 5
-    },
-    {
       "director": "Bong Joon-ho",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Robert Eggers",
+      "director": "Adolfo Aristarain",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
+      "director": "Danny Boyle",
       "tasa": 25.0,
       "n": 4
     },
     {
-      "director": "Danny Boyle",
+      "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
     },
@@ -313,17 +313,17 @@
       "n": 25
     },
     {
-      "director": "Adam McKay",
-      "tasa": 20.0,
-      "n": 5
-    },
-    {
       "director": "Tim Burton",
       "tasa": 20.0,
       "n": 5
     },
     {
       "director": "Edgar Wright",
+      "tasa": 20.0,
+      "n": 5
+    },
+    {
+      "director": "Adam McKay",
       "tasa": 20.0,
       "n": 5
     },
@@ -338,17 +338,17 @@
       "n": 7
     },
     {
+      "director": "Paul Thomas Anderson",
+      "tasa": 14.3,
+      "n": 7
+    },
+    {
       "director": "Ethan Coen",
       "tasa": 14.3,
       "n": 7
     },
     {
       "director": "John Carpenter",
-      "tasa": 14.3,
-      "n": 7
-    },
-    {
-      "director": "Paul Thomas Anderson",
       "tasa": 14.3,
       "n": 7
     },
@@ -376,6 +376,11 @@
       "director": "Antoine Fuqua",
       "tasa": 0.0,
       "n": 5
+    },
+    {
+      "director": "Ari Aster",
+      "tasa": 0.0,
+      "n": 4
     },
     {
       "director": "Matt Bettinelli-Olpin",
@@ -460,18 +465,6 @@
   ],
   "top_combos": [
     {
-      "director": "Chad Stahelski",
-      "actor": "Peter Stormare",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Ruby Rose",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
       "director": "Ti West",
       "actor": "Mia Goth",
       "tasa": 100.0,
@@ -485,7 +478,19 @@
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Riccardo Scamarcio",
+      "actor": "Common",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Quentin Tarantino",
+      "actor": "Harvey Keitel",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Quentin Tarantino",
+      "actor": "Leonardo DiCaprio",
       "tasa": 100.0,
       "n": 2
     }
