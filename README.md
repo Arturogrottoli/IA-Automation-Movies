@@ -1,10 +1,13 @@
 # Diario de proyección
 
-Un registro personal de películas — ~1.280 vistas desde enero de 2018 — que se
-mantiene solo: le mandás el nombre de una película a un bot de Telegram, una IA
-le completa director, año, país y género, y la fila se agrega a una hoja de
-Google. Un sitio web lee esa hoja en vivo y muestra el catálogo y sus
-estadísticas.
+Un registro personal de películas — ~1.310 visionados (~1.170 películas
+distintas) desde enero de 2018 — que se mantiene solo: le mandás el nombre de
+una película a un bot de Telegram, una IA le completa director, año, país y
+género, y la fila se agrega a una hoja de Google. Un sitio web lee esa hoja en
+vivo y la muestra en dos secciones — **Películas** (índice, listas, búsquedas,
+mapa) y **Datos** (gráficos y machine learning) —, con CinefilIA, un chat de
+cine, en todas las páginas. Pósters, reparto y modelos se actualizan solos
+todos los días.
 
 **Sitio:** https://turimoviesdatabase.vercel.app
 
@@ -115,15 +118,13 @@ anda solo: agregás una película por chat y aparece en el sitio sin tocar nada 
       literal) — si mapeás ahí un valor de otro módulo (por error, con el
       picker), Gemini usa ese valor como nombre de clave en vez de como
       contenido, y todo sale mal armado.
-      **Roto ahora mismo (2026-09-22), pendiente de retomar con Make:**
-      agregar desde el sitio no escribe nada en la hoja — probado con "The
-      Rati Horror Show", cero filas nuevas en `por_ver`. **No es créditos
-      agotados de la cuenta** (el usuario confirmó que registrar por
-      Telegram sigue andando bien) — es puntual del escenario "Integration
-      Webhooks". Falta entrar a Make → Scenarios → "Integration Webhooks" y
-      revisar si el toggle sigue en ON y qué dice la History de las últimas
-      ejecuciones (probable causa: Make desactiva un escenario solo después
-      de demasiados errores seguidos).
+      **Sin verificar desde el 2026-10-04 — revisar con Make:** el 22/9
+      "agregar" no escribía en la hoja, y el 4/10 un "quitar" (Eyes of
+      Laura Mars) devolvió "Accepted" pero la fila siguió 8 minutos después.
+      Hoy esa fila ya no está, sin saber si la borró el escenario o se borró
+      a mano. Para cerrarlo: agregar y quitar una película desde el sitio,
+      confirmar en `por_ver`, y si falla, mirar la History de "Integration
+      Webhooks".
 - [x] **Pósters y datos automáticos, sin Make** (resuelto 2026-10-05, en vez
       del paso de TMDB en Make que se había pensado). Dos piezas:
       - [.github/workflows/sync-datos.yml](.github/workflows/sync-datos.yml):
@@ -212,11 +213,15 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       con DiCaprio de mafiosos" → la IA arma candidatos y pregunta cuál, en
       vez de necesitar el título exacto. Extiende el mecanismo de "título
       ambiguo" que ya existe (Cape Fear) a un caso más abierto.
-- [ ] **La IA como interfaz de consulta a los datos.** "¿qué género veo más?",
+- [~] **La IA como interfaz de consulta a los datos.** "¿qué género veo más?",
       "¿estoy viendo películas más largas últimamente?" — el bot no inventa
-      la respuesta: dispara el análisis Python/pandas real sobre los datos y
-      Gemini solo la traduce a lenguaje natural. Distinto de "consultar" hoy
-      (que lee el CSV crudo) — acá pasa por el análisis primero.
+      la respuesta: dispara el análisis real sobre los datos y Gemini solo la
+      traduce a lenguaje natural. **Cubierto en buena parte por CinefilIA**
+      (ver abajo), sin Make: la función de Vercel calcula en código los
+      totales, visionados por año, géneros y conteos por director antes de
+      llamar a Gemini, que solo redacta. Falta lo que no está precalculado
+      (tendencias de duración, cruces): para eso habría que sumar más
+      cuentas a la función, o leer `taste_profile.json`.
 - [x] **Dashboard más profundo** → Placa VI en el sitio
       ([app/src/app/dashboard](app/src/app/dashboard)). Duración promedio
       por año, distribución de duración (histograma), rating promedio por
@@ -290,11 +295,12 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       Los 3 documentos estaban desactualizados (faltaban las ramas
       agendar/ambiguo, el escenario "Integration Webhooks", el modelo real,
       y `manual-de-datos.md` describía como "pendiente" el bug de
-      `anio_visto` que ya se arregló) — corregidos. **PDF re-exportados
-      (2026-09-27)** con `cerebro/export_docs_pdf.js` (Chrome headless). De
-      paso: el diagrama Mermaid de arquitectura no renderizaba (comillas sin
-      escapar en los subgraph) y los docs todavía decían GitHub Pages —
-      actualizados a Angular + Vercel.
+      `anio_visto` que ya se arregló) — corregidos. **Actualizados de nuevo
+      (2026-10-08)** con todo lo de octubre: CinefilIA (función de Vercel),
+      la sincronización diaria en GitHub Actions, las secciones Películas y
+      Datos, `data/`, el selector de conteo, y en costos el caso CinefilIA
+      (contexto de ~29.000 a ~10.000 tokens). PDF re-exportados con
+      `cerebro/export_docs_pdf.js` (Chrome headless).
 - [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
 - [~] **Panel de KPIs de operación** → [docs/kpis-operacion.md](docs/kpis-operacion.md)
       y en el sitio (Placa VI, al final de la página). Solo **volumen** (15
@@ -377,6 +383,8 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
 - [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027.** Migrar todos los
       módulos "Google Gemini AI" de Make a un modelo vigente antes de esa fecha.
+      CinefilIA usa el mismo modelo: ahí alcanza con poner `GEMINI_MODEL` en
+      las variables de Vercel, sin tocar código.
 - [x] **Migración a Angular, completa.** Angular 20 (standalone, signals,
       zoneless), las 5 placas + vitals + footer portadas 1:1 y verificadas
       contra el sitio original. Deployada y en vivo en Vercel:
@@ -391,22 +399,27 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
 ```mermaid
 flowchart LR
     T[Telegram] --> G1[Gemini<br/>¿registrar o consultar?]
-    G1 --> R{Router}
+    G1 --> R{Router · Make}
     R -->|registrar| G2[Gemini completa la ficha] --> S[(Google Sheets)]
     R -->|consultar| H[lee el catálogo] --> G3[Gemini responde] --> T
-    S --> W[index.html<br/>catálogo + stats]
     S -.->|confirmación| T
+    S --> GH[GitHub Actions<br/>sync diaria + TMDB + ML] --> D[(data/*.json)]
+    S --> W[Sitio Angular · Vercel<br/>Películas + Datos]
+    D --> W
+    W <--> C[CinefilIA<br/>Vercel → Gemini]
 ```
 
 | Capa | Herramienta | Rol |
 |---|---|---|
-| **Cerebro** | Google Sheets | El catálogo. Una tabla, 17 columnas. |
-| **Corazón** | Make | Clasifica el mensaje, bifurca, llama a la IA, escribe o responde. |
-| **Inteligencia** | Google Gemini | Clasifica intención · del título saca la ficha · responde consultas con el catálogo como contexto. |
-| **Voz** | Telegram + `index.html` | Entrada y consultas por chat; catálogo y stats por web. |
+| **Cerebro** | Google Sheets + `data/` | El catálogo (una tabla, una fila por visionado) y "Quiero ver". Alrededor, pósters, reparto, sinopsis y modelos en `data/`. |
+| **Corazón** | Make + GitHub Actions + Vercel Functions | Make: el bot y los pedidos del sitio. GitHub Actions: la sincronización diaria de los datos. Vercel: la función de CinefilIA. |
+| **Inteligencia** | Google Gemini + scikit-learn | Gemini clasifica, completa fichas y responde (bot y CinefilIA). scikit-learn: perfil de gusto y recomendadores. |
+| **Voz** | Telegram + sitio | Entrada y consultas por chat; el sitio para explorar, buscar y preguntarle a CinefilIA. |
 
-El sitio es un solo archivo, sin dependencias ni build. Lee el CSV publicado de la
-hoja; si no hay conexión, cae a una instantánea embebida.
+El sitio es una app de Angular en Vercel. Lee el CSV publicado de la hoja (si no
+responde, usa una instantánea) y los JSON de `data/` directo del repo; lo que
+falta lo busca en vivo en TMDB. El detalle completo, con todos los caminos, está
+en [docs/arquitectura.md](docs/arquitectura.md).
 
 El bot distingue tres cosas por el texto del mensaje:
 - **"vi X"** → registra la película.

@@ -48,30 +48,54 @@ Telegram "vi X"
     K = "Bot Telegram", A/B/I por fórmula
 ```
 
-## Datos enriquecidos (fuera de la hoja, desde TMDB)
+## Datos enriquecidos (fuera de la hoja: TMDB y machine learning)
 
-Viven en archivos JSON en la raíz del repo, no en la hoja — todos con la misma
-clave: `normalizar(titulo) + "|" + anio_estreno`.
+Viven en la carpeta `data/` del repo, no en la hoja — todos con la misma
+clave: `normalizar(titulo) + "|" + anio_estreno`. Cubren el catálogo y la
+lista "Quiero ver".
 
 | Archivo | Contenido | Script que lo genera | Cobertura |
 |---|---|---|---|
-| `posters.json` | `{ poster, rating, genres, tmdb }` | `cerebro/build_posters.js` | 1.229/1.242 |
-| `actors.json` | reparto (top 8) | `cerebro/build_actors.js` | 1.230 |
-| `runtime.json` | duración en minutos | `cerebro/build_runtime.js` | 1.229 |
-| `synopsis.json` | sinopsis (TMDB) | `cerebro/build_synopsis.js` | 1.207 |
-| `similar.json` | 5 películas parecidas (similitud por coseno) | `cerebro/build_similar.py` | 1.211 |
+| `posters.json` | `{ poster, rating, genres, tmdb }` | `cerebro/build_posters.js` | 1.263 con póster de 1.275 (11 sin match en TMDB) |
+| `actors.json` | reparto principal (los 8 primeros) | `cerebro/build_actors.js` | 1.264 |
+| `runtime.json` | duración en minutos | `cerebro/build_runtime.js` | 1.264 |
+| `synopsis.json` | sinopsis en castellano (TMDB) | `cerebro/build_synopsis.js` | 1.240 |
+| `taste_profile.json` | perfil de gusto: qué predice que una película se vuelva a ver (Random Forest + KMeans, `random_state` fijo) | `cerebro/taste_profile.py` | — |
+| `similar.json` | 5 parecidas por contenido (género, director, reparto, década + TF-IDF de sinopsis) | `cerebro/build_similar.py` | 1.238 |
+| `similar_ajustado.json` | las mismas candidatas, reponderadas con el perfil de gusto | `cerebro/build_similar_ajustado.py` | 1.238 |
+| `posters-manual.json` + `img/` | las 10 que TMDB no tiene o matchea mal, cargadas a mano | — | 10 |
+| `mis9.json` | la selección fija de "Mis 9 películas" del dueño | `cerebro/set_mis9.js` | (opcional) |
 
-Cada script sigue el mismo patrón: lee el `tmdb` id ya resuelto en
-`posters.json` (nunca vuelve a buscar por título), y salta las claves que ya
-están pobladas — para regenerar de cero hay que borrar el archivo de salida
-primero.
+**Cómo se mantienen:** la sincronización diaria
+(`.github/workflows/sync-datos.yml`, GitHub Actions, 07:00) corre todos los
+scripts en ese orden y commitea solo si algo cambió. Los scripts de TMDB leen
+el `tmdb` id ya resuelto en `posters.json` (nunca vuelven a buscar por título)
+y saltan las claves que ya están pobladas, así que solo trabajan sobre lo nuevo
+— para regenerar algo de cero hay que borrar ese archivo primero. Los de Python
+recalculan todo cada vez, pero con semilla fija: con los mismos datos, el
+mismo resultado (y por lo tanto ningún commit).
 
-- `cerebro/fix_posters.js` / `rematch_posters.js` / `rematch_posters2.js` —
-  recorrecciones de matches errados (eligen por director, no por popularidad).
-- `posters-manual.json` + `img/` — las 11 que TMDB no tiene o matchea mal, a mano.
+**Si una película se agrega después de la sincronización** (ej. a la tarde),
+el sitio busca su póster en TMDB en el momento, hasta que la corrida del día
+siguiente la deje guardada.
+
+Los matches errados de TMDB (remakes y homónimos) se corrigieron con scripts
+de una sola vez que eligen por director en vez de por popularidad; ya no están
+en el repo (siguen en el historial de git) y sus correcciones quedaron en
+`posters.json`, que la sincronización no pisa. `cerebro/check_datos.js` sigue
+disponible para detectar casos nuevos.
 
 El sitio mergea `posters-manual.json` **encima** de `posters.json`, así que
-regenerar el backfill no pisa lo cargado a mano.
+regenerar el backfill no pisa lo cargado a mano. Las rutas de `img/` son
+relativas a la raíz del repo y el sitio las resuelve contra GitHub.
+
+## Visionados vs. películas
+
+La hoja tiene una fila por **visionado**: ~1.310 filas corresponden a ~1.170
+**películas distintas** (las revisitadas suman varias filas). Los gráficos de
+la sección Datos del sitio tienen un selector "Sin repetir / Contando
+repetidas" para elegir cuál de las dos cosas contar. En los gráficos por fecha
+(por año, por mes), "sin repetir" cuenta cada película una vez por período.
 
 **Gotcha:** corregir el `anio_estreno` de una fila en la hoja **huérfana** la
 clave vieja en estos JSON (`título|2023` → `título|2025`) — hay que
@@ -92,7 +116,10 @@ del CSV publicado: 0 mismatches. El gráfico "por año" del sitio usa
 ## Acceso
 
 - **Lectura pública:** el CSV publicado
-  (`…/pub?gid=…&single=true&output=csv`) — es lo que consume el sitio.
+  (`…/pub?gid=…&single=true&output=csv`) — es lo que consumen el sitio,
+  CinefilIA y la sincronización diaria.
 - **Escritura:** solo el usuario (a mano) y Make (vía su conexión OAuth de Google).
-- **Backup:** `cerebro/catalogo_completo.csv` (copia portable) y
+- **Backup:** `cerebro/catalogo_completo.csv`, que la sincronización diaria
+  actualiza con la hoja publicada (si Google falla, no pisa el anterior) — así
+  el historial de git es también un historial de la planilla. Además,
   `cerebro/Pelis_backup_*.xlsx` (con las pestañas por año, local, ignorado por git).
