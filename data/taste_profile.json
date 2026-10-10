@@ -29,8 +29,8 @@
   "top_decadas": [
     {
       "decada": 2000,
-      "tasa": 13.5,
-      "n": 178
+      "tasa": 13.4,
+      "n": 179
     },
     {
       "decada": 1970,
@@ -70,14 +70,19 @@
       "n": 4
     },
     {
+      "director": "Adolfo Aristarain",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
       "director": "Bong Joon-ho",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Adolfo Aristarain",
-      "tasa": 40.0,
-      "n": 5
+      "director": "Asif Kapadia",
+      "tasa": 25.0,
+      "n": 4
     },
     {
       "director": "Danny Boyle",
@@ -85,12 +90,7 @@
       "n": 4
     },
     {
-      "director": "Robert Eggers",
-      "tasa": 25.0,
-      "n": 4
-    },
-    {
-      "director": "Asif Kapadia",
+      "director": "Lucrecia Martel",
       "tasa": 25.0,
       "n": 4
     }
@@ -111,7 +111,7 @@
     {
       "rango": "95-110",
       "tasa": 10.3,
-      "n": 350
+      "n": 351
     },
     {
       "rango": "110-125",
@@ -138,34 +138,34 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.286
+      "peso": 0.279
     },
     {
       "variable": "decada",
-      "peso": 0.159
+      "peso": 0.164
     },
     {
       "variable": "Acción",
-      "peso": 0.075
+      "peso": 0.088
     },
     {
       "variable": "Historia",
-      "peso": 0.067
+      "peso": 0.066
     },
     {
       "variable": "Drama",
-      "peso": 0.063
-    },
-    {
-      "variable": "Comedia",
-      "peso": 0.038
-    },
-    {
-      "variable": "Terror",
-      "peso": 0.037
+      "peso": 0.061
     },
     {
       "variable": "Crimen",
+      "peso": 0.039
+    },
+    {
+      "variable": "Comedia",
+      "peso": 0.039
+    },
+    {
+      "variable": "Terror",
       "peso": 0.036
     }
   ],
@@ -233,7 +233,7 @@
     {
       "genero": "Drama",
       "tasa": 7.6,
-      "n": 510
+      "n": 511
     },
     {
       "genero": "Música",
@@ -273,14 +273,19 @@
       "n": 4
     },
     {
+      "director": "Adolfo Aristarain",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
       "director": "Bong Joon-ho",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Adolfo Aristarain",
-      "tasa": 40.0,
-      "n": 5
+      "director": "Asif Kapadia",
+      "tasa": 25.0,
+      "n": 4
     },
     {
       "director": "Danny Boyle",
@@ -288,12 +293,12 @@
       "n": 4
     },
     {
-      "director": "Robert Eggers",
+      "director": "Lucrecia Martel",
       "tasa": 25.0,
       "n": 4
     },
     {
-      "director": "Asif Kapadia",
+      "director": "Sam Raimi",
       "tasa": 25.0,
       "n": 4
     },
@@ -303,7 +308,7 @@
       "n": 8
     },
     {
-      "director": "Sam Raimi",
+      "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
     },
@@ -313,12 +318,12 @@
       "n": 25
     },
     {
-      "director": "Tim Burton",
+      "director": "Edgar Wright",
       "tasa": 20.0,
       "n": 5
     },
     {
-      "director": "Edgar Wright",
+      "director": "Tim Burton",
       "tasa": 20.0,
       "n": 5
     },
@@ -363,14 +368,14 @@
       "n": 12
     },
     {
-      "director": "Christopher Nolan",
-      "tasa": 0.0,
-      "n": 8
-    },
-    {
       "director": "Alfred Hitchcock",
       "tasa": 0.0,
       "n": 4
+    },
+    {
+      "director": "Christopher Nolan",
+      "tasa": 0.0,
+      "n": 8
     },
     {
       "director": "Antoine Fuqua",
@@ -383,12 +388,12 @@
       "n": 4
     },
     {
-      "director": "Matt Bettinelli-Olpin",
+      "director": "Clint Eastwood",
       "tasa": 0.0,
       "n": 4
     },
     {
-      "director": "Marcelo Piñeyro",
+      "director": "Matt Bettinelli-Olpin",
       "tasa": 0.0,
       "n": 4
     },
@@ -398,7 +403,7 @@
       "n": 5
     },
     {
-      "director": "Joel Schumacher",
+      "director": "Marcelo Piñeyro",
       "tasa": 0.0,
       "n": 4
     },
@@ -413,14 +418,14 @@
       "n": 4
     },
     {
-      "director": "Clint Eastwood",
-      "tasa": 0.0,
-      "n": 4
-    },
-    {
       "director": "Denis Villeneuve",
       "tasa": 0.0,
       "n": 5
+    },
+    {
+      "director": "Joel Schumacher",
+      "tasa": 0.0,
+      "n": 4
     },
     {
       "director": "Ridley Scott",
@@ -471,8 +476,20 @@
       "n": 3
     },
     {
+      "director": "Andrew Adamson",
+      "actor": "Eddie Murphy",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
       "director": "Demian Rugna",
       "actor": "Demián Salomón",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Andrew Adamson",
+      "actor": "Mike Myers",
       "tasa": 100.0,
       "n": 2
     },
@@ -481,32 +498,20 @@
       "actor": "Cameron Diaz",
       "tasa": 100.0,
       "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Eddie Murphy",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Phil Lord",
-      "actor": "Channing Tatum",
-      "tasa": 100.0,
-      "n": 2
     }
   ],
   "clusters_anio": [
     {
       "anio": 2018,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2019,
-      "cluster": 1
+      "cluster": 2
     },
     {
       "anio": 2020,
-      "cluster": 2
+      "cluster": 1
     },
     {
       "anio": 2021,
@@ -514,58 +519,58 @@
     },
     {
       "anio": 2022,
-      "cluster": 1
+      "cluster": 2
     },
     {
       "anio": 2023,
-      "cluster": 1
+      "cluster": 2
     },
     {
       "anio": 2024,
-      "cluster": 0
+      "cluster": 2
     },
     {
       "anio": 2025,
-      "cluster": 0
+      "cluster": 2
     },
     {
       "anio": 2026,
-      "cluster": 1
+      "cluster": 0
     }
   ],
   "cluster_resumen": [
     {
       "cluster": 0,
       "anios": [
-        2024,
-        2025
+        2018,
+        2026
       ],
-      "decada_prom": 2006.0,
-      "duracion_prom": 107.7,
-      "tasa_revision_prom": 21.1
+      "decada_prom": 1999.0,
+      "duracion_prom": 107.0,
+      "tasa_revision_prom": 15.8
     },
     {
       "cluster": 1,
       "anios": [
-        2018,
-        2019,
-        2021,
-        2022,
-        2023,
-        2026
+        2020,
+        2021
       ],
-      "decada_prom": 2003.0,
-      "duracion_prom": 110.2,
-      "tasa_revision_prom": 20.0
+      "decada_prom": 2002.0,
+      "duracion_prom": 114.8,
+      "tasa_revision_prom": 17.6
     },
     {
       "cluster": 2,
       "anios": [
-        2020
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
       ],
-      "decada_prom": 1999.0,
-      "duracion_prom": 117.3,
-      "tasa_revision_prom": 14.3
+      "decada_prom": 2005.0,
+      "duracion_prom": 110.0,
+      "tasa_revision_prom": 22.0
     }
   ]
 }
