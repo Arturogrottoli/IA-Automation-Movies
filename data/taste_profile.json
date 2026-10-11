@@ -470,32 +470,32 @@
   ],
   "top_combos": [
     {
-      "director": "Ti West",
-      "actor": "Mia Goth",
-      "tasa": 100.0,
-      "n": 3
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Eddie Murphy",
+      "director": "Phil Lord",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Demian Rugna",
-      "actor": "Demián Salomón",
+      "director": "Christopher Miller",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Mike Myers",
+      "director": "Christopher Miller",
+      "actor": "Jonah Hill",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Cameron Diaz",
+      "director": "Phil Lord",
+      "actor": "Jonah Hill",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Bridget Moynahan",
       "tasa": 100.0,
       "n": 2
     }
