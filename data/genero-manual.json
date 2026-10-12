@@ -1,0 +1,5 @@
+{
+  "_leeme": "Género de directores que TMDB no tiene cargado (gender = 0). f = mujer, m = hombre, nb = no binario. Pisa a directors.json (lo lee CinefilIA).",
+  "Natalia Meta": "f",
+  "Paula Alvarez": "f"
+}

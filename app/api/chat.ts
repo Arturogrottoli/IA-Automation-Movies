@@ -37,6 +37,8 @@ interface Catalog {
   /** Línea completa (director, géneros, repeticiones) + texto normalizado para buscar. */
   detalle: { linea: string; busca: string; veces: number; dirs: string[] }[];
   pendientes: string;
+  /** "Nombre (n): títulos" de cada directora vista; va al contexto solo si la pregunta es sobre eso. */
+  directorasDetalle: string;
 }
 
 let catalogCache: { at: number; data: Catalog } | null = null;
@@ -102,12 +104,19 @@ function tally(values: string[]): [string, number][] {
 async function loadCatalog(): Promise<Catalog> {
   if (catalogCache && Date.now() - catalogCache.at < CONTEXT_TTL_MS) return catalogCache.data;
 
-  const [catCsv, pvCsv, postersRaw] = await Promise.all([
+  const [catCsv, pvCsv, postersRaw, directorsRaw, generoManualRaw] = await Promise.all([
     getText(SHEET_CSV_URL),
     getText(POR_VER_CSV_URL).catch(() => ''),
     getText(DATA_BASE_URL + 'posters.json').catch(() => '{}'),
+    getText(DATA_BASE_URL + 'directors.json').catch(() => '{}'),
+    getText(DATA_BASE_URL + 'genero-manual.json').catch(() => '{}'),
   ]);
   const posters = JSON.parse(postersRaw) as Record<string, { genres?: string[] } | null>;
+  // Directores con género según TMDB (cerebro/build_directors.js), corregido a mano
+  // donde TMDB no lo tiene: la hoja solo guarda el nombre.
+  const directorsTmdb = JSON.parse(directorsRaw) as Record<string, { n: string; g: string }[]>;
+  const generoManual = JSON.parse(generoManualRaw) as Record<string, string>;
+  const generoDe = (d: { n: string; g: string }) => (d.g === '?' ? (generoManual[d.n] ?? '?') : d.g);
 
   const rows = parseCsv(catCsv);
   const h = rows[0].map((x) => x.trim());
@@ -155,16 +164,37 @@ async function loadCatalog(): Promise<Catalog> {
       .map((r) => `${r[pi('titulo')].trim()} (${r[pi('anio_estreno')] || '?'}) · ${r[pi('director')] || '?'}`);
   }
 
+  // Directoras: por película vista, según TMDB + correcciones a mano.
+  const directoras = new Map<string, string[]>();
+  const sinGenero = new Set<string>();
+  let conDirectores = 0;
+  for (const [k, m] of movies) {
+    const ds = directorsTmdb[k];
+    if (!ds?.length) continue;
+    conDirectores++;
+    for (const d of ds) {
+      const g = generoDe(d);
+      if (g === 'f') directoras.set(d.n, [...(directoras.get(d.n) ?? []), `${m.t} (${m.y || '?'})`]);
+      else if (g === '?') sinGenero.add(d.n);
+    }
+  }
+  const pelisDeDirectoras = new Set([...directoras.values()].flat()).size;
+  const directorasDetalle = [...directoras.entries()]
+    .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+    .map(([n, ts]) => `${n} (${ts.length}): ${ts.join('; ')}`)
+    .join('\n');
+
   const top = (xs: [string, number][], n: number) => xs.slice(0, n).map(([k, v]) => `${k} ${v}`).join(', ');
   const resumen = [
     `Películas distintas vistas: ${movies.size}. Visionados totales (con repeticiones): ${visionados}.`,
     `Visionados por año: ${tally(aniosVistos).sort((a, b) => a[0].localeCompare(b[0])).map(([k, v]) => `${k}: ${v}`).join(', ')}.`,
     `Directores más vistos (películas): ${top(tally(directores), 15)}.`,
     `Géneros (películas, una peli puede tener varios): ${top(tally(generos), 12)}.`,
+    `Directoras mujeres (género según TMDB, sobre ${conDirectores} películas con dirección identificada): ${directoras.size} directoras, en ${pelisDeDirectoras} películas distintas. A ${sinGenero.size} personas que dirigieron TMDB no les tiene cargado el género, así que podría haber alguna más.`,
   ].join('\n');
 
   const titulos = new Set([...movies.values()].map((m) => normKey(m.t, null)));
-  const data: Catalog = { resumen, compacto: compacto.join('; '), titulos, detalle, pendientes: pendientes.join('\n') || '(vacía)' };
+  const data: Catalog = { resumen, compacto: compacto.join('; '), titulos, detalle, pendientes: pendientes.join('\n') || '(vacía)', directorasDetalle };
   catalogCache = { at: Date.now(), data };
   return data;
 }
@@ -200,8 +230,12 @@ async function buildContext(turns: ChatTurn[]): Promise<string> {
     }
   }
   const conteos = [...porDirector.entries()].map(([dir, a]) => `${dir}: ${a.pelis} películas distintas, ${a.vistas} visionados en total`);
+  const sobreDirectoras = /directora|mujer|femenin|cineasta/.test(preguntas);
   return [
     `RESUMEN YA CONTADO (usá estos números, no cuentes vos):\n${c.resumen}${conteos.length ? '\n' + conteos.join('\n') : ''}`,
+    sobreDirectoras && c.directorasDetalle
+      ? `DIRECTORAS VISTAS, YA CONTADAS (nombre (películas): títulos), de más a menos:\n${c.directorasDetalle}`
+      : '',
     relevantes.length
       ? `DETALLE DE LAS VISTAS RELACIONADAS CON LA PREGUNTA (título · director · géneros · repeticiones · última vez):\n${relevantes.map((d) => d.linea).join('\n')}`
       : '',

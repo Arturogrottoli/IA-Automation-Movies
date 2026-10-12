@@ -17,12 +17,13 @@ commitea solo si algo cambió. No hace falta correrlos a mano.
 | `build_actors.js` | Reparto principal → `../data/actors.json`, con los ids ya resueltos en `posters.json`. |
 | `build_runtime.js` | Duración en minutos → `../data/runtime.json`. |
 | `build_synopsis.js` | Sinopsis en castellano → `../data/synopsis.json`. |
+| `build_directors.js` | Directores de cada película con su género según TMDB → `../data/directors.json` (para preguntas como "¿cuántas directoras vi?"). Correcciones a mano donde TMDB no tiene el dato: `../data/genero-manual.json`. |
 | `taste_profile.py` | Perfil de gusto (pandas + scikit-learn, `random_state` fijo) → `../data/taste_profile.json`. |
 | `build_similar.py` | Recomendador por contenido → `../data/similar.json`. |
 | `build_similar_ajustado.py` | Recomendador ajustado por el perfil de gusto → `../data/similar_ajustado.json`. |
 | `requirements.txt` | Versiones exactas de Python para la sincronización (las mismas que local). |
 
-Para correrlos a mano (ej. para ver algo nuevo ya, sin esperar): los cuatro
+Para correrlos a mano (ej. para ver algo nuevo ya, sin esperar): los cinco
 `.js` con `node`, después los tres `.py` con `py` (en Windows `python` abre la
 Microsoft Store). O en GitHub: Actions → "Sincronizar datos de películas" →
 Run workflow.
