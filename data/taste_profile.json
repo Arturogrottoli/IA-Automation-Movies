@@ -7,13 +7,13 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.6,
-      "n": 233
+      "tasa": 14.5,
+      "n": 234
     },
     {
       "genero": "Familia",
-      "tasa": 13.5,
-      "n": 37
+      "tasa": 13.2,
+      "n": 38
     },
     {
       "genero": "Fantasía",
@@ -40,7 +40,7 @@
     {
       "decada": 2010,
       "tasa": 11.9,
-      "n": 361
+      "n": 362
     },
     {
       "decada": 1980,
@@ -96,7 +96,7 @@
     }
   ],
   "duracion_revisitadas": 109.6,
-  "duracion_no_revisitadas": 109.9,
+  "duracion_no_revisitadas": 109.8,
   "tasa_por_duracion": [
     {
       "rango": "<80",
@@ -105,13 +105,13 @@
     },
     {
       "rango": "80-95",
-      "tasa": 10.4,
-      "n": 280
+      "tasa": 10.3,
+      "n": 281
     },
     {
       "rango": "95-110",
-      "tasa": 10.3,
-      "n": 351
+      "tasa": 10.2,
+      "n": 353
     },
     {
       "rango": "110-125",
@@ -138,31 +138,31 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.279
+      "peso": 0.266
     },
     {
       "variable": "decada",
-      "peso": 0.164
+      "peso": 0.171
     },
     {
       "variable": "Acción",
-      "peso": 0.088
+      "peso": 0.085
     },
     {
       "variable": "Historia",
-      "peso": 0.066
+      "peso": 0.063
     },
     {
       "variable": "Drama",
-      "peso": 0.061
+      "peso": 0.057
     },
     {
       "variable": "Crimen",
-      "peso": 0.039
+      "peso": 0.048
     },
     {
       "variable": "Comedia",
-      "peso": 0.039
+      "peso": 0.038
     },
     {
       "variable": "Terror",
@@ -177,13 +177,13 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.6,
-      "n": 233
+      "tasa": 14.5,
+      "n": 234
     },
     {
       "genero": "Familia",
-      "tasa": 13.5,
-      "n": 37
+      "tasa": 13.2,
+      "n": 38
     },
     {
       "genero": "Fantasía",
@@ -202,13 +202,8 @@
     },
     {
       "genero": "Comedia",
-      "tasa": 11.6,
-      "n": 345
-    },
-    {
-      "genero": "Terror",
-      "tasa": 11.4,
-      "n": 254
+      "tasa": 11.5,
+      "n": 347
     },
     {
       "genero": "Ciencia ficción",
@@ -216,14 +211,19 @@
       "n": 132
     },
     {
+      "genero": "Terror",
+      "tasa": 11.3,
+      "n": 256
+    },
+    {
       "genero": "Suspense",
       "tasa": 10.2,
-      "n": 372
+      "n": 373
     },
     {
       "genero": "Aventura",
-      "tasa": 8.6,
-      "n": 81
+      "tasa": 8.5,
+      "n": 82
     },
     {
       "genero": "Misterio",
@@ -470,32 +470,32 @@
   ],
   "top_combos": [
     {
-      "director": "Phil Lord",
-      "actor": "Channing Tatum",
+      "director": "Ti West",
+      "actor": "Mia Goth",
+      "tasa": 100.0,
+      "n": 3
+    },
+    {
+      "director": "Andrew Adamson",
+      "actor": "Eddie Murphy",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "director": "Demian Rugna",
+      "actor": "Demián Salomón",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Christopher Miller",
-      "actor": "Jonah Hill",
+      "director": "Andrew Adamson",
+      "actor": "Mike Myers",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Phil Lord",
-      "actor": "Jonah Hill",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Bridget Moynahan",
+      "director": "Andrew Adamson",
+      "actor": "Cameron Diaz",
       "tasa": 100.0,
       "n": 2
     }
@@ -546,8 +546,8 @@
         2026
       ],
       "decada_prom": 1999.0,
-      "duracion_prom": 107.0,
-      "tasa_revision_prom": 15.8
+      "duracion_prom": 106.9,
+      "tasa_revision_prom": 15.7
     },
     {
       "cluster": 1,
