@@ -13,7 +13,9 @@ function toEntries(counts: Map<string, number>): ChartEntry[] {
 
 /** Cantidades a elegir en los rankings (directores, actores, directoras, actrices). */
 export const CUANTOS = [10, 25, 50, 100] as const;
-type Ranking = 'directores' | 'actores' | 'directoras' | 'actrices';
+type Ranking = 'direccion' | 'reparto';
+/** Pestañas de cada ranking: todos, solo hombres o solo mujeres (género según TMDB). */
+type Filtro = 'todos' | 'm' | 'f';
 
 /** Lo que el texto tiene que aclarar sobre el corte: empate incluido entero, o empate enorme recortado. */
 const cortes = new WeakMap<ChartEntry[], { tipo: 'empate' | 'recortado'; valor: number; afuera: number }>();
@@ -66,7 +68,24 @@ export class PlacaCharts {
 
   /** Cuántos mostrar en cada ranking (selector 10 · 25 · 50 · 100 de cada gráfico). */
   protected readonly opciones = CUANTOS;
-  protected readonly cuantos = signal<Record<Ranking, number>>({ directores: 10, actores: 10, directoras: 10, actrices: 10 });
+  protected readonly cuantos = signal<Record<Ranking, number>>({ direccion: 10, reparto: 10 });
+  protected readonly filtro = signal<Record<Ranking, Filtro>>({ direccion: 'todos', reparto: 'todos' });
+  protected readonly pestanas: Record<Ranking, { v: Filtro; l: string }[]> = {
+    direccion: [
+      { v: 'todos', l: 'Todos' },
+      { v: 'm', l: 'Directores' },
+      { v: 'f', l: 'Directoras' },
+    ],
+    reparto: [
+      { v: 'todos', l: 'Todos' },
+      { v: 'm', l: 'Actores' },
+      { v: 'f', l: 'Actrices' },
+    ],
+  };
+
+  protected setFiltro(r: Ranking, f: Filtro): void {
+    this.filtro.update((x) => ({ ...x, [r]: f }));
+  }
 
   protected setCuantos(r: Ranking, valor: string): void {
     this.cuantos.update((c) => ({ ...c, [r]: +valor }));
@@ -130,16 +149,6 @@ export class PlacaCharts {
     return arg ? `Estados Unidos manda por lejos; Argentina es segunda con ${arg.value} ${this.unidad()}.` : 'Estados Unidos manda por lejos.';
   });
 
-  // --- directores (codirecciones por separado, como en "¿Cuánto vi de…?") ---
-  protected readonly byDirector = computed<ChartEntry[]>(() =>
-    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => splitDirectores(v.movie.director))), this.cuantos().directores),
-  );
-  protected readonly directorObs = computed(() => {
-    const entries = this.byDirector();
-    const top = entries[0];
-    return top ? `${top.label} encabeza con ${top.value} ${this.unidad()}.${empateObs(entries)}` : '';
-  });
-
   // --- género (TMDB) ---
   protected readonly byGenre = computed<ChartEntry[]>(() =>
     toEntries(tally(this.rows(), (v: Viewing) => v.movie.genres))
@@ -153,46 +162,47 @@ export class PlacaCharts {
     return `${entries[0].label} arriba de todo (${entries[0].value}). Sobre ${nf(conGenero)} ${this.unidad()} con género identificado.`;
   });
 
-  // --- actores/actrices (TMDB) ---
-  protected readonly byActor = computed<ChartEntry[]>(() =>
-    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => v.movie.cast)), this.cuantos().actores),
-  );
-  protected readonly actorObs = computed(() => {
-    const entries = this.byActor();
+  // --- dirección: un ranking con pestañas Todos / Directores / Directoras ---
+  /**
+   * Quién dirigió cada fila. "Todos" usa el nombre de la hoja (codirecciones por
+   * separado, como en "¿Cuánto vi de…?"); para separar por género hace falta
+   * TMDB (data/directors.json + correcciones a mano), porque la hoja no lo dice.
+   */
+  private direccionDe(v: Viewing, f: Filtro): string[] {
+    if (f === 'todos') return splitDirectores(v.movie.director);
+    return (this.people.directors().get(v.movie.key) ?? []).filter((d) => this.people.director(d) === f).map((d) => d.n);
+  }
+  protected readonly byDireccion = computed<ChartEntry[]>(() => {
+    const f = this.filtro().direccion;
+    if (f !== 'todos' && !this.people.loaded()) return [];
+    return topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => this.direccionDe(v, f))), this.cuantos().direccion);
+  });
+  protected readonly direccionObs = computed(() => {
+    const entries = this.byDireccion();
+    const top = entries[0];
+    if (!top) return '';
+    const base = `${top.label} encabeza con ${top.value} ${this.unidad()}.${empateObs(entries)}`;
+    if (this.filtro().direccion !== 'f') return base;
+    // Directoras: además, qué parte del total dirigieron mujeres.
+    const conDato = this.rows().filter((v) => this.people.directors().has(v.movie.key));
+    const dirigidas = conDato.filter((v) => this.direccionDe(v, 'f').length).length;
+    const total = new Set(conDato.flatMap((v) => this.direccionDe(v, 'f'))).size;
+    const pct = conDato.length ? Math.round((dirigidas / conDato.length) * 1000) / 10 : 0;
+    const que = this.modes.mode() === 'unicas' ? 'películas dirigidas por mujeres' : 'visionados de películas dirigidas por mujeres';
+    return `${total} directoras en total: ${nf(dirigidas)} ${que}, el ${pct.toLocaleString('es-AR')}% de ${nf(conDato.length)} con dirección identificada. ${base}`;
+  });
+
+  // --- reparto: un ranking con pestañas Todos / Actores / Actrices ---
+  protected readonly byReparto = computed<ChartEntry[]>(() => {
+    const f = this.filtro().reparto;
+    if (f !== 'todos' && !this.people.loaded()) return [];
+    const de = (v: Viewing) => (f === 'todos' ? v.movie.cast : v.movie.cast.filter((n) => this.people.actor(n) === f));
+    return topConEmpates(toEntries(tally(this.rows(), de)), this.cuantos().reparto);
+  });
+  protected readonly repartoObs = computed(() => {
+    const entries = this.byReparto();
     if (!entries.length) return '';
     const conActores = this.rows().filter((v) => v.movie.cast.length).length;
     return `${entries[0].label} encabeza con ${entries[0].value} ${this.unidad()}. Cuenta el reparto principal (los 8 primeros de cada película); en "¿Cuánto vi de…?" entran también los cameos. Sobre ${nf(conActores)} ${this.unidad()} con reparto identificado.${empateObs(entries)}`;
-  });
-
-  // --- directoras (género según TMDB + correcciones a mano) ---
-  /** Directoras de cada fila; la hoja solo guarda el nombre del director, el género sale de data/directors.json. */
-  private directorasDe(v: Viewing): string[] {
-    return (this.people.directors().get(v.movie.key) ?? []).filter((d) => this.people.director(d) === 'f').map((d) => d.n);
-  }
-  protected readonly byDirectora = computed<ChartEntry[]>(() =>
-    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => this.directorasDe(v))), this.cuantos().directoras),
-  );
-  protected readonly directoraObs = computed(() => {
-    const entries = this.byDirectora();
-    if (!entries.length) return '';
-    const conDato = this.rows().filter((v) => this.people.directors().has(v.movie.key));
-    const dirigidas = conDato.filter((v) => this.directorasDe(v).length).length;
-    const total = new Set(conDato.flatMap((v) => this.directorasDe(v))).size;
-    const pct = conDato.length ? Math.round((dirigidas / conDato.length) * 1000) / 10 : 0;
-    const que = this.modes.mode() === 'unicas' ? 'películas dirigidas por mujeres' : 'visionados de películas dirigidas por mujeres';
-    return `${total} directoras en total: ${nf(dirigidas)} ${que}, el ${pct.toLocaleString('es-AR')}% de ${nf(conDato.length)} con dirección identificada. ${entries[0].label} encabeza con ${entries[0].value}.${empateObs(entries)}`;
-  });
-
-  // --- actrices (reparto principal) ---
-  protected readonly byActriz = computed<ChartEntry[]>(() =>
-    this.people.loaded()
-      ? topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => v.movie.cast.filter((n) => this.people.actor(n) === 'f'))), this.cuantos().actrices)
-      : [],
-  );
-  protected readonly actrizObs = computed(() => {
-    const entries = this.byActriz();
-    return entries.length
-      ? `${entries[0].label} encabeza con ${entries[0].value} ${this.unidad()}. Mismo criterio que el gráfico de arriba: reparto principal, sin cameos.${empateObs(entries)}`
-      : '';
   });
 }

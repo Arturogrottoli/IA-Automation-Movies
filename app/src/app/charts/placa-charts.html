@@ -34,86 +34,54 @@
       </div>
       <div class="plate">
         <div class="plate-head">
-          <h3>Directores más vistos</h3>
+          <h3>Dirección</h3>
           <label class="cuantos">
-            <span class="sr-only">Cantidad a mostrar en directores más vistos</span>
-            <select [value]="cuantos().directores" (change)="setCuantos('directores', $any($event.target).value)">
+            <span class="sr-only">Cantidad a mostrar</span>
+            <select [value]="cuantos().direccion" (change)="setCuantos('direccion', $any($event.target).value)">
               @for (o of opciones; track o) {
                 <option [value]="o">Top {{ o }}</option>
               }
             </select>
           </label>
         </div>
-        @if (byDirector().length) {
-          <div class="rank" [class.scroll]="byDirector().length > 25">
-            <app-bar-chart [entries]="byDirector()" orientation="horizontal" />
+        <div class="tabs" role="group" [attr.aria-label]="'Filtrar dirección'">
+          @for (t of pestanas.direccion; track t.v) {
+            <button [attr.aria-pressed]="filtro().direccion === t.v" (click)="setFiltro('direccion', t.v)">{{ t.l }}</button>
+          }
+        </div>
+        @if (byDireccion().length) {
+          <div class="rank" [class.scroll]="byDireccion().length > 25">
+            <app-bar-chart [entries]="byDireccion()" orientation="horizontal" />
           </div>
-          <p class="obs">{{ directorObs() }}</p>
+          <p class="obs">{{ direccionObs() }}</p>
         } @else {
-          <p class="obs">Cargando directores…</p>
+          <p class="obs">Cargando…</p>
         }
       </div>
       <div class="plate">
         <div class="plate-head">
-          <h3>Actores y actrices más vistos</h3>
+          <h3>Reparto</h3>
           <label class="cuantos">
-            <span class="sr-only">Cantidad a mostrar en actores y actrices más vistos</span>
-            <select [value]="cuantos().actores" (change)="setCuantos('actores', $any($event.target).value)">
+            <span class="sr-only">Cantidad a mostrar</span>
+            <select [value]="cuantos().reparto" (change)="setCuantos('reparto', $any($event.target).value)">
               @for (o of opciones; track o) {
                 <option [value]="o">Top {{ o }}</option>
               }
             </select>
           </label>
         </div>
-        @if (byActor().length) {
-          <div class="rank" [class.scroll]="byActor().length > 25">
-            <app-bar-chart [entries]="byActor()" orientation="horizontal" />
-          </div>
-          <p class="obs">{{ actorObs() }}</p>
-        } @else {
-          <p class="obs">Cargando actores…</p>
-        }
-      </div>
-      <div class="plate">
-        <div class="plate-head">
-          <h3>Directoras más vistas</h3>
-          <label class="cuantos">
-            <span class="sr-only">Cantidad a mostrar en directoras más vistas</span>
-            <select [value]="cuantos().directoras" (change)="setCuantos('directoras', $any($event.target).value)">
-              @for (o of opciones; track o) {
-                <option [value]="o">Top {{ o }}</option>
-              }
-            </select>
-          </label>
+        <div class="tabs" role="group" [attr.aria-label]="'Filtrar reparto'">
+          @for (t of pestanas.reparto; track t.v) {
+            <button [attr.aria-pressed]="filtro().reparto === t.v" (click)="setFiltro('reparto', t.v)">{{ t.l }}</button>
+          }
         </div>
-        @if (byDirectora().length) {
-          <div class="rank" [class.scroll]="byDirectora().length > 25">
-            <app-bar-chart [entries]="byDirectora()" orientation="horizontal" />
+        @if (byReparto().length) {
+          <div class="rank" [class.scroll]="byReparto().length > 25">
+            <app-bar-chart [entries]="byReparto()" orientation="horizontal" />
           </div>
-          <p class="obs">{{ directoraObs() }}</p>
+          <p class="obs">{{ repartoObs() }}</p>
         } @else {
-          <p class="obs">Cargando directoras…</p>
-        }
-      </div>
-      <div class="plate">
-        <div class="plate-head">
-          <h3>Actrices más vistas</h3>
-          <label class="cuantos">
-            <span class="sr-only">Cantidad a mostrar en actrices más vistas</span>
-            <select [value]="cuantos().actrices" (change)="setCuantos('actrices', $any($event.target).value)">
-              @for (o of opciones; track o) {
-                <option [value]="o">Top {{ o }}</option>
-              }
-            </select>
-          </label>
-        </div>
-        @if (byActriz().length) {
-          <div class="rank" [class.scroll]="byActriz().length > 25">
-            <app-bar-chart [entries]="byActriz()" orientation="horizontal" />
-          </div>
-          <p class="obs">{{ actrizObs() }}</p>
-        } @else {
-          <p class="obs">Cargando actrices…</p>
+          <p class="obs">Cargando…</p>
         }
       </div>
     </div>

@@ -295,12 +295,12 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       Con eso: **CinefilIA** responde "¿cuántas y cuáles directoras vi?" (71),
       "¿qué actrices vi más?" y "¿qué vi con Emma Stone?" con conteos y listas
       hechos en código (sin la lista exacta inventaba títulos: Birdman); y la
-      **Placa I de Datos** suma los gráficos "Directoras más vistas" y "Actrices
-      más vistas". Si un empate es enorme (65 directoras con 1 película), el
-      gráfico muestra solo las de arriba y el texto dice cuántas más hay.
-      Los cuatro rankings (directores, actores, directoras, actrices) tienen
-      selector Top 10 · 25 · 50 · 100; con más de 25, la lista va en un recuadro
-      con scroll propio.
+      **Placa I de Datos** tiene dos rankings con pestañas: **Dirección**
+      (Todos / Directores / Directoras) y **Reparto** (Todos / Actores /
+      Actrices), cada uno con selector Top 10 · 25 · 50 · 100 (con más de 25,
+      la lista va en un recuadro con scroll propio). Si un empate es enorme (65
+      directoras con 1 película), muestra solo las de arriba y el texto dice
+      cuántas más hay.
 - [x] **Encabezado: películas vs. visionados.** El primer número decía "1.311
       películas vistas" y eran visionados; ahora muestra las películas
       distintas (~1.170) y aclara los visionados al lado.

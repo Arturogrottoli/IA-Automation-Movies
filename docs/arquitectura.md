@@ -167,7 +167,7 @@ App en Angular 20 (carpeta `app/`, standalone + signals), con dos secciones
 
 | **Películas** | **Datos** |
 |---|---|
-| I · El índice completo (grilla o lista, "Últimas vistas") | I · La forma de una obsesión (8 gráficos, con directoras y actrices) |
+| I · El índice completo (grilla o lista, "Últimas vistas") | I · La forma de una obsesión (6 gráficos; dirección y reparto con pestañas por género) |
 | II · Quiero ver | II · Revisitas |
 | III · ¿Cuánto vi de…? (buscar actor/director) | III · Detrás de los datos (la limpieza) |
 | IV · Recomendador (parecidas dentro del diario) | IV · Dashboard |
