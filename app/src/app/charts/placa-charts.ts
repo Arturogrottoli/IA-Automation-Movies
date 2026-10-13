@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { CatalogDataService } from '../core/catalog-data.service';
 import { CountModeService } from '../core/count-mode.service';
+import { PeopleGenderService } from '../core/people-gender.service';
 import { ChartEntry, Viewing } from '../core/models';
 import { decadeOf, nf, splitDirectores, tally } from '../core/key.util';
 import { BarChart } from '../shared/bar-chart/bar-chart';
@@ -10,15 +11,34 @@ function toEntries(counts: Map<string, number>): ChartEntry[] {
   return [...counts.entries()].map(([label, value]) => ({ label, value }));
 }
 
-/** Top 15 ordenado; los empatados con el 15° entran todos (cortar un empate deja afuera a alguien con el mismo número que el último que se ve). */
+const TOP = 15;
+const TOPE_CON_EMPATES = 20;
+/** Cuando el empate es demasiado grande para mostrarlo entero: cuántos quedaron afuera y con qué número. */
+const cortados = new WeakMap<ChartEntry[], { valor: number; afuera: number }>();
+
+/**
+ * Top 15 ordenado; los empatados con el 15° entran todos (cortar un empate deja
+ * afuera a alguien con el mismo número que el último que se ve) — salvo que el
+ * empate sea enorme (ej. decenas de directoras con 1 película): ahí se corta en
+ * 15 y el texto dice cuántas más hay con ese número.
+ */
 function topConEmpates(entries: ChartEntry[]): ChartEntry[] {
   const sorted = entries.filter((e) => e.label).sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'es'));
-  const corte = sorted[14]?.value ?? 0;
-  return sorted.filter((e, i) => i < 15 || e.value === corte);
+  const corte = sorted[TOP - 1]?.value ?? 0;
+  const conEmpates = sorted.filter((e, i) => i < TOP || e.value === corte);
+  if (conEmpates.length <= TOPE_CON_EMPATES) return conEmpates;
+  // Empate enorme: mostrar solo a quienes superan ese número (elegir algunos de los
+  // empatados sería arbitrario, por orden alfabético), salvo que queden muy pocos.
+  const arriba = sorted.filter((e) => e.value > corte);
+  const top = arriba.length >= 5 ? arriba : sorted.slice(0, TOP);
+  cortados.set(top, { valor: corte, afuera: conEmpates.length - top.length });
+  return top;
 }
 
 function empateObs(entries: ChartEntry[]): string {
-  return entries.length > 15 ? ` Con ${entries.at(-1)!.value} hay empate en el último puesto: entran todos.` : '';
+  const c = cortados.get(entries);
+  if (c) return ` Hay ${c.afuera} más con ${c.valor}, que no entran en el gráfico.`;
+  return entries.length > TOP ? ` Con ${entries.at(-1)!.value} hay empate en el último puesto: entran todos.` : '';
 }
 
 @Component({
@@ -32,7 +52,10 @@ export class PlacaCharts {
   constructor(
     protected readonly catalog: CatalogDataService,
     private readonly modes: CountModeService,
-  ) {}
+    private readonly people: PeopleGenderService,
+  ) {
+    this.people.load();
+  }
 
   /**
    * Filas a contar según el selector "Sin repetir / Contando repetidas": una
@@ -124,5 +147,37 @@ export class PlacaCharts {
     if (!entries.length) return '';
     const conActores = this.rows().filter((v) => v.movie.cast.length).length;
     return `${entries[0].label} encabeza con ${entries[0].value} ${this.unidad()}. Cuenta el reparto principal (los 8 primeros de cada película); en "¿Cuánto vi de…?" entran también los cameos. Sobre ${nf(conActores)} ${this.unidad()} con reparto identificado.${empateObs(entries)}`;
+  });
+
+  // --- directoras (género según TMDB + correcciones a mano) ---
+  /** Directoras de cada fila; la hoja solo guarda el nombre del director, el género sale de data/directors.json. */
+  private directorasDe(v: Viewing): string[] {
+    return (this.people.directors().get(v.movie.key) ?? []).filter((d) => this.people.director(d) === 'f').map((d) => d.n);
+  }
+  protected readonly byDirectora = computed<ChartEntry[]>(() =>
+    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => this.directorasDe(v)))),
+  );
+  protected readonly directoraObs = computed(() => {
+    const entries = this.byDirectora();
+    if (!entries.length) return '';
+    const conDato = this.rows().filter((v) => this.people.directors().has(v.movie.key));
+    const dirigidas = conDato.filter((v) => this.directorasDe(v).length).length;
+    const total = new Set(conDato.flatMap((v) => this.directorasDe(v))).size;
+    const pct = conDato.length ? Math.round((dirigidas / conDato.length) * 1000) / 10 : 0;
+    const que = this.modes.mode() === 'unicas' ? 'películas dirigidas por mujeres' : 'visionados de películas dirigidas por mujeres';
+    return `${total} directoras en total: ${nf(dirigidas)} ${que}, el ${pct.toLocaleString('es-AR')}% de ${nf(conDato.length)} con dirección identificada. ${entries[0].label} encabeza con ${entries[0].value}.${empateObs(entries)}`;
+  });
+
+  // --- actrices (reparto principal) ---
+  protected readonly byActriz = computed<ChartEntry[]>(() =>
+    this.people.loaded()
+      ? topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => v.movie.cast.filter((n) => this.people.actor(n) === 'f'))))
+      : [],
+  );
+  protected readonly actrizObs = computed(() => {
+    const entries = this.byActriz();
+    return entries.length
+      ? `${entries[0].label} encabeza con ${entries[0].value} ${this.unidad()}. Mismo criterio que el gráfico de arriba: reparto principal, sin cameos.${empateObs(entries)}`
+      : '';
   });
 }

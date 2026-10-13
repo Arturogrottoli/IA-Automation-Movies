@@ -136,8 +136,14 @@ Click en la X de una card / "Quitar de la lista" en el modal → POST con accion
   → el chat del sitio hace POST a /api/chat (función de Vercel; la clave de
     Gemini vive en Vercel, nunca en el navegador)
   → la función arma el contexto: resumen ya contado (totales, por año, por
-    director: los modelos cuentan mal), títulos de todas las vistas y el
-    detalle solo de las relacionadas con la pregunta, más "Quiero ver"
+    director, directoras, actrices y actores más vistos: los modelos cuentan
+    mal), títulos de todas las vistas y el detalle solo de las relacionadas
+    con la pregunta, más "Quiero ver"
+  → si la pregunta nombra a alguien (director o reparto), le pasa el conteo y
+    la lista exacta de títulos: sin la lista, el modelo completaba de memoria
+    e inventaba películas
+  → el género de directores y reparto no está en la hoja: sale de TMDB
+    (data/directors.json, data/genero-reparto.json) + correcciones a mano
   → Gemini responde. Si no es sobre cine: "Solo soy un simple bot peliculero"
   → si es un pedido de recomendación, la función verifica cada título contra
     el catálogo real; si recomendó algo ya visto, repite la consulta
@@ -161,7 +167,7 @@ App en Angular 20 (carpeta `app/`, standalone + signals), con dos secciones
 
 | **Películas** | **Datos** |
 |---|---|
-| I · El índice completo (grilla o lista, "Últimas vistas") | I · La forma de una obsesión (6 gráficos) |
+| I · El índice completo (grilla o lista, "Últimas vistas") | I · La forma de una obsesión (8 gráficos, con directoras y actrices) |
 | II · Quiero ver | II · Revisitas |
 | III · ¿Cuánto vi de…? (buscar actor/director) | III · Detrás de los datos (la limpieza) |
 | IV · Recomendador (parecidas dentro del diario) | IV · Dashboard |

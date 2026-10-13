@@ -46,6 +46,24 @@
           <p class="obs">Cargando actores…</p>
         }
       </div>
+      <div class="plate">
+        <h3>Directoras más vistas</h3>
+        @if (byDirectora().length) {
+          <app-bar-chart [entries]="byDirectora()" orientation="horizontal" />
+          <p class="obs">{{ directoraObs() }}</p>
+        } @else {
+          <p class="obs">Cargando directoras…</p>
+        }
+      </div>
+      <div class="plate">
+        <h3>Actrices más vistas</h3>
+        @if (byActriz().length) {
+          <app-bar-chart [entries]="byActriz()" orientation="horizontal" />
+          <p class="obs">{{ actrizObs() }}</p>
+        } @else {
+          <p class="obs">Cargando actrices…</p>
+        }
+      </div>
     </div>
   </div>
 </section>

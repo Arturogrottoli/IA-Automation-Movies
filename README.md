@@ -287,6 +287,20 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       tabla. Geometría: world-atlas 110m en `app/public/data`, d3-geo.
       Nombres de país en español con `Intl.DisplayNames` + alias (USA, UK,
       Unión Soviética…), en `core/countries.util.ts`.
+- [x] **Directoras y actrices** (2026-10-12/13). La hoja solo guarda el nombre
+      del director, así que el género sale de TMDB: `cerebro/build_directors.js`
+      → `data/directors.json` y `cerebro/build_cast_gender.js` →
+      `data/genero-reparto.json` (los dos en la sincronización diaria), más
+      correcciones a mano donde TMDB no tiene el dato (`data/genero-manual.json`).
+      Con eso: **CinefilIA** responde "¿cuántas y cuáles directoras vi?" (71),
+      "¿qué actrices vi más?" y "¿qué vi con Emma Stone?" con conteos y listas
+      hechos en código (sin la lista exacta inventaba títulos: Birdman); y la
+      **Placa I de Datos** suma los gráficos "Directoras más vistas" y "Actrices
+      más vistas". Si un empate es enorme (65 directoras con 1 película), el
+      gráfico muestra solo las de arriba y el texto dice cuántas más hay.
+- [x] **Encabezado: películas vs. visionados.** El primer número decía "1.311
+      películas vistas" y eran visionados; ahora muestra las películas
+      distintas (~1.170) y aclara los visionados al lado.
 
 ### Pendiente — para cerrar el curso
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).

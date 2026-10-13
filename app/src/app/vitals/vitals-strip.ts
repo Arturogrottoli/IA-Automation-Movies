@@ -33,7 +33,9 @@ export class VitalsStrip {
     const avgRuntime = runtimes.length ? Math.round(runtimes.reduce((a, b) => a + b, 0) / runtimes.length) : null;
 
     const tiles: Tile[] = [
-      { n: nf(viewings.length), l: 'películas vistas' },
+      // Antes decía "películas vistas" con el número de visionados (1.311 con
+      // repeticiones); ahora el número grande son las películas distintas.
+      { n: nf(movies.length), l: `películas vistas · ${nf(viewings.length)} visionados` },
       { n: nf(dirs.size), l: 'directores distintos' },
       { n: nf(countries.size), l: 'países de origen' },
       { n: `${yMin}–${yMax}`, l: 'años de registro' },

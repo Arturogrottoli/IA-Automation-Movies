@@ -63,6 +63,9 @@ lista "Quiero ver".
 | `taste_profile.json` | perfil de gusto: qué predice que una película se vuelva a ver (Random Forest + KMeans, `random_state` fijo) | `cerebro/taste_profile.py` | — |
 | `similar.json` | 5 parecidas por contenido (género, director, reparto, década + TF-IDF de sinopsis) | `cerebro/build_similar.py` | 1.238 |
 | `similar_ajustado.json` | las mismas candidatas, reponderadas con el perfil de gusto | `cerebro/build_similar_ajustado.py` | 1.238 |
+| `directors.json` | directores de cada película con su género según TMDB (`f`/`m`/`nb`/`?`) | `cerebro/build_directors.js` | 1.265 |
+| `genero-reparto.json` | género de cada persona del reparto principal, según TMDB | `cerebro/build_cast_gender.js` | ~6.800 personas |
+| `genero-manual.json` | correcciones a mano donde TMDB no tiene el género cargado | — | (a mano) |
 | `posters-manual.json` + `img/` | las 10 que TMDB no tiene o matchea mal, cargadas a mano | — | 10 |
 | `mis9.json` | la selección fija de "Mis 9 películas" del dueño | `cerebro/set_mis9.js` | (opcional) |
 
