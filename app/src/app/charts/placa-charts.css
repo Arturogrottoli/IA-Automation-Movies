@@ -44,16 +44,37 @@
   margin-bottom: 0;
 }
 .cuantos select {
+  appearance: none;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink-2);
-  background: var(--panel);
+  /* Sin fondo propio: toma el de la página. La flecha es un triángulo dorado
+     dibujado con dos degradés, para no depender del ícono del navegador. */
+  background-color: transparent;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-position:
+    calc(100% - 13px) 52%,
+    calc(100% - 9px) 52%;
+  background-size: 4px 4px;
+  background-repeat: no-repeat;
   border: 1px solid var(--line);
   border-radius: 5px;
-  padding: 4px 6px;
+  padding: 5px 24px 5px 9px;
   margin-bottom: 7px;
   cursor: pointer;
+}
+.cuantos select:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+/* La lista desplegada la dibuja el sistema: al menos que use los colores del sitio. */
+.cuantos option {
+  background: var(--bg-2);
+  color: var(--ink);
 }
 .cuantos select:focus-visible {
   outline: 2px solid var(--accent);
