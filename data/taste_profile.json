@@ -39,8 +39,8 @@
     },
     {
       "decada": 2010,
-      "tasa": 11.9,
-      "n": 362
+      "tasa": 12.2,
+      "n": 360
     },
     {
       "decada": 1980,
@@ -95,8 +95,8 @@
       "n": 4
     }
   ],
-  "duracion_revisitadas": 109.6,
-  "duracion_no_revisitadas": 109.8,
+  "duracion_revisitadas": 109.4,
+  "duracion_no_revisitadas": 109.9,
   "tasa_por_duracion": [
     {
       "rango": "<80",
@@ -105,8 +105,8 @@
     },
     {
       "rango": "80-95",
-      "tasa": 10.3,
-      "n": 281
+      "tasa": 10.7,
+      "n": 280
     },
     {
       "rango": "95-110",
@@ -115,8 +115,8 @@
     },
     {
       "rango": "110-125",
-      "tasa": 8.6,
-      "n": 278
+      "tasa": 8.7,
+      "n": 276
     },
     {
       "rango": "125-140",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.266
+      "peso": 0.257
     },
     {
       "variable": "decada",
-      "peso": 0.171
+      "peso": 0.167
     },
     {
       "variable": "Acción",
-      "peso": 0.085
-    },
-    {
-      "variable": "Historia",
-      "peso": 0.063
+      "peso": 0.083
     },
     {
       "variable": "Drama",
-      "peso": 0.057
+      "peso": 0.075
+    },
+    {
+      "variable": "Historia",
+      "peso": 0.062
     },
     {
       "variable": "Crimen",
-      "peso": 0.048
-    },
-    {
-      "variable": "Comedia",
-      "peso": 0.038
+      "peso": 0.046
     },
     {
       "variable": "Terror",
-      "peso": 0.036
+      "peso": 0.04
+    },
+    {
+      "variable": "Comedia",
+      "peso": 0.037
     }
   ],
   "genre_rate_full": [
@@ -201,6 +201,11 @@
       "n": 85
     },
     {
+      "genero": "Terror",
+      "tasa": 11.8,
+      "n": 255
+    },
+    {
       "genero": "Comedia",
       "tasa": 11.5,
       "n": 347
@@ -211,14 +216,9 @@
       "n": 132
     },
     {
-      "genero": "Terror",
-      "tasa": 11.3,
-      "n": 256
-    },
-    {
       "genero": "Suspense",
-      "tasa": 10.2,
-      "n": 373
+      "tasa": 10.5,
+      "n": 372
     },
     {
       "genero": "Aventura",
@@ -242,8 +242,8 @@
     },
     {
       "genero": "Documental",
-      "tasa": 6.1,
-      "n": 98
+      "tasa": 6.2,
+      "n": 96
     },
     {
       "genero": "Historia",
@@ -470,32 +470,32 @@
   ],
   "top_combos": [
     {
-      "director": "Ti West",
-      "actor": "Mia Goth",
-      "tasa": 100.0,
-      "n": 3
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Eddie Murphy",
+      "director": "Chad Stahelski",
+      "actor": "Peter Stormare",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Demian Rugna",
-      "actor": "Demián Salomón",
+      "director": "Chad Stahelski",
+      "actor": "Ruby Rose",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Mike Myers",
+      "director": "Christopher Miller",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Cameron Diaz",
+      "director": "Chad Stahelski",
+      "actor": "Riccardo Scamarcio",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Christopher Miller",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
     }
@@ -503,74 +503,74 @@
   "clusters_anio": [
     {
       "anio": 2018,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2019,
-      "cluster": 2
+      "cluster": 0
     },
     {
       "anio": 2020,
-      "cluster": 1
+      "cluster": 2
     },
     {
       "anio": 2021,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2022,
-      "cluster": 2
+      "cluster": 1
     },
     {
       "anio": 2023,
-      "cluster": 2
+      "cluster": 1
     },
     {
       "anio": 2024,
-      "cluster": 2
+      "cluster": 0
     },
     {
       "anio": 2025,
-      "cluster": 2
+      "cluster": 1
     },
     {
       "anio": 2026,
-      "cluster": 0
+      "cluster": 1
     }
   ],
   "cluster_resumen": [
     {
       "cluster": 0,
       "anios": [
-        2018,
-        2026
+        2019,
+        2021,
+        2024
       ],
-      "decada_prom": 1999.0,
-      "duracion_prom": 106.9,
-      "tasa_revision_prom": 15.7
+      "decada_prom": 2003.0,
+      "duracion_prom": 111.0,
+      "tasa_revision_prom": 25.0
     },
     {
       "cluster": 1,
       "anios": [
-        2020,
-        2021
+        2018,
+        2022,
+        2023,
+        2025,
+        2026
       ],
-      "decada_prom": 2002.0,
-      "duracion_prom": 114.8,
-      "tasa_revision_prom": 17.6
+      "decada_prom": 2004.0,
+      "duracion_prom": 108.7,
+      "tasa_revision_prom": 18.2
     },
     {
       "cluster": 2,
       "anios": [
-        2019,
-        2022,
-        2023,
-        2024,
-        2025
+        2020
       ],
-      "decada_prom": 2005.0,
-      "duracion_prom": 110.0,
-      "tasa_revision_prom": 22.0
+      "decada_prom": 1999.0,
+      "duracion_prom": 117.3,
+      "tasa_revision_prom": 14.3
     }
   ]
 }
