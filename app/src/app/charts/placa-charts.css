@@ -29,3 +29,47 @@
   margin-top: 14px;
   font-style: italic;
 }
+
+/* Rankings con selector de cantidad (Top 10 · 25 · 50 · 100). */
+.plate-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.plate-head h3 {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.cuantos select {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 4px 6px;
+  margin-bottom: 7px;
+  cursor: pointer;
+}
+.cuantos select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+/* Con muchos nombres el gráfico mide miles de píxeles: scroll propio en vez de estirar la página. */
+.rank.scroll {
+  max-height: 620px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

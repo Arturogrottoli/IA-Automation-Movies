@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { CatalogDataService } from '../core/catalog-data.service';
 import { CountModeService } from '../core/count-mode.service';
 import { PeopleGenderService } from '../core/people-gender.service';
@@ -11,34 +11,41 @@ function toEntries(counts: Map<string, number>): ChartEntry[] {
   return [...counts.entries()].map(([label, value]) => ({ label, value }));
 }
 
-const TOP = 15;
-const TOPE_CON_EMPATES = 20;
-/** Cuando el empate es demasiado grande para mostrarlo entero: cuántos quedaron afuera y con qué número. */
-const cortados = new WeakMap<ChartEntry[], { valor: number; afuera: number }>();
+/** Cantidades a elegir en los rankings (directores, actores, directoras, actrices). */
+export const CUANTOS = [10, 25, 50, 100] as const;
+type Ranking = 'directores' | 'actores' | 'directoras' | 'actrices';
+
+/** Lo que el texto tiene que aclarar sobre el corte: empate incluido entero, o empate enorme recortado. */
+const cortes = new WeakMap<ChartEntry[], { tipo: 'empate' | 'recortado'; valor: number; afuera: number }>();
 
 /**
- * Top 15 ordenado; los empatados con el 15° entran todos (cortar un empate deja
- * afuera a alguien con el mismo número que el último que se ve) — salvo que el
- * empate sea enorme (ej. decenas de directoras con 1 película): ahí se corta en
- * 15 y el texto dice cuántas más hay con ese número.
+ * Los N primeros, ordenados. Los empatados con el último entran todos (cortar
+ * un empate deja afuera a alguien con el mismo número que el último que se
+ * ve), salvo que el empate sea enorme (ej. decenas de directoras con 1
+ * película): ahí se muestran solo los de arriba y el texto dice cuántos más hay.
  */
-function topConEmpates(entries: ChartEntry[]): ChartEntry[] {
+function topConEmpates(entries: ChartEntry[], n: number): ChartEntry[] {
   const sorted = entries.filter((e) => e.label).sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, 'es'));
-  const corte = sorted[TOP - 1]?.value ?? 0;
-  const conEmpates = sorted.filter((e, i) => i < TOP || e.value === corte);
-  if (conEmpates.length <= TOPE_CON_EMPATES) return conEmpates;
-  // Empate enorme: mostrar solo a quienes superan ese número (elegir algunos de los
-  // empatados sería arbitrario, por orden alfabético), salvo que queden muy pocos.
+  if (sorted.length <= n) return sorted;
+  const corte = sorted[n - 1].value;
+  const conEmpates = sorted.filter((e, i) => i < n || e.value === corte);
+  if (conEmpates.length <= n + Math.max(5, Math.ceil(n * 0.2))) {
+    if (conEmpates.length > n) cortes.set(conEmpates, { tipo: 'empate', valor: corte, afuera: 0 });
+    return conEmpates;
+  }
+  // Elegir algunos de los empatados sería arbitrario (orden alfabético).
   const arriba = sorted.filter((e) => e.value > corte);
-  const top = arriba.length >= 5 ? arriba : sorted.slice(0, TOP);
-  cortados.set(top, { valor: corte, afuera: conEmpates.length - top.length });
+  const top = arriba.length >= Math.ceil(n / 2) ? arriba : sorted.slice(0, n);
+  cortes.set(top, { tipo: 'recortado', valor: corte, afuera: conEmpates.length - top.length });
   return top;
 }
 
 function empateObs(entries: ChartEntry[]): string {
-  const c = cortados.get(entries);
-  if (c) return ` Hay ${c.afuera} más con ${c.valor}, que no entran en el gráfico.`;
-  return entries.length > TOP ? ` Con ${entries.at(-1)!.value} hay empate en el último puesto: entran todos.` : '';
+  const c = cortes.get(entries);
+  if (!c) return '';
+  return c.tipo === 'empate'
+    ? ` Con ${c.valor} hay empate en el último puesto: entran todos.`
+    : ` Hay ${c.afuera} más con ${c.valor}, que no entran en el gráfico.`;
 }
 
 @Component({
@@ -55,6 +62,14 @@ export class PlacaCharts {
     private readonly people: PeopleGenderService,
   ) {
     this.people.load();
+  }
+
+  /** Cuántos mostrar en cada ranking (selector 10 · 25 · 50 · 100 de cada gráfico). */
+  protected readonly opciones = CUANTOS;
+  protected readonly cuantos = signal<Record<Ranking, number>>({ directores: 10, actores: 10, directoras: 10, actrices: 10 });
+
+  protected setCuantos(r: Ranking, valor: string): void {
+    this.cuantos.update((c) => ({ ...c, [r]: +valor }));
   }
 
   /**
@@ -117,7 +132,7 @@ export class PlacaCharts {
 
   // --- directores (codirecciones por separado, como en "¿Cuánto vi de…?") ---
   protected readonly byDirector = computed<ChartEntry[]>(() =>
-    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => splitDirectores(v.movie.director)))),
+    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => splitDirectores(v.movie.director))), this.cuantos().directores),
   );
   protected readonly directorObs = computed(() => {
     const entries = this.byDirector();
@@ -140,7 +155,7 @@ export class PlacaCharts {
 
   // --- actores/actrices (TMDB) ---
   protected readonly byActor = computed<ChartEntry[]>(() =>
-    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => v.movie.cast))),
+    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => v.movie.cast)), this.cuantos().actores),
   );
   protected readonly actorObs = computed(() => {
     const entries = this.byActor();
@@ -155,7 +170,7 @@ export class PlacaCharts {
     return (this.people.directors().get(v.movie.key) ?? []).filter((d) => this.people.director(d) === 'f').map((d) => d.n);
   }
   protected readonly byDirectora = computed<ChartEntry[]>(() =>
-    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => this.directorasDe(v)))),
+    topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => this.directorasDe(v))), this.cuantos().directoras),
   );
   protected readonly directoraObs = computed(() => {
     const entries = this.byDirectora();
@@ -171,7 +186,7 @@ export class PlacaCharts {
   // --- actrices (reparto principal) ---
   protected readonly byActriz = computed<ChartEntry[]>(() =>
     this.people.loaded()
-      ? topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => v.movie.cast.filter((n) => this.people.actor(n) === 'f'))))
+      ? topConEmpates(toEntries(tally(this.rows(), (v: Viewing) => v.movie.cast.filter((n) => this.people.actor(n) === 'f'))), this.cuantos().actrices)
       : [],
   );
   protected readonly actrizObs = computed(() => {
