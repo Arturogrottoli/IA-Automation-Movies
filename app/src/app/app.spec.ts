@@ -1,12 +1,15 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { App } from './app';
+import { routes } from './app.routes';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideZonelessChangeDetection()]
+      // Con las rutas reales: la app tiene pestañas Películas / Datos (RouterLink, RouterOutlet).
+      providers: [provideZonelessChangeDetection(), provideRouter(routes)]
     }).compileComponents();
   });
 

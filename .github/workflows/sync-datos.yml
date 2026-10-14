@@ -51,7 +51,7 @@ jobs:
           # Solo si bajó algo con pinta de catálogo: un error de Google no debe pisar el respaldo.
           if head -1 /tmp/catalogo.csv | grep -q titulo; then mv /tmp/catalogo.csv cerebro/catalogo_completo.csv; else echo "::warning::No se pudo bajar la hoja, queda el respaldo anterior"; fi
 
-      - name: TMDB (pósters, reparto, duración, sinopsis, directores, género del reparto)
+      - name: TMDB (pósters, reparto, duración, sinopsis, directores, género del reparto) + instantánea del sitio
         run: |
           node cerebro/build_posters.js
           node cerebro/build_actors.js
@@ -59,6 +59,7 @@ jobs:
           node cerebro/build_synopsis.js
           node cerebro/build_directors.js
           node cerebro/build_cast_gender.js
+          node cerebro/build_ng_snapshot.js
 
       - name: Perfil de gusto y recomendador
         run: |
@@ -69,7 +70,7 @@ jobs:
       - name: Commit si hubo cambios
         run: |
           rm -f cerebro/tmdb.key
-          git add cerebro/catalogo_completo.csv data/
+          git add cerebro/catalogo_completo.csv data/ app/public/data/catalog-snapshot.json
           if git diff --cached --quiet; then
             echo "Sin cambios: no hay películas nuevas."
             exit 0

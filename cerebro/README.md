@@ -19,12 +19,13 @@ commitea solo si algo cambió. No hace falta correrlos a mano.
 | `build_synopsis.js` | Sinopsis en castellano → `../data/synopsis.json`. |
 | `build_directors.js` | Directores de cada película con su género según TMDB → `../data/directors.json` (para preguntas como "¿cuántas directoras vi?"). Correcciones a mano donde TMDB no tiene el dato: `../data/genero-manual.json`. |
 | `build_cast_gender.js` | Género del reparto principal según TMDB → `../data/genero-reparto.json` (para "¿qué actrices vi más?"). Solo consulta las películas con nombres nuevos. |
+| `build_ng_snapshot.js` | Instantánea del catálogo que usa el sitio si la hoja no responde → `../app/public/data/catalog-snapshot.json`. |
 | `taste_profile.py` | Perfil de gusto (pandas + scikit-learn, `random_state` fijo) → `../data/taste_profile.json`. |
 | `build_similar.py` | Recomendador por contenido → `../data/similar.json`. |
 | `build_similar_ajustado.py` | Recomendador ajustado por el perfil de gusto → `../data/similar_ajustado.json`. |
 | `requirements.txt` | Versiones exactas de Python para la sincronización (las mismas que local). |
 
-Para correrlos a mano (ej. para ver algo nuevo ya, sin esperar): los seis
+Para correrlos a mano (ej. para ver algo nuevo ya, sin esperar): los siete
 `.js` con `node`, después los tres `.py` con `py` (en Windows `python` abre la
 Microsoft Store). O en GitHub: Actions → "Sincronizar datos de películas" →
 Run workflow.
@@ -37,7 +38,6 @@ Run workflow.
 | `export_docs_pdf.js` | Exporta los docs del curso (`../docs/*.md`) a PDF con Chrome headless. |
 | `set_mis9.js` | Fija "Mis 9 películas" del dueño en `../data/mis9.json` desde el link de la placa. |
 | `kpis_operacion.js` | Volumen de registros vía bot, para `../docs/kpis-operacion.md`. Solo imprime. |
-| `build_ng_snapshot.js` | Refresca la instantánea offline del catálogo que usa el sitio si la hoja no responde (`../app/public/data/catalog-snapshot.json`). |
 
 ## Configuración
 
