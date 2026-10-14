@@ -477,21 +477,21 @@
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Ruby Rose",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "actor": "Bridget Moynahan",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Riccardo Scamarcio",
+      "actor": "Common",
       "tasa": 100.0,
       "n": 2
+    },
+    {
+      "director": "Ti West",
+      "actor": "Mia Goth",
+      "tasa": 100.0,
+      "n": 3
     },
     {
       "director": "Christopher Miller",
