@@ -40,6 +40,7 @@ export class VitalsStrip {
       { n: nf(countries.size), l: 'países de origen' },
       { n: `${yMin}–${yMax}`, l: 'años de registro' },
       { n: nf(rw), l: 'títulos revisitados' },
+      { n: `${Math.round((rw / movies.length) * 100)}%`, l: 'tasa de revisión' },
       { n: `${Math.round((argCount / viewings.length) * 100)}%`, l: 'cine argentino' },
     ];
     if (avgRuntime) tiles.push({ n: `${avgRuntime} min`, l: 'duración promedio' });

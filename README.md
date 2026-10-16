@@ -11,8 +11,8 @@ todos los días.
 
 **Sitio:** https://turimoviesdatabase.vercel.app
 
-Proyecto integrador del curso **IA Automation** (Coderhouse). Toca las tres capas
-del stack: datos, orquestación e inteligencia.
+Proyecto hecho a propósito para mostrar las tres capas del stack: datos,
+orquestación e inteligencia.
 
 **La historia completa del proyecto** — por qué, en qué orden, qué se rompió y
 qué se aprendió en el camino — está en
@@ -305,7 +305,7 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       películas vistas" y eran visionados; ahora muestra las películas
       distintas (~1.170) y aclara los visionados al lado.
 
-### Pendiente — para cerrar el curso
+### Pendiente — para cerrar el proyecto
 - [x] **Mapa de arquitectura** → [docs/arquitectura.md](docs/arquitectura.md) / [PDF](docs/arquitectura.pdf).
 - [x] **Manual de datos** → [docs/manual-de-datos.md](docs/manual-de-datos.md) / [PDF](docs/manual-de-datos.pdf).
 - [x] **Optimización de costos** → [docs/costos.md](docs/costos.md) / [PDF](docs/costos.pdf).
@@ -455,7 +455,7 @@ data/                 datos de enriquecimiento que el sitio lee del repo
 img/                  pósters a mano para los que TMDB no tiene
 cerebro/              scripts de datos y respaldo de la hoja (ver cerebro/README.md)
 .github/workflows/    sync-datos.yml: sincronización diaria de los datos
-docs/                 entregables del curso — arquitectura, datos, costos
+docs/                 documentación técnica — arquitectura, datos, costos
 index.html            el sitio viejo, ya no se publica; los scripts leen de
                       acá la URL de la hoja (SHEET_CSV_URL)
 ```
