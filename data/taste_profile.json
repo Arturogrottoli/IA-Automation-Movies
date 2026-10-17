@@ -96,7 +96,7 @@
     }
   ],
   "duracion_revisitadas": 109.4,
-  "duracion_no_revisitadas": 109.9,
+  "duracion_no_revisitadas": 109.8,
   "tasa_por_duracion": [
     {
       "rango": "<80",
@@ -111,7 +111,7 @@
     {
       "rango": "95-110",
       "tasa": 10.2,
-      "n": 353
+      "n": 354
     },
     {
       "rango": "110-125",
@@ -138,31 +138,31 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.257
+      "peso": 0.25
     },
     {
       "variable": "decada",
-      "peso": 0.167
-    },
-    {
-      "variable": "Acción",
-      "peso": 0.083
+      "peso": 0.174
     },
     {
       "variable": "Drama",
+      "peso": 0.078
+    },
+    {
+      "variable": "Acción",
       "peso": 0.075
     },
     {
       "variable": "Historia",
-      "peso": 0.062
+      "peso": 0.066
     },
     {
       "variable": "Crimen",
-      "peso": 0.046
+      "peso": 0.048
     },
     {
       "variable": "Terror",
-      "peso": 0.04
+      "peso": 0.041
     },
     {
       "variable": "Comedia",
@@ -202,8 +202,8 @@
     },
     {
       "genero": "Terror",
-      "tasa": 11.8,
-      "n": 255
+      "tasa": 11.7,
+      "n": 256
     },
     {
       "genero": "Comedia",
@@ -228,7 +228,7 @@
     {
       "genero": "Misterio",
       "tasa": 7.8,
-      "n": 115
+      "n": 116
     },
     {
       "genero": "Drama",
@@ -477,21 +477,21 @@
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Bridget Moynahan",
+      "actor": "Ruby Rose",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Christopher Miller",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Common",
+      "actor": "Riccardo Scamarcio",
       "tasa": 100.0,
       "n": 2
-    },
-    {
-      "director": "Ti West",
-      "actor": "Mia Goth",
-      "tasa": 100.0,
-      "n": 3
     },
     {
       "director": "Christopher Miller",
