@@ -22,8 +22,8 @@
     },
     {
       "genero": "Crimen",
-      "tasa": 12.2,
-      "n": 246
+      "tasa": 12.1,
+      "n": 247
     }
   ],
   "top_decadas": [
@@ -110,8 +110,8 @@
     },
     {
       "rango": "95-110",
-      "tasa": 10.2,
-      "n": 354
+      "tasa": 10.1,
+      "n": 355
     },
     {
       "rango": "110-125",
@@ -138,31 +138,31 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.25
+      "peso": 0.248
     },
     {
       "variable": "decada",
-      "peso": 0.174
+      "peso": 0.176
     },
     {
       "variable": "Drama",
-      "peso": 0.078
+      "peso": 0.076
     },
     {
       "variable": "Acción",
-      "peso": 0.075
+      "peso": 0.076
     },
     {
       "variable": "Historia",
-      "peso": 0.066
-    },
-    {
-      "variable": "Crimen",
-      "peso": 0.048
+      "peso": 0.068
     },
     {
       "variable": "Terror",
-      "peso": 0.041
+      "peso": 0.051
+    },
+    {
+      "variable": "Crimen",
+      "peso": 0.043
     },
     {
       "variable": "Comedia",
@@ -192,8 +192,8 @@
     },
     {
       "genero": "Crimen",
-      "tasa": 12.2,
-      "n": 246
+      "tasa": 12.1,
+      "n": 247
     },
     {
       "genero": "Romance",
@@ -218,7 +218,7 @@
     {
       "genero": "Suspense",
       "tasa": 10.5,
-      "n": 372
+      "n": 373
     },
     {
       "genero": "Aventura",
@@ -477,21 +477,21 @@
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Ruby Rose",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "actor": "Bridget Moynahan",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Riccardo Scamarcio",
+      "actor": "Common",
       "tasa": 100.0,
       "n": 2
+    },
+    {
+      "director": "Ti West",
+      "actor": "Mia Goth",
+      "tasa": 100.0,
+      "n": 3
     },
     {
       "director": "Christopher Miller",
@@ -507,7 +507,7 @@
     },
     {
       "anio": 2019,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2020,
@@ -515,7 +515,7 @@
     },
     {
       "anio": 2021,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2022,
@@ -531,7 +531,7 @@
     },
     {
       "anio": 2025,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2026,
@@ -542,26 +542,26 @@
     {
       "cluster": 0,
       "anios": [
-        2019,
-        2021,
-        2024
+        2024,
+        2025
       ],
-      "decada_prom": 2003.0,
-      "duracion_prom": 111.0,
-      "tasa_revision_prom": 25.0
+      "decada_prom": 2006.0,
+      "duracion_prom": 107.7,
+      "tasa_revision_prom": 21.5
     },
     {
       "cluster": 1,
       "anios": [
         2018,
+        2019,
+        2021,
         2022,
         2023,
-        2025,
         2026
       ],
-      "decada_prom": 2004.0,
-      "duracion_prom": 108.7,
-      "tasa_revision_prom": 18.2
+      "decada_prom": 2003.0,
+      "duracion_prom": 110.1,
+      "tasa_revision_prom": 20.5
     },
     {
       "cluster": 2,
