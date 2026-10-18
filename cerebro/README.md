@@ -34,7 +34,7 @@ Run workflow.
 
 | Archivo | Para qué |
 |---|---|
-| `check_datos.js` | Cruza el catálogo contra TMDB y marca año/director sospechosos (pósters mal matcheados). Solo reporta, en `check_datos.txt`. |
+| `check_datos.js` | Revisión de calidad de la hoja: la misma película cargada con títulos o años distintos (el sitio la cuenta doble), y año/director que no coinciden con TMDB (pósters mal matcheados). Solo reporta, en `check_datos.txt`. |
 | `export_docs_pdf.js` | Exporta los docs técnicos (`../docs/*.md`) a PDF con Chrome headless. |
 | `set_mis9.js` | Fija "Mis 9 películas" del dueño en `../data/mis9.json` desde el link de la placa. |
 | `kpis_operacion.js` | Volumen de registros vía bot, para `../docs/kpis-operacion.md`. Solo imprime. |

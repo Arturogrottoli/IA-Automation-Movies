@@ -1,5 +1,7 @@
-// Compara cada película contra la ficha de TMDB que ya matcheó por año
-// (el id guardado en posters.json). Marca director o año que no coinciden.
+// Revisión de calidad de la hoja, en dos partes:
+// 1) la misma película cargada con títulos o años distintos (el sitio la cuenta doble);
+// 2) cada película contra la ficha de TMDB que ya matcheó (id en posters.json):
+//    director o año que no coinciden (póster mal matcheado).
 // No cambia nada — solo reporta a cerebro/check_datos.txt
 //   node cerebro/check_datos.js
 const fs = require("fs");
@@ -41,6 +43,24 @@ function dirMatch(a, b){
     movies.push({ fila: i+2, t, y, d });
   });
 
+  // 1) La misma película cargada con títulos o años distintos ("John wick 2" /
+  // "John Wick: Chapter 2", o "Girl, Interrupted" con 2000 y 1999): el sitio la
+  // cuenta como dos películas. Se agrupa por un título "laxo" + apellido del
+  // director, y se marca el grupo si quedó partido en más de una clave del sitio.
+  const laxo = t => norm(t.replace(/&/g, " and ")).replace(/\b(chapter|capitulo|parte|part|the|el|la|los|las)\b/g, " ").replace(/\s+/g, "");
+  const apellido = d => norm(d.split(/[,/&]| y /)[0]).split(" ").at(-1) || "";
+  const grupos = new Map();
+  rows.slice(1).forEach((r,i) => {
+    const t=(r[I.titulo]||"").trim(), y=+r[I.anio_estreno]||null, d=(r[I.director]||"").trim();
+    if (!t) return;
+    const g = laxo(t) + "|" + apellido(d);
+    (grupos.get(g) || grupos.set(g, []).get(g)).push({ fila: i+2, t, y, clave: norm(t)+"|"+y });
+  });
+  const partidas = [...grupos.values()].filter(e => new Set(e.map(x => x.clave)).size > 1);
+  const outDup = partidas.map(e => e.map(x => `fila ${x.fila} "${x.t}" (${x.y||"?"})`).join("  ·  ")).join("\n");
+  console.log(`${partidas.length} películas cargadas con títulos o años distintos (el sitio las cuenta doble):\n${outDup || "  ninguna"}\n`);
+
+  // 2) Director o año que no coinciden con la ficha de TMDB (póster mal matcheado).
   const flags = [];
   let n = 0;
   for (const m of movies) {
@@ -65,6 +85,9 @@ function dirMatch(a, b){
   const out = flags.sort((a,b)=>a.fila-b.fila).map(f =>
     `fila ${f.fila}  "${f.t}" (${f.y||"?"} · ${f.d||"?"})\n   TMDB: ${f.tmdb_t} (${f.tmdb_y} · ${f.tmdb_d})   [${f.motivo}]`).join("\n\n");
   console.log(`\n${flags.length} con director o año que no coinciden:\n\n${out}\n`);
-  fs.writeFileSync(path.join(__dirname, "check_datos.txt"), out + "\n");
+  fs.writeFileSync(
+    path.join(__dirname, "check_datos.txt"),
+    `TÍTULOS O AÑOS DISTINTOS PARA LA MISMA PELÍCULA (${partidas.length})\n${outDup || "ninguna"}\n\nDIRECTOR O AÑO DISTINTO A TMDB (${flags.length})\n${out}\n`,
+  );
   console.log("Guardado en cerebro/check_datos.txt");
 })();
