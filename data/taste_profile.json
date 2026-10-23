@@ -96,7 +96,7 @@
     }
   ],
   "duracion_revisitadas": 109.4,
-  "duracion_no_revisitadas": 109.9,
+  "duracion_no_revisitadas": 109.8,
   "tasa_por_duracion": [
     {
       "rango": "<80",
@@ -106,7 +106,7 @@
     {
       "rango": "80-95",
       "tasa": 10.7,
-      "n": 280
+      "n": 281
     },
     {
       "rango": "95-110",
@@ -142,31 +142,31 @@
     },
     {
       "variable": "decada",
-      "peso": 0.183
+      "peso": 0.17
     },
     {
       "variable": "Drama",
-      "peso": 0.078
+      "peso": 0.075
     },
     {
       "variable": "Acción",
-      "peso": 0.074
+      "peso": 0.075
     },
     {
       "variable": "Historia",
       "peso": 0.063
     },
     {
-      "variable": "Terror",
-      "peso": 0.045
+      "variable": "Crimen",
+      "peso": 0.05
     },
     {
-      "variable": "Crimen",
-      "peso": 0.043
+      "variable": "Terror",
+      "peso": 0.047
     },
     {
       "variable": "Comedia",
-      "peso": 0.038
+      "peso": 0.042
     }
   ],
   "genre_rate_full": [
@@ -203,12 +203,12 @@
     {
       "genero": "Terror",
       "tasa": 11.7,
-      "n": 256
+      "n": 257
     },
     {
       "genero": "Comedia",
       "tasa": 11.5,
-      "n": 347
+      "n": 348
     },
     {
       "genero": "Ciencia ficción",
@@ -217,8 +217,8 @@
     },
     {
       "genero": "Suspense",
-      "tasa": 10.5,
-      "n": 373
+      "tasa": 10.4,
+      "n": 374
     },
     {
       "genero": "Aventura",
