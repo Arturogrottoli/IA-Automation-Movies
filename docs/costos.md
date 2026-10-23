@@ -41,7 +41,8 @@ que es donde más importa el costo (aunque sea "cupo gratis", se agota).
   que necesita ("buscar_vistas director=Scorsese"), así que cada pedido lleva
   **~2.000–3.500 tokens**. Son 2 llamadas en vez de 1, pero en total ~5.000
   tokens: la mitad que antes y un sexto de la primera versión. Medido: ~1,5–4
-  s por respuesta (el plan gratis a veces tarda bastante más; hay un tope de 30 s).
+  s por respuesta. El plan gratis a veces cuelga un pedido más de 30 s: se
+  corta a los 12 s y se repite una vez, que suele volver enseguida.
 - **Cuentas hechas por código, no por la IA.** Las herramientas devuelven
   totales y listas ya contados. Más barato (menos razonamiento) y correcto (el
   modelo sumaba mal: decía 20 visionados de Tarantino y son 25; y completaba

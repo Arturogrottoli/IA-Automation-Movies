@@ -165,8 +165,9 @@ Click en la X de una card / "Quitar de la lista" en el modal → POST con accion
     excluyéndolo y saca lo que quede
   → la respuesta trae qué herramientas usó; el chat lo muestra debajo
     ("consultó: lo visto (Kubrick) · TMDB (Stanley Kubrick)")
-  → límite de 15 consultas cada 10 minutos por persona; 30 s de tope por
-    pedido a Gemini
+  → límite de 15 consultas cada 10 minutos por persona. Si un pedido a Gemini
+    pasa los 12 s se corta y se repite una vez (en el plan gratis algunos se
+    cuelgan y, repetidos, vuelven en ~1 s)
   → evaluación: node cerebro/eval_bot.js → 15 preguntas con respuesta conocida
     (lo esperado se calcula aparte, desde la hoja), contra producción
 ```

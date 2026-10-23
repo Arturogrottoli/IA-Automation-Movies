@@ -244,10 +244,12 @@ async function askGemini(
           // Margen amplio: en los modelos que "piensan", el razonamiento interno también consume este tope.
           generationConfig: { temperature: 0.6, maxOutputTokens: 4096 },
         }),
-        // En el plan gratis, a veces un pedido normal (~1 s) tarda más de un minuto.
-        signal: AbortSignal.timeout(30_000),
+        // En el plan gratis, a veces un pedido normal (~1 s) se cuelga más de un
+        // minuto; repetido, suele volver enseguida. Se corta pronto y se reintenta.
+        signal: AbortSignal.timeout(intento === 0 ? 12_000 : 20_000),
       });
     } catch {
+      if (intento === 0) continue;
       return { error: 'La IA está tardando demasiado. Probá de nuevo en un momento.', status: 504 };
     }
     if (res.status === 429) return { error: 'Se agotó la cuota gratis de la IA por ahora. Probá en un rato.', status: 429 };
