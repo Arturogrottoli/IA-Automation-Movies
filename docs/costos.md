@@ -7,7 +7,7 @@
 | Telegram Bot API | gratis | sin límite práctico | unos mensajes por día |
 | Make | Free | 1.000 operaciones/mes | ~3-4 ops por registro/consulta; agregar desde el sitio suma otro ~3 (webhook + Gemini + Add a Row) → margen enorme |
 | Google Gemini API (bot) | Free tier | límites por minuto y por día | 1-2 llamadas por mensaje o por acción del sitio |
-| Google Gemini API (CinefilIA) | Free tier, **proyecto aparte** | límites por minuto y por día, propios | 1 llamada por pregunta (hasta 3 si tiene que corregir una recomendación); ~10.000 tokens de contexto cada una |
+| Google Gemini API (CinefilIA) | Free tier, **proyecto aparte** | límites por minuto y por día, propios | 2 llamadas por pregunta típica (pide una herramienta, después responde; hasta 5); ~2.000–3.500 tokens cada una |
 | Google Sheets | gratis | 10M celdas | ~23.000 celdas (dos pestañas) |
 | TMDB API | gratis | límite por IP, altísimo | la sincronización diaria (solo lo nuevo) + consultas en vivo desde el navegador de cada visitante |
 | Vercel | Hobby (gratis) | 100 GB/mes de tráfico; funciones con cupo mensual | trivial; 1 función (`/api/chat`) |
@@ -33,15 +33,23 @@ razonamiento, procesamiento por lotes para el volumen no urgente.**
 El chat del sitio es la única pieza abierta al público que llama a una IA, así
 que es donde más importa el costo (aunque sea "cupo gratis", se agota).
 
-- **Contexto a la medida.** La primera versión mandaba el catálogo entero con
-  todo el detalle en cada pregunta: ~29.000 tokens. A las ~6 preguntas seguidas
-  agotaba el cupo gratis por minuto. Ahora manda el detalle solo de las películas
-  relacionadas con la pregunta (las de ese director, ese título, ese género) y
-  del resto solo título y año, para saber qué está visto: **~10.000 tokens, un
-  tercio**.
-- **Cuentas hechas por código, no por la IA.** Totales, visionados por año y
-  conteos por director van precalculados. Más barato (menos razonamiento) y
-  correcto (el modelo sumaba mal: decía 20 visionados de Tarantino y son 25).
+- **De mandar todo a pedir lo justo.** La primera versión mandaba el catálogo
+  entero con todo el detalle en cada pregunta: ~29.000 tokens, y a las ~6
+  preguntas seguidas agotaba el cupo gratis por minuto. La segunda mandaba el
+  detalle solo de lo relacionado con la pregunta: ~10.000. La actual es un
+  **agente con herramientas**: el modelo recibe la pregunta y pide los datos
+  que necesita ("buscar_vistas director=Scorsese"), así que cada pedido lleva
+  **~2.000–3.500 tokens**. Son 2 llamadas en vez de 1, pero en total ~5.000
+  tokens: la mitad que antes y un sexto de la primera versión. Medido: ~1,5–4
+  s por respuesta (el plan gratis a veces tarda bastante más; hay un tope de 30 s).
+- **Cuentas hechas por código, no por la IA.** Las herramientas devuelven
+  totales y listas ya contados. Más barato (menos razonamiento) y correcto (el
+  modelo sumaba mal: decía 20 visionados de Tarantino y son 25; y completaba
+  listas de memoria: Birdman para Emma Stone).
+- **Sin base vectorial.** Las preguntas son de filtrar y contar (director,
+  año, género), no de "buscar por parecido de texto", y el catálogo entra en
+  memoria (~1.200 películas): con herramientas sobre datos estructurados
+  alcanza y da resultados exactos. Para "parecidas" se usa TMDB.
 - **Verificación en vez de un modelo más caro.** El modelo rápido a veces
   recomienda algo ya visto. En lugar de pasar a un modelo mayor (que respondía
   mejor pero tardaba ~30 segundos), la función revisa cada recomendación contra

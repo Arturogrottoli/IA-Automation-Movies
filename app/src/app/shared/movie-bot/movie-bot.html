@@ -25,6 +25,9 @@
       }
       @for (m of messages(); track $index) {
         <p class="bot-msg" [class.user]="m.role === 'user'" [class.model]="m.role === 'model'">{{ m.text }}</p>
+        @if (m.fuentes) {
+          <p class="bot-fuentes">consultó: {{ m.fuentes }}</p>
+        }
       }
       @if (pending()) {
         <p class="bot-msg model bot-typing" aria-label="Escribiendo"><span></span><span></span><span></span></p>

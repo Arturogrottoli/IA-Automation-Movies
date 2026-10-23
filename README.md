@@ -256,10 +256,16 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       ([app/src/app/shared/movie-bot](app/src/app/shared/movie-bot)) que
       habla con una función de Vercel ([app/api/chat.ts](app/api/chat.ts)) →
       Gemini (plan gratis). Sin Make. La clave va como `GEMINI_API_KEY` en
-      Vercel (nunca en el navegador); `GEMINI_MODEL` es opcional. Recibe el
-      resumen ya contado (los LLM cuentan mal), títulos de todas las vistas y
-      el detalle de las relacionadas con la pregunta; verifica del lado del
-      servidor que no recomiende algo ya visto. Solo habla de cine: lo demás
+      Vercel (nunca en el navegador); `GEMINI_MODEL` es opcional. **Desde
+      2026-10-23 es un agente con herramientas** (tool calling): en vez de
+      recibir el catálogo, pide lo que necesita (`buscar_vistas`, `ranking`,
+      `quiero_ver`, `tmdb_persona`, `tmdb_pelicula`…), que filtran y cuentan en
+      código sobre los datos reales ([app/api/_lib/](app/api/_lib)); lo de TMDB
+      vuelve marcado `vista: true/false` para recomendar sin repetir. El chat
+      muestra qué consultó. Evaluación con respuestas conocidas:
+      `node cerebro/eval_bot.js`. Detalle en
+      [docs/arquitectura.md](docs/arquitectura.md) (camino 5). Además verifica
+      del lado del servidor que no recomiende algo ya visto. Solo habla de cine: lo demás
       → "Solo soy un simple bot peliculero". Límite: 15 consultas cada 10
       min por IP. `api/` tiene su propio tsconfig (commonjs): con el de
       Angular la función se caía en Vercel.
@@ -447,7 +453,8 @@ El bot distingue tres cosas por el texto del mensaje:
 
 ```
 app/                  el sitio (Angular, en Vercel): secciones Películas y Datos
-  api/chat.ts           CinefilIA, el chat del sitio (función de Vercel → Gemini)
+  api/chat.ts           CinefilIA, el chat del sitio (función de Vercel → agente de Gemini)
+  api/_lib/             sus datos y herramientas (el "_" evita que Vercel los publique como endpoints)
   src/app/              placas, servicios y componentes
 data/                 datos de enriquecimiento que el sitio lee del repo
                       (posters, posters-manual, actors, runtime, synopsis,

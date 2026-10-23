@@ -37,6 +37,7 @@ Run workflow.
 | `check_datos.js` | Revisión de calidad de la hoja: la misma película cargada con títulos o años distintos (el sitio la cuenta doble), y año/director que no coinciden con TMDB (pósters mal matcheados). Solo reporta, en `check_datos.txt`. |
 | `export_docs_pdf.js` | Exporta los docs técnicos (`../docs/*.md`) a PDF con Chrome headless. |
 | `set_mis9.js` | Fija "Mis 9 películas" del dueño en `../data/mis9.json` desde el link de la placa. |
+| `eval_bot.js` | Evaluación de CinefilIA: 15 preguntas con respuesta conocida (lo esperado se calcula desde la hoja) contra producción, o contra otra URL si se la pasa. Gasta cuota de Gemini (~2 pedidos por pregunta). |
 | `kpis_operacion.js` | Volumen de registros vía bot, para `../docs/kpis-operacion.md`. Solo imprime. |
 
 ## Configuración

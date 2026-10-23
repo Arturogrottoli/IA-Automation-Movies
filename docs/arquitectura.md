@@ -135,20 +135,40 @@ Click en la X de una card / "Quitar de la lista" en el modal → POST con accion
 "¿Qué vi de Tarantino?"  ·  "Recomendame una de terror de los 80"  ·  "¿cómo hago una torta?"
   → el chat del sitio hace POST a /api/chat (función de Vercel; la clave de
     Gemini vive en Vercel, nunca en el navegador)
-  → la función arma el contexto: resumen ya contado (totales, por año, por
-    director, directoras, actrices y actores más vistos: los modelos cuentan
-    mal), títulos de todas las vistas y el detalle solo de las relacionadas
-    con la pregunta, más "Quiero ver"
-  → si la pregunta nombra a alguien (director o reparto), le pasa el conteo y
-    la lista exacta de títulos: sin la lista, el modelo completaba de memoria
-    e inventaba películas
-  → el género de directores y reparto no está en la hoja: sale de TMDB
-    (data/directors.json, data/genero-reparto.json) + correcciones a mano
-  → Gemini responde. Si no es sobre cine: "Solo soy un simple bot peliculero"
-  → si es un pedido de recomendación, la función verifica cada título contra
-    el catálogo real; si recomendó algo ya visto, repite la consulta
-    excluyéndolo (hasta 2 veces) y saca lo que quede
-  → límite de 15 consultas cada 10 minutos por persona
+  → es un agente con herramientas (tool calling de Gemini): el modelo no
+    recibe el catálogo, recibe la pregunta y 6 herramientas, y pide lo que
+    necesita. Filtrar, contar y ordenar lo hace código, sobre los datos reales
+    (los modelos cuentan mal y completan listas de memoria):
+      resumen_catalogo   totales del diario
+      buscar_vistas      lo visto, con filtros combinables (título, director,
+                         actor, género, país, años de estreno, año visto,
+                         dirigidas por mujeres, revistas) → totales exactos + lista
+      ranking            lo más visto por director, directora, actor, actriz,
+                         género, país, año o década, con los mismos filtros
+      quiero_ver         la lista de pendientes
+      tmdb_persona       filmografía de alguien según TMDB, cada película
+                         marcada vista: true/false
+      tmdb_pelicula      ficha de una película + parecidas, marcadas igual
+  → bucle: Gemini pide herramientas → la función las ejecuta y le devuelve los
+    resultados → hasta que responde con texto (máximo 4 rondas; casi todas las
+    preguntas usan 1). Ej.: "¿Vi algo de Kubrick? Recomendame otras" →
+    buscar_vistas{director: Kubrick} + tmdb_persona{Stanley Kubrick} → recomienda
+    solo entre las que tienen vista: false
+  → los datos (hoja, "Quiero ver", data/*.json de TMDB) se cargan en
+    app/api/_lib/datos.ts, cacheados 10 min; las herramientas están en
+    app/api/_lib/tools.ts. El género de directores y reparto no está en la
+    hoja: sale de TMDB (data/directors.json, data/genero-reparto.json) +
+    correcciones a mano
+  → si no es sobre cine: "Solo soy un simple bot peliculero", sin herramientas
+  → si es un pedido de recomendación, la función igual verifica cada título
+    contra el catálogo real; si recomendó algo ya visto, repite una vez
+    excluyéndolo y saca lo que quede
+  → la respuesta trae qué herramientas usó; el chat lo muestra debajo
+    ("consultó: lo visto (Kubrick) · TMDB (Stanley Kubrick)")
+  → límite de 15 consultas cada 10 minutos por persona; 30 s de tope por
+    pedido a Gemini
+  → evaluación: node cerebro/eval_bot.js → 15 preguntas con respuesta conocida
+    (lo esperado se calcula aparte, desde la hoja), contra producción
 ```
 
 ### 6. Sincronización diaria de los datos (sin Make)

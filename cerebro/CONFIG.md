@@ -12,7 +12,9 @@
 | ID del Google Sheet | Se elige desde el selector de Make | — | está en la URL del Sheet |
 
 El token de TMDB también está en el código del sitio
-(`app/src/app/core/tmdb-live.service.ts`) **a propósito**: es de solo lectura,
+(`app/src/app/core/tmdb-live.service.ts`) y en las herramientas de CinefilIA
+(`app/api/_lib/tools.ts`, que acepta otro en `TMDB_TOKEN` de Vercel si algún
+día se quiere separar) **a propósito**: es de solo lectura,
 TMDB es gratis y el límite es por IP, no por token. La clave de Gemini, en
 cambio, nunca pasa por el navegador.
 
@@ -20,7 +22,7 @@ cambio, nunca pasa por el navegador.
 
 - **Telegram:** @BotFather → `/revoke` → elegir el bot → token nuevo → actualizar la conexión en Make. El viejo queda muerto al instante.
 - **Gemini (sitio):** aistudio.google.com → borrar la clave → crear otra → actualizarla en Vercel y redeployar.
-- **TMDB:** themoviedb.org → Settings → API → regenerar → actualizar el secreto de GitHub, `cerebro/tmdb.key` y `tmdb-live.service.ts`.
+- **TMDB:** themoviedb.org → Settings → API → regenerar → actualizar el secreto de GitHub, `cerebro/tmdb.key`, `tmdb-live.service.ts` y `app/api/_lib/tools.ts`.
 
 ## Al entregar (PE3 pide blueprint público)
 
