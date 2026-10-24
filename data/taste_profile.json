@@ -49,8 +49,8 @@
     },
     {
       "decada": 1950,
-      "tasa": 10.0,
-      "n": 10
+      "tasa": 9.1,
+      "n": 11
     }
   ],
   "top_directores": [
@@ -111,12 +111,12 @@
     {
       "rango": "95-110",
       "tasa": 10.1,
-      "n": 355
+      "n": 356
     },
     {
       "rango": "110-125",
       "tasa": 8.7,
-      "n": 276
+      "n": 277
     },
     {
       "rango": "125-140",
@@ -138,19 +138,19 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.248
+      "peso": 0.255
     },
     {
       "variable": "decada",
-      "peso": 0.17
-    },
-    {
-      "variable": "Drama",
-      "peso": 0.075
+      "peso": 0.168
     },
     {
       "variable": "Acción",
-      "peso": 0.075
+      "peso": 0.077
+    },
+    {
+      "variable": "Drama",
+      "peso": 0.073
     },
     {
       "variable": "Historia",
@@ -162,11 +162,11 @@
     },
     {
       "variable": "Terror",
-      "peso": 0.047
+      "peso": 0.044
     },
     {
       "variable": "Comedia",
-      "peso": 0.042
+      "peso": 0.036
     }
   ],
   "genre_rate_full": [
@@ -233,17 +233,17 @@
     {
       "genero": "Drama",
       "tasa": 7.6,
-      "n": 512
+      "n": 513
     },
     {
       "genero": "Música",
-      "tasa": 6.5,
-      "n": 62
+      "tasa": 6.3,
+      "n": 63
     },
     {
       "genero": "Documental",
       "tasa": 6.2,
-      "n": 96
+      "n": 97
     },
     {
       "genero": "Historia",
@@ -475,6 +475,18 @@
   ],
   "top_combos": [
     {
+      "director": "Phil Lord",
+      "actor": "Jonah Hill",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Quentin Tarantino",
+      "actor": "Leonardo DiCaprio",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
       "director": "Ti West",
       "actor": "Mia Goth",
       "tasa": 100.0,
@@ -482,25 +494,13 @@
     },
     {
       "director": "Andrew Adamson",
-      "actor": "Mike Myers",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Demian Rugna",
-      "actor": "Demián Salomón",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Cameron Diaz",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
       "actor": "Eddie Murphy",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Bridget Moynahan",
       "tasa": 100.0,
       "n": 2
     }
@@ -512,7 +512,7 @@
     },
     {
       "anio": 2019,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2020,
@@ -520,7 +520,7 @@
     },
     {
       "anio": 2021,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2022,
@@ -536,7 +536,7 @@
     },
     {
       "anio": 2025,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2026,
@@ -547,26 +547,26 @@
     {
       "cluster": 0,
       "anios": [
-        2024,
-        2025
+        2019,
+        2021,
+        2024
       ],
-      "decada_prom": 2006.0,
-      "duracion_prom": 107.7,
-      "tasa_revision_prom": 21.5
+      "decada_prom": 2003.0,
+      "duracion_prom": 111.0,
+      "tasa_revision_prom": 25.0
     },
     {
       "cluster": 1,
       "anios": [
         2018,
-        2019,
-        2021,
         2022,
         2023,
+        2025,
         2026
       ],
-      "decada_prom": 2003.0,
-      "duracion_prom": 110.1,
-      "tasa_revision_prom": 20.4
+      "decada_prom": 2004.0,
+      "duracion_prom": 108.7,
+      "tasa_revision_prom": 18.1
     },
     {
       "cluster": 2,
