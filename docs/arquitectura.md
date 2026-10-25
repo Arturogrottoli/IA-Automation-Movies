@@ -29,6 +29,7 @@ flowchart TD
       R -->|agendar| ADDPV[Google Sheets · Add a Row en por_ver]
       R -->|consultar| HTTP[HTTP · GET catalogo + por_ver]
       HTTP --> G2[Gemini · Generate a response<br/>responde con ambas listas como contexto]
+      R -->|fallback: ninguna coincide| FB[Telegram · No entendí bien + ejemplos]
     end
 
     subgraph WEBHOOKS ["Corazón · Make — escenario #quot;Integration Webhooks#quot;"]
@@ -66,6 +67,7 @@ flowchart TD
     C1 --> U
     C2 --> U
     DESC --> U
+    FB --> U
     WEB --> U2([Usuario / visitantes en la web])
 
     style CORAZON fill:#1a1a1a,stroke:#e6a94a,color:#ece6da
@@ -238,6 +240,6 @@ directo del repo, así que actualizarlos no necesita redeploy.
 | Requisito | Cómo se cumple |
 |---|---|
 | **Autónomo** | El circuito Telegram → IA → Sheets → web corre solo, sin intervención. Desde octubre, también el enriquecimiento: la sincronización diaria trae pósters, reparto, sinopsis y recalcula los modelos sin correr nada a mano. |
-| **Resiliente** | *Pendiente en Make:* falta Error Handler (si Gemini devuelve 503, hoy se pierde la fila). Del lado del sitio: instantánea si la hoja no responde, póster en vivo si falta el dato, CinefilIA reintenta ante "alta demanda" de Gemini y nunca devuelve una respuesta vacía, la sincronización no pisa el respaldo si Google falla. |
+| **Resiliente** | En Make, el Router de intenciones tiene ruta de respaldo: si ninguna ruta coincide, el bot avisa "No entendí bien" en vez de perder el mensaje en silencio. *Pendiente en Make:* falta Error Handler (si Gemini devuelve 503, hoy se pierde la fila). Del lado del sitio: instantánea si la hoja no responde, póster en vivo si falta el dato, CinefilIA reintenta ante "alta demanda" de Gemini y nunca devuelve una respuesta vacía, la sincronización no pisa el respaldo si Google falla. |
 | **Con HITL** | ✅ "vi X" → el bot propone la ficha con botones ✅/❌; recién escribe (como `Aprobada`) al tocar ✅. La rama del ❌ no guarda nada y avisa que se descartó. |
 | **Limpio** | Una sola fuente de verdad (la hoja); filtro anti-comando; secretos fuera del repo; datos derivados separados en `data/`. |

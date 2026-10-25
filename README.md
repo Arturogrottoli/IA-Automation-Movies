@@ -325,6 +325,11 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       Datos, `data/`, el selector de conteo, y en costos el caso CinefilIA
       (contexto de ~29.000 a ~10.000 tokens). PDF re-exportados con
       `cerebro/export_docs_pdf.js` (Chrome headless).
+- [x] **Ruta de respaldo en el Router de intenciones** (Router 7, 2026-10-25).
+      Si Gemini devuelve una intención que ninguna ruta reconoce, antes el
+      mensaje se perdía sin aviso (pasó con "vi Girl, Interrupted"); ahora la
+      ruta *fallback* responde "No entendí bien 🤔…" con ejemplos. Probado
+      desactivando un momento la ruta "consultar".
 - [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
 - [~] **Panel de KPIs de operación** → [docs/kpis-operacion.md](docs/kpis-operacion.md)
       y en el sitio (Placa VI, al final de la página). Solo **volumen** (15
