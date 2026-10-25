@@ -225,7 +225,7 @@ directo del repo, así que actualizarlos no necesita redeploy.
 | Bot | @ListadoPelisBot (Telegram) | creado con BotFather |
 | Orquestación (bot) | Make · escenario "Telegram Bot, Google Sheets" | 1 trigger, router de intención, ramas registrar/agendar/consultar |
 | Orquestación (sitio) | Make · escenario "Integration Webhooks" | 1 Custom Webhook, router por `accion` (agregar/quitar) |
-| IA del bot | Google Gemini (`gemini-3.1-flash-lite`) en Make | clasificar/extraer, desambiguar, responder, completar título libre del sitio |
+| IA del bot | Google Gemini (`gemini-3.5-flash-lite`) en Make | clasificar/extraer, desambiguar, responder, completar título libre del sitio |
 | CinefilIA | `app/api/chat.ts` (función de Vercel) → Gemini, proyecto propio | chat de cine del sitio; cuota separada de la del bot |
 | Sincronización de datos | `.github/workflows/sync-datos.yml` (GitHub Actions) | todos los días; corre los scripts de `cerebro/` |
 | Base de datos | Google Sheet · pestañas `catalogo_completo` y `por_ver` | publicadas como CSV para lectura |

@@ -405,10 +405,10 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       Acusada, RoboCop) no generaron ninguna.
 - [x] **Fila 304:** Alice Doesn't Live Here Anymore, año → `1974`.
 - [x] **`por_ver`:** Solaris duplicada, ya sin la fila de más.
-- [ ] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027, y desde 2026-10-25
-      ya da 503 ("high demand") en casi todos los pedidos.** Migrar todos los
-      módulos "Google Gemini AI" de Make a `gemini-3.5-flash-lite` (probado:
-      responde en ~2 s). CinefilIA ya está resuelto: prueba primero
+- [x] **`gemini-3.1-flash-lite` se discontinúa el 7/5/2027, y desde 2026-10-25
+      ya da 503 ("high demand") en casi todos los pedidos.** Migrados todos los
+      módulos "Google Gemini AI" de Make a `gemini-3.5-flash-lite` (2026-10-25;
+      responde en ~2 s). CinefilIA también: prueba primero
       `gemini-3.5-flash-lite` y, si está saturado, `gemini-3.1-flash-lite`
       (`GEMINI_MODEL` en Vercel, si está, va primero).
 - [x] **Migración a Angular, completa.** Angular 20 (standalone, signals,
