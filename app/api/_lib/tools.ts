@@ -48,7 +48,7 @@ export const DECLARACIONES = [
   {
     name: 'ranking',
     description:
-      'Ranking de lo que Turi más vio, contado sobre películas distintas: directores, directoras, actores, actrices, géneros, países, años de visionado o décadas de estreno. Acepta los mismos filtros que buscar_vistas (ej. directores más vistos de terror).',
+      'Ranking de lo que Turi más vio, contado sobre películas distintas: directores, directoras, actores, actrices, géneros, países, años de visionado o décadas de estreno. Acepta los mismos filtros que buscar_vistas (ej. directores más vistos de terror). Para "¿cuántas directoras / actrices / directores distintos vio?", la respuesta es nombres_distintos.',
     parameters: {
       type: 'object',
       properties: {

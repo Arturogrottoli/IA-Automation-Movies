@@ -199,9 +199,12 @@ async function agente(
 ): Promise<{ reply: string; herramientas: UsoHerramienta[] } | { error: string; status: number }> {
   const contents = [...inicio];
   const herramientas: UsoHerramienta[] = [];
+  let modelos = MODELOS;
   for (let ronda = 0; ronda <= MAX_RONDAS; ronda++) {
-    const r = await askGemini(key, system, contents, ronda < MAX_RONDAS);
+    const r = await askGemini(key, system, contents, ronda < MAX_RONDAS, modelos);
     if ('error' in r) return r;
+    // El resto de la respuesta, con el mismo modelo: la firma de su razonamiento es suya.
+    modelos = [r.modelo];
     const parts = r.content.parts ?? [];
     const llamadas = parts.filter((p) => p.functionCall).map((p) => p.functionCall!);
     if (!llamadas.length) {
@@ -224,17 +227,30 @@ async function agente(
   return { reply: '', herramientas };
 }
 
+/**
+ * Modelos a probar, en orden: si uno está saturado (Google le baja capacidad a
+ * los viejos cuando salen nuevos: en 2026-10 gemini-3.1-flash-lite pasó a dar
+ * 503 en todos los pedidos), se pasa al siguiente. GEMINI_MODEL, si está, va primero.
+ */
+const MODELOS = [...new Set([process.env['GEMINI_MODEL'], 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'].filter((m): m is string => !!m))];
+
+type Fallo = { error: string; status: number };
+
 async function askGemini(
   key: string,
   system: string,
   contents: GeminiContent[],
   conHerramientas: boolean,
-): Promise<{ content: GeminiContent } | { error: string; status: number }> {
-  const model = process.env['GEMINI_MODEL'] || 'gemini-3.1-flash-lite';
-  for (let intento = 0; intento < 2; intento++) {
+  modelos: string[],
+): Promise<{ content: GeminiContent; modelo: string } | Fallo> {
+  // Con un solo modelo (ya fijado para esta respuesta), dos intentos con el mismo.
+  const intentos = modelos.length > 1 ? modelos : [modelos[0], modelos[0]];
+  let fallo: Fallo = { error: 'La IA está saturada en este momento. Probá de nuevo en un rato.', status: 503 };
+  for (const [n, modelo] of intentos.entries()) {
+    if (n > 0 && intentos[n - 1] === modelo) await new Promise((r) => setTimeout(r, 1500));
     let res: Response;
     try {
-      res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+      res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-goog-api-key': key },
         body: JSON.stringify({
@@ -244,26 +260,24 @@ async function askGemini(
           // Margen amplio: en los modelos que "piensan", el razonamiento interno también consume este tope.
           generationConfig: { temperature: 0.6, maxOutputTokens: 4096 },
         }),
-        // En el plan gratis, a veces un pedido normal (~1 s) se cuelga más de un
+        // En el plan gratis, a veces un pedido normal (~2 s) se cuelga más de un
         // minuto; repetido, suele volver enseguida. Se corta pronto y se reintenta.
-        signal: AbortSignal.timeout(intento === 0 ? 12_000 : 20_000),
+        signal: AbortSignal.timeout(n === 0 ? 12_000 : 20_000),
       });
     } catch {
-      if (intento === 0) continue;
-      return { error: 'La IA está tardando demasiado. Probá de nuevo en un momento.', status: 504 };
-    }
-    if (res.status === 429) return { error: 'Se agotó la cuota gratis de la IA por ahora. Probá en un rato.', status: 429 };
-    // 503 "high demand" de Gemini suele ser momentáneo: un reintento corto.
-    if ((res.status === 503 || res.status === 500) && intento === 0) {
-      await new Promise((r) => setTimeout(r, 1500));
+      fallo = { error: 'La IA está tardando demasiado. Probá de nuevo en un momento.', status: 504 };
       continue;
     }
-    if (!res.ok) {
-      console.error('gemini', res.status, (await res.text()).slice(0, 500));
-      return { error: 'La IA no respondió. Probá de nuevo en un momento.', status: 502 };
+    if (res.ok) {
+      const data = (await res.json()) as { candidates?: { content?: GeminiContent }[] };
+      return { content: data.candidates?.[0]?.content ?? { role: 'model', parts: [] }, modelo };
     }
-    const data = (await res.json()) as { candidates?: { content?: GeminiContent }[] };
-    return { content: data.candidates?.[0]?.content ?? { role: 'model', parts: [] } };
+    console.error('gemini', modelo, res.status, (await res.text()).slice(0, 300));
+    // La cuota gratis es por modelo: con 429 el siguiente puede tener margen.
+    if (res.status === 429) fallo = { error: 'Se agotó la cuota gratis de la IA por ahora. Probá en un rato.', status: 429 };
+    else if (res.status === 503 || res.status === 500) fallo = { error: 'La IA está saturada en este momento. Probá de nuevo en un rato.', status: 503 };
+    // 404: el modelo ya no existe; se sigue con el próximo.
+    else if (res.status !== 404) return { error: 'La IA no respondió. Probá de nuevo en un momento.', status: 502 };
   }
-  return { error: 'La IA está saturada en este momento. Probá de nuevo en un rato.', status: 503 };
+  return fallo;
 }
