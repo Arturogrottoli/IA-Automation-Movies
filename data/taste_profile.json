@@ -17,8 +17,8 @@
     },
     {
       "genero": "Fantasía",
-      "tasa": 12.4,
-      "n": 89
+      "tasa": 12.2,
+      "n": 90
     },
     {
       "genero": "Crimen",
@@ -111,7 +111,7 @@
     {
       "rango": "95-110",
       "tasa": 10.1,
-      "n": 356
+      "n": 357
     },
     {
       "rango": "110-125",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.255
+      "peso": 0.254
     },
     {
       "variable": "decada",
-      "peso": 0.168
+      "peso": 0.176
     },
     {
       "variable": "Acción",
-      "peso": 0.077
+      "peso": 0.083
     },
     {
       "variable": "Drama",
-      "peso": 0.073
+      "peso": 0.065
     },
     {
       "variable": "Historia",
-      "peso": 0.063
+      "peso": 0.06
     },
     {
       "variable": "Crimen",
-      "peso": 0.05
+      "peso": 0.049
     },
     {
       "variable": "Terror",
-      "peso": 0.044
+      "peso": 0.042
     },
     {
       "variable": "Comedia",
-      "peso": 0.036
+      "peso": 0.035
     }
   ],
   "genre_rate_full": [
@@ -187,8 +187,8 @@
     },
     {
       "genero": "Fantasía",
-      "tasa": 12.4,
-      "n": 89
+      "tasa": 12.2,
+      "n": 90
     },
     {
       "genero": "Crimen",
@@ -202,13 +202,13 @@
     },
     {
       "genero": "Terror",
-      "tasa": 11.7,
-      "n": 257
+      "tasa": 11.6,
+      "n": 258
     },
     {
       "genero": "Comedia",
       "tasa": 11.5,
-      "n": 348
+      "n": 349
     },
     {
       "genero": "Ciencia ficción",
@@ -475,18 +475,6 @@
   ],
   "top_combos": [
     {
-      "director": "Phil Lord",
-      "actor": "Jonah Hill",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Quentin Tarantino",
-      "actor": "Leonardo DiCaprio",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
       "director": "Ti West",
       "actor": "Mia Goth",
       "tasa": 100.0,
@@ -494,13 +482,25 @@
     },
     {
       "director": "Andrew Adamson",
-      "actor": "Eddie Murphy",
+      "actor": "Mike Myers",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Chad Stahelski",
-      "actor": "Bridget Moynahan",
+      "director": "Demian Rugna",
+      "actor": "Demián Salomón",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Andrew Adamson",
+      "actor": "Cameron Diaz",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Andrew Adamson",
+      "actor": "Eddie Murphy",
       "tasa": 100.0,
       "n": 2
     }
