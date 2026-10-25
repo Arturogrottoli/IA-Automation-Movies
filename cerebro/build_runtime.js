@@ -19,7 +19,9 @@ async function tmdb(u){ for(let i=0;i<4;i++){ const r=await fetch("https://api.t
   let done = 0, fetched = 0, sinDato = 0;
   for (const [key, v] of entries) {
     done++;
-    if (out[key] != null) continue; // ya lo tenemos
+    // Ya lo tenemos. Salvo que sea muy corto: TMDB a veces carga mal la duración al
+    // principio y la corrige después (Snowpiercer figuraba con 5 min); son pocas y se reconsultan.
+    if (out[key] != null && out[key] >= 40) continue;
     const d = await tmdb(`/movie/${v.tmdb}?language=es`);
     if (d && typeof d.runtime === "number" && d.runtime > 0) {
       out[key] = d.runtime;

@@ -24,12 +24,14 @@ const FILTROS = {
   visto_en: { type: 'integer', description: 'Año en que Turi la vio (2018 en adelante)' },
   dirigida_por_mujer: { type: 'boolean', description: 'true: solo películas con al menos una directora' },
   solo_revistas: { type: 'boolean', description: 'true: solo las que vio más de una vez' },
+  duracion_min: { type: 'integer', description: 'Duración mínima en minutos' },
+  duracion_max: { type: 'integer', description: 'Duración máxima en minutos' },
 };
 
 export const DECLARACIONES = [
   {
     name: 'resumen_catalogo',
-    description: 'Totales del diario de Turi: películas distintas, visionados, rango de fechas, primera y última vista.',
+    description: 'Totales del diario de Turi: películas distintas, visionados, rango de fechas, primera y última vista, horas vistas y duración promedio.',
     parameters: { type: 'object', properties: {} },
   },
   {
@@ -40,7 +42,11 @@ export const DECLARACIONES = [
       type: 'object',
       properties: {
         ...FILTROS,
-        orden: { type: 'string', enum: ['mas_vistas', 'recientes', 'antiguas', 'estreno'], description: 'Orden de la lista (por defecto mas_vistas)' },
+        orden: {
+          type: 'string',
+          enum: ['mas_vistas', 'recientes', 'antiguas', 'estreno', 'mas_largas', 'mas_cortas'],
+          description: 'Orden de la lista (por defecto mas_vistas)',
+        },
         limite: { type: 'integer', description: 'Máximo de películas en la lista (por defecto 40, tope 100). Los totales siempre son exactos.' },
       },
     },
@@ -48,13 +54,13 @@ export const DECLARACIONES = [
   {
     name: 'ranking',
     description:
-      'Ranking de lo que Turi más vio, contado sobre películas distintas: directores, directoras, actores, actrices, géneros, países, años de visionado o décadas de estreno. Acepta los mismos filtros que buscar_vistas (ej. directores más vistos de terror). Para "¿cuántas directoras / actrices / directores distintos vio?", la respuesta es nombres_distintos.',
+      'Ranking de lo que Turi más vio, contado sobre películas distintas: directores, directoras, actores, actrices, géneros, países, años o meses de visionado, o décadas de estreno. Cada puesto trae la duración promedio en minutos: con anio_visto o mes_visto sirve para ver si está viendo películas más largas o más cortas con el tiempo. Acepta los mismos filtros que buscar_vistas (ej. directores más vistos de terror). Para "¿cuántas directoras / actrices / directores distintos vio?", la respuesta es nombres_distintos.',
     parameters: {
       type: 'object',
       properties: {
         dimension: {
           type: 'string',
-          enum: ['director', 'directora', 'actor', 'actriz', 'genero', 'pais', 'anio_visto', 'decada_estreno'],
+          enum: ['director', 'directora', 'actor', 'actriz', 'genero', 'pais', 'anio_visto', 'mes_visto', 'decada_estreno'],
           description: 'Qué se rankea. actor/actriz = reparto principal (los 8 primeros de cada película).',
         },
         limite: { type: 'integer', description: 'Cuántos puestos (por defecto 15, tope 50)' },
@@ -126,6 +132,8 @@ function filtrar(d: Datos, a: Args): Pelicula[] {
   const desde = num(a, 'estreno_desde');
   const hasta = num(a, 'estreno_hasta');
   const vistoEn = num(a, 'visto_en');
+  const durMin = num(a, 'duracion_min');
+  const durMax = num(a, 'duracion_max');
   return d.peliculas.filter(
     (p) =>
       (!titulo || deburr(p.titulo).includes(deburr(titulo))) &&
@@ -138,7 +146,9 @@ function filtrar(d: Datos, a: Args): Pelicula[] {
       (hasta == null || (p.anio != null && p.anio <= hasta)) &&
       (vistoEn == null || p.vistas.some((f) => f.startsWith(String(vistoEn)))) &&
       (!a['dirigida_por_mujer'] || direccion(p, d).some((x) => x.g === 'f')) &&
-      (!a['solo_revistas'] || p.vistas.length > 1),
+      (!a['solo_revistas'] || p.vistas.length > 1) &&
+      (durMin == null || (p.duracion != null && p.duracion >= durMin)) &&
+      (durMax == null || (p.duracion != null && p.duracion <= durMax)),
   );
 }
 
@@ -148,6 +158,7 @@ const fila = (p: Pelicula, d: Datos) => ({
   direccion: direccion(p, d).map((x) => x.n).join(', ') || null,
   generos: p.generos,
   pais: p.paises.join(', ') || null,
+  duracion_min: p.duracion,
   veces_vista: p.vistas.length,
   ultima_vez: p.vistas.at(-1) ?? null,
 });
@@ -160,11 +171,22 @@ function vistasDe(p: Pelicula, a: Args): string[] {
 
 const visionados = (ps: Pelicula[], a: Args) => ps.reduce((n, p) => n + vistasDe(p, a).length, 0);
 
+/** Promedio en minutos de las que tienen duración en TMDB (null si ninguna). */
+function duracionPromedio(ps: Pelicula[]): number | null {
+  const ms = ps.map((p) => p.duracion).filter((m): m is number => m != null);
+  return ms.length ? Math.round(ms.reduce((x, y) => x + y, 0) / ms.length) : null;
+}
+
 function resumenCatalogo(d: Datos) {
   const fechas = d.peliculas.flatMap((p) => p.vistas).sort();
+  // Horas contando cada visionado (una revista suma de nuevo su duración).
+  const minutos = d.peliculas.reduce((n, p) => n + (p.duracion ?? 0) * p.vistas.length, 0);
   return {
     peliculas_distintas: d.peliculas.length,
     visionados: fechas.length,
+    horas_vistas: Math.round(minutos / 60),
+    duracion_promedio_min: duracionPromedio(d.peliculas),
+    con_duracion_conocida: d.peliculas.filter((p) => p.duracion != null).length,
     revistas: d.peliculas.filter((p) => p.vistas.length > 1).length,
     primera_vista: fechas[0] ?? null,
     ultima_vista: fechas.at(-1) ?? null,
@@ -181,6 +203,8 @@ function buscarVistas(d: Datos, a: Args) {
     recientes: (x, y) => ultima(y).localeCompare(ultima(x)),
     antiguas: (x, y) => (x.vistas[0] ?? '').localeCompare(y.vistas[0] ?? ''),
     estreno: (x, y) => (x.anio ?? 9999) - (y.anio ?? 9999),
+    mas_largas: (x, y) => (y.duracion ?? -1) - (x.duracion ?? -1),
+    mas_cortas: (x, y) => (x.duracion ?? 99999) - (y.duracion ?? 99999),
   };
   const lim = clamp(num(a, 'limite'), 40, 100);
   const lista = [...ps].sort(sorters[orden] ?? sorters['mas_vistas']).slice(0, lim);
@@ -202,29 +226,35 @@ function ranking(d: Datos, a: Args) {
     actriz: (p) => p.reparto.filter((n) => d.generoActor(n) === 'f'),
     genero: (p) => p.generos,
     pais: (p) => p.paises,
-    anio_visto: (p) => [...new Set(p.vistas.map((f) => f.slice(0, 4)))],
+    anio_visto: (p) => [...new Set(vistasDe(p, a).map((f) => f.slice(0, 4)))],
+    mes_visto: (p) => [...new Set(vistasDe(p, a).map((f) => f.slice(0, 7)))],
     decada_estreno: (p) => (p.anio ? [`${Math.floor(p.anio / 10) * 10}s`] : []),
   };
   const clave = claves[dim] ?? claves['director'];
-  const acc = new Map<string, { peliculas: number; visionados: number; titulos: string[] }>();
+  // Por fecha (año, mes, década) el orden es cronológico; el resto, de más a menos.
+  const cronologico = dim === 'anio_visto' || dim === 'mes_visto' || dim === 'decada_estreno';
+  const acc = new Map<string, { peliculas: number; visionados: number; titulos: string[]; pelis: Pelicula[] }>();
   for (const p of ps) {
     for (const k of new Set(clave(p))) {
-      const e = acc.get(k) ?? { peliculas: 0, visionados: 0, titulos: [] };
+      const e = acc.get(k) ?? { peliculas: 0, visionados: 0, titulos: [], pelis: [] };
       e.peliculas++;
-      // Por año de visionado cuenta las veces de ese año, no las de toda la película.
-      e.visionados += dim === 'anio_visto' ? p.vistas.filter((f) => f.startsWith(k)).length : vistasDe(p, a).length;
+      // Por año o mes de visionado cuenta las veces de ese período, no las de toda la película.
+      e.visionados += dim === 'anio_visto' || dim === 'mes_visto' ? p.vistas.filter((f) => f.startsWith(k)).length : vistasDe(p, a).length;
       e.titulos.push(`${p.titulo} (${p.anio ?? '?'})`);
+      e.pelis.push(p);
       acc.set(k, e);
     }
   }
   const orden = [...acc.entries()].sort((x, y) =>
-    dim === 'anio_visto' || dim === 'decada_estreno' ? x[0].localeCompare(y[0]) : y[1].peliculas - x[1].peliculas || x[0].localeCompare(y[0]),
+    cronologico ? x[0].localeCompare(y[0]) : y[1].peliculas - x[1].peliculas || x[0].localeCompare(y[0]),
   );
-  const lim = clamp(num(a, 'limite'), dim === 'anio_visto' || dim === 'decada_estreno' ? 50 : 15, 50);
+  // Por mes, los últimos 24 por defecto ("últimamente"); el resto, todo o un top.
+  const lim = clamp(num(a, 'limite'), dim === 'mes_visto' ? 24 : cronologico ? 50 : 15, dim === 'mes_visto' ? 120 : 50);
+  if (dim === 'mes_visto') orden.splice(0, Math.max(0, orden.length - lim));
   const top = orden.slice(0, lim);
   // Empates en el último puesto: que el modelo no diga "el 15.º es X" si hay otros 20 con lo mismo.
   const corte = top.at(-1)?.[1].peliculas;
-  const empatados = corte != null ? orden.slice(lim).filter(([, e]) => e.peliculas === corte).length : 0;
+  const empatados = corte != null && !cronologico ? orden.slice(lim).filter(([, e]) => e.peliculas === corte).length : 0;
   const notas: Record<string, string> = {
     actor: 'Reparto principal: los 8 primeros de cada película según TMDB; los cameos no cuentan.',
     actriz: 'Reparto principal: los 8 primeros de cada película según TMDB; los cameos no cuentan.',
@@ -237,7 +267,12 @@ function ranking(d: Datos, a: Args) {
     ...(notas[dim] ? { criterio: notas[dim] } : {}),
     ...(empatados ? { aviso: `Hay ${empatados} más empatados con el último puesto (${corte} películas).` } : {}),
     // Con pocas películas por puesto, los títulos exactos: evita que complete de memoria.
-    ranking: top.map(([nombre, e]) => ({ nombre, ...e, titulos: e.peliculas <= 12 ? e.titulos : undefined })),
+    ranking: top.map(([nombre, { pelis, ...e }]) => ({
+      nombre,
+      ...e,
+      duracion_promedio_min: duracionPromedio(pelis),
+      titulos: e.peliculas <= 12 ? e.titulos : undefined,
+    })),
   };
 }
 

@@ -139,12 +139,15 @@ Click en la X de una card / "Quitar de la lista" en el modal → POST con accion
     recibe el catálogo, recibe la pregunta y 6 herramientas, y pide lo que
     necesita. Filtrar, contar y ordenar lo hace código, sobre los datos reales
     (los modelos cuentan mal y completan listas de memoria):
-      resumen_catalogo   totales del diario
+      resumen_catalogo   totales del diario, horas vistas, duración promedio
       buscar_vistas      lo visto, con filtros combinables (título, director,
                          actor, género, país, años de estreno, año visto,
-                         dirigidas por mujeres, revistas) → totales exactos + lista
+                         dirigidas por mujeres, revistas, duración) → totales
+                         exactos + lista; se puede ordenar por duración
       ranking            lo más visto por director, directora, actor, actriz,
-                         género, país, año o década, con los mismos filtros
+                         género, país, año o mes visto, o década, con los
+                         mismos filtros; cada puesto trae la duración promedio
+                         ("¿veo películas más largas últimamente?")
       quiero_ver         la lista de pendientes
       tmdb_persona       filmografía de alguien según TMDB, cada película
                          marcada vista: true/false

@@ -1,7 +1,7 @@
 // Revisión de calidad de la hoja, en dos partes:
 // 1) la misma película cargada con títulos o años distintos (el sitio la cuenta doble);
 // 2) cada película contra la ficha de TMDB que ya matcheó (id en posters.json):
-//    director o año que no coinciden (póster mal matcheado).
+//    director o año que no coinciden, o un corto (< 40 min): póster mal matcheado.
 // No cambia nada — solo reporta a cerebro/check_datos.txt
 //   node cerebro/check_datos.js
 const fs = require("fs");
@@ -19,18 +19,20 @@ if(f.length||row.length){row.push(f);rows.push(row);}return rows;}
 
 async function tmdb(u){ for(let i=0;i<4;i++){ const r=await fetch("https://api.themoviedb.org/3"+u,H); if(r.status===429){await sleep(1500);continue;} if(!r.ok)return null; return r.json(); } return null; }
 
-// ¿algún token del apellido en común? (tolera "Joel Coen" vs "Joel Coen, Ethan Coen")
+// ¿El apellido de TMDB aparece en lo de la hoja? (tolera "Joel Coen" vs "Joel Coen, Ethan Coen").
+// Solo el apellido: con cualquier palabra, "Juan Villegas" y "Juan Beiro" coincidían por "Juan".
 function dirMatch(a, b){
+  // "Bong Joon-ho" = "Bong Joon Ho": se compara también todo junto, sin espacios ni guiones.
+  if (norm(a).replace(/ /g, "").includes(norm(b).replace(/ /g, ""))) return true;
   const wa = new Set(norm(a).split(" ").filter(x=>x.length>2));
-  const wb = norm(b).split(" ").filter(x=>x.length>2);
-  return wb.some(x => wa.has(x));
+  const ap = norm(b).split(" ").filter(x=>x.length>2).at(-1);
+  return !!ap && wa.has(ap);
 }
 
 (async () => {
   const posters = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "posters.json"), "utf8"));
   const pkey = (t,y) => norm(t) + "|" + (y||"");
-  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  const url = html.match(/const SHEET_CSV_URL = "([^"]+)"/)[1];
+  const url = require("./hoja").SHEET_CSV_URL;
   const rows = parseCSV(await (await fetch(url)).text());
   const I = Object.fromEntries(rows[0].map((h,i)=>[h.trim(),i]));
 
@@ -67,16 +69,17 @@ function dirMatch(a, b){
     n++;
     const px = posters[pkey(m.t, m.y)];
     if (!px || !px.tmdb) continue;          // no matcheó en el backfill
-    const det = await tmdb(`/movie/${px.tmdb}?language=es&append_to_response=credits`);
+    const det = await tmdb(`/movie/${px.tmdb}?append_to_response=credits`); // sin language: nombres en alfabeto latino
     if (!det) { await sleep(40); continue; }
     const ty = +(det.release_date||"").slice(0,4) || null;
     const td = (det.credits?.crew||[]).filter(c => c.job === "Director").map(c => c.name);
 
     const yearBad = m.y && ty && Math.abs(ty - m.y) > 1;
+    const cortaBad = det.runtime > 0 && det.runtime < 40; // ¿un corto homónimo?
     const dirBad  = m.d && td.length && !td.some(x => dirMatch(m.d, x));
-    if (yearBad || dirBad) {
+    if (yearBad || dirBad || cortaBad) {
       flags.push({ ...m, tmdb_t: det.title, tmdb_y: ty, tmdb_d: td.join(", "),
-        motivo: [yearBad && "año", dirBad && "director"].filter(Boolean).join(" + ") });
+        motivo: [yearBad && "año", dirBad && "director", cortaBad && `dura ${det.runtime} min`].filter(Boolean).join(" + ") });
     }
     await sleep(40);
     if (n % 100 === 0) process.stdout.write(`  ${n}/${movies.length}\r`);

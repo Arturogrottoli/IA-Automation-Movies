@@ -213,15 +213,16 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       con DiCaprio de mafiosos" → la IA arma candidatos y pregunta cuál, en
       vez de necesitar el título exacto. Extiende el mecanismo de "título
       ambiguo" que ya existe (Cape Fear) a un caso más abierto.
-- [~] **La IA como interfaz de consulta a los datos.** "¿qué género veo más?",
+- [x] **La IA como interfaz de consulta a los datos.** "¿qué género veo más?",
       "¿estoy viendo películas más largas últimamente?" — el bot no inventa
       la respuesta: dispara el análisis real sobre los datos y Gemini solo la
-      traduce a lenguaje natural. **Cubierto en buena parte por CinefilIA**
-      (ver abajo), sin Make: la función de Vercel calcula en código los
-      totales, visionados por año, géneros y conteos por director antes de
-      llamar a Gemini, que solo redacta. Falta lo que no está precalculado
-      (tendencias de duración, cruces): para eso habría que sumar más
-      cuentas a la función, o leer `taste_profile.json`.
+      traduce a lenguaje natural. **Hecho en CinefilIA** (ver abajo), sin
+      Make: es un agente con herramientas que filtran, cuentan y promedian en
+      código, y los filtros se combinan, así que los cruces salen solos ("directores
+      de terror de los 80", "cortas que vi este año"). Desde 2026-10-25 también
+      la duración: `ranking` por año o mes visto trae la duración promedio de
+      cada período, `buscar_vistas` filtra y ordena por duración, y el resumen
+      trae las horas vistas. Lo único que no lee es `taste_profile.json`.
 - [x] **Dashboard más profundo** → Placa VI en el sitio
       ([app/src/app/dashboard](app/src/app/dashboard)). Duración promedio
       por año, distribución de duración (histograma), rating promedio por
@@ -415,8 +416,9 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       contra el sitio original. Deployada y en vivo en Vercel:
       [turimoviesdatabase.vercel.app](https://turimoviesdatabase.vercel.app)
       (cambio de plan: terminó siendo Vercel, no GitHub Pages). El
-      GitHub Pages viejo ya está dado de baja; el `index.html` original queda
-      en el repo como referencia, sin servir más. Detalle fase por fase en
+      GitHub Pages viejo ya está dado de baja, y el `index.html` original se
+      borró del repo el 2026-10-25 (sigue en el historial de git; las URLs de
+      la hoja que los scripts leían de ahí están en `cerebro/hoja.js`). Detalle fase por fase en
       [docs/plan-migracion-angular.md](docs/plan-migracion-angular.md).
 
 ## Cómo funciona
@@ -465,8 +467,6 @@ img/                  pósters a mano para los que TMDB no tiene
 cerebro/              scripts de datos y respaldo de la hoja (ver cerebro/README.md)
 .github/workflows/    sync-datos.yml: sincronización diaria de los datos
 docs/                 documentación técnica — arquitectura, datos, costos
-index.html            el sitio viejo, ya no se publica; los scripts leen de
-                      acá la URL de la hoja (SHEET_CSV_URL)
 ```
 
 ## Datos en vivo

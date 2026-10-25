@@ -31,8 +31,7 @@ async function tmdb(url){
 }
 
 (async () => {
-  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  const urlOf = re => (html.match(re) || [])[1];
+  const { SHEET_CSV_URL, POR_VER_CSV_URL } = require("./hoja");
   const movies = [];
   async function feed(url, fallback){
     const csv = url ? await (await fetch(url)).text() : (fallback ? fs.readFileSync(fallback, "utf8") : "");
@@ -44,8 +43,8 @@ async function tmdb(url){
       .filter(r => r.length > ci("titulo") && (r[ci("titulo")] || "").trim())
       .forEach(r => movies.push({ t: r[ci("titulo")].trim(), y: +r[ci("anio_estreno")] || null }));
   }
-  await feed(urlOf(/const SHEET_CSV_URL = "([^"]+)"/), path.join(ROOT, "cerebro/catalogo_completo.csv"));
-  await feed(urlOf(/const POR_VER_CSV_URL = "([^"]+)"/));   // la watchlist también
+  await feed(SHEET_CSV_URL, path.join(ROOT, "cerebro/catalogo_completo.csv"));
+  await feed(POR_VER_CSV_URL);   // la watchlist también
 
   // mapa de géneros (es)
   const gl = await tmdb("/genre/movie/list?language=es");

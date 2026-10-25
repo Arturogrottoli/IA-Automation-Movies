@@ -29,6 +29,8 @@ export interface Pelicula {
   paises: string[];
   /** Fechas de cada visionado (AAAA-MM-DD), ordenadas. */
   vistas: string[];
+  /** Minutos, según TMDB (data/runtime.json). */
+  duracion: number | null;
   tmdbId: number | null;
 }
 
@@ -144,7 +146,7 @@ const json = async <T>(file: string, vacio: T): Promise<T> => {
 export async function cargarDatos(): Promise<Datos> {
   if (cache && Date.now() - cache.at < TTL_MS) return cache.datos;
 
-  const [catCsv, pvCsv, posters, directors, generoManual, actors, generoReparto] = await Promise.all([
+  const [catCsv, pvCsv, posters, directors, generoManual, actors, generoReparto, runtime] = await Promise.all([
     getText(SHEET_CSV_URL),
     getText(POR_VER_CSV_URL).catch(() => ''),
     json<Record<string, { genres?: string[]; tmdb?: number } | null>>('posters.json', {}),
@@ -152,6 +154,7 @@ export async function cargarDatos(): Promise<Datos> {
     json<Record<string, Genero>>('genero-manual.json', {}),
     json<Record<string, string[]>>('actors.json', {}),
     json<Record<string, Genero>>('genero-reparto.json', {}),
+    json<Record<string, number | null>>('runtime.json', {}),
   ]);
 
   const rows = parseCsv(catCsv);
@@ -176,6 +179,7 @@ export async function cargarDatos(): Promise<Datos> {
         generos: px?.genres ?? [],
         paises: splitPaises(r[col('pais_origen')] || ''),
         vistas: [],
+        duracion: runtime[key] || null,
         tmdbId: px?.tmdb ?? null,
       };
       porClave.set(key, p);

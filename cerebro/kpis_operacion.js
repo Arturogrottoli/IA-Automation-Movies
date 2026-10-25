@@ -26,8 +26,7 @@ function parseCSV(s) {
 }
 
 (async () => {
-  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  const url = html.match(/const SHEET_CSV_URL = "([^"]+)"/)[1];
+  const url = require("./hoja").SHEET_CSV_URL;
   const rows = parseCSV(await (await fetch(url)).text());
   const header = rows[0];
   const idx = (k) => header.indexOf(k);

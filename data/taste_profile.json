@@ -29,7 +29,7 @@
   "top_decadas": [
     {
       "decada": 2000,
-      "tasa": 13.4,
+      "tasa": 14.0,
       "n": 179
     },
     {
@@ -70,12 +70,12 @@
       "n": 4
     },
     {
-      "director": "Bong Joon-ho",
+      "director": "Adolfo Aristarain",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Adolfo Aristarain",
+      "director": "Bong Joon-ho",
       "tasa": 40.0,
       "n": 5
     },
@@ -85,23 +85,23 @@
       "n": 4
     },
     {
-      "director": "Robert Eggers",
+      "director": "Danny Boyle",
       "tasa": 25.0,
       "n": 4
     },
     {
-      "director": "Danny Boyle",
+      "director": "Lucrecia Martel",
       "tasa": 25.0,
       "n": 4
     }
   ],
-  "duracion_revisitadas": 109.4,
-  "duracion_no_revisitadas": 109.8,
+  "duracion_revisitadas": 110.6,
+  "duracion_no_revisitadas": 109.9,
   "tasa_por_duracion": [
     {
       "rango": "<80",
-      "tasa": 8.7,
-      "n": 46
+      "tasa": 6.8,
+      "n": 44
     },
     {
       "rango": "80-95",
@@ -111,7 +111,7 @@
     {
       "rango": "95-110",
       "tasa": 10.1,
-      "n": 357
+      "n": 358
     },
     {
       "rango": "110-125",
@@ -120,7 +120,7 @@
     },
     {
       "rango": "125-140",
-      "tasa": 8.8,
+      "tasa": 10.6,
       "n": 113
     },
     {
@@ -138,31 +138,31 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.254
+      "peso": 0.275
     },
     {
       "variable": "decada",
-      "peso": 0.176
+      "peso": 0.173
     },
     {
       "variable": "Acción",
-      "peso": 0.083
-    },
-    {
-      "variable": "Drama",
-      "peso": 0.065
+      "peso": 0.081
     },
     {
       "variable": "Historia",
-      "peso": 0.06
+      "peso": 0.066
+    },
+    {
+      "variable": "Drama",
+      "peso": 0.062
     },
     {
       "variable": "Crimen",
-      "peso": 0.049
+      "peso": 0.046
     },
     {
       "variable": "Terror",
-      "peso": 0.042
+      "peso": 0.04
     },
     {
       "variable": "Comedia",
@@ -197,8 +197,8 @@
     },
     {
       "genero": "Romance",
-      "tasa": 11.8,
-      "n": 85
+      "tasa": 11.6,
+      "n": 86
     },
     {
       "genero": "Terror",
@@ -207,8 +207,8 @@
     },
     {
       "genero": "Comedia",
-      "tasa": 11.5,
-      "n": 349
+      "tasa": 11.4,
+      "n": 350
     },
     {
       "genero": "Ciencia ficción",
@@ -226,14 +226,14 @@
       "n": 82
     },
     {
+      "genero": "Drama",
+      "tasa": 7.8,
+      "n": 512
+    },
+    {
       "genero": "Misterio",
       "tasa": 7.8,
       "n": 116
-    },
-    {
-      "genero": "Drama",
-      "tasa": 7.6,
-      "n": 513
     },
     {
       "genero": "Música",
@@ -273,22 +273,17 @@
       "n": 4
     },
     {
-      "director": "Bong Joon-ho",
-      "tasa": 40.0,
-      "n": 5
-    },
-    {
       "director": "Adolfo Aristarain",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Asif Kapadia",
-      "tasa": 25.0,
-      "n": 4
+      "director": "Bong Joon-ho",
+      "tasa": 40.0,
+      "n": 5
     },
     {
-      "director": "Robert Eggers",
+      "director": "Asif Kapadia",
       "tasa": 25.0,
       "n": 4
     },
@@ -313,6 +308,11 @@
       "n": 8
     },
     {
+      "director": "Robert Eggers",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
       "director": "Martin Scorsese",
       "tasa": 24.0,
       "n": 25
@@ -323,12 +323,12 @@
       "n": 5
     },
     {
-      "director": "Adam McKay",
+      "director": "Tim Burton",
       "tasa": 20.0,
       "n": 5
     },
     {
-      "director": "Tim Burton",
+      "director": "Adam McKay",
       "tasa": 20.0,
       "n": 5
     },
@@ -336,11 +336,6 @@
       "director": "Sidney Lumet",
       "tasa": 16.7,
       "n": 6
-    },
-    {
-      "director": "John Carpenter",
-      "tasa": 14.3,
-      "n": 7
     },
     {
       "director": "Joel Coen",
@@ -358,6 +353,11 @@
       "n": 7
     },
     {
+      "director": "John Carpenter",
+      "tasa": 14.3,
+      "n": 7
+    },
+    {
       "director": "David Fincher",
       "tasa": 9.1,
       "n": 11
@@ -366,16 +366,6 @@
       "director": "Steven Spielberg",
       "tasa": 8.3,
       "n": 12
-    },
-    {
-      "director": "Clint Eastwood",
-      "tasa": 0.0,
-      "n": 4
-    },
-    {
-      "director": "Ari Aster",
-      "tasa": 0.0,
-      "n": 4
     },
     {
       "director": "Alfred Hitchcock",
@@ -393,7 +383,12 @@
       "n": 5
     },
     {
-      "director": "Damien Leone",
+      "director": "Ari Aster",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "Clint Eastwood",
       "tasa": 0.0,
       "n": 4
     },
@@ -413,19 +408,19 @@
       "n": 4
     },
     {
-      "director": "Denis Villeneuve",
-      "tasa": 0.0,
-      "n": 5
-    },
-    {
       "director": "David Cronenberg",
       "tasa": 0.0,
       "n": 5
     },
     {
-      "director": "James Mangold",
+      "director": "Damien Leone",
       "tasa": 0.0,
       "n": 4
+    },
+    {
+      "director": "Denis Villeneuve",
+      "tasa": 0.0,
+      "n": 5
     },
     {
       "director": "Joel Schumacher",
@@ -475,32 +470,32 @@
   ],
   "top_combos": [
     {
+      "director": "Chad Stahelski",
+      "actor": "Peter Stormare",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Bridget Moynahan",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Common",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
       "director": "Ti West",
       "actor": "Mia Goth",
       "tasa": 100.0,
       "n": 3
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Mike Myers",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Demian Rugna",
-      "actor": "Demián Salomón",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Cameron Diaz",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Eddie Murphy",
+      "director": "Christopher Miller",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
     }
@@ -552,7 +547,7 @@
         2024
       ],
       "decada_prom": 2003.0,
-      "duracion_prom": 111.0,
+      "duracion_prom": 111.2,
       "tasa_revision_prom": 25.0
     },
     {
@@ -565,8 +560,8 @@
         2026
       ],
       "decada_prom": 2004.0,
-      "duracion_prom": 108.7,
-      "tasa_revision_prom": 18.1
+      "duracion_prom": 108.8,
+      "tasa_revision_prom": 18.3
     },
     {
       "cluster": 2,
@@ -574,7 +569,7 @@
         2020
       ],
       "decada_prom": 1999.0,
-      "duracion_prom": 117.3,
+      "duracion_prom": 118.5,
       "tasa_revision_prom": 14.3
     }
   ]

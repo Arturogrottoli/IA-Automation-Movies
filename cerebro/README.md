@@ -45,6 +45,7 @@ Run workflow.
 | Archivo | Qué es |
 |---|---|
 | `CONFIG.md` | Dónde vive cada secreto. |
+| `hoja.js` | Las URLs públicas (CSV) de la hoja y de `por_ver`, que usan los scripts. |
 | `tmdb.key` | Token de lectura de TMDB para correr los scripts local. Ignorado por git. |
 
 Los scripts de arreglos puntuales (`fix_posters.js`, `rematch_posters.js`,
