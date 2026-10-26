@@ -7,8 +7,8 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.5,
-      "n": 234
+      "tasa": 14.7,
+      "n": 231
     },
     {
       "genero": "Familia",
@@ -16,14 +16,14 @@
       "n": 38
     },
     {
+      "genero": "Crimen",
+      "tasa": 12.3,
+      "n": 244
+    },
+    {
       "genero": "Fantasía",
       "tasa": 12.2,
       "n": 90
-    },
-    {
-      "genero": "Crimen",
-      "tasa": 12.1,
-      "n": 247
     }
   ],
   "top_decadas": [
@@ -39,8 +39,8 @@
     },
     {
       "decada": 2010,
-      "tasa": 12.2,
-      "n": 360
+      "tasa": 12.0,
+      "n": 358
     },
     {
       "decada": 1980,
@@ -55,14 +55,14 @@
   ],
   "top_directores": [
     {
+      "director": "Chad Stahelski",
+      "tasa": 100.0,
+      "n": 4
+    },
+    {
       "director": "Quentin Tarantino",
       "tasa": 63.6,
       "n": 11
-    },
-    {
-      "director": "Chad Stahelski",
-      "tasa": 57.1,
-      "n": 7
     },
     {
       "director": "Jeff Tremaine",
@@ -95,8 +95,8 @@
       "n": 4
     }
   ],
-  "duracion_revisitadas": 110.6,
-  "duracion_no_revisitadas": 109.9,
+  "duracion_revisitadas": 111.0,
+  "duracion_no_revisitadas": 109.8,
   "tasa_por_duracion": [
     {
       "rango": "<80",
@@ -115,13 +115,13 @@
     },
     {
       "rango": "110-125",
-      "tasa": 8.7,
-      "n": 277
+      "tasa": 8.3,
+      "n": 276
     },
     {
       "rango": "125-140",
-      "tasa": 10.6,
-      "n": 113
+      "tasa": 10.7,
+      "n": 112
     },
     {
       "rango": "140-160",
@@ -130,43 +130,43 @@
     },
     {
       "rango": "160+",
-      "tasa": 18.4,
-      "n": 38
+      "tasa": 21.6,
+      "n": 37
     }
   ],
   "nota_duracion": "El salto en peliculas de 160+ min es casi todo Scorsese y Tarantino: la duracion es un proxy del director, no la causa.",
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.275
+      "peso": 0.263
     },
     {
       "variable": "decada",
-      "peso": 0.173
-    },
-    {
-      "variable": "Acción",
-      "peso": 0.081
+      "peso": 0.168
     },
     {
       "variable": "Historia",
-      "peso": 0.066
+      "peso": 0.077
     },
     {
       "variable": "Drama",
-      "peso": 0.062
+      "peso": 0.073
+    },
+    {
+      "variable": "Acción",
+      "peso": 0.072
     },
     {
       "variable": "Crimen",
-      "peso": 0.046
-    },
-    {
-      "variable": "Terror",
-      "peso": 0.04
+      "peso": 0.052
     },
     {
       "variable": "Comedia",
       "peso": 0.035
+    },
+    {
+      "variable": "Terror",
+      "peso": 0.033
     }
   ],
   "genre_rate_full": [
@@ -177,8 +177,8 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.5,
-      "n": 234
+      "tasa": 14.7,
+      "n": 231
     },
     {
       "genero": "Familia",
@@ -186,14 +186,14 @@
       "n": 38
     },
     {
+      "genero": "Crimen",
+      "tasa": 12.3,
+      "n": 244
+    },
+    {
       "genero": "Fantasía",
       "tasa": 12.2,
       "n": 90
-    },
-    {
-      "genero": "Crimen",
-      "tasa": 12.1,
-      "n": 247
     },
     {
       "genero": "Romance",
@@ -217,8 +217,8 @@
     },
     {
       "genero": "Suspense",
-      "tasa": 10.4,
-      "n": 374
+      "tasa": 10.5,
+      "n": 371
     },
     {
       "genero": "Aventura",
@@ -258,14 +258,14 @@
   ],
   "dir_rate_full": [
     {
+      "director": "Chad Stahelski",
+      "tasa": 100.0,
+      "n": 4
+    },
+    {
       "director": "Quentin Tarantino",
       "tasa": 63.6,
       "n": 11
-    },
-    {
-      "director": "Chad Stahelski",
-      "tasa": 57.1,
-      "n": 7
     },
     {
       "director": "Jeff Tremaine",
@@ -470,31 +470,31 @@
   ],
   "top_combos": [
     {
-      "director": "Chad Stahelski",
-      "actor": "Peter Stormare",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Bridget Moynahan",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Common",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
       "director": "Ti West",
       "actor": "Mia Goth",
       "tasa": 100.0,
       "n": 3
     },
     {
-      "director": "Christopher Miller",
+      "director": "Chad Stahelski",
+      "actor": "Lance Reddick",
+      "tasa": 100.0,
+      "n": 3
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Ian McShane",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Keanu Reeves",
+      "tasa": 100.0,
+      "n": 4
+    },
+    {
+      "director": "Phil Lord",
       "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
@@ -561,7 +561,7 @@
       ],
       "decada_prom": 2004.0,
       "duracion_prom": 108.8,
-      "tasa_revision_prom": 18.3
+      "tasa_revision_prom": 18.7
     },
     {
       "cluster": 2,
