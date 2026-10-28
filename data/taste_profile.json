@@ -44,8 +44,8 @@
     },
     {
       "decada": 1980,
-      "tasa": 10.3,
-      "n": 87
+      "tasa": 10.2,
+      "n": 88
     },
     {
       "decada": 1950,
@@ -125,8 +125,8 @@
     },
     {
       "rango": "140-160",
-      "tasa": 7.0,
-      "n": 57
+      "tasa": 6.9,
+      "n": 58
     },
     {
       "rango": "160+",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.263
+      "peso": 0.279
     },
     {
       "variable": "decada",
-      "peso": 0.168
-    },
-    {
-      "variable": "Historia",
-      "peso": 0.077
-    },
-    {
-      "variable": "Drama",
-      "peso": 0.073
+      "peso": 0.156
     },
     {
       "variable": "Acción",
-      "peso": 0.072
+      "peso": 0.084
+    },
+    {
+      "variable": "Historia",
+      "peso": 0.073
+    },
+    {
+      "variable": "Drama",
+      "peso": 0.061
     },
     {
       "variable": "Crimen",
-      "peso": 0.052
-    },
-    {
-      "variable": "Comedia",
-      "peso": 0.035
+      "peso": 0.045
     },
     {
       "variable": "Terror",
-      "peso": 0.033
+      "peso": 0.037
+    },
+    {
+      "variable": "Comedia",
+      "peso": 0.037
     }
   ],
   "genre_rate_full": [
@@ -222,13 +222,13 @@
     },
     {
       "genero": "Aventura",
-      "tasa": 8.5,
-      "n": 82
+      "tasa": 8.4,
+      "n": 83
     },
     {
       "genero": "Drama",
       "tasa": 7.8,
-      "n": 512
+      "n": 513
     },
     {
       "genero": "Misterio",
@@ -477,25 +477,25 @@
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Lance Reddick",
-      "tasa": 100.0,
-      "n": 3
-    },
-    {
-      "director": "Chad Stahelski",
       "actor": "Ian McShane",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Chad Stahelski",
-      "actor": "Keanu Reeves",
+      "director": "Andrew Adamson",
+      "actor": "Eddie Murphy",
       "tasa": 100.0,
-      "n": 4
+      "n": 2
     },
     {
-      "director": "Phil Lord",
-      "actor": "Channing Tatum",
+      "director": "Andrew Adamson",
+      "actor": "Mike Myers",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
+      "director": "Andrew Adamson",
+      "actor": "Cameron Diaz",
       "tasa": 100.0,
       "n": 2
     }
