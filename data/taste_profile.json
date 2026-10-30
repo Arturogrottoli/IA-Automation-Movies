@@ -17,7 +17,7 @@
     },
     {
       "genero": "Crimen",
-      "tasa": 12.3,
+      "tasa": 12.7,
       "n": 244
     },
     {
@@ -115,7 +115,7 @@
     },
     {
       "rango": "110-125",
-      "tasa": 8.3,
+      "tasa": 8.7,
       "n": 276
     },
     {
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.279
+      "peso": 0.268
     },
     {
       "variable": "decada",
-      "peso": 0.156
+      "peso": 0.162
     },
     {
       "variable": "Acción",
-      "peso": 0.084
-    },
-    {
-      "variable": "Historia",
-      "peso": 0.073
+      "peso": 0.09
     },
     {
       "variable": "Drama",
-      "peso": 0.061
+      "peso": 0.068
+    },
+    {
+      "variable": "Historia",
+      "peso": 0.064
     },
     {
       "variable": "Crimen",
-      "peso": 0.045
+      "peso": 0.044
     },
     {
       "variable": "Terror",
-      "peso": 0.037
+      "peso": 0.042
     },
     {
       "variable": "Comedia",
-      "peso": 0.037
+      "peso": 0.04
     }
   ],
   "genre_rate_full": [
@@ -187,7 +187,7 @@
     },
     {
       "genero": "Crimen",
-      "tasa": 12.3,
+      "tasa": 12.7,
       "n": 244
     },
     {
@@ -196,14 +196,14 @@
       "n": 90
     },
     {
+      "genero": "Terror",
+      "tasa": 12.0,
+      "n": 258
+    },
+    {
       "genero": "Romance",
       "tasa": 11.6,
       "n": 86
-    },
-    {
-      "genero": "Terror",
-      "tasa": 11.6,
-      "n": 258
     },
     {
       "genero": "Comedia",
@@ -221,6 +221,11 @@
       "n": 371
     },
     {
+      "genero": "Misterio",
+      "tasa": 8.6,
+      "n": 116
+    },
+    {
       "genero": "Aventura",
       "tasa": 8.4,
       "n": 83
@@ -229,11 +234,6 @@
       "genero": "Drama",
       "tasa": 7.8,
       "n": 513
-    },
-    {
-      "genero": "Misterio",
-      "tasa": 7.8,
-      "n": 116
     },
     {
       "genero": "Música",
@@ -358,6 +358,11 @@
       "n": 7
     },
     {
+      "director": "Wes Craven",
+      "tasa": 12.5,
+      "n": 8
+    },
+    {
       "director": "David Fincher",
       "tasa": 9.1,
       "n": 11
@@ -371,11 +376,6 @@
       "director": "Alfred Hitchcock",
       "tasa": 0.0,
       "n": 4
-    },
-    {
-      "director": "Christopher Nolan",
-      "tasa": 0.0,
-      "n": 8
     },
     {
       "director": "Antoine Fuqua",
@@ -393,9 +393,9 @@
       "n": 4
     },
     {
-      "director": "Matt Bettinelli-Olpin",
+      "director": "Christopher Nolan",
       "tasa": 0.0,
-      "n": 4
+      "n": 8
     },
     {
       "director": "M. Night Shyamalan",
@@ -428,9 +428,9 @@
       "n": 4
     },
     {
-      "director": "Ridley Scott",
+      "director": "Matt Bettinelli-Olpin",
       "tasa": 0.0,
-      "n": 6
+      "n": 4
     },
     {
       "director": "Michael Mann",
@@ -448,6 +448,11 @@
       "n": 7
     },
     {
+      "director": "Ridley Scott",
+      "tasa": 0.0,
+      "n": 6
+    },
+    {
       "director": "Sylvester Stallone",
       "tasa": 0.0,
       "n": 4
@@ -456,11 +461,6 @@
       "director": "Tyler Gillett",
       "tasa": 0.0,
       "n": 4
-    },
-    {
-      "director": "Wes Craven",
-      "tasa": 0.0,
-      "n": 8
     },
     {
       "director": "Woody Allen",
@@ -476,6 +476,12 @@
       "n": 3
     },
     {
+      "director": "Andrew Adamson",
+      "actor": "Mike Myers",
+      "tasa": 100.0,
+      "n": 2
+    },
+    {
       "director": "Chad Stahelski",
       "actor": "Ian McShane",
       "tasa": 100.0,
@@ -484,12 +490,6 @@
     {
       "director": "Andrew Adamson",
       "actor": "Eddie Murphy",
-      "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Mike Myers",
       "tasa": 100.0,
       "n": 2
     },
@@ -548,7 +548,7 @@
       ],
       "decada_prom": 2003.0,
       "duracion_prom": 111.2,
-      "tasa_revision_prom": 25.0
+      "tasa_revision_prom": 25.2
     },
     {
       "cluster": 1,
