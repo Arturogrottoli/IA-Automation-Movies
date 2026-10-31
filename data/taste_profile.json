@@ -34,8 +34,8 @@
     },
     {
       "decada": 1970,
-      "tasa": 13.0,
-      "n": 69
+      "tasa": 12.9,
+      "n": 70
     },
     {
       "decada": 2010,
@@ -120,8 +120,8 @@
     },
     {
       "rango": "125-140",
-      "tasa": 10.7,
-      "n": 112
+      "tasa": 10.6,
+      "n": 113
     },
     {
       "rango": "140-160",
@@ -138,23 +138,23 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.268
+      "peso": 0.277
     },
     {
       "variable": "decada",
-      "peso": 0.162
+      "peso": 0.163
     },
     {
       "variable": "Acción",
-      "peso": 0.09
+      "peso": 0.079
     },
     {
       "variable": "Drama",
-      "peso": 0.068
+      "peso": 0.074
     },
     {
       "variable": "Historia",
-      "peso": 0.064
+      "peso": 0.06
     },
     {
       "variable": "Crimen",
@@ -162,11 +162,11 @@
     },
     {
       "variable": "Terror",
-      "peso": 0.042
+      "peso": 0.038
     },
     {
       "variable": "Comedia",
-      "peso": 0.04
+      "peso": 0.037
     }
   ],
   "genre_rate_full": [
@@ -208,7 +208,7 @@
     {
       "genero": "Comedia",
       "tasa": 11.4,
-      "n": 350
+      "n": 351
     },
     {
       "genero": "Ciencia ficción",
@@ -233,7 +233,7 @@
     {
       "genero": "Drama",
       "tasa": 7.8,
-      "n": 513
+      "n": 514
     },
     {
       "genero": "Música",
@@ -476,10 +476,16 @@
       "n": 3
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Mike Myers",
+      "director": "Chad Stahelski",
+      "actor": "Laurence Fishburne",
       "tasa": 100.0,
-      "n": 2
+      "n": 3
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Lance Reddick",
+      "tasa": 100.0,
+      "n": 3
     },
     {
       "director": "Chad Stahelski",
@@ -488,16 +494,10 @@
       "n": 2
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Eddie Murphy",
+      "director": "Chad Stahelski",
+      "actor": "Keanu Reeves",
       "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Cameron Diaz",
-      "tasa": 100.0,
-      "n": 2
+      "n": 4
     }
   ],
   "clusters_anio": [
