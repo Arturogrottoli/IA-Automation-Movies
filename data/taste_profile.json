@@ -105,8 +105,8 @@
     },
     {
       "rango": "80-95",
-      "tasa": 10.7,
-      "n": 281
+      "tasa": 10.6,
+      "n": 283
     },
     {
       "rango": "95-110",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.277
+      "peso": 0.264
     },
     {
       "variable": "decada",
-      "peso": 0.163
+      "peso": 0.164
     },
     {
       "variable": "Acción",
-      "peso": 0.079
+      "peso": 0.082
     },
     {
       "variable": "Drama",
-      "peso": 0.074
+      "peso": 0.078
     },
     {
       "variable": "Historia",
-      "peso": 0.06
-    },
-    {
-      "variable": "Crimen",
-      "peso": 0.044
+      "peso": 0.066
     },
     {
       "variable": "Terror",
-      "peso": 0.038
+      "peso": 0.042
+    },
+    {
+      "variable": "Crimen",
+      "peso": 0.041
     },
     {
       "variable": "Comedia",
-      "peso": 0.037
+      "peso": 0.034
     }
   ],
   "genre_rate_full": [
@@ -208,7 +208,7 @@
     {
       "genero": "Comedia",
       "tasa": 11.4,
-      "n": 351
+      "n": 352
     },
     {
       "genero": "Ciencia ficción",
@@ -233,7 +233,7 @@
     {
       "genero": "Drama",
       "tasa": 7.8,
-      "n": 514
+      "n": 515
     },
     {
       "genero": "Música",
@@ -476,16 +476,10 @@
       "n": 3
     },
     {
-      "director": "Chad Stahelski",
-      "actor": "Laurence Fishburne",
+      "director": "Andrew Adamson",
+      "actor": "Mike Myers",
       "tasa": 100.0,
-      "n": 3
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Lance Reddick",
-      "tasa": 100.0,
-      "n": 3
+      "n": 2
     },
     {
       "director": "Chad Stahelski",
@@ -494,10 +488,16 @@
       "n": 2
     },
     {
-      "director": "Chad Stahelski",
-      "actor": "Keanu Reeves",
+      "director": "Andrew Adamson",
+      "actor": "Eddie Murphy",
       "tasa": 100.0,
-      "n": 4
+      "n": 2
+    },
+    {
+      "director": "Andrew Adamson",
+      "actor": "Cameron Diaz",
+      "tasa": 100.0,
+      "n": 2
     }
   ],
   "clusters_anio": [
@@ -507,7 +507,7 @@
     },
     {
       "anio": 2019,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2020,
@@ -515,7 +515,7 @@
     },
     {
       "anio": 2021,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2022,
@@ -531,7 +531,7 @@
     },
     {
       "anio": 2025,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2026,
@@ -542,26 +542,26 @@
     {
       "cluster": 0,
       "anios": [
-        2019,
-        2021,
-        2024
+        2024,
+        2025
       ],
-      "decada_prom": 2003.0,
-      "duracion_prom": 111.2,
-      "tasa_revision_prom": 25.2
+      "decada_prom": 2006.0,
+      "duracion_prom": 108.1,
+      "tasa_revision_prom": 21.5
     },
     {
       "cluster": 1,
       "anios": [
         2018,
+        2019,
+        2021,
         2022,
         2023,
-        2025,
         2026
       ],
-      "decada_prom": 2004.0,
-      "duracion_prom": 108.8,
-      "tasa_revision_prom": 18.7
+      "decada_prom": 2003.0,
+      "duracion_prom": 110.2,
+      "tasa_revision_prom": 21.1
     },
     {
       "cluster": 2,
