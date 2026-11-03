@@ -34,23 +34,17 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-/* Celular: búsqueda a todo el ancho y los 4 selects en dos columnas parejas. */
+/* Celular: búsqueda y cada select uno debajo del otro, a todo el ancho. */
 @media (max-width: 600px) {
   .controls {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
   }
-  .controls input[type='search'] {
-    grid-column: 1 / -1;
-    min-width: 0;
-  }
+  .controls input[type='search'],
   .controls select {
     min-width: 0;
     width: 100%;
-  }
-  .controls label.chk {
-    grid-column: 1 / -1;
   }
 }
 .controls input:focus-visible,

@@ -259,10 +259,16 @@
     right: 14px;
     bottom: 14px;
   }
+  /* Centrado y a ~70% del alto visible (dvh descuenta la barra del navegador,
+     que en el celular tapaba la parte de arriba con 100vh); vh como respaldo. */
   .bot-panel {
-    right: 12px;
-    bottom: 72px;
-    height: calc(100vh - 96px);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: calc(100vw - 32px);
+    bottom: 76px;
+    height: min(520px, 70vh);
+    height: min(520px, 70dvh);
   }
 }
 @media (prefers-reduced-motion: reduce) {
