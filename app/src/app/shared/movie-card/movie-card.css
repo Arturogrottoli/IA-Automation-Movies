@@ -96,3 +96,34 @@
   color: var(--ink-3);
   line-height: 1.4;
 }
+/* Celular (3 columnas angostas): título en 2 líneas como máximo y año · director
+   en una, cortados con "…", para que todas las tarjetas de una fila midan lo mismo. */
+@media (max-width: 600px) {
+  .card {
+    gap: 5px;
+  }
+  .card .ct {
+    font-size: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card .cm {
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card .poster .rt {
+    left: 4px;
+    bottom: 4px;
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+  .card .poster .rw {
+    right: 4px;
+    top: 4px;
+    font-size: 10px;
+  }
+}

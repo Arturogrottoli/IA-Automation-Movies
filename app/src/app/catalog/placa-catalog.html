@@ -17,7 +17,7 @@
       <button [attr.aria-pressed]="view() === 'list'" (click)="setView('list')">Lista</button>
     </div>
 
-    <div class="results-head">
+    <div class="results-head" #resultados>
       <h3 class="results-title">{{ heading() }}</h3>
       <div class="count mono">{{ countText() }}</div>
     </div>
@@ -40,6 +40,12 @@
       </div>
     }
 
-    <app-pager [total]="totalForView()" [pageSize]="PAGE_SIZE" [page]="effectivePage()" (pageChange)="onPageChange($event)" />
+    <app-pager
+      [total]="totalForView()"
+      [pageSize]="pageSize()"
+      [page]="effectivePage()"
+      [scrollTarget]="resultados"
+      (pageChange)="onPageChange($event)"
+    />
   </div>
 </section>

@@ -30,3 +30,20 @@
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+.pager button,
+.pager .pos {
+  white-space: nowrap;
+}
+/* En celular: solo las flechas, con área de toque grande. */
+@media (max-width: 600px) {
+  .pager {
+    gap: 12px;
+  }
+  .pager .txt {
+    display: none;
+  }
+  .pager button {
+    font-size: 16px;
+    padding: 8px 18px;
+  }
+}

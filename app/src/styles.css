@@ -86,7 +86,8 @@ section{padding:64px 0; border-top:1px solid var(--line)}
   display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
   gap:22px 18px; border-top:1px solid var(--line); padding-top:26px;
 }
-@media(max-width:520px){ .grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:18px 12px} }
+/* Celular: 3 columnas fijas (con 12 por página son 4 filas; ver core/viewport.service.ts). */
+@media(max-width:600px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 10px; padding-top:18px} }
 .empty{padding:50px 14px; text-align:center; color:var(--ink-3); font-style:italic}
 
 .perf{

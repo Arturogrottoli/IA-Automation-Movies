@@ -11,7 +11,7 @@
     </p>
     <button class="pv-add-btn" (click)="openAdd()">+ Agregar película</button>
 
-    <div class="grid">
+    <div class="grid" #grilla>
       @for (item of pagedItems(); track item.key) {
         <app-movie-card
           [movie]="item"
@@ -24,8 +24,9 @@
 
     <app-pager
       [total]="pendingItems().length"
-      [pageSize]="PAGE_SIZE"
+      [pageSize]="pageSize()"
       [page]="effectivePage()"
+      [scrollTarget]="grilla"
       (pageChange)="onPageChange($event)"
     />
   </div>

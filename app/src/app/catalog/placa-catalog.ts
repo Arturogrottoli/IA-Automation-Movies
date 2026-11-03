@@ -13,12 +13,15 @@ import {
 } from '../core/catalog-filters.util';
 import { decadeOf, nf, tally } from '../core/key.util';
 import { DialogService } from '../core/dialog.service';
+import { ViewportService } from '../core/viewport.service';
 import { FilterBar } from './filter-bar/filter-bar';
 import { CatalogTable } from './catalog-table/catalog-table';
 import { MovieCard } from '../shared/movie-card/movie-card';
 import { Pager } from '../shared/pager/pager';
 
 const PAGE_SIZE = 25;
+/** En celular: 4 filas de 3. */
+const PAGE_SIZE_CELULAR = 12;
 
 type ViewMode = 'list' | 'grid';
 
@@ -30,7 +33,7 @@ type ViewMode = 'list' | 'grid';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlacaCatalog {
-  protected readonly PAGE_SIZE = PAGE_SIZE;
+  protected readonly pageSize = computed(() => (this.viewport.celular() ? PAGE_SIZE_CELULAR : PAGE_SIZE));
 
   protected readonly filters = signal<CatalogFilters>(EMPTY_FILTERS);
   protected readonly sort = signal<SortState>({ key: 's', dir: -1 });
@@ -70,17 +73,19 @@ export class PlacaCatalog {
     this.view() === 'grid' ? this.gridEntries().length : this.filteredSortedViewings().length,
   );
 
-  protected readonly totalPages = computed(() => Math.max(1, Math.ceil(this.totalForView() / PAGE_SIZE)));
+  protected readonly totalPages = computed(() => Math.max(1, Math.ceil(this.totalForView() / this.pageSize())));
   protected readonly effectivePage = computed(() => Math.min(this.page(), this.totalPages()));
 
   protected readonly pagedViewings = computed(() => {
     const p = this.effectivePage();
-    return this.filteredSortedViewings().slice((p - 1) * PAGE_SIZE, p * PAGE_SIZE);
+    const n = this.pageSize();
+    return this.filteredSortedViewings().slice((p - 1) * n, p * n);
   });
 
   protected readonly pagedGridEntries = computed(() => {
     const p = this.effectivePage();
-    return this.gridEntries().slice((p - 1) * PAGE_SIZE, p * PAGE_SIZE);
+    const n = this.pageSize();
+    return this.gridEntries().slice((p - 1) * n, p * n);
   });
 
   /** Sin búsqueda ni filtros y con el orden por defecto (fecha vista, más reciente primero): son las últimas vistas. */
@@ -102,6 +107,7 @@ export class PlacaCatalog {
   constructor(
     protected readonly catalog: CatalogDataService,
     private readonly dialog: DialogService,
+    private readonly viewport: ViewportService,
   ) {}
 
   protected onFiltersChange(filters: CatalogFilters): void {

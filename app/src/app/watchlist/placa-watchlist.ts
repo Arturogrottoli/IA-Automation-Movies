@@ -9,8 +9,11 @@ import { deburr } from '../core/key.util';
 import { MovieCard } from '../shared/movie-card/movie-card';
 import { Pager } from '../shared/pager/pager';
 import { Dialog } from '../shared/dialog/dialog';
+import { ViewportService } from '../core/viewport.service';
 
 const PAGE_SIZE = 24;
+/** En celular: 4 filas de 3. */
+const PAGE_SIZE_CELULAR = 12;
 
 @Component({
   selector: 'app-placa-watchlist',
@@ -20,7 +23,7 @@ const PAGE_SIZE = 24;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlacaWatchlist {
-  protected readonly PAGE_SIZE = PAGE_SIZE;
+  protected readonly pageSize = computed(() => (this.viewport.celular() ? PAGE_SIZE_CELULAR : PAGE_SIZE));
 
   protected readonly page = signal(1);
 
@@ -53,11 +56,12 @@ export class PlacaWatchlist {
       .sort((a, b) => (b.agregadaEl || '').localeCompare(a.agregadaEl || ''));
   });
 
-  protected readonly totalPages = computed(() => Math.max(1, Math.ceil(this.pendingItems().length / PAGE_SIZE)));
+  protected readonly totalPages = computed(() => Math.max(1, Math.ceil(this.pendingItems().length / this.pageSize())));
   protected readonly effectivePage = computed(() => Math.min(this.page(), this.totalPages()));
   protected readonly pagedItems = computed(() => {
     const p = this.effectivePage();
-    return this.pendingItems().slice((p - 1) * PAGE_SIZE, p * PAGE_SIZE);
+    const n = this.pageSize();
+    return this.pendingItems().slice((p - 1) * n, p * n);
   });
 
   constructor(
@@ -66,6 +70,7 @@ export class PlacaWatchlist {
     private readonly dialog: DialogService,
     private readonly confirmService: ConfirmService,
     private readonly toast: ToastService,
+    private readonly viewport: ViewportService,
   ) {}
 
   protected onPageChange(page: number): void {
