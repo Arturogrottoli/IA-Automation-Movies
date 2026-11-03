@@ -331,6 +331,15 @@ mitad se suma como módulo aparte, empezando por el perfil de gusto.
       ruta *fallback* responde "No entendí bien 🤔…" con ejemplos. Probado
       desactivando un momento la ruta "consultar".
 - [ ] **Error Handler en Make** (si Gemini falla, hoy se pierde la fila).
+- [ ] **"+ Agregar película" del sitio no agrega nada (2026-11-03).** El
+      webhook responde bien ("Accepted", CORS ok, probado con curl), pero el
+      escenario "Integration Webhooks" da error en Make y no escribe en
+      `por_ver` (sus 73 filas vienen del bot). Desde Telegram sí anda. Falta
+      ver en History en qué módulo falla — sospecha: el Gemini sigue con
+      `gemini-3.1-flash-lite` (503), o Make desactivó el escenario por errores
+      seguidos. Además: el sitio muestra la película como agregada aunque
+      Make falle (Make responde "Accepted" antes de procesar); sumar un
+      módulo **Webhook response** al final y que el sitio lo verifique.
 - [~] **Panel de KPIs de operación** → [docs/kpis-operacion.md](docs/kpis-operacion.md)
       y en el sitio (Placa VI, al final de la página). Solo **volumen** (15
       registros vía bot, 1,07/día en las últimas 2 semanas) es calculable hoy
