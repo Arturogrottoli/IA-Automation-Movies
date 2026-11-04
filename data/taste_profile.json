@@ -476,10 +476,16 @@
       "n": 3
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Mike Myers",
+      "director": "Chad Stahelski",
+      "actor": "Laurence Fishburne",
       "tasa": 100.0,
-      "n": 2
+      "n": 3
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Lance Reddick",
+      "tasa": 100.0,
+      "n": 3
     },
     {
       "director": "Chad Stahelski",
@@ -488,16 +494,10 @@
       "n": 2
     },
     {
-      "director": "Andrew Adamson",
-      "actor": "Eddie Murphy",
+      "director": "Chad Stahelski",
+      "actor": "Keanu Reeves",
       "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Andrew Adamson",
-      "actor": "Cameron Diaz",
-      "tasa": 100.0,
-      "n": 2
+      "n": 4
     }
   ],
   "clusters_anio": [
