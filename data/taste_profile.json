@@ -507,7 +507,7 @@
     },
     {
       "anio": 2019,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2020,
@@ -515,7 +515,7 @@
     },
     {
       "anio": 2021,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2022,
@@ -531,7 +531,7 @@
     },
     {
       "anio": 2025,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2026,
@@ -542,26 +542,26 @@
     {
       "cluster": 0,
       "anios": [
-        2024,
-        2025
+        2019,
+        2021,
+        2024
       ],
-      "decada_prom": 2006.0,
-      "duracion_prom": 108.1,
-      "tasa_revision_prom": 21.5
+      "decada_prom": 2003.0,
+      "duracion_prom": 111.2,
+      "tasa_revision_prom": 25.2
     },
     {
       "cluster": 1,
       "anios": [
         2018,
-        2019,
-        2021,
         2022,
         2023,
+        2025,
         2026
       ],
-      "decada_prom": 2003.0,
-      "duracion_prom": 110.2,
-      "tasa_revision_prom": 21.1
+      "decada_prom": 2004.0,
+      "duracion_prom": 108.8,
+      "tasa_revision_prom": 18.8
     },
     {
       "cluster": 2,
