@@ -2,13 +2,13 @@
   "top_generos": [
     {
       "genero": "Animación",
-      "tasa": 17.9,
-      "n": 28
+      "tasa": 17.2,
+      "n": 29
     },
     {
       "genero": "Acción",
       "tasa": 14.7,
-      "n": 231
+      "n": 232
     },
     {
       "genero": "Familia",
@@ -96,12 +96,12 @@
     }
   ],
   "duracion_revisitadas": 111.0,
-  "duracion_no_revisitadas": 109.8,
+  "duracion_no_revisitadas": 109.7,
   "tasa_por_duracion": [
     {
       "rango": "<80",
-      "tasa": 6.8,
-      "n": 44
+      "tasa": 6.7,
+      "n": 45
     },
     {
       "rango": "80-95",
@@ -138,47 +138,47 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.264
+      "peso": 0.263
     },
     {
       "variable": "decada",
-      "peso": 0.164
-    },
-    {
-      "variable": "Acción",
-      "peso": 0.082
+      "peso": 0.171
     },
     {
       "variable": "Drama",
-      "peso": 0.078
+      "peso": 0.075
+    },
+    {
+      "variable": "Acción",
+      "peso": 0.075
     },
     {
       "variable": "Historia",
-      "peso": 0.066
-    },
-    {
-      "variable": "Terror",
-      "peso": 0.042
+      "peso": 0.071
     },
     {
       "variable": "Crimen",
       "peso": 0.041
     },
     {
+      "variable": "Terror",
+      "peso": 0.038
+    },
+    {
       "variable": "Comedia",
-      "peso": 0.034
+      "peso": 0.037
     }
   ],
   "genre_rate_full": [
     {
       "genero": "Animación",
-      "tasa": 17.9,
-      "n": 28
+      "tasa": 17.2,
+      "n": 29
     },
     {
       "genero": "Acción",
       "tasa": 14.7,
-      "n": 231
+      "n": 232
     },
     {
       "genero": "Familia",
@@ -207,13 +207,13 @@
     },
     {
       "genero": "Comedia",
-      "tasa": 11.4,
-      "n": 352
+      "tasa": 11.3,
+      "n": 353
     },
     {
       "genero": "Ciencia ficción",
-      "tasa": 11.4,
-      "n": 132
+      "tasa": 11.3,
+      "n": 133
     },
     {
       "genero": "Suspense",
@@ -507,7 +507,7 @@
     },
     {
       "anio": 2019,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2020,
@@ -515,7 +515,7 @@
     },
     {
       "anio": 2021,
-      "cluster": 0
+      "cluster": 1
     },
     {
       "anio": 2022,
@@ -531,7 +531,7 @@
     },
     {
       "anio": 2025,
-      "cluster": 1
+      "cluster": 0
     },
     {
       "anio": 2026,
@@ -542,26 +542,26 @@
     {
       "cluster": 0,
       "anios": [
-        2019,
-        2021,
-        2024
+        2024,
+        2025
       ],
-      "decada_prom": 2003.0,
-      "duracion_prom": 111.2,
-      "tasa_revision_prom": 25.2
+      "decada_prom": 2006.0,
+      "duracion_prom": 108.1,
+      "tasa_revision_prom": 21.5
     },
     {
       "cluster": 1,
       "anios": [
         2018,
+        2019,
+        2021,
         2022,
         2023,
-        2025,
         2026
       ],
-      "decada_prom": 2004.0,
-      "duracion_prom": 108.8,
-      "tasa_revision_prom": 18.8
+      "decada_prom": 2003.0,
+      "duracion_prom": 110.2,
+      "tasa_revision_prom": 21.1
     },
     {
       "cluster": 2,
