@@ -7,8 +7,8 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.7,
-      "n": 232
+      "tasa": 14.6,
+      "n": 233
     },
     {
       "genero": "Familia",
@@ -44,13 +44,13 @@
     },
     {
       "decada": 1980,
-      "tasa": 10.2,
-      "n": 88
+      "tasa": 10.1,
+      "n": 89
     },
     {
-      "decada": 1950,
-      "tasa": 9.1,
-      "n": 11
+      "decada": 1990,
+      "tasa": 9.8,
+      "n": 123
     }
   ],
   "top_directores": [
@@ -106,11 +106,11 @@
     {
       "rango": "80-95",
       "tasa": 10.6,
-      "n": 283
+      "n": 284
     },
     {
       "rango": "95-110",
-      "tasa": 10.1,
+      "tasa": 10.3,
       "n": 358
     },
     {
@@ -142,31 +142,31 @@
     },
     {
       "variable": "decada",
-      "peso": 0.171
+      "peso": 0.168
     },
     {
       "variable": "Drama",
-      "peso": 0.075
-    },
-    {
-      "variable": "Acción",
-      "peso": 0.075
+      "peso": 0.067
     },
     {
       "variable": "Historia",
-      "peso": 0.071
+      "peso": 0.066
+    },
+    {
+      "variable": "Acción",
+      "peso": 0.063
     },
     {
       "variable": "Crimen",
-      "peso": 0.041
+      "peso": 0.048
     },
     {
       "variable": "Terror",
-      "peso": 0.038
+      "peso": 0.045
     },
     {
       "variable": "Comedia",
-      "peso": 0.037
+      "peso": 0.042
     }
   ],
   "genre_rate_full": [
@@ -177,8 +177,8 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.7,
-      "n": 232
+      "tasa": 14.6,
+      "n": 233
     },
     {
       "genero": "Familia",
@@ -207,18 +207,18 @@
     },
     {
       "genero": "Comedia",
-      "tasa": 11.3,
+      "tasa": 11.6,
       "n": 353
     },
     {
       "genero": "Ciencia ficción",
-      "tasa": 11.3,
-      "n": 133
+      "tasa": 11.2,
+      "n": 134
     },
     {
       "genero": "Suspense",
       "tasa": 10.5,
-      "n": 371
+      "n": 372
     },
     {
       "genero": "Misterio",
@@ -236,14 +236,14 @@
       "n": 515
     },
     {
+      "genero": "Documental",
+      "tasa": 7.2,
+      "n": 97
+    },
+    {
       "genero": "Música",
       "tasa": 6.3,
       "n": 63
-    },
-    {
-      "genero": "Documental",
-      "tasa": 6.2,
-      "n": 97
     },
     {
       "genero": "Historia",
@@ -338,7 +338,7 @@
       "n": 6
     },
     {
-      "director": "Joel Coen",
+      "director": "Ethan Coen",
       "tasa": 14.3,
       "n": 7
     },
@@ -348,17 +348,17 @@
       "n": 7
     },
     {
-      "director": "Ethan Coen",
-      "tasa": 14.3,
-      "n": 7
-    },
-    {
-      "director": "John Carpenter",
+      "director": "Joel Coen",
       "tasa": 14.3,
       "n": 7
     },
     {
       "director": "Wes Craven",
+      "tasa": 12.5,
+      "n": 8
+    },
+    {
+      "director": "John Carpenter",
       "tasa": 12.5,
       "n": 8
     },
@@ -470,10 +470,16 @@
   ],
   "top_combos": [
     {
-      "director": "Ti West",
-      "actor": "Mia Goth",
+      "director": "Christopher Miller",
+      "actor": "Ice Cube",
       "tasa": 100.0,
-      "n": 3
+      "n": 2
+    },
+    {
+      "director": "Christopher Miller",
+      "actor": "Jonah Hill",
+      "tasa": 100.0,
+      "n": 2
     },
     {
       "director": "Chad Stahelski",
@@ -482,22 +488,16 @@
       "n": 3
     },
     {
-      "director": "Chad Stahelski",
-      "actor": "Lance Reddick",
-      "tasa": 100.0,
-      "n": 3
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Ian McShane",
+      "director": "Christopher Miller",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Chad Stahelski",
-      "actor": "Keanu Reeves",
+      "actor": "Lance Reddick",
       "tasa": 100.0,
-      "n": 4
+      "n": 3
     }
   ],
   "clusters_anio": [
@@ -561,7 +561,7 @@
       ],
       "decada_prom": 2003.0,
       "duracion_prom": 110.2,
-      "tasa_revision_prom": 21.1
+      "tasa_revision_prom": 21.3
     },
     {
       "cluster": 2,
