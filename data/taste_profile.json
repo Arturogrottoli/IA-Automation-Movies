@@ -7,8 +7,8 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.6,
-      "n": 233
+      "tasa": 14.5,
+      "n": 234
     },
     {
       "genero": "Familia",
@@ -44,8 +44,8 @@
     },
     {
       "decada": 1980,
-      "tasa": 10.1,
-      "n": 89
+      "tasa": 10.0,
+      "n": 90
     },
     {
       "decada": 1990,
@@ -70,12 +70,12 @@
       "n": 4
     },
     {
-      "director": "Adolfo Aristarain",
+      "director": "Bong Joon-ho",
       "tasa": 40.0,
       "n": 5
     },
     {
-      "director": "Bong Joon-ho",
+      "director": "Adolfo Aristarain",
       "tasa": 40.0,
       "n": 5
     },
@@ -85,12 +85,12 @@
       "n": 4
     },
     {
-      "director": "Danny Boyle",
+      "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
     },
     {
-      "director": "Lucrecia Martel",
+      "director": "Danny Boyle",
       "tasa": 25.0,
       "n": 4
     }
@@ -105,8 +105,8 @@
     },
     {
       "rango": "80-95",
-      "tasa": 10.6,
-      "n": 284
+      "tasa": 10.5,
+      "n": 285
     },
     {
       "rango": "95-110",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.263
+      "peso": 0.26
     },
     {
       "variable": "decada",
-      "peso": 0.168
-    },
-    {
-      "variable": "Drama",
-      "peso": 0.067
+      "peso": 0.174
     },
     {
       "variable": "Historia",
-      "peso": 0.066
+      "peso": 0.077
+    },
+    {
+      "variable": "Drama",
+      "peso": 0.069
     },
     {
       "variable": "Acción",
-      "peso": 0.063
-    },
-    {
-      "variable": "Crimen",
-      "peso": 0.048
+      "peso": 0.068
     },
     {
       "variable": "Terror",
-      "peso": 0.045
+      "peso": 0.043
+    },
+    {
+      "variable": "Crimen",
+      "peso": 0.042
     },
     {
       "variable": "Comedia",
-      "peso": 0.042
+      "peso": 0.038
     }
   ],
   "genre_rate_full": [
@@ -177,8 +177,8 @@
     },
     {
       "genero": "Acción",
-      "tasa": 14.6,
-      "n": 233
+      "tasa": 14.5,
+      "n": 234
     },
     {
       "genero": "Familia",
@@ -198,7 +198,7 @@
     {
       "genero": "Terror",
       "tasa": 12.0,
-      "n": 258
+      "n": 259
     },
     {
       "genero": "Romance",
@@ -208,12 +208,12 @@
     {
       "genero": "Comedia",
       "tasa": 11.6,
-      "n": 353
+      "n": 354
     },
     {
       "genero": "Ciencia ficción",
-      "tasa": 11.2,
-      "n": 134
+      "tasa": 11.1,
+      "n": 135
     },
     {
       "genero": "Suspense",
@@ -273,17 +273,22 @@
       "n": 4
     },
     {
-      "director": "Adolfo Aristarain",
-      "tasa": 40.0,
-      "n": 5
-    },
-    {
       "director": "Bong Joon-ho",
       "tasa": 40.0,
       "n": 5
     },
     {
+      "director": "Adolfo Aristarain",
+      "tasa": 40.0,
+      "n": 5
+    },
+    {
       "director": "Asif Kapadia",
+      "tasa": 25.0,
+      "n": 4
+    },
+    {
+      "director": "Robert Eggers",
       "tasa": 25.0,
       "n": 4
     },
@@ -308,11 +313,6 @@
       "n": 8
     },
     {
-      "director": "Robert Eggers",
-      "tasa": 25.0,
-      "n": 4
-    },
-    {
       "director": "Martin Scorsese",
       "tasa": 24.0,
       "n": 25
@@ -323,12 +323,12 @@
       "n": 5
     },
     {
-      "director": "Tim Burton",
+      "director": "Adam McKay",
       "tasa": 20.0,
       "n": 5
     },
     {
-      "director": "Adam McKay",
+      "director": "Tim Burton",
       "tasa": 20.0,
       "n": 5
     },
@@ -343,12 +343,12 @@
       "n": 7
     },
     {
-      "director": "Paul Thomas Anderson",
+      "director": "Joel Coen",
       "tasa": 14.3,
       "n": 7
     },
     {
-      "director": "Joel Coen",
+      "director": "Paul Thomas Anderson",
       "tasa": 14.3,
       "n": 7
     },
@@ -373,22 +373,12 @@
       "n": 12
     },
     {
-      "director": "Alfred Hitchcock",
-      "tasa": 0.0,
-      "n": 4
-    },
-    {
-      "director": "Antoine Fuqua",
-      "tasa": 0.0,
-      "n": 5
-    },
-    {
       "director": "Ari Aster",
       "tasa": 0.0,
       "n": 4
     },
     {
-      "director": "Clint Eastwood",
+      "director": "Alfred Hitchcock",
       "tasa": 0.0,
       "n": 4
     },
@@ -398,17 +388,7 @@
       "n": 8
     },
     {
-      "director": "M. Night Shyamalan",
-      "tasa": 0.0,
-      "n": 5
-    },
-    {
-      "director": "Marcelo Piñeyro",
-      "tasa": 0.0,
-      "n": 4
-    },
-    {
-      "director": "David Cronenberg",
+      "director": "Antoine Fuqua",
       "tasa": 0.0,
       "n": 5
     },
@@ -418,12 +398,12 @@
       "n": 4
     },
     {
-      "director": "Denis Villeneuve",
+      "director": "Clint Eastwood",
       "tasa": 0.0,
-      "n": 5
+      "n": 4
     },
     {
-      "director": "Joel Schumacher",
+      "director": "Marcelo Piñeyro",
       "tasa": 0.0,
       "n": 4
     },
@@ -431,6 +411,26 @@
       "director": "Matt Bettinelli-Olpin",
       "tasa": 0.0,
       "n": 4
+    },
+    {
+      "director": "Joel Schumacher",
+      "tasa": 0.0,
+      "n": 4
+    },
+    {
+      "director": "David Cronenberg",
+      "tasa": 0.0,
+      "n": 5
+    },
+    {
+      "director": "Denis Villeneuve",
+      "tasa": 0.0,
+      "n": 5
+    },
+    {
+      "director": "M. Night Shyamalan",
+      "tasa": 0.0,
+      "n": 5
     },
     {
       "director": "Michael Mann",
@@ -446,6 +446,11 @@
       "director": "Pedro Almodovar",
       "tasa": 0.0,
       "n": 7
+    },
+    {
+      "director": "Peter Jackson",
+      "tasa": 0.0,
+      "n": 4
     },
     {
       "director": "Ridley Scott",
