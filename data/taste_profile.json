@@ -44,8 +44,8 @@
     },
     {
       "decada": 1980,
-      "tasa": 10.0,
-      "n": 90
+      "tasa": 9.9,
+      "n": 91
     },
     {
       "decada": 1990,
@@ -111,7 +111,7 @@
     {
       "rango": "95-110",
       "tasa": 10.3,
-      "n": 358
+      "n": 359
     },
     {
       "rango": "110-125",
@@ -138,26 +138,26 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.26
+      "peso": 0.268
     },
     {
       "variable": "decada",
-      "peso": 0.174
-    },
-    {
-      "variable": "Historia",
-      "peso": 0.077
+      "peso": 0.159
     },
     {
       "variable": "Drama",
-      "peso": 0.069
+      "peso": 0.078
     },
     {
       "variable": "Acción",
+      "peso": 0.07
+    },
+    {
+      "variable": "Historia",
       "peso": 0.068
     },
     {
-      "variable": "Terror",
+      "variable": "Comedia",
       "peso": 0.043
     },
     {
@@ -165,8 +165,8 @@
       "peso": 0.042
     },
     {
-      "variable": "Comedia",
-      "peso": 0.038
+      "variable": "Terror",
+      "peso": 0.042
     }
   ],
   "genre_rate_full": [
@@ -197,8 +197,8 @@
     },
     {
       "genero": "Terror",
-      "tasa": 12.0,
-      "n": 259
+      "tasa": 11.9,
+      "n": 260
     },
     {
       "genero": "Romance",
@@ -475,14 +475,20 @@
   ],
   "top_combos": [
     {
-      "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "director": "Ti West",
+      "actor": "Mia Goth",
+      "tasa": 100.0,
+      "n": 3
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Ian McShane",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Christopher Miller",
-      "actor": "Jonah Hill",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
     },
@@ -494,15 +500,9 @@
     },
     {
       "director": "Christopher Miller",
-      "actor": "Channing Tatum",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Lance Reddick",
-      "tasa": 100.0,
-      "n": 3
     }
   ],
   "clusters_anio": [
