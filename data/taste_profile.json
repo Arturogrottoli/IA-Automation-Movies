@@ -475,20 +475,14 @@
   ],
   "top_combos": [
     {
-      "director": "Ti West",
-      "actor": "Mia Goth",
-      "tasa": 100.0,
-      "n": 3
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Ian McShane",
+      "director": "Christopher Miller",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Christopher Miller",
-      "actor": "Channing Tatum",
+      "actor": "Jonah Hill",
       "tasa": 100.0,
       "n": 2
     },
@@ -500,9 +494,15 @@
     },
     {
       "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Lance Reddick",
+      "tasa": 100.0,
+      "n": 3
     }
   ],
   "clusters_anio": [
