@@ -49,8 +49,8 @@
     },
     {
       "decada": 1990,
-      "tasa": 9.8,
-      "n": 123
+      "tasa": 9.7,
+      "n": 124
     }
   ],
   "top_directores": [
@@ -106,7 +106,7 @@
     {
       "rango": "80-95",
       "tasa": 10.5,
-      "n": 285
+      "n": 286
     },
     {
       "rango": "95-110",
@@ -138,27 +138,23 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.268
+      "peso": 0.275
     },
     {
       "variable": "decada",
-      "peso": 0.159
+      "peso": 0.168
     },
     {
       "variable": "Drama",
-      "peso": 0.078
+      "peso": 0.077
     },
     {
       "variable": "Acción",
-      "peso": 0.07
+      "peso": 0.069
     },
     {
       "variable": "Historia",
-      "peso": 0.068
-    },
-    {
-      "variable": "Comedia",
-      "peso": 0.043
+      "peso": 0.064
     },
     {
       "variable": "Crimen",
@@ -167,6 +163,10 @@
     {
       "variable": "Terror",
       "peso": 0.042
+    },
+    {
+      "variable": "Comedia",
+      "peso": 0.037
     }
   ],
   "genre_rate_full": [
@@ -198,7 +198,7 @@
     {
       "genero": "Terror",
       "tasa": 11.9,
-      "n": 260
+      "n": 261
     },
     {
       "genero": "Romance",
@@ -218,7 +218,7 @@
     {
       "genero": "Suspense",
       "tasa": 10.5,
-      "n": 372
+      "n": 373
     },
     {
       "genero": "Misterio",
@@ -475,20 +475,14 @@
   ],
   "top_combos": [
     {
-      "director": "Ti West",
-      "actor": "Mia Goth",
-      "tasa": 100.0,
-      "n": 3
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Ian McShane",
+      "director": "Christopher Miller",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Christopher Miller",
-      "actor": "Channing Tatum",
+      "actor": "Jonah Hill",
       "tasa": 100.0,
       "n": 2
     },
@@ -500,9 +494,15 @@
     },
     {
       "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Lance Reddick",
+      "tasa": 100.0,
+      "n": 3
     }
   ],
   "clusters_anio": [
