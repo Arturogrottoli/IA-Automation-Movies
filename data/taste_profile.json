@@ -106,12 +106,12 @@
     {
       "rango": "80-95",
       "tasa": 10.5,
-      "n": 286
+      "n": 287
     },
     {
       "rango": "95-110",
       "tasa": 10.3,
-      "n": 359
+      "n": 360
     },
     {
       "rango": "110-125",
@@ -138,35 +138,35 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.275
+      "peso": 0.27
     },
     {
       "variable": "decada",
-      "peso": 0.168
+      "peso": 0.175
     },
     {
       "variable": "Drama",
-      "peso": 0.077
+      "peso": 0.079
     },
     {
       "variable": "Acción",
-      "peso": 0.069
+      "peso": 0.068
     },
     {
       "variable": "Historia",
-      "peso": 0.064
+      "peso": 0.065
     },
     {
       "variable": "Crimen",
-      "peso": 0.042
-    },
-    {
-      "variable": "Terror",
-      "peso": 0.042
+      "peso": 0.045
     },
     {
       "variable": "Comedia",
-      "peso": 0.037
+      "peso": 0.039
+    },
+    {
+      "variable": "Terror",
+      "peso": 0.035
     }
   ],
   "genre_rate_full": [
@@ -197,8 +197,8 @@
     },
     {
       "genero": "Terror",
-      "tasa": 11.9,
-      "n": 261
+      "tasa": 11.8,
+      "n": 262
     },
     {
       "genero": "Romance",
@@ -207,13 +207,13 @@
     },
     {
       "genero": "Comedia",
-      "tasa": 11.6,
-      "n": 354
+      "tasa": 11.5,
+      "n": 355
     },
     {
       "genero": "Ciencia ficción",
-      "tasa": 11.1,
-      "n": 135
+      "tasa": 10.9,
+      "n": 137
     },
     {
       "genero": "Suspense",
@@ -227,8 +227,8 @@
     },
     {
       "genero": "Aventura",
-      "tasa": 8.4,
-      "n": 83
+      "tasa": 8.2,
+      "n": 85
     },
     {
       "genero": "Drama",
@@ -566,7 +566,7 @@
       ],
       "decada_prom": 2003.0,
       "duracion_prom": 110.2,
-      "tasa_revision_prom": 21.3
+      "tasa_revision_prom": 21.2
     },
     {
       "cluster": 2,
