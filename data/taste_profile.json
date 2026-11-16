@@ -8,7 +8,7 @@
     {
       "genero": "Acción",
       "tasa": 14.5,
-      "n": 234
+      "n": 235
     },
     {
       "genero": "Familia",
@@ -49,8 +49,8 @@
     },
     {
       "decada": 1990,
-      "tasa": 9.7,
-      "n": 124
+      "tasa": 9.6,
+      "n": 125
     }
   ],
   "top_directores": [
@@ -96,7 +96,7 @@
     }
   ],
   "duracion_revisitadas": 111.0,
-  "duracion_no_revisitadas": 109.7,
+  "duracion_no_revisitadas": 109.6,
   "tasa_por_duracion": [
     {
       "rango": "<80",
@@ -105,13 +105,13 @@
     },
     {
       "rango": "80-95",
-      "tasa": 10.5,
-      "n": 287
+      "tasa": 10.4,
+      "n": 288
     },
     {
       "rango": "95-110",
-      "tasa": 10.3,
-      "n": 360
+      "tasa": 10.2,
+      "n": 361
     },
     {
       "rango": "110-125",
@@ -138,27 +138,27 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.27
+      "peso": 0.272
     },
     {
       "variable": "decada",
-      "peso": 0.175
+      "peso": 0.173
     },
     {
       "variable": "Drama",
-      "peso": 0.079
-    },
-    {
-      "variable": "Acción",
-      "peso": 0.068
+      "peso": 0.077
     },
     {
       "variable": "Historia",
-      "peso": 0.065
+      "peso": 0.068
+    },
+    {
+      "variable": "Acción",
+      "peso": 0.061
     },
     {
       "variable": "Crimen",
-      "peso": 0.045
+      "peso": 0.042
     },
     {
       "variable": "Comedia",
@@ -178,7 +178,7 @@
     {
       "genero": "Acción",
       "tasa": 14.5,
-      "n": 234
+      "n": 235
     },
     {
       "genero": "Familia",
@@ -208,12 +208,12 @@
     {
       "genero": "Comedia",
       "tasa": 11.5,
-      "n": 355
+      "n": 356
     },
     {
       "genero": "Ciencia ficción",
       "tasa": 10.9,
-      "n": 137
+      "n": 138
     },
     {
       "genero": "Suspense",
@@ -232,8 +232,8 @@
     },
     {
       "genero": "Drama",
-      "tasa": 7.8,
-      "n": 515
+      "tasa": 7.7,
+      "n": 517
     },
     {
       "genero": "Documental",
@@ -475,20 +475,14 @@
   ],
   "top_combos": [
     {
-      "director": "Ti West",
-      "actor": "Mia Goth",
-      "tasa": 100.0,
-      "n": 3
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Ian McShane",
+      "director": "Christopher Miller",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Christopher Miller",
-      "actor": "Channing Tatum",
+      "actor": "Jonah Hill",
       "tasa": 100.0,
       "n": 2
     },
@@ -500,9 +494,15 @@
     },
     {
       "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Lance Reddick",
+      "tasa": 100.0,
+      "n": 3
     }
   ],
   "clusters_anio": [
