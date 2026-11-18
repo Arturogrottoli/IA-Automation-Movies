@@ -40,7 +40,7 @@
     {
       "decada": 2010,
       "tasa": 12.0,
-      "n": 358
+      "n": 359
     },
     {
       "decada": 1980,
@@ -100,8 +100,8 @@
   "tasa_por_duracion": [
     {
       "rango": "<80",
-      "tasa": 6.7,
-      "n": 45
+      "tasa": 6.5,
+      "n": 46
     },
     {
       "rango": "80-95",
@@ -138,31 +138,31 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.272
+      "peso": 0.283
     },
     {
       "variable": "decada",
-      "peso": 0.173
+      "peso": 0.172
     },
     {
       "variable": "Drama",
-      "peso": 0.077
-    },
-    {
-      "variable": "Historia",
-      "peso": 0.068
+      "peso": 0.074
     },
     {
       "variable": "Acción",
-      "peso": 0.061
+      "peso": 0.073
+    },
+    {
+      "variable": "Historia",
+      "peso": 0.066
     },
     {
       "variable": "Crimen",
-      "peso": 0.042
+      "peso": 0.039
     },
     {
       "variable": "Comedia",
-      "peso": 0.039
+      "peso": 0.038
     },
     {
       "variable": "Terror",
@@ -237,8 +237,8 @@
     },
     {
       "genero": "Documental",
-      "tasa": 7.2,
-      "n": 97
+      "tasa": 7.1,
+      "n": 98
     },
     {
       "genero": "Música",
@@ -475,14 +475,20 @@
   ],
   "top_combos": [
     {
-      "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "director": "Ti West",
+      "actor": "Mia Goth",
+      "tasa": 100.0,
+      "n": 3
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Ian McShane",
       "tasa": 100.0,
       "n": 2
     },
     {
       "director": "Christopher Miller",
-      "actor": "Jonah Hill",
+      "actor": "Channing Tatum",
       "tasa": 100.0,
       "n": 2
     },
@@ -494,15 +500,9 @@
     },
     {
       "director": "Christopher Miller",
-      "actor": "Channing Tatum",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
-    },
-    {
-      "director": "Chad Stahelski",
-      "actor": "Lance Reddick",
-      "tasa": 100.0,
-      "n": 3
     }
   ],
   "clusters_anio": [
@@ -565,7 +565,7 @@
         2026
       ],
       "decada_prom": 2003.0,
-      "duracion_prom": 110.2,
+      "duracion_prom": 110.1,
       "tasa_revision_prom": 21.2
     },
     {
