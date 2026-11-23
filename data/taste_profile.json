@@ -111,7 +111,7 @@
     {
       "rango": "95-110",
       "tasa": 10.2,
-      "n": 361
+      "n": 362
     },
     {
       "rango": "110-125",
@@ -138,11 +138,11 @@
   "variables_mas_importantes": [
     {
       "variable": "duracion",
-      "peso": 0.283
+      "peso": 0.268
     },
     {
       "variable": "decada",
-      "peso": 0.172
+      "peso": 0.167
     },
     {
       "variable": "Drama",
@@ -150,23 +150,23 @@
     },
     {
       "variable": "Acción",
-      "peso": 0.073
+      "peso": 0.068
     },
     {
       "variable": "Historia",
-      "peso": 0.066
+      "peso": 0.064
     },
     {
       "variable": "Crimen",
-      "peso": 0.039
+      "peso": 0.049
     },
     {
       "variable": "Comedia",
-      "peso": 0.038
+      "peso": 0.04
     },
     {
       "variable": "Terror",
-      "peso": 0.035
+      "peso": 0.039
     }
   ],
   "genre_rate_full": [
@@ -212,18 +212,18 @@
     },
     {
       "genero": "Ciencia ficción",
-      "tasa": 10.9,
-      "n": 138
+      "tasa": 10.8,
+      "n": 139
     },
     {
       "genero": "Suspense",
-      "tasa": 10.5,
-      "n": 373
+      "tasa": 10.4,
+      "n": 374
     },
     {
       "genero": "Misterio",
-      "tasa": 8.6,
-      "n": 116
+      "tasa": 8.5,
+      "n": 117
     },
     {
       "genero": "Aventura",
@@ -476,13 +476,13 @@
   "top_combos": [
     {
       "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "actor": "Jonah Hill",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Christopher Miller",
-      "actor": "Jonah Hill",
+      "director": "Demian Rugna",
+      "actor": "Demián Salomón",
       "tasa": 100.0,
       "n": 2
     },
@@ -494,15 +494,15 @@
     },
     {
       "director": "Christopher Miller",
-      "actor": "Channing Tatum",
+      "actor": "Ice Cube",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Chad Stahelski",
-      "actor": "Lance Reddick",
+      "director": "Phil Lord",
+      "actor": "Ice Cube",
       "tasa": 100.0,
-      "n": 3
+      "n": 2
     }
   ],
   "clusters_anio": [
