@@ -475,16 +475,22 @@
   ],
   "top_combos": [
     {
-      "director": "Christopher Miller",
-      "actor": "Jonah Hill",
+      "director": "Chad Stahelski",
+      "actor": "Ian McShane",
       "tasa": 100.0,
       "n": 2
     },
     {
-      "director": "Demian Rugna",
-      "actor": "Demián Salomón",
+      "director": "Ti West",
+      "actor": "Mia Goth",
       "tasa": 100.0,
-      "n": 2
+      "n": 3
+    },
+    {
+      "director": "Chad Stahelski",
+      "actor": "Lance Reddick",
+      "tasa": 100.0,
+      "n": 3
     },
     {
       "director": "Chad Stahelski",
@@ -493,16 +499,10 @@
       "n": 3
     },
     {
-      "director": "Christopher Miller",
-      "actor": "Ice Cube",
+      "director": "Chad Stahelski",
+      "actor": "Keanu Reeves",
       "tasa": 100.0,
-      "n": 2
-    },
-    {
-      "director": "Phil Lord",
-      "actor": "Ice Cube",
-      "tasa": 100.0,
-      "n": 2
+      "n": 4
     }
   ],
   "clusters_anio": [
